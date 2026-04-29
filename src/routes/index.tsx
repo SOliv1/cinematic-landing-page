@@ -398,7 +398,7 @@ function LandingPage() {
           }}
         >
           <img
-            src="/mood-logo.png"
+            src="/mood-logo1.png"
             alt="Mood"
             style={{
               width: '44px',
