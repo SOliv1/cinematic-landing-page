@@ -492,12 +492,12 @@ function LandingPage() {
             className="animate-fade-up"
             style={{ animationDelay: '0.72s' }}
           >
-            <button className="cta-btn">
+            <Link to="/begin-the-journey" className="cta-btn">
               <span>Begin the journey</span>
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ opacity: 0.8 }}>
                 <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-            </button>
+            </Link>
           </div>
         </div>
 

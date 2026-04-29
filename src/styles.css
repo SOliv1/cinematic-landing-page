@@ -298,6 +298,20 @@ code {
   }
 }
 
+@keyframes carouselHeroReveal {
+  0% {
+    opacity: 0;
+    transform: scale(1.03);
+    filter: blur(4px) saturate(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0) saturate(1);
+  }
+}
+
 @keyframes progressSweep {
   from {
     transform: scaleX(0);
@@ -327,6 +341,30 @@ code {
   inset: 0;
   background: #0a0a0a;
   overflow: hidden;
+  opacity: 1;
+}
+
+.carousel-root.carousel-is-entering .carousel-caption,
+.carousel-root.carousel-is-entering .carousel-progress-track,
+.carousel-root.carousel-is-entering .carousel-dots,
+.carousel-root.carousel-is-entering .carousel-back,
+.carousel-root.carousel-is-entering .carousel-title {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.carousel-root.carousel-is-entering .slide-visible .carousel-img-current {
+  animation: carouselHeroReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.carousel-root.carousel-is-settled .carousel-caption,
+.carousel-root.carousel-is-settled .carousel-progress-track,
+.carousel-root.carousel-is-settled .carousel-dots,
+.carousel-root.carousel-is-settled .carousel-back,
+.carousel-root.carousel-is-settled .carousel-title {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .carousel-slide {
@@ -341,12 +379,12 @@ code {
 }
 
 .slide-entering {
-  animation: carouselFadeIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: carouselFadeIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   z-index: 2;
 }
 
 .slide-exiting {
-  animation: carouselFadeOut 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: carouselFadeOut 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   z-index: 1;
 }
 
@@ -355,6 +393,7 @@ code {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  will-change: transform, opacity, filter;
 }
 
 .carousel-vignette {
@@ -423,7 +462,7 @@ code {
   background: rgba(255, 255, 255, 0.7);
   transform-origin: left center;
   transform: scaleX(0);
-  animation: progressSweep 15s linear forwards;
+  animation: progressSweep 16s linear forwards;
   border-radius: 2px;
 }
 

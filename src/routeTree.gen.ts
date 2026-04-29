@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ExploreRouteImport } from './routes/explore'
+import { Route as BeginTheJourneyRouteImport } from './routes/begin-the-journey'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsProductIdRouteImport } from './routes/products/$productId'
 
 const ExploreRoute = ExploreRouteImport.update({
   id: '/explore',
   path: '/explore',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BeginTheJourneyRoute = BeginTheJourneyRouteImport.update({
+  id: '/begin-the-journey',
+  path: '/begin-the-journey',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -31,30 +37,39 @@ const ProductsProductIdRoute = ProductsProductIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/begin-the-journey': typeof BeginTheJourneyRoute
   '/explore': typeof ExploreRoute
   '/products/$productId': typeof ProductsProductIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/begin-the-journey': typeof BeginTheJourneyRoute
   '/explore': typeof ExploreRoute
   '/products/$productId': typeof ProductsProductIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/begin-the-journey': typeof BeginTheJourneyRoute
   '/explore': typeof ExploreRoute
   '/products/$productId': typeof ProductsProductIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/explore' | '/products/$productId'
+  fullPaths: '/' | '/begin-the-journey' | '/explore' | '/products/$productId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/explore' | '/products/$productId'
-  id: '__root__' | '/' | '/explore' | '/products/$productId'
+  to: '/' | '/begin-the-journey' | '/explore' | '/products/$productId'
+  id:
+    | '__root__'
+    | '/'
+    | '/begin-the-journey'
+    | '/explore'
+    | '/products/$productId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BeginTheJourneyRoute: typeof BeginTheJourneyRoute
   ExploreRoute: typeof ExploreRoute
   ProductsProductIdRoute: typeof ProductsProductIdRoute
 }
@@ -66,6 +81,13 @@ declare module '@tanstack/react-router' {
       path: '/explore'
       fullPath: '/explore'
       preLoaderRoute: typeof ExploreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/begin-the-journey': {
+      id: '/begin-the-journey'
+      path: '/begin-the-journey'
+      fullPath: '/begin-the-journey'
+      preLoaderRoute: typeof BeginTheJourneyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -87,6 +109,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BeginTheJourneyRoute: BeginTheJourneyRoute,
   ExploreRoute: ExploreRoute,
   ProductsProductIdRoute: ProductsProductIdRoute,
 }

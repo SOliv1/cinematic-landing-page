@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
+import { images } from '@/data/BackgroundCarousel'
 
 export const Route = createFileRoute('/explore')({
   component: ExplorePage,
@@ -7,20 +8,18 @@ export const Route = createFileRoute('/explore')({
 
 // ── Images ────────────────────────────────────────────────────────────────────
 
-const carouselImages = [
-  { src: '/images/reflections-door-of-wonder-banner.png', caption: 'Door of Wonder' },
-  { src: '/images/reflectionsFeatures2.png',              caption: 'Feature II' },
-  { src: '/images/reflectionsFeatures3.png',              caption: 'Feature III' },
-  { src: '/images/reflectionsFeatures4.png',              caption: 'Feature IV' },
-  { src: '/images/reflections-features5.png',             caption: 'Feature V' },
-  { src: '/images/reflections-features6.png',             caption: 'Feature VI' },
-  { src: '/images/reflectionsFeatures7.png',              caption: 'Feature VII' },
-  { src: '/images/reflectionsFeatures8.png',              caption: 'Feature VIII' },
-  { src: '/images/Reflections-photo-gallery.png',         caption: 'Photo Gallery' },
-]
+const carouselImages = images.map((filename) => ({
+  src: `/images/${filename}`,
+  caption: filename
+    .replace(/^reflections-/, '')
+    .replace(/\.png$/, '')
+    .replace(/-/g, ' ')
+    .replace(/\b\w/g, (c) => c.toUpperCase()),
+}))
 
 const SLIDE_DURATION = 15_000   // 15 s visible
 const FADE_DURATION  = 1_200    // 1.2 s cross-fade (kept in sync with CSS)
+const INTRO_DURATION = 1_600    // room settles before controls appear
 
 // ── Carousel Component ────────────────────────────────────────────────────────
 
@@ -28,24 +27,42 @@ function ImageCarousel() {
   const [current, setCurrent]     = useState(0)
   const [next,    setNext]        = useState<number | null>(null)
   const [fading,  setFading]      = useState(false)
+  const [isSettled, setIsSettled]  = useState(false)
+  const fadeTimer = useRef<number | null>(null)
 
   const advance = useCallback((target?: number) => {
     const to = target ?? (current + 1) % carouselImages.length
     setNext(to)
     setFading(true)
-    setTimeout(() => {
+    if (fadeTimer.current !== null) {
+      window.clearTimeout(fadeTimer.current)
+    }
+    fadeTimer.current = window.setTimeout(() => {
       setCurrent(to)
       setNext(null)
       setFading(false)
     }, FADE_DURATION)
   }, [current])
 
-  // Auto-rotate every 20 s
   useEffect(() => {
-    if (fading) return
+    const settleTimer = window.setTimeout(() => {
+      setIsSettled(true)
+    }, INTRO_DURATION)
+
+    return () => {
+      window.clearTimeout(settleTimer)
+      if (fadeTimer.current !== null) {
+        window.clearTimeout(fadeTimer.current)
+      }
+    }
+  }, [])
+
+  // Auto-rotate only after the page has fully settled
+  useEffect(() => {
+    if (fading || !isSettled) return
     const id = setTimeout(() => advance(), SLIDE_DURATION)
     return () => clearTimeout(id)
-  }, [current, fading, advance])
+  }, [current, fading, isSettled, advance])
 
   const goTo = (i: number) => {
     if (i === current || fading) return
@@ -53,7 +70,7 @@ function ImageCarousel() {
   }
 
   return (
-    <div className="carousel-root">
+    <div className={`carousel-root ${isSettled ? 'carousel-is-settled' : 'carousel-is-entering'}`}>
       {/* ── Slides ── */}
       {carouselImages.map((img, i) => {
         const isCurrent = i === current
@@ -67,7 +84,7 @@ function ImageCarousel() {
             <img
               src={img.src}
               alt={img.caption}
-              className="carousel-img"
+              className={`carousel-img ${isCurrent && !fading ? 'carousel-img-current' : ''}`}
             />
             {/* Cinematic vignette */}
             <div className="carousel-vignette" />
@@ -90,6 +107,7 @@ function ImageCarousel() {
         <div
           key={`${current}-progress`}
           className={`carousel-progress-fill ${fading ? 'progress-paused' : ''}`}
+          style={{ animationDelay: isSettled ? '0ms' : `${INTRO_DURATION}ms` }}
         />
       </div>
 
