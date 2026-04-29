@@ -19,7 +19,7 @@ const carouselImages = images.map((filename) => ({
 
 const SLIDE_DURATION = 15_000   // 15 s visible
 const FADE_DURATION  = 1_200    // 1.2 s cross-fade (kept in sync with CSS)
-const INTRO_DURATION = 1_600    // room settles before controls appear
+const INTRO_DURATION = 2_800    // room settles before controls appear
 
 // ── Carousel Component ────────────────────────────────────────────────────────
 

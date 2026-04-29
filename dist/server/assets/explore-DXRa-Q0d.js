@@ -22,7 +22,7 @@ const carouselImages = images.map((filename) => ({
 }));
 const SLIDE_DURATION = 15e3;
 const FADE_DURATION = 1200;
-const INTRO_DURATION = 1600;
+const INTRO_DURATION = 2800;
 function ImageCarousel() {
   const [current, setCurrent] = useState(0);
   const [next, setNext] = useState(null);

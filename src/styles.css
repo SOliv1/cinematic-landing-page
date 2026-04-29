@@ -301,13 +301,39 @@ code {
 @keyframes carouselHeroReveal {
   0% {
     opacity: 0;
-    transform: scale(1.03);
-    filter: blur(4px) saturate(0.96);
+    transform: scale(1.045) translateY(12px);
+    filter: blur(5px) saturate(0.95);
+  }
+
+  45% {
+    opacity: 0.88;
+    transform: scale(1.018) translateY(4px);
+    filter: blur(2px) saturate(0.98);
   }
 
   100% {
     opacity: 1;
     transform: scale(1);
+    filter: blur(0) saturate(1);
+  }
+}
+
+@keyframes carouselArrivalDrift {
+  0% {
+    opacity: 0.98;
+    transform: scale(1.018) translateY(8px);
+    filter: blur(6px) saturate(0.96);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.006) translateY(2px);
+    filter: blur(1.5px) saturate(0.99);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
     filter: blur(0) saturate(1);
   }
 }
@@ -344,6 +370,10 @@ code {
   opacity: 1;
 }
 
+.carousel-root.carousel-is-entering {
+  animation: carouselArrivalDrift 2.8s cubic-bezier(0.2, 1, 0.28, 1) both;
+}
+
 .carousel-root.carousel-is-entering .carousel-caption,
 .carousel-root.carousel-is-entering .carousel-progress-track,
 .carousel-root.carousel-is-entering .carousel-dots,
@@ -354,7 +384,7 @@ code {
 }
 
 .carousel-root.carousel-is-entering .slide-visible .carousel-img-current {
-  animation: carouselHeroReveal 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: carouselHeroReveal 2.6s cubic-bezier(0.2, 1, 0.28, 1) both;
 }
 
 .carousel-root.carousel-is-settled .carousel-caption,
@@ -364,7 +394,7 @@ code {
 .carousel-root.carousel-is-settled .carousel-title {
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 1.05s cubic-bezier(0.2, 1, 0.28, 1), transform 1.05s cubic-bezier(0.2, 1, 0.28, 1);
 }
 
 .carousel-slide {
@@ -379,12 +409,12 @@ code {
 }
 
 .slide-entering {
-  animation: carouselFadeIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: carouselFadeIn 2s cubic-bezier(0.2, 1, 0.28, 1) forwards;
   z-index: 2;
 }
 
 .slide-exiting {
-  animation: carouselFadeOut 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: carouselFadeOut 2s cubic-bezier(0.2, 1, 0.28, 1) forwards;
   z-index: 1;
 }
 
@@ -415,7 +445,7 @@ code {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  animation: captionSlideIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: captionSlideIn 1.15s cubic-bezier(0.2, 1, 0.28, 1) both;
 }
 
 .carousel-caption-index {
@@ -539,7 +569,7 @@ code {
   flex-direction: column;
   align-items: flex-end;
   gap: 4px;
-  animation: fadeIn 1.6s ease 0.5s both;
+  animation: fadeIn 1.9s ease 0.65s both;
 }
 
 .carousel-title-eyebrow {

@@ -234,6 +234,8 @@ function LandingPage() {
     minHeight: "100vh",
     ...cssVars
   }, children: [
+    /* @__PURE__ */ jsx("div", { className: "orb neutral" }),
+    /* @__PURE__ */ jsx("div", { className: "orb dramatic" }),
     /* @__PURE__ */ jsxs("section", { style: {
       position: "relative",
       minHeight: "100vh",
@@ -280,7 +282,7 @@ function LandingPage() {
         display: "flex",
         alignItems: "center",
         animation: "fadeIn 1.6s ease 1s both"
-      }, children: /* @__PURE__ */ jsx("img", { src: "/mood-logo.png", alt: "Mood", style: {
+      }, children: /* @__PURE__ */ jsx("img", { src: "/mood-logo1.png", alt: "Mood", style: {
         width: "44px",
         height: "44px",
         objectFit: "contain",

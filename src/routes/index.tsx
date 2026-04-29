@@ -331,6 +331,9 @@ function LandingPage() {
 
   return (
     <div style={{ minHeight: '100vh', ...cssVars }}>
+      <div className="orb neutral"></div>
+      <div className="orb dramatic"></div>
+
 
       {/* ── HERO ──────────────────────────────────────────────── */}
       <section
