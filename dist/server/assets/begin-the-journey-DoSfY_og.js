@@ -1,7 +1,7 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { useNavigate, Link } from "@tanstack/react-router";
 import { useState, useRef, useEffect } from "react";
-import "./router-Dc5DrQGC.js";
+import "./router-ptn15cR4.js";
 function BeginTheJourney() {
   const navigate = useNavigate();
   const [isDeparting, setIsDeparting] = useState(false);

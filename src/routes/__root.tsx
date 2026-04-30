@@ -10,7 +10,9 @@ export const Route = createRootRoute({
       { name: 'description', content: 'Designed for clarity, mood, and quiet delight.' },
     ],
     links: [
-      { rel: 'icon', type: 'image/png', href: '/mood-logo1.png' },
+      { rel: 'manifest', href: '/manifest.json' },
+      { rel: 'icon', type: 'image/svg+xml', href: '/images/favicons/favicon.svg' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/favicons/favicon-32.png' },
     ],
   }),
   shellComponent: RootDocument,

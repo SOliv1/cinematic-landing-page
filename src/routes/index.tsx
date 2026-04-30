@@ -1,4 +1,9 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import OrbLogo from '/images/logo/orb-neutral-r.svg'
+import OrbNeutral from '/images/orbs/orb-neutral.png'
+import OrbWarmDawn from '/images/orbs/orb-warm-dawn.png'
+import OrbMidnightGlow from '/images/orbs/orb-midnight-glow.png'
+import OrbAutumnEmber from '/images/orbs/orb-autumn-ember.png'
 
 export const Route = createFileRoute('/')({
   component: LandingPage,
@@ -104,9 +109,16 @@ function getSeason(): Season {
   return 'winter'
 }
 
+function getOrbArtwork(season: Season) {
+  if (season === 'spring') return OrbWarmDawn
+  if (season === 'summer') return OrbNeutral
+  if (season === 'autumn') return OrbAutumnEmber
+  return OrbMidnightGlow
+}
+
 // ── Orb Component ─────────────────────────────────────────────────────────────
 
-function SeasonalOrb({ palette }: { palette: SeasonalPalette }) {
+function SeasonalOrb({ src }: { src: string }) {
   return (
     <div
       style={{
@@ -132,13 +144,17 @@ function SeasonalOrb({ palette }: { palette: SeasonalPalette }) {
         }}
       />
       {/* Inner orb body */}
-      <div
+      <img
+        src={src}
+        alt=""
+        aria-hidden="true"
         style={{
           position: 'relative',
           width: '84px',
           height: '84px',
           borderRadius: '50%',
-          background: `radial-gradient(circle at 35% 32%, ${palette.orbCenter} 0%, ${palette.orbEdge} 65%, rgba(0,0,0,0.06) 100%)`,
+          objectFit: 'cover',
+          objectPosition: 'center',
           boxShadow: `
             inset 0 1px 0 rgba(255,255,255,0.9),
             inset 0 -2px 8px rgba(0,0,0,0.06),
@@ -146,21 +162,7 @@ function SeasonalOrb({ palette }: { palette: SeasonalPalette }) {
             0 0 0 1px rgba(255,255,255,0.6)
           `,
         }}
-      >
-        {/* Highlight specular */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '14px',
-            left: '18px',
-            width: '28px',
-            height: '18px',
-            borderRadius: '50%',
-            background: 'radial-gradient(ellipse, rgba(255,255,255,0.7) 0%, transparent 100%)',
-            transform: 'rotate(-20deg)',
-          }}
-        />
-      </div>
+      />
     </div>
   )
 }
@@ -211,6 +213,7 @@ function ScrollIndicator({ accent }: { accent: string }) {
 interface Feature {
   index: string
   title: string
+  subtitle: string
   body: string
 }
 
@@ -218,16 +221,19 @@ const features: Feature[] = [
   {
     index: '01',
     title: 'Seasonal Awareness',
+    subtitle: 'Where your apps move with the quiet rhythm of the year.',
     body: 'The interface breathes with the calendar. Palette, mood, and tone shift quietly with the turning of the year — without announcement, without ceremony.',
   },
   {
     index: '02',
     title: 'Quiet Performance',
+    subtitle: 'Tools that stay still so your thoughts can move.',
     body: 'Motion exists to serve meaning, not to impress. Every transition earns its frame. Every pause is intentional.',
   },
   {
     index: '03',
     title: 'Modular Clarity',
+    subtitle: 'Each piece simple on its own, yet luminous together.',
     body: 'Each section holds its own weight. Composable, restrained, and sized to breathe — never crowded into obligation.',
   },
 ]
@@ -288,6 +294,19 @@ function FeatureCard({
         <p
           style={{
             fontFamily: "'Outfit', sans-serif",
+            fontSize: '0.94rem',
+            fontWeight: 300,
+            lineHeight: 1.65,
+            color: 'rgba(26,23,20,0.68)',
+            marginBottom: '16px',
+            maxWidth: '320px',
+          }}
+        >
+          {feature.subtitle}
+        </p>
+        <p
+          style={{
+            fontFamily: "'Outfit', sans-serif",
             fontSize: '0.92rem',
             fontWeight: 300,
             lineHeight: 1.75,
@@ -319,6 +338,7 @@ function FeatureCard({
 function LandingPage() {
   const season = getSeason()
   const palette = palettes[season]
+  const orbArtwork = getOrbArtwork(season)
 
   const cssVars = {
     ['--accent' as string]: palette.accent,
@@ -401,8 +421,8 @@ function LandingPage() {
           }}
         >
           <img
-            src="/mood-logo1.png"
-            alt="Mood"
+            src={OrbLogo}
+            alt="Seasonal Neutral Orb Logo"
             style={{
               width: '44px',
               height: '44px',
@@ -457,7 +477,7 @@ function LandingPage() {
             }}
           />
 
-          <SeasonalOrb palette={palette} />
+          <SeasonalOrb src={orbArtwork} />
 
           <h1
             className="font-display animate-fade-up"

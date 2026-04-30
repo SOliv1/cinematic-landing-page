@@ -1,5 +1,10 @@
 import { jsxs, jsx } from "react/jsx-runtime";
 import { Link } from "@tanstack/react-router";
+const OrbLogo = "/images/logo/orb-neutral-r.svg";
+const OrbNeutral = "/images/orbs/orb-neutral.png";
+const OrbWarmDawn = "/images/orbs/orb-warm-dawn.png";
+const OrbMidnightGlow = "/images/orbs/orb-midnight-glow.png";
+const OrbAutumnEmber = "/images/orbs/orb-autumn-ember.png";
 const palettes = {
   spring: {
     blob1: "radial-gradient(ellipse 70% 60% at 15% 20%, rgba(220,195,215,0.55) 0%, transparent 70%)",
@@ -77,8 +82,14 @@ function getSeason() {
   if (m >= 8 && m <= 10) return "autumn";
   return "winter";
 }
+function getOrbArtwork(season) {
+  if (season === "spring") return OrbWarmDawn;
+  if (season === "summer") return OrbNeutral;
+  if (season === "autumn") return OrbAutumnEmber;
+  return OrbMidnightGlow;
+}
 function SeasonalOrb({
-  palette
+  src
 }) {
   return /* @__PURE__ */ jsxs("div", { style: {
     position: "relative",
@@ -98,28 +109,20 @@ function SeasonalOrb({
       ["--orb-glow-a"]: palette.orbGlowA,
       ["--orb-glow-b"]: palette.orbGlowB
     } }),
-    /* @__PURE__ */ jsx("div", { style: {
+    /* @__PURE__ */ jsx("img", { src, alt: "", "aria-hidden": "true", style: {
       position: "relative",
       width: "84px",
       height: "84px",
       borderRadius: "50%",
-      background: `radial-gradient(circle at 35% 32%, ${palette.orbCenter} 0%, ${palette.orbEdge} 65%, rgba(0,0,0,0.06) 100%)`,
+      objectFit: "cover",
+      objectPosition: "center",
       boxShadow: `
             inset 0 1px 0 rgba(255,255,255,0.9),
             inset 0 -2px 8px rgba(0,0,0,0.06),
             0 2px 8px rgba(0,0,0,0.06),
             0 0 0 1px rgba(255,255,255,0.6)
           `
-    }, children: /* @__PURE__ */ jsx("div", { style: {
-      position: "absolute",
-      top: "14px",
-      left: "18px",
-      width: "28px",
-      height: "18px",
-      borderRadius: "50%",
-      background: "radial-gradient(ellipse, rgba(255,255,255,0.7) 0%, transparent 100%)",
-      transform: "rotate(-20deg)"
-    } }) })
+    } })
   ] });
 }
 function ScrollIndicator({
@@ -155,19 +158,22 @@ function ScrollIndicator({
 const features = [{
   index: "01",
   title: "Seasonal Awareness",
+  subtitle: "Where your apps move with the quiet rhythm of the year.",
   body: "The interface breathes with the calendar. Palette, mood, and tone shift quietly with the turning of the year — without announcement, without ceremony."
 }, {
   index: "02",
   title: "Quiet Performance",
+  subtitle: "Tools that stay still so your thoughts can move.",
   body: "Motion exists to serve meaning, not to impress. Every transition earns its frame. Every pause is intentional."
 }, {
   index: "03",
   title: "Modular Clarity",
+  subtitle: "Each piece simple on its own, yet luminous together.",
   body: "Each section holds its own weight. Composable, restrained, and sized to breathe — never crowded into obligation."
 }];
 function FeatureCard({
   feature,
-  palette,
+  palette: palette2,
   delay,
   tall
 }) {
@@ -178,7 +184,7 @@ function FeatureCard({
     flexDirection: "column",
     justifyContent: tall ? "space-between" : "flex-start",
     animation: `fadeUp 1s cubic-bezier(0.16,1,0.3,1) ${delay} both`,
-    borderTop: `2px solid ${palette.cardAccent}`,
+    borderTop: `2px solid ${palette2.cardAccent}`,
     minHeight: tall ? "320px" : void 0
   }, children: [
     /* @__PURE__ */ jsxs("div", { children: [
@@ -187,7 +193,7 @@ function FeatureCard({
         fontSize: "0.78rem",
         fontWeight: 400,
         letterSpacing: "0.22em",
-        color: palette.accent,
+        color: palette2.accent,
         opacity: 0.7,
         marginBottom: "20px",
         textTransform: "uppercase"
@@ -202,6 +208,15 @@ function FeatureCard({
       }, children: feature.title }),
       /* @__PURE__ */ jsx("p", { style: {
         fontFamily: "'Outfit', sans-serif",
+        fontSize: "0.94rem",
+        fontWeight: 300,
+        lineHeight: 1.65,
+        color: "rgba(26,23,20,0.68)",
+        marginBottom: "16px",
+        maxWidth: "320px"
+      }, children: feature.subtitle }),
+      /* @__PURE__ */ jsx("p", { style: {
+        fontFamily: "'Outfit', sans-serif",
         fontSize: "0.92rem",
         fontWeight: 300,
         lineHeight: 1.75,
@@ -213,22 +228,23 @@ function FeatureCard({
       width: "48px",
       height: "48px",
       borderRadius: "50%",
-      background: palette.accentSoft,
-      border: `1px solid ${palette.cardAccent}`,
+      background: palette2.accentSoft,
+      border: `1px solid ${palette2.cardAccent}`,
       marginTop: "32px"
     } })
   ] });
 }
 function LandingPage() {
   const season = getSeason();
-  const palette = palettes[season];
+  const palette2 = palettes[season];
+  const orbArtwork = getOrbArtwork(season);
   const cssVars = {
-    ["--accent"]: palette.accent,
-    ["--orb-glow-a"]: palette.orbGlowA,
-    ["--orb-glow-b"]: palette.orbGlowB,
-    ["--cta-bg"]: palette.ctaBg,
-    ["--cta-hover"]: palette.ctaHover,
-    ["--cta-shadow"]: palette.ctaShadow
+    ["--accent"]: palette2.accent,
+    ["--orb-glow-a"]: palette2.orbGlowA,
+    ["--orb-glow-b"]: palette2.orbGlowB,
+    ["--cta-bg"]: palette2.ctaBg,
+    ["--cta-hover"]: palette2.ctaHover,
+    ["--cta-shadow"]: palette2.ctaShadow
   };
   return /* @__PURE__ */ jsxs("div", { style: {
     minHeight: "100vh",
@@ -249,21 +265,21 @@ function LandingPage() {
       /* @__PURE__ */ jsx("div", { style: {
         position: "absolute",
         inset: 0,
-        background: palette.blob1,
+        background: palette2.blob1,
         animation: "slowDrift 22s ease-in-out infinite",
         willChange: "transform"
       } }),
       /* @__PURE__ */ jsx("div", { style: {
         position: "absolute",
         inset: 0,
-        background: palette.blob2,
+        background: palette2.blob2,
         animation: "slowDriftAlt 28s ease-in-out infinite",
         willChange: "transform"
       } }),
       /* @__PURE__ */ jsx("div", { style: {
         position: "absolute",
         inset: 0,
-        background: palette.blob3
+        background: palette2.blob3
       } }),
       /* @__PURE__ */ jsx("div", { style: {
         position: "absolute",
@@ -282,7 +298,7 @@ function LandingPage() {
         display: "flex",
         alignItems: "center",
         animation: "fadeIn 1.6s ease 1s both"
-      }, children: /* @__PURE__ */ jsx("img", { src: "/mood-logo1.png", alt: "Mood", style: {
+      }, children: /* @__PURE__ */ jsx("img", { src: OrbLogo, alt: "Seasonal Neutral Orb Logo", style: {
         width: "44px",
         height: "44px",
         objectFit: "contain",
@@ -298,10 +314,10 @@ function LandingPage() {
         fontWeight: 500,
         letterSpacing: "0.2em",
         textTransform: "uppercase",
-        color: palette.accent,
+        color: palette2.accent,
         opacity: 0.65,
         animation: "fadeIn 1.6s ease 1s both"
-      }, children: palette.label }),
+      }, children: palette2.label }),
       /* @__PURE__ */ jsxs("div", { className: "glass-panel", style: {
         position: "relative",
         zIndex: 5,
@@ -309,7 +325,7 @@ function LandingPage() {
         width: "100%",
         padding: "clamp(40px, 6vw, 72px) clamp(32px, 6vw, 80px)",
         textAlign: "center",
-        background: `rgba(255,255,255,0.46), ${palette.panelTint}`
+        background: `rgba(255,255,255,0.46), ${palette2.panelTint}`
       }, children: [
         /* @__PURE__ */ jsx("div", { style: {
           position: "absolute",
@@ -319,7 +335,7 @@ function LandingPage() {
           animation: "borderShimmer 5s ease-in-out infinite",
           pointerEvents: "none"
         } }),
-        /* @__PURE__ */ jsx(SeasonalOrb, { palette }),
+        /* @__PURE__ */ jsx(SeasonalOrb, { src: orbArtwork }),
         /* @__PURE__ */ jsxs("h1", { className: "font-display animate-fade-up", style: {
           fontSize: "clamp(2rem, 4.5vw, 3.2rem)",
           fontWeight: 300,
@@ -355,7 +371,7 @@ function LandingPage() {
           }, children: /* @__PURE__ */ jsx("path", { d: "M1 7h12M7 1l6 6-6 6", stroke: "currentColor", strokeWidth: "1.4", strokeLinecap: "round", strokeLinejoin: "round" }) })
         ] }) })
       ] }),
-      /* @__PURE__ */ jsx(ScrollIndicator, { accent: palette.accent })
+      /* @__PURE__ */ jsx(ScrollIndicator, { accent: palette2.accent })
     ] }),
     /* @__PURE__ */ jsxs("section", { style: {
       position: "relative",
@@ -366,7 +382,7 @@ function LandingPage() {
       /* @__PURE__ */ jsx("div", { style: {
         position: "absolute",
         inset: 0,
-        background: palette.blob2,
+        background: palette2.blob2,
         opacity: 0.4
       } }),
       /* @__PURE__ */ jsxs("div", { style: {
@@ -390,7 +406,7 @@ function LandingPage() {
               fontWeight: 500,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: palette.accent,
+              color: palette2.accent,
               opacity: 0.7,
               marginBottom: "14px"
             }, children: "The philosophy" }),
@@ -412,7 +428,7 @@ function LandingPage() {
           /* @__PURE__ */ jsx("div", { style: {
             width: "80px",
             height: "1px",
-            background: `linear-gradient(to right, ${palette.accent}60, transparent)`,
+            background: `linear-gradient(to right, ${palette2.accent}60, transparent)`,
             flexShrink: 0,
             marginBottom: "8px"
           } })
@@ -442,21 +458,21 @@ function LandingPage() {
                   }
                 }
               ` }),
-          features.map((f, i) => /* @__PURE__ */ jsx(FeatureCard, { feature: f, palette, delay: `${0.85 + i * 0.15}s`, tall: i === 0 }, f.index))
+          features.map((f, i) => /* @__PURE__ */ jsx(FeatureCard, { feature: f, palette: palette2, delay: `${0.85 + i * 0.15}s`, tall: i === 0 }, f.index))
         ] }) })
       ] })
     ] }),
     /* @__PURE__ */ jsxs("section", { style: {
       position: "relative",
       padding: "clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px)",
-      background: `linear-gradient(170deg, #f5f3f0 0%, color-mix(in srgb, ${palette.orbEdge} 12%, #f5f3f0) 100%)`,
+      background: `linear-gradient(170deg, #f5f3f0 0%, color-mix(in srgb, ${palette2.orbEdge} 12%, #f5f3f0) 100%)`,
       overflow: "hidden",
       textAlign: "center"
     }, children: [
       /* @__PURE__ */ jsx("div", { style: {
         position: "absolute",
         inset: 0,
-        background: palette.blob1,
+        background: palette2.blob1,
         opacity: 0.35
       } }),
       /* @__PURE__ */ jsxs("div", { style: {
@@ -484,7 +500,7 @@ function LandingPage() {
           fontWeight: 400,
           letterSpacing: "0.18em",
           textTransform: "uppercase",
-          color: palette.accent,
+          color: palette2.accent,
           opacity: 0.65,
           fontStyle: "normal"
         }, children: "On craft & restraint" }),
@@ -497,8 +513,8 @@ function LandingPage() {
       position: "relative",
       padding: "clamp(100px, 12vw, 180px) clamp(24px, 6vw, 80px)",
       background: `
-            radial-gradient(ellipse 80% 70% at 50% 50%, color-mix(in srgb, ${palette.orbEdge} 22%, transparent) 0%, transparent 70%),
-            linear-gradient(180deg, color-mix(in srgb, ${palette.orbEdge} 12%, #f5f3f0) 0%, #f5f3f0 60%, color-mix(in srgb, ${palette.accent} 8%, #f5f3f0) 100%)
+            radial-gradient(ellipse 80% 70% at 50% 50%, color-mix(in srgb, ${palette2.orbEdge} 22%, transparent) 0%, transparent 70%),
+            linear-gradient(180deg, color-mix(in srgb, ${palette2.orbEdge} 12%, #f5f3f0) 0%, #f5f3f0 60%, color-mix(in srgb, ${palette2.accent} 8%, #f5f3f0) 100%)
           `,
       overflow: "hidden",
       textAlign: "center"
@@ -506,7 +522,7 @@ function LandingPage() {
       /* @__PURE__ */ jsx("div", { style: {
         position: "absolute",
         inset: 0,
-        background: palette.blob3,
+        background: palette2.blob3,
         opacity: 0.6,
         animation: "slowDrift 24s ease-in-out infinite",
         willChange: "transform"
@@ -554,7 +570,7 @@ function LandingPage() {
           fontWeight: 300,
           letterSpacing: "0.2em",
           textTransform: "uppercase",
-          color: `color-mix(in srgb, ${palette.accent} 70%, transparent)`,
+          color: `color-mix(in srgb, ${palette2.accent} 70%, transparent)`,
           opacity: 0.75
         }, children: "No noise. Just clarity." })
       ] })
@@ -576,8 +592,8 @@ function LandingPage() {
           width: "20px",
           height: "20px",
           borderRadius: "50%",
-          background: `radial-gradient(circle at 35% 32%, ${palette.orbCenter}, ${palette.orbEdge})`,
-          boxShadow: `0 0 8px ${palette.orbGlowA}`
+          background: `radial-gradient(circle at 35% 32%, ${palette2.orbCenter}, ${palette2.orbEdge})`,
+          boxShadow: `0 0 8px ${palette2.orbGlowA}`
         } }),
         /* @__PURE__ */ jsx("span", { className: "font-display", style: {
           fontSize: "1.1rem",

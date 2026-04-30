@@ -9,7 +9,9 @@ const Route$4 = createRootRoute({
       { name: "description", content: "Designed for clarity, mood, and quiet delight." }
     ],
     links: [
-      { rel: "icon", type: "image/png", href: "/mood-logo1.png" }
+      { rel: "manifest", href: "/manifest.json" },
+      { rel: "icon", type: "image/svg+xml", href: "/images/favicons/favicon.svg" },
+      { rel: "icon", type: "image/png", sizes: "32x32", href: "/images/favicons/favicon-32.png" }
     ]
   }),
   shellComponent: RootDocument
@@ -27,11 +29,11 @@ const $$splitComponentImporter$3 = () => import("./explore-DXRa-Q0d.js");
 const Route$3 = createFileRoute("/explore")({
   component: lazyRouteComponent($$splitComponentImporter$3, "component")
 });
-const $$splitComponentImporter$2 = () => import("./begin-the-journey-8zLePQ95.js");
+const $$splitComponentImporter$2 = () => import("./begin-the-journey-DoSfY_og.js");
 const Route$2 = createFileRoute("/begin-the-journey")({
   component: lazyRouteComponent($$splitComponentImporter$2, "component")
 });
-const $$splitComponentImporter$1 = () => import("./index-DW-dgm_-.js");
+const $$splitComponentImporter$1 = () => import("./index-lBhDJjaP.js");
 const Route$1 = createFileRoute("/")({
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
@@ -45,7 +47,7 @@ const products = [
     price: 3e3
   }
 ];
-const $$splitComponentImporter = () => import("./_productId-C6L6B9fS.js");
+const $$splitComponentImporter = () => import("./_productId-Dj-1BYmC.js");
 const Route = createFileRoute("/products/$productId")({
   component: lazyRouteComponent($$splitComponentImporter, "component"),
   loader: async ({
