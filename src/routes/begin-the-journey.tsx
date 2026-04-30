@@ -1,6 +1,15 @@
 import { createFileRoute, Link, useNavigate } from '@tanstack/react-router'
 import { useEffect, useRef, useState } from 'react'
 import '../BeginTheJourney.css'
+import { useSeasonalBackground } from '@/hooks/useSeasonalBackground'
+
+const BACKGROUND_VARIANTS = [
+  { key: null, label: 'Original' },
+  { key: 'morning', label: 'Morning' },
+  { key: 'day', label: 'Day' },
+  { key: 'evening', label: 'Evening' },
+  { key: 'night', label: 'Night' },
+] as const
 
 export const Route = createFileRoute('/begin-the-journey')({
   component: BeginTheJourney,
@@ -9,7 +18,9 @@ export const Route = createFileRoute('/begin-the-journey')({
 function BeginTheJourney() {
   const navigate = useNavigate()
   const [isDeparting, setIsDeparting] = useState(false)
+  const [backgroundPreview, setBackgroundPreview] = useState<string | null>(null)
   const departureTimer = useRef<number | null>(null)
+  const seasonalBackground = useSeasonalBackground(backgroundPreview)
 
   useEffect(() => {
     return () => {
@@ -33,7 +44,16 @@ function BeginTheJourney() {
   }
 
   return (
-    <div className={`btj-container ${isDeparting ? 'is-departing' : ''}`}>
+    <div
+      className={`btj-container seasonal-background ${isDeparting ? 'is-departing' : ''}`}
+      style={{
+        backgroundImage: backgroundPreview ? seasonalBackground : undefined,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        transition: 'background-image 1.5s ease, background-color 1.5s ease',
+      }}
+    >
       <Link to="/" className="btj-back">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M13 7H1M7 1L1 7l6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
@@ -57,6 +77,22 @@ function BeginTheJourney() {
           Step Inside
         </button>
       </div>
+
+      {import.meta.env.DEV ? (
+        <div className="btj-background-preview" aria-label="Background preview controls">
+          <span className="btj-background-preview-label">Background preview</span>
+          {BACKGROUND_VARIANTS.map((variant) => (
+            <button
+              key={variant.label}
+              type="button"
+              className={backgroundPreview === variant.key ? 'is-active' : ''}
+              onClick={() => setBackgroundPreview(variant.key)}
+            >
+              {variant.label}
+            </button>
+          ))}
+        </div>
+      ) : null}
     </div>
   )
 }

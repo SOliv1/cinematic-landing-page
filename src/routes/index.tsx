@@ -1,9 +1,11 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import OrbLogo from '/images/logo/orb-neutral-r.svg'
+import { useEffect, useState } from 'react'
+import OrbLogo from '/images/logo/orb-silver-R.png'
 import OrbNeutral from '/images/orbs/orb-neutral.png'
 import OrbWarmDawn from '/images/orbs/orb-warm-dawn.png'
 import OrbMidnightGlow from '/images/orbs/orb-midnight-glow.png'
 import OrbAutumnEmber from '/images/orbs/orb-autumn-ember.png'
+import { useSeasonalBackground } from '@/hooks/useSeasonalBackground'
 
 export const Route = createFileRoute('/')({
   component: LandingPage,
@@ -109,16 +111,46 @@ function getSeason(): Season {
   return 'winter'
 }
 
-function getOrbArtwork(season: Season) {
-  if (season === 'spring') return OrbWarmDawn
-  if (season === 'summer') return OrbNeutral
-  if (season === 'autumn') return OrbAutumnEmber
+function getDayCycleArtwork(date = new Date()) {
+  const hour = date.getHours()
+
+  if (hour >= 5 && hour < 11) return OrbWarmDawn
+  if (hour >= 11 && hour < 17) return OrbNeutral
+  if (hour >= 17 && hour < 21) return OrbAutumnEmber
   return OrbMidnightGlow
+}
+
+function getDayCycleLabel(date = new Date()) {
+  const hour = date.getHours()
+
+  if (hour >= 5 && hour < 11) return 'Morning'
+  if (hour >= 11 && hour < 17) return 'Day'
+  if (hour >= 17 && hour < 21) return 'Evening'
+  return 'Night'
+}
+
+function getNextDayCycleBoundary(date = new Date()) {
+  const hour = date.getHours()
+  const nextHour =
+    hour < 11 ? 11 :
+    hour < 17 ? 17 :
+    hour < 21 ? 21 :
+    29
+
+  const boundary = new Date(date)
+  if (nextHour === 29) {
+    boundary.setDate(boundary.getDate() + 1)
+    boundary.setHours(5, 0, 0, 0)
+  } else {
+    boundary.setHours(nextHour, 0, 0, 0)
+  }
+
+  return boundary.getTime()
 }
 
 // ── Orb Component ─────────────────────────────────────────────────────────────
 
-function SeasonalOrb({ src }: { src: string }) {
+function SeasonalOrb({ src, palette }: { src: string; palette: SeasonalPalette }) {
   return (
     <div
       style={{
@@ -236,6 +268,12 @@ const features: Feature[] = [
     subtitle: 'Each piece simple on its own, yet luminous together.',
     body: 'Each section holds its own weight. Composable, restrained, and sized to breathe — never crowded into obligation.',
   },
+  {
+    index: '04',
+    title: 'Living Atmosphere',
+    subtitle: 'A background that changes with the hour and stays easy to preview.',
+    body: 'The page can move through morning, day, evening, and night without losing its calm centre. A small preview control helps you test each mood while you refine the composition.',
+  },
 ]
 
 function FeatureCard({
@@ -338,7 +376,23 @@ function FeatureCard({
 function LandingPage() {
   const season = getSeason()
   const palette = palettes[season]
-  const orbArtwork = getOrbArtwork(season)
+  const [orbArtwork, setOrbArtwork] = useState(() => getDayCycleArtwork())
+  const [dayCycleLabel, setDayCycleLabel] = useState(() => getDayCycleLabel())
+  const seasonalBackground = useSeasonalBackground()
+
+  useEffect(() => {
+    setOrbArtwork(getDayCycleArtwork())
+    setDayCycleLabel(getDayCycleLabel())
+
+    const updateAtBoundary = window.setTimeout(() => {
+      setOrbArtwork(getDayCycleArtwork())
+      setDayCycleLabel(getDayCycleLabel())
+    }, Math.max(0, getNextDayCycleBoundary() - Date.now()))
+
+    return () => {
+      window.clearTimeout(updateAtBoundary)
+    }
+  }, [])
 
   const cssVars = {
     ['--accent' as string]: palette.accent,
@@ -350,7 +404,18 @@ function LandingPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', ...cssVars }}>
+    <div
+      className="seasonal-background"
+      style={{
+        minHeight: '100vh',
+        backgroundImage: seasonalBackground,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        transition: 'background-image 1.5s ease, background-color 1.5s ease',
+        ...cssVars,
+      }}
+    >
       <div className="orb neutral"></div>
       <div className="orb dramatic"></div>
 
@@ -412,22 +477,34 @@ function LandingPage() {
         <div
           style={{
             position: 'absolute',
-            top: '24px',
-            left: '28px',
+            top: '28px',
+            left: '32px',
             zIndex: 10,
-            display: 'flex',
+            display: 'inline-flex',
             alignItems: 'center',
+            justifyContent: 'center',
+            width: '66px',
+            height: '66px',
+            padding: '10px',
+            borderRadius: '20px',
+            background:
+              'radial-gradient(circle at 35% 28%, rgba(255,255,255,0.10) 0%, rgba(26,23,20,0.30) 58%, rgba(26,23,20,0.42) 100%)',
+            border: '1px solid rgba(255,255,255,0.12)',
+            boxShadow:
+              '0 10px 22px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.06)',
+            backdropFilter: 'blur(12px) saturate(130%)',
+            WebkitBackdropFilter: 'blur(12px) saturate(130%)',
             animation: 'fadeIn 1.6s ease 1s both',
           }}
         >
           <img
             src={OrbLogo}
             alt="Seasonal Neutral Orb Logo"
+            className="app-header-logo"
             style={{
-              width: '44px',
-              height: '44px',
-              objectFit: 'contain',
-              filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.08))',
+              width: '46px',
+              height: '46px',
+              filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.22))',
             }}
           />
         </div>
@@ -477,7 +554,34 @@ function LandingPage() {
             }}
           />
 
-          <SeasonalOrb src={orbArtwork} />
+          <SeasonalOrb src={orbArtwork} palette={palette} />
+
+          <div
+            style={{
+              marginTop: '-10px',
+              marginBottom: '28px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              padding: '8px 14px',
+              borderRadius: '999px',
+              background: 'rgba(255,255,255,0.42)',
+              border: '1px solid rgba(255,255,255,0.72)',
+              backdropFilter: 'blur(10px) saturate(140%)',
+              WebkitBackdropFilter: 'blur(10px) saturate(140%)',
+              boxShadow: '0 10px 24px rgba(0,0,0,0.06)',
+              fontFamily: "'Outfit', sans-serif",
+              fontSize: '0.68rem',
+              fontWeight: 500,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              color: palette.accent,
+              opacity: 0.85,
+            }}
+          >
+            <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: palette.accent }} />
+            <span>{dayCycleLabel}</span>
+          </div>
 
           <h1
             className="font-display animate-fade-up"
@@ -618,14 +722,13 @@ function LandingPage() {
               }}
               className="feature-grid"
             >
-              <style>{`
+                <style>{`
                 .feature-grid {
                   grid-template-columns: 1fr;
                 }
                 @media (min-width: 640px) {
                   .feature-grid {
                     grid-template-columns: 1.1fr 0.9fr;
-                    grid-template-rows: auto auto;
                   }
                   .feature-grid > *:first-child {
                     grid-row: span 2;

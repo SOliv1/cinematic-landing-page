@@ -11,7 +11,7 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: 'manifest', href: '/manifest.json' },
-      { rel: 'icon', type: 'image/svg+xml', href: '/images/favicons/favicon.svg' },
+      { rel: 'icon', type: 'image/png', sizes: 'any', href: '/images/favicons/favicon-r-visible.png' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/favicons/favicon-32.png' },
     ],
   }),

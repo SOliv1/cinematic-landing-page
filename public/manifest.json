@@ -3,7 +3,12 @@
   "short_name": "Seasonal",
   "icons": [
     {
-      "src": "/images/logo/orb-neutral-r.svg",
+      "src": "/images/favicons/favicon-r-visible.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo/orb-neutral-R.svg",
       "sizes": "512x512",
       "type": "image/svg+xml"
     },

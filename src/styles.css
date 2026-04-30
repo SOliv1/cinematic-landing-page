@@ -157,6 +157,93 @@ code {
   font-family: 'Outfit', system-ui, sans-serif;
 }
 
+.seasonal-background {
+  position: relative;
+  overflow: hidden;
+}
+
+.btj-background-preview {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: min(88vw, 620px);
+  padding: 8px 10px;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(12, 16, 28, 0.62), rgba(12, 16, 28, 0.38)),
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.06), transparent 60%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px) saturate(112%);
+  -webkit-backdrop-filter: blur(10px) saturate(112%);
+  pointer-events: auto;
+}
+
+.btj-background-preview-label {
+  margin-right: 6px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 241, 0.86);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.btj-background-preview button {
+  margin-right: 0;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 250, 245, 0.96);
+  font-size: 0.76rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
+  box-shadow: none;
+}
+
+.btj-background-preview button.is-active {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+
+@media (max-width: 640px) {
+  .btj-background-preview {
+    bottom: 16px;
+    width: min(94vw, 520px);
+    padding: 8px 9px;
+    gap: 5px;
+  }
+
+  .btj-background-preview-label {
+    width: 100%;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+
+.app-header-logo {
+  display: block;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter:
+    brightness(0.76)
+    contrast(1.3)
+    saturate(1.1)
+    drop-shadow(0 2px 10px rgba(0, 0, 0, 0.2));
+}
+
 .animate-fade-up {
   animation: fadeUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -615,3 +702,4 @@ code {
     top: 20px;
   }
 }
+

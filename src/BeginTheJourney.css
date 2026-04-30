@@ -201,25 +201,39 @@
 
 .btj-back {
   position: absolute;
-  top: 28px;
-  left: 32px;
+  top: 24px;
+  left: 28px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   font-family: 'Outfit', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.63rem;
   font-weight: 400;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(245, 240, 235, 0.35);
+  color: rgba(255, 250, 246, 0.94);
   text-decoration: none;
-  transition: color 0.3s ease, opacity 0.3s ease;
+  padding: 8px 11px;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(12, 16, 24, 0.28), rgba(12, 16, 24, 0.14)),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px) saturate(108%);
+  -webkit-backdrop-filter: blur(8px) saturate(108%);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
   animation: btjFadeIn 1.6s ease 1s both;
   z-index: 2;
 }
 
 .btj-back:hover {
-  color: rgba(245, 240, 235, 0.75);
+  color: rgba(255, 250, 246, 1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
 }
 
 .btj-container.is-departing .btj-back {
