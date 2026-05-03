@@ -5,7 +5,8 @@ import OrbNeutral from '/images/orbs/orb-neutral.png'
 import OrbWarmDawn from '/images/orbs/orb-warm-dawn.png'
 import OrbMidnightGlow from '/images/orbs/orb-midnight-glow.png'
 import OrbAutumnEmber from '/images/orbs/orb-autumn-ember.png'
-import { useSeasonalBackground } from '@/hooks/useSeasonalBackground'
+import { useSeasonalBackground, useSeasonalBackgroundVariant } from '@/hooks/useSeasonalBackground'
+import type { SeasonalBackgroundVariant } from '@/utils/getSeasonalBackground'
 
 export const Route = createFileRoute('/')({
   component: LandingPage,
@@ -148,6 +149,36 @@ function getNextDayCycleBoundary(date = new Date()) {
   return boundary.getTime()
 }
 
+function getSurfaceVeilStyles(veilTone: SeasonalBackgroundVariant) {
+  switch (veilTone) {
+    case 'morning':
+      return {
+        hero: 'linear-gradient(180deg, rgba(249, 241, 234, 0.86) 0%, rgba(245, 238, 229, 0.74) 100%)',
+        section: 'rgba(248, 242, 235, 0.78)',
+        footer: 'rgba(243, 237, 230, 0.84)',
+      }
+    case 'evening':
+      return {
+        hero: 'linear-gradient(180deg, rgba(255, 232, 216, 0.30) 0%, rgba(104, 60, 36, 0.62) 34%, rgba(34, 24, 38, 0.56) 100%)',
+        section: 'rgba(248, 237, 229, 0.68)',
+        footer: 'rgba(243, 232, 221, 0.76)',
+      }
+    case 'night':
+      return {
+        hero: 'linear-gradient(180deg, rgba(12, 16, 30, 0.70) 0%, rgba(7, 10, 20, 0.56) 100%)',
+        section: 'rgba(244, 239, 235, 0.68)',
+        footer: 'rgba(235, 239, 246, 0.76)',
+      }
+    case 'day':
+    default:
+      return {
+        hero: 'linear-gradient(180deg, rgba(247, 245, 241, 0.84) 0%, rgba(241, 237, 232, 0.72) 100%)',
+        section: 'rgba(245, 243, 240, 0.76)',
+        footer: 'rgba(239, 236, 230, 0.82)',
+      }
+  }
+}
+
 // ── Orb Component ─────────────────────────────────────────────────────────────
 
 function SeasonalOrb({ src, palette }: { src: string; palette: SeasonalPalette }) {
@@ -253,20 +284,20 @@ const features: Feature[] = [
   {
     index: '01',
     title: 'Seasonal Awareness',
-    subtitle: 'Where your apps move with the quiet rhythm of the year.',
-    body: 'The interface breathes with the calendar. Palette, mood, and tone shift quietly with the turning of the year — without announcement, without ceremony.',
+    subtitle: 'The interface is a space that can breathe and move with you.',
+    body: ' It can be a place that feels alive, not just a static container for content. By reflecting the rhythms of the day and year, it can help you feel more connected to your work and the world around you.',
   },
   {
     index: '02',
     title: 'Quiet Performance',
-    subtitle: 'Tools that stay still so your thoughts can move.',
-    body: 'Motion exists to serve meaning, not to impress. Every transition earns its frame. Every pause is intentional.',
+    subtitle: 'Transitions unfold gently, never rushing, never demanding.',
+    body: 'The interface stays quiet enough for you to hear your own thoughts.',
   },
   {
     index: '03',
     title: 'Modular Clarity',
-    subtitle: 'Each piece simple on its own, yet luminous together.',
-    body: 'Each section holds its own weight. Composable, restrained, and sized to breathe — never crowded into obligation.',
+    subtitle: 'Each app is its own quiet room',
+    body: 'Shaped with clarity, connected in spirit, and free to grow without disturbing the calm of the whole.',
   },
   {
     index: '04',
@@ -379,6 +410,8 @@ function LandingPage() {
   const [orbArtwork, setOrbArtwork] = useState(() => getDayCycleArtwork())
   const [dayCycleLabel, setDayCycleLabel] = useState(() => getDayCycleLabel())
   const seasonalBackground = useSeasonalBackground()
+  const veilTone = useSeasonalBackgroundVariant()
+  const surfaceVeil = getSurfaceVeilStyles(veilTone)
 
   useEffect(() => {
     setOrbArtwork(getDayCycleArtwork())
@@ -429,7 +462,9 @@ function LandingPage() {
           alignItems: 'center',
           justifyContent: 'center',
           overflow: 'hidden',
-          background: '#f5f3f0',
+          background: surfaceVeil.hero,
+          backdropFilter: 'blur(8px) saturate(1.02)',
+          WebkitBackdropFilter: 'blur(8px) saturate(1.02)',
           padding: '40px 24px',
         }}
       >
@@ -636,7 +671,9 @@ function LandingPage() {
         style={{
           position: 'relative',
           padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px)',
-          background: '#f5f3f0',
+          background: surfaceVeil.section,
+          backdropFilter: 'blur(8px) saturate(1.02)',
+          WebkitBackdropFilter: 'blur(8px) saturate(1.02)',
           overflow: 'hidden',
         }}
       >
@@ -754,7 +791,9 @@ function LandingPage() {
         style={{
           position: 'relative',
           padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px)',
-          background: `linear-gradient(170deg, #f5f3f0 0%, color-mix(in srgb, ${palette.orbEdge} 12%, #f5f3f0) 100%)`,
+          background: `linear-gradient(170deg, ${surfaceVeil.section} 0%, color-mix(in srgb, ${palette.orbEdge} 12%, ${surfaceVeil.section}) 100%)`,
+          backdropFilter: 'blur(8px) saturate(1.02)',
+          WebkitBackdropFilter: 'blur(8px) saturate(1.02)',
           overflow: 'hidden',
           textAlign: 'center',
         }}
@@ -785,7 +824,7 @@ function LandingPage() {
               quotes: 'none',
             }}
           >
-            "Good design is like a clear sky — you notice the world, not the weather."
+            "Good design is like a clear sky, you notice the world, not the weather."
           </blockquote>
           <cite
             style={{
@@ -815,8 +854,10 @@ function LandingPage() {
           padding: 'clamp(100px, 12vw, 180px) clamp(24px, 6vw, 80px)',
           background: `
             radial-gradient(ellipse 80% 70% at 50% 50%, color-mix(in srgb, ${palette.orbEdge} 22%, transparent) 0%, transparent 70%),
-            linear-gradient(180deg, color-mix(in srgb, ${palette.orbEdge} 12%, #f5f3f0) 0%, #f5f3f0 60%, color-mix(in srgb, ${palette.accent} 8%, #f5f3f0) 100%)
+            linear-gradient(180deg, color-mix(in srgb, ${palette.orbEdge} 12%, ${surfaceVeil.footer}) 0%, ${surfaceVeil.footer} 60%, color-mix(in srgb, ${palette.accent} 8%, ${surfaceVeil.footer}) 100%)
           `,
+          backdropFilter: 'blur(8px) saturate(1.02)',
+          WebkitBackdropFilter: 'blur(8px) saturate(1.02)',
           overflow: 'hidden',
           textAlign: 'center',
         }}
@@ -870,12 +911,25 @@ function LandingPage() {
               lineHeight: 1.2,
               letterSpacing: '-0.015em',
               color: '#1a1714',
-              marginBottom: '44px',
+              marginBottom: '20px',
             }}
           >
             Ready to explore?
           </h2>
-
+          <p
+            style={{
+              fontFamily: "'Outfit', sans-serif",
+              fontSize: '0.94rem',
+              fontWeight: 300,
+              lineHeight: 1.75,
+              color: 'rgba(26,23,20,0.58)',
+              textAlign: 'center',
+              maxWidth: '400px',
+              marginBottom: '36px',
+            }}
+          >
+            Explore the rooms of Seasonal, simple spaces designed to feel clear, calm, and alive in their own quiet way.
+          </p>
           <Link to="/explore" className="cta-btn">
             <span>Step inside</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ opacity: 0.8 }}>
@@ -904,7 +958,9 @@ function LandingPage() {
       <footer
         style={{
           padding: '40px 24px',
-          background: '#f0ede8',
+          background: surfaceVeil.footer,
+          backdropFilter: 'blur(8px) saturate(1.02)',
+          WebkitBackdropFilter: 'blur(8px) saturate(1.02)',
           borderTop: '1px solid rgba(26,23,20,0.07)',
           textAlign: 'center',
         }}
@@ -941,6 +997,19 @@ function LandingPage() {
             Seasonal
           </span>
         </div>
+        <p
+          style={{
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: '0.72rem',
+            fontWeight: 300,
+            letterSpacing: '0.12em',
+            color: 'rgba(26,23,20,0.32)',
+            marginBottom: '10px',
+            fontStyle: 'italic',
+          }}
+        >
+          Designed for clarity, rhythm, and quiet delight.
+        </p>
         <p
           style={{
             fontFamily: "'Outfit', sans-serif",

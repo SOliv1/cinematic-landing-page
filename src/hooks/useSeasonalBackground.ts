@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import {
   getNextSeasonalBackgroundBoundary,
   getSeasonalBackground,
+  getSeasonalBackgroundVariant,
   normalizeSeasonalBackgroundVariant,
   SEASONAL_BACKGROUND_UPDATE_MS,
 } from '@/utils/getSeasonalBackground'
@@ -16,19 +17,23 @@ function readBackgroundPreview() {
   return normalizeSeasonalBackgroundVariant(value)
 }
 
-export function useSeasonalBackground(overrideVariant: string | null = null) {
-  const [background, setBackground] = useState(() =>
-    getSeasonalBackground(new Date(), normalizeSeasonalBackgroundVariant(overrideVariant) || readBackgroundPreview())
+function resolveBackgroundPreview(overrideVariant: string | null) {
+  return normalizeSeasonalBackgroundVariant(overrideVariant) || readBackgroundPreview()
+}
+
+export function useSeasonalBackgroundVariant(overrideVariant: string | null = null) {
+  const [variant, setVariant] = useState(() =>
+    resolveBackgroundPreview(overrideVariant) || getSeasonalBackgroundVariant()
   )
 
   useEffect(() => {
-    const previewVariant = normalizeSeasonalBackgroundVariant(overrideVariant) || readBackgroundPreview()
+    const previewVariant = resolveBackgroundPreview(overrideVariant)
 
-    const syncBackground = () => {
-      setBackground(getSeasonalBackground(new Date(), previewVariant))
+    const syncVariant = () => {
+      setVariant(previewVariant || getSeasonalBackgroundVariant())
     }
 
-    syncBackground()
+    syncVariant()
 
     if (previewVariant) {
       return undefined
@@ -36,8 +41,8 @@ export function useSeasonalBackground(overrideVariant: string | null = null) {
 
     let intervalId: number | null = null
     const timeoutId = window.setTimeout(() => {
-      syncBackground()
-      intervalId = window.setInterval(syncBackground, SEASONAL_BACKGROUND_UPDATE_MS)
+      syncVariant()
+      intervalId = window.setInterval(syncVariant, SEASONAL_BACKGROUND_UPDATE_MS)
     }, getNextSeasonalBackgroundBoundary())
 
     return () => {
@@ -48,5 +53,10 @@ export function useSeasonalBackground(overrideVariant: string | null = null) {
     }
   }, [overrideVariant])
 
-  return background
+  return variant
+}
+
+export function useSeasonalBackground(overrideVariant: string | null = null) {
+  const variant = useSeasonalBackgroundVariant(overrideVariant)
+  return getSeasonalBackground(new Date(), variant)
 }

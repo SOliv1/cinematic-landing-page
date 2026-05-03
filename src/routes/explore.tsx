@@ -88,6 +88,24 @@ function ImageCarousel() {
             />
             {/* Cinematic vignette */}
             <div className="carousel-vignette" />
+            {/* Redact email address baked into features6 screenshot */}
+            {i === 6 && (
+              <div
+                style={{
+                  position: 'absolute',
+                  left: '21%',
+                  top: '79%',
+                  width: '67%',
+                  height: '7%',
+                  borderRadius: '9999px',
+                  backdropFilter: 'blur(18px) saturate(1.1)',
+                  WebkitBackdropFilter: 'blur(18px) saturate(1.1)',
+                  background: 'rgba(220, 215, 208, 0.22)',
+                  border: '1px solid rgba(255,255,255,0.18)',
+                  boxShadow: '0 2px 20px rgba(0,0,0,0.10)',
+                }}
+              />
+            )}
           </div>
         )
       })}
