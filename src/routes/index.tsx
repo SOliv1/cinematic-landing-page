@@ -1061,7 +1061,7 @@ function LandingPage() {
           >
             Explore the rooms of Seasonal, simple spaces designed to feel clear, calm, and alive in their own quiet way.
           </p>
-          <Link to="/explore" className="cta-btn">
+          <Link to="/seasonal-house" className="cta-btn">
             <span>Step inside</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style={{ opacity: 0.8 }}>
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>

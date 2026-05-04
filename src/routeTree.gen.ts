@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SeasonalHouseRouteImport } from './routes/seasonal-house'
 import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as BeginTheJourneyRouteImport } from './routes/begin-the-journey'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProductsProductIdRouteImport } from './routes/products/$productId'
 
+const SeasonalHouseRoute = SeasonalHouseRouteImport.update({
+  id: '/seasonal-house',
+  path: '/seasonal-house',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ExploreRoute = ExploreRouteImport.update({
   id: '/explore',
   path: '/explore',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/begin-the-journey': typeof BeginTheJourneyRoute
   '/explore': typeof ExploreRoute
+  '/seasonal-house': typeof SeasonalHouseRoute
   '/products/$productId': typeof ProductsProductIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/begin-the-journey': typeof BeginTheJourneyRoute
   '/explore': typeof ExploreRoute
+  '/seasonal-house': typeof SeasonalHouseRoute
   '/products/$productId': typeof ProductsProductIdRoute
 }
 export interface FileRoutesById {
@@ -52,18 +60,30 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/begin-the-journey': typeof BeginTheJourneyRoute
   '/explore': typeof ExploreRoute
+  '/seasonal-house': typeof SeasonalHouseRoute
   '/products/$productId': typeof ProductsProductIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/begin-the-journey' | '/explore' | '/products/$productId'
+  fullPaths:
+    | '/'
+    | '/begin-the-journey'
+    | '/explore'
+    | '/seasonal-house'
+    | '/products/$productId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/begin-the-journey' | '/explore' | '/products/$productId'
+  to:
+    | '/'
+    | '/begin-the-journey'
+    | '/explore'
+    | '/seasonal-house'
+    | '/products/$productId'
   id:
     | '__root__'
     | '/'
     | '/begin-the-journey'
     | '/explore'
+    | '/seasonal-house'
     | '/products/$productId'
   fileRoutesById: FileRoutesById
 }
@@ -71,11 +91,19 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BeginTheJourneyRoute: typeof BeginTheJourneyRoute
   ExploreRoute: typeof ExploreRoute
+  SeasonalHouseRoute: typeof SeasonalHouseRoute
   ProductsProductIdRoute: typeof ProductsProductIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/seasonal-house': {
+      id: '/seasonal-house'
+      path: '/seasonal-house'
+      fullPath: '/seasonal-house'
+      preLoaderRoute: typeof SeasonalHouseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/explore': {
       id: '/explore'
       path: '/explore'
@@ -111,6 +139,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BeginTheJourneyRoute: BeginTheJourneyRoute,
   ExploreRoute: ExploreRoute,
+  SeasonalHouseRoute: SeasonalHouseRoute,
   ProductsProductIdRoute: ProductsProductIdRoute,
 }
 export const routeTree = rootRouteImport
