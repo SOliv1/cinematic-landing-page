@@ -1,7 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2f3fb7d7-237c-4eb0-9df9-20c5e2772b70/deploy-status)](https://app.netlify.com/projects/cinematic-landing-page/deploys)
-[![Reflections: Weather](https://soliv1.github.io/assets/reflections-weather.png)](https://soliv1.github.io/)
 
-
+[![Reflections: Weather](CinematicLanding.png)](https://soliv1.github.io/)
 
 
 # Seasonal
