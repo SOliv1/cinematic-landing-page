@@ -1,4 +1,8 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/2f3fb7d7-237c-4eb0-9df9-20c5e2772b70/deploy-status)](https://app.netlify.com/projects/cinematic-landing-page/deploys)
+
+[![Reflections: Weather](https://soliv1.github.io/CinematicLanding.png)](https://soliv1.github.io/)
+
+
 # Seasonal
 
 An interactive portfolio/marketing application with a cinematic landing page that adapts its visual mood to the current season. Built with TanStack Start and deployed on Netlify.
