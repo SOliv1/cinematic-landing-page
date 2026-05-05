@@ -1,9 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { StudioPageLayout } from '@/components/StudioPageLayout'
 
 export const Route = createFileRoute('/studio/positioning')({
-  component: RouteComponent,
+  component: () => (
+    <StudioPageLayout
+      title="Positioning"
+      subtitle="My strategic identity and value proposition."
+    />
+  ),
 })
-
-function RouteComponent() {
-  return <div>Hello "/studio/positioning"!</div>
-}

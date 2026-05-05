@@ -80,7 +80,7 @@ function BeginTheJourney() {
 
       {import.meta.env.DEV ? (
         <div className="btj-background-preview" aria-label="Background preview controls">
-          <span className="btj-background-preview-label">Background preview</span>
+          <span className="btj-background-preview-label">Preview</span>
           {BACKGROUND_VARIANTS.map((variant) => (
             <button
               key={variant.label}

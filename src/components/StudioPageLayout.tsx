@@ -136,8 +136,8 @@ export function StudioPageLayout({ title, subtitle, children }: StudioPageLayout
           }}
         />
 
-        {/* Placeholder body */}
-        <div className="fade-in" style={{ transitionDelay: '0.35s' }}>
+        {/* Body content */}
+        <div>
           {children ?? (
             <p className="body" style={{ color: INK_MUTED }}>
               Content coming soon.

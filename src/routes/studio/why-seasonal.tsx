@@ -1,9 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { StudioPageLayout } from '@/components/StudioPageLayout'
 
 export const Route = createFileRoute('/studio/why-seasonal')({
-  component: RouteComponent,
+  component: () => (
+    <StudioPageLayout
+      title="Why Seasonal"
+      subtitle="My competitive differentiators, why these interiors feel different."
+    />
+  ),
 })
-
-function RouteComponent() {
-  return <div>Hello "/studio/why-seasonal"!</div>
-}

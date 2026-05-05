@@ -1,4 +1,4 @@
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import { HeadContent, Outlet, Scripts, createRootRoute } from '@tanstack/react-router'
 import '../styles.css'
 
 export const Route = createRootRoute({
@@ -15,6 +15,7 @@ export const Route = createRootRoute({
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/favicons/favicon-32.png' },
     ],
   }),
+  component: () => <Outlet />,
   shellComponent: RootDocument,
 })
 

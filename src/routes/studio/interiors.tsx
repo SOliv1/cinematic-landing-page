@@ -1,9 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { StudioPageLayout } from '@/components/StudioPageLayout'
 
 export const Route = createFileRoute('/studio/interiors')({
-  component: RouteComponent,
+  component: () => (
+    <StudioPageLayout
+      title="Interiors"
+      subtitle="My services, framed as cinematic digital interiors."
+    />
+  ),
 })
-
-function RouteComponent() {
-  return <div>Hello "/studio/interiors"!</div>
-}

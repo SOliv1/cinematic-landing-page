@@ -11,7 +11,7 @@ export const images = [
     "reflections-features9.png",
     "reflections-features10.png",
     "reflections-features11.png",
-    "reflections-photo-gallery.png",
+    "WeatherSplash.png",
 ]
 
 

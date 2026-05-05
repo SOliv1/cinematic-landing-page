@@ -473,6 +473,96 @@ code {
 
 /* ── CTA Button ──────────────────────────────────────────── */
 
+/* Shared pill DNA */
+.seasonal-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.85rem 2.2rem;
+  border-radius: 999px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease,
+    color 0.35s ease;
+}
+
+/* BEGIN THE JOURNEY — orb-tinted luminous frosted pill */
+.begin-journey {
+  background: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    inset 0 0 22px rgba(255, 255, 255, 0.28),
+    0 8px 24px rgba(0, 0, 0, 0.18);
+  --orb-tint: rgba(180, 160, 255, 0.35);
+}
+
+.begin-journey:hover {
+  background: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 1);
+  box-shadow:
+    inset 0 0 28px rgba(255, 255, 255, 0.35),
+    0 10px 28px rgba(0, 0, 0, 0.22),
+    0 0 40px var(--orb-tint);
+  transform: scale(1.015);
+}
+
+/* STEP INSIDE — architectural frosted pill */
+.step-inside {
+  background: rgba(255, 253, 248, 0.32);
+  color: rgba(20, 20, 20, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow:
+    inset 0 0 22px rgba(255, 255, 255, 0.28),
+    0 6px 22px rgba(0, 0, 0, 0.22);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transform: translateZ(0);
+}
+
+.step-inside:hover {
+  background: rgba(255, 253, 248, 0.38);
+  color: rgba(0, 0, 0, 0.95);
+  box-shadow:
+    inset 0 0 28px rgba(255, 255, 255, 0.32),
+    0 8px 26px rgba(0, 0, 0, 0.26);
+  transform: scale(1.012);
+}
+
+.seasonal-pill svg {
+  position: relative;
+  z-index: 1;
+  opacity: 0.8;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.begin-journey:hover svg {
+  transform: translateX(3px);
+  opacity: 1;
+}
+
+.step-inside:hover svg {
+  transform: translateX(2px);
+}
+
+.seasonal-pill span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Legacy cta-btn kept for other pages */
 .cta-btn {
   position: relative;
   display: inline-flex;
@@ -833,181 +923,337 @@ code {
 
 .about-page {
   color: rgba(220, 228, 240, 0.88);
+  /* Remove StudioPageLayout's default padding influence on sections */
 }
 
-.about-header {
-  margin-bottom: 3.5rem;
+/* §1 — Opening Shot */
+.about-opening {
+  margin: -2rem -1.5rem 0;
+  padding: 6rem 1.5rem 5rem;
+  background: linear-gradient(160deg, rgba(16, 22, 40, 0.72) 0%, rgba(8, 14, 28, 0.60) 100%);
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about-opening-inner {
+  max-width: 44rem;
+  margin: 0 auto;
 }
 
 .about-name {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
   font-weight: 300;
   font-style: italic;
   letter-spacing: 0.03em;
-  color: rgba(245, 238, 226, 0.95);
-  margin: 0 0 0.6rem;
+  color: rgba(245, 238, 226, 0.96);
+  margin: 0 0 1.2rem;
   line-height: 1.1;
 }
 
 .about-roles {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 300;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(220, 228, 240, 0.55);
-  margin: 0 0 0.5rem;
+  color: rgba(190, 210, 240, 0.55);
+  margin: 0 0 0.6rem;
 }
 
 .about-location {
   font-family: 'Outfit', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 300;
-  letter-spacing: 0.12em;
-  color: rgba(220, 228, 240, 0.38);
+  letter-spacing: 0.14em;
+  color: rgba(190, 210, 240, 0.32);
+  margin: 0 0 2rem;
+}
+
+.about-opening-line {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(190, 210, 240, 0.45);
   margin: 0;
+  line-height: 1.7;
 }
 
-.about-section {
-  margin-bottom: 3.5rem;
+/* §2 — Studio Philosophy */
+.about-philosophy {
+  margin: 0 -1.5rem;
+  padding: 5rem 1.5rem;
+  background: linear-gradient(160deg, rgba(10, 12, 30, 0.80) 0%, rgba(14, 18, 38, 0.70) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-.about-section-title {
+.about-philosophy-inner {
+  max-width: 40rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.about-philosophy-line {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 2.4vw, 1.35rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(210, 222, 242, 0.80);
+  margin: 0;
+  text-align: center;
+}
+
+/* §3 — Professional Story (Three Rooms) */
+.about-story {
+  margin: 0 -1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.about-room {
+  padding: 4rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+@media (min-width: 768px) {
+  .about-story {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .about-room {
+    border-bottom: none;
+    border-right: 1px solid rgba(255, 255, 255, 0.04);
+    padding: 4.5rem 2.5rem;
+  }
+
+  .about-room:last-child {
+    border-right: none;
+  }
+}
+
+.about-room-origins {
+  background: linear-gradient(160deg, rgba(28, 22, 14, 0.65) 0%, rgba(18, 14, 8, 0.55) 100%);
+}
+
+.about-room-software {
+  background: linear-gradient(160deg, rgba(12, 18, 34, 0.70) 0%, rgba(8, 14, 28, 0.60) 100%);
+}
+
+.about-room-fusion {
+  background: linear-gradient(to bottom,
+      rgba(120, 90, 140, 0.18),
+      rgba(140, 80, 100, 0.18));
+}
+
+.about-room-label {
+  display: block;
   font-family: 'Outfit', sans-serif;
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 400;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(220, 228, 240, 0.4);
-  margin: 0 0 1.4rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(220, 200, 160, 0.45);
+  margin-bottom: 1.4rem;
 }
 
-.about-body {
+.about-room-text {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1rem, 2vw, 1.12rem);
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
   font-weight: 300;
   line-height: 1.8;
-  color: rgba(220, 228, 240, 0.78);
-  margin: 0 0 1.2rem;
-}
-
-.about-competencies,
-.about-education {
-  list-style: none;
-  padding: 0;
+  color: rgba(210, 220, 238, 0.72);
   margin: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 0.6rem 2rem;
 }
 
-.about-competencies li,
-.about-education li {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.78rem;
-  font-weight: 300;
-  letter-spacing: 0.04em;
-  color: rgba(220, 228, 240, 0.65);
-  padding-left: 1rem;
+/* §4 — Competencies */
+.about-competencies-section {
   position: relative;
+  margin: 0 -1.5rem;
+  padding: 5rem 1.5rem;
+  background: linear-gradient(to bottom right,
+      rgba(120, 150, 255, 0.22),
+      rgba(160, 120, 255, 0.20));
+  border-top: 1px solid rgba(160, 140, 255, 0.10);
+  border-bottom: 1px solid rgba(120, 100, 255, 0.10);
+  color: rgba(255, 255, 255, 0.92);
 }
 
-.about-competencies li::before,
-.about-education li::before {
-  content: '·';
+.about-competencies-section::before {
+  content: "";
   position: absolute;
+  top: 0;
   left: 0;
-  color: rgba(240, 225, 200, 0.3);
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom,
+      rgba(18, 28, 48, 0.35),
+      rgba(18, 28, 48, 0));
+  pointer-events: none;
+  z-index: 0;
 }
 
-.about-role {
-  margin-bottom: 2.4rem;
-  padding-bottom: 2.4rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+.about-competencies-section>* {
+  position: relative;
+  z-index: 1;
 }
 
-.about-role:last-child {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
+.about-section-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(220, 200, 160, 0.4);
+  margin: 0 0 2.5rem;
+  text-align: center;
 }
 
-.about-role-header {
+.about-pills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.about-pill {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.4rem 1rem;
-  margin-bottom: 0.9rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.4rem 1.6rem;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(200, 190, 255, 0.20);
+  border-radius: 12px;
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  backdrop-filter: blur(14px) saturate(160%);
+  box-shadow:
+    inset 0 0 12px rgba(255, 255, 255, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 2px 20px rgba(140, 120, 255, 0.10);
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.about-role-org {
+.about-pill:hover {
+  background: rgba(150, 180, 255, 0.32);
+  border-color: rgba(180, 160, 255, 0.40);
+  box-shadow:
+    inset 0 0 18px rgba(255, 255, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 6px 32px rgba(130, 110, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+.about-pill-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1rem;
+  font-weight: 500;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+}
+
+.about-pill-desc {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.73rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.02em;
+}
+
+.about-pill-quote {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.05rem;
   font-weight: 400;
   font-style: italic;
-  color: rgba(240, 225, 200, 0.88);
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 0.04em;
+  padding: 1.6rem 2.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(200, 190, 255, 0.12);
 }
 
-.about-role-title {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.72rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  color: rgba(220, 228, 240, 0.55);
+.about-pill-quote:hover {
+  background: rgba(150, 180, 255, 0.18);
 }
 
-.about-role-dates {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.62rem;
-  font-weight: 300;
-  letter-spacing: 0.14em;
-  color: rgba(220, 228, 240, 0.32);
-  margin-left: auto;
+/* §5 — Collaborations */
+.about-collaborations {
+  margin: 0 -1.5rem;
+  padding: 5rem 1.5rem;
+  background: linear-gradient(160deg, rgba(8, 10, 24, 0.82) 0%, rgba(12, 14, 30, 0.72) 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-.about-role-bullets {
+.about-collaborations .about-section-label {
+  margin-bottom: 2.5rem;
+}
+
+.about-collab-panel {
+  max-width: 44rem;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.about-collab-grid {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem 2rem;
 }
 
-.about-role-bullets li {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 300;
-  line-height: 1.65;
-  color: rgba(220, 228, 240, 0.6);
-  padding-left: 1rem;
+.about-collab-grid li {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(220, 215, 200, 0.65);
+  letter-spacing: 0.02em;
+  padding-left: 0.8rem;
   position: relative;
 }
 
-.about-role-bullets li::before {
-  content: '·';
+.about-collab-grid li::before {
+  content: '';
   position: absolute;
   left: 0;
-  color: rgba(240, 225, 200, 0.28);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(240, 220, 170, 0.30);
 }
 
-.about-portfolio-link {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.82rem;
+/* §6 — Closing Note */
+.about-closing {
+  padding: 5rem 0 2rem;
+  text-align: center;
+}
+
+.about-closing-line {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   font-weight: 300;
-  letter-spacing: 0.08em;
-  color: rgba(240, 225, 200, 0.65);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(240, 225, 200, 0.2);
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-
-.about-portfolio-link:hover {
-  color: rgba(245, 238, 226, 0.92);
-  border-color: rgba(240, 225, 200, 0.5);
+  font-style: italic;
+  color: rgba(210, 220, 238, 0.50);
+  margin: 0;
+  line-height: 1.7;
+  max-width: 36rem;
+  margin: 0 auto;
 }
 
 /* ── Glass Panel ─────────────────────────────────────────── */
@@ -1050,6 +1296,105 @@ code {
     inset 0 1px 0 rgba(255, 255, 255, 0.85);
 }
 
+.living-quote-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.25px;
+  text-align: center;
+  color: rgba(26, 23, 20, 0.82);
+  padding: 2.2rem;
+  background: rgba(255, 255, 255, 0.16);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  box-shadow:
+    inset 0 0 20px rgba(255, 255, 255, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Feature Grid Neutral Orb ───────────────────────────── */
+
+.feature-grid-neutral-orb {
+  position: absolute;
+  left: 50%;
+  top: 62%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 38%,
+      rgba(255, 255, 255, 0.82),
+      rgba(230, 225, 215, 0.55) 55%,
+      rgba(200, 195, 185, 0.25));
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  backdrop-filter: blur(12px) saturate(130%);
+  border: 1px solid rgba(255, 255, 255, 0.70);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.90),
+    inset 0 0 18px rgba(255, 255, 255, 0.35),
+    0 6px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem;
+  text-align: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.68rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: rgba(60, 50, 40, 0.75);
+  pointer-events: none;
+}
+
+/* ── Luminous Quote Orb ─────────────────────────────────── */
+
+.luminous-orb-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 1.5rem;
+  background: transparent;
+}
+
+.luminous-quote-orb {
+  width: 260px;
+  height: 260px;
+  margin: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%,
+      rgba(180, 160, 255, 0.35),
+      rgba(120, 150, 255, 0.18),
+      rgba(40, 50, 80, 0.10));
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+  box-shadow:
+    inset 0 0 22px rgba(255, 255, 255, 0.25),
+    0 8px 22px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+}
+
 /* ── Divider ─────────────────────────────────────────────── */
 
 .prose-divider {
@@ -1072,6 +1417,136 @@ code {
   outline: 2px solid rgba(26, 23, 20, 0.22);
   outline-offset: 4px;
   border-radius: 50%;
+}
+
+/* ── Footer Orb ──────────────────────────────────────────── */
+
+.footer-orb {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.22);
+  box-shadow:
+    inset 0 0 14px rgba(255, 255, 255, 0.28),
+    0 4px 14px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+  --orb-tint: rgba(180, 160, 255, 0.45);
+  flex-shrink: 0;
+}
+
+.footer-orb:hover {
+  background: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    inset 0 0 22px rgba(255, 255, 255, 0.35),
+    0 0 28px var(--orb-tint),
+    0 6px 18px rgba(0, 0, 0, 0.22);
+  transform: scale(1.08);
+}
+
+/* ── Social Icons (frosted mini-planets) ─────────────────── */
+
+.social-icon {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow:
+    inset 0 0 12px rgba(255, 255, 255, 0.22),
+    0 4px 12px rgba(0, 0, 0, 0.16);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition:
+    background 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease,
+    color 0.35s ease;
+  --icon-tint: rgba(180, 160, 255, 0.45);
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.26);
+  color: rgba(255, 255, 255, 1);
+  box-shadow:
+    inset 0 0 18px rgba(255, 255, 255, 0.28),
+    0 0 26px var(--icon-tint),
+    0 6px 18px rgba(0, 0, 0, 0.22);
+  transform: scale(1.08);
+}
+
+/* Cinematic tooltip — appears below on hover */
+.social-icon::after {
+  content: attr(aria-label);
+  position: absolute;
+  top: calc(100% + 7px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.56rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(14, 12, 10, 0.68);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 0.18rem 0.52rem;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.social-icon:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.social-icon:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 3px;
+}
+
+/* ── Footer Socials Row ──────────────────────────────────── */
+
+.footer-socials {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 1.4rem 0 0.8rem;
+  padding-bottom: 1.8rem;
+  /* space for tooltips */
+  overflow: visible;
+}
+
+@media (max-width: 480px) {
+  .social-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer-orb {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 /* ── Carousel Keyframes ──────────────────────────────────── */

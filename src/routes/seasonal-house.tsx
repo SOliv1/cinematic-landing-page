@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { useSeasonalBackground, useSeasonalBackgroundVariant } from '@/hooks/useSeasonalBackground'
 import type { SeasonalBackgroundVariant } from '@/utils/getSeasonalBackground'
+import { StudioDropdown } from '@/components/StudioDropdown'
 
 export const Route = createFileRoute('/seasonal-house')({
   component: SeasonalHousePage,
@@ -249,8 +250,8 @@ function SeasonalHousePage() {
         }}
       >
 
-        {/* ── Return ───────────────────────────────────────────────── */}
-        <nav className="fade-in mb-32">
+        {/* ── Header bar ────────────────────────────────────────────────── */}
+        <nav className="fade-in mb-32 flex items-center justify-between">
           <Link
             to="/"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-md border transition-all duration-300 hover:bg-white/10"
@@ -258,16 +259,17 @@ function SeasonalHousePage() {
               background: 'rgba(255,255,255,0.06)',
               borderColor: 'rgba(255,255,255,0.18)',
               color: veil.inkMuted,
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: '0.85rem',
-              fontWeight: 300,
-              letterSpacing: '0.03em',
+              fontFamily: "'Cormorant Garamond', serif",
+              fontSize: '1rem',
+              fontWeight: 400,
+              letterSpacing: '0.04em',
               textDecoration: 'none',
             }}
           >
-            <span style={{ fontSize: '0.9rem', lineHeight: 1 }}>←</span>
-            Return
+            <span style={{ fontSize: '0.9rem', lineHeight: 1, opacity: 0.6 }}>←</span>
+            The Seasonal House
           </Link>
+          <StudioDropdown />
         </nav>
 
         {/* ── Hero ─────────────────────────────────────────────────── */}

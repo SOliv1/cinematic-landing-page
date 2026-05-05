@@ -1,9 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { StudioPageLayout } from '@/components/StudioPageLayout'
 
 export const Route = createFileRoute('/studio/depth-levels')({
-  component: RouteComponent,
+  component: () => (
+    <StudioPageLayout
+      title="Depth Levels"
+      subtitle="My pricing tiers, framed as layers of involvement."
+    />
+  ),
 })
-
-function RouteComponent() {
-  return <div>Hello "/studio/depth-levels"!</div>
-}
