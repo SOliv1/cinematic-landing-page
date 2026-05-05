@@ -116,6 +116,25 @@
     transform: translateY(0);
   }
 
+  /* ── Studio dropdown items ─────────────────────────────── */
+  .studio-item {
+    display: block;
+    padding: 14px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: background 0.25s ease;
+  }
+
+  .studio-item+.studio-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .studio-item:hover {
+    background: rgba(20, 22, 26, 0.36);
+  }
+
   /* ── Shimmer sweep ──────────────────────────────────────── */
   .shimmer {
     position: relative;
@@ -303,6 +322,44 @@ code {
   }
 }
 
+/* ── Reflections identity animations ─────────────────────── */
+
+@keyframes reflectionsReveal {
+  from {
+    opacity: 0;
+    transform: translateY(5px) scale(0.96);
+    filter: blur(3px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes reflectionsDismiss {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(4px) scale(0.97);
+    filter: blur(2px);
+  }
+}
+
+.reflections-logo-enter {
+  animation: reflectionsReveal 480ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.reflections-logo-exit {
+  animation: reflectionsDismiss 360ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
 /* ── Utility Classes ─────────────────────────────────────── */
 
 .font-display {
@@ -320,72 +377,75 @@ code {
 
 .btj-background-preview {
   position: absolute;
-  left: 50%;
-  bottom: 18px;
-  transform: translateX(-50%);
-  z-index: 40;
-  display: flex;
-  flex-wrap: wrap;
+  top: 24px;
+  right: 28px;
+  display: inline-flex;
+  flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  width: min(88vw, 620px);
-  padding: 8px 10px;
+  gap: 5px;
+  white-space: nowrap;
+  padding: 8px 11px;
   border-radius: 999px;
   background:
-    linear-gradient(180deg, rgba(12, 16, 28, 0.62), rgba(12, 16, 28, 0.38)),
-    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.06), transparent 60%);
+    linear-gradient(180deg, rgba(12, 16, 24, 0.28), rgba(12, 16, 24, 0.14)),
+    rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow:
-    0 10px 26px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px) saturate(112%);
-  -webkit-backdrop-filter: blur(10px) saturate(112%);
-  pointer-events: auto;
+    0 6px 16px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(8px) saturate(108%);
+  backdrop-filter: blur(8px) saturate(108%);
+  animation: btjFadeIn 1.6s ease 1s both;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+
+.btj-container.is-departing .btj-background-preview {
+  opacity: 0.18;
 }
 
 .btj-background-preview-label {
-  margin-right: 6px;
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.63rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(255, 248, 241, 0.86);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+  color: rgba(255, 250, 246, 0.94);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+  margin-right: 2px;
+  padding-right: 6px;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .btj-background-preview button {
-  margin-right: 0;
-  padding: 7px 10px;
+  flex-shrink: 0;
+  padding: 4px 9px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 250, 245, 0.96);
-  font-size: 0.76rem;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
-  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: transparent;
+  color: rgba(255, 250, 246, 0.8);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.63rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btj-background-preview button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 250, 246, 1);
 }
 
 .btj-background-preview button.is-active {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.28);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
-}
-
-@media (max-width: 640px) {
-  .btj-background-preview {
-    bottom: 16px;
-    width: min(94vw, 520px);
-    padding: 8px 9px;
-    gap: 5px;
-  }
-
-  .btj-background-preview-label {
-    width: 100%;
-    margin-right: 0;
-    text-align: center;
-  }
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.26);
+  color: rgba(255, 250, 246, 1);
 }
 
 .app-header-logo {
@@ -460,6 +520,494 @@ code {
 .cta-btn span {
   position: relative;
   z-index: 1;
+}
+
+/* ── Reflections Splash Screen ───────────────────────────── */
+
+/* Veil — full-screen curtain */
+.rsplash-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  cursor: pointer;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% 42%,
+      rgba(30, 24, 18, 0.97) 0%,
+      rgba(14, 12, 10, 0.99) 100%);
+  transition: opacity 400ms cubic-bezier(0.4, 0, 1, 1);
+}
+
+.rsplash-veil--enter {
+  animation: rsplashVeilIn 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.rsplash-veil--exit {
+  animation: rsplashVeilOut 400ms cubic-bezier(0.4, 0, 1, 1) both;
+  pointer-events: none;
+}
+
+@keyframes rsplashVeilIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rsplashVeilOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    /* sky fully clears — the world below is revealed */
+  }
+}
+
+/* Grain texture over the veil */
+.rsplash-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  background-size: 128px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Bloom — radial light born from the veil centre */
+.rsplash-bloom {
+  position: absolute;
+  width: 540px;
+  height: 540px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+      rgba(255, 245, 228, 0.18) 0%,
+      rgba(240, 225, 200, 0.09) 38%,
+      transparent 68%);
+  filter: blur(40px);
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.rsplash-bloom--enter {
+  animation: rsplashBloomIn 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.rsplash-bloom--hold {
+  animation: rsplashBloomPulse 3s ease-in-out infinite;
+}
+
+.rsplash-bloom--exit {
+  animation: rsplashBloomOut 480ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@keyframes rsplashBloomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rsplashBloomPulse {
+
+  0%,
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes rsplashBloomOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    /* bloom contracts into the orb — light pulling back to its source */
+    transform: scale(0.14) translateY(32px);
+    filter: blur(6px);
+  }
+}
+
+/* Logo mark */
+.rsplash-mark {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 28px;
+  will-change: opacity, transform, filter;
+}
+
+.rsplash-mark--enter {
+  animation: rsplashMarkIn 480ms cubic-bezier(0.16, 1, 0.3, 1) 60ms both;
+}
+
+.rsplash-mark--exit {
+  animation: rsplashMarkOut 420ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@keyframes rsplashMarkIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+    filter: blur(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes rsplashMarkOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+
+  60% {
+    opacity: 0.6;
+    transform: translateY(18px) scale(0.5);
+    filter: blur(2px);
+  }
+
+  to {
+    opacity: 0;
+    /* constellation collapses into the orb — a star becoming a sun */
+    transform: translateY(48px) scale(0.08);
+    filter: blur(8px);
+  }
+}
+
+.rsplash-logo {
+  display: block;
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 0 28px rgba(255, 248, 235, 0.55)) drop-shadow(0 0 10px rgba(255, 235, 195, 0.38)) brightness(1.06);
+  -webkit-user-drag: none;
+}
+
+/* Wordmark — title + subtitle */
+.rsplash-wordmark {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  will-change: opacity, transform;
+}
+
+.rsplash-wordmark--enter {
+  animation: rsplashWordIn 480ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both;
+}
+
+.rsplash-wordmark--exit {
+  animation: rsplashWordOut 320ms cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+@keyframes rsplashWordIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rsplashWordOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    /* text dissolves upward — constellations scatter before dawn */
+    transform: translateY(-6px);
+    filter: blur(4px);
+  }
+}
+
+.rsplash-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  color: rgba(245, 238, 226, 0.92);
+  text-shadow:
+    0 0 40px rgba(255, 248, 230, 0.25),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  line-height: 1;
+}
+
+.rsplash-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(240, 225, 200, 0.5);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Skip hint */
+.rsplash-skip {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240, 225, 200, 0.3);
+  animation: rsplashWordIn 600ms cubic-bezier(0.16, 1, 0.3, 1) 700ms both;
+  pointer-events: none;
+}
+
+/* ── Cinematic Mode toggle ────────────────────────────────── */
+
+.cinematic-mode-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(58, 42, 26, 0.48) 0%, rgba(14, 12, 10, 0.56) 100%);
+  border: 1px solid rgba(240, 225, 202, 0.12);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  backdrop-filter: blur(14px) saturate(130%);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.14);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(240, 225, 200, 0.6);
+  cursor: pointer;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+  animation: fadeIn 2s ease 2.4s both;
+}
+
+.cinematic-mode-btn:hover {
+  color: rgba(245, 238, 226, 0.9);
+  border-color: rgba(240, 225, 202, 0.22);
+  background: linear-gradient(135deg, rgba(58, 42, 26, 0.62) 0%, rgba(20, 18, 14, 0.72) 100%);
+}
+
+/* ── About Page ──────────────────────────────────────────── */
+
+.about-page {
+  color: rgba(220, 228, 240, 0.88);
+}
+
+.about-header {
+  margin-bottom: 3.5rem;
+}
+
+.about-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  color: rgba(245, 238, 226, 0.95);
+  margin: 0 0 0.6rem;
+  line-height: 1.1;
+}
+
+.about-roles {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(220, 228, 240, 0.55);
+  margin: 0 0 0.5rem;
+}
+
+.about-location {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: rgba(220, 228, 240, 0.38);
+  margin: 0;
+}
+
+.about-section {
+  margin-bottom: 3.5rem;
+}
+
+.about-section-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(220, 228, 240, 0.4);
+  margin: 0 0 1.4rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.about-body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1rem, 2vw, 1.12rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(220, 228, 240, 0.78);
+  margin: 0 0 1.2rem;
+}
+
+.about-competencies,
+.about-education {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 0.6rem 2rem;
+}
+
+.about-competencies li,
+.about-education li {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: rgba(220, 228, 240, 0.65);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.about-competencies li::before,
+.about-education li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: rgba(240, 225, 200, 0.3);
+}
+
+.about-role {
+  margin-bottom: 2.4rem;
+  padding-bottom: 2.4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.about-role:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.about-role-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.about-role-org {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(240, 225, 200, 0.88);
+}
+
+.about-role-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: rgba(220, 228, 240, 0.55);
+}
+
+.about-role-dates {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 300;
+  letter-spacing: 0.14em;
+  color: rgba(220, 228, 240, 0.32);
+  margin-left: auto;
+}
+
+.about-role-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.about-role-bullets li {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(220, 228, 240, 0.6);
+  padding-left: 1rem;
+  position: relative;
+}
+
+.about-role-bullets li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: rgba(240, 225, 200, 0.28);
+}
+
+.about-portfolio-link {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: rgba(240, 225, 200, 0.65);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(240, 225, 200, 0.2);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.about-portfolio-link:hover {
+  color: rgba(245, 238, 226, 0.92);
+  border-color: rgba(240, 225, 200, 0.5);
 }
 
 /* ── Glass Panel ─────────────────────────────────────────── */

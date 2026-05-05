@@ -13,6 +13,13 @@ import { Route as SeasonalHouseRouteImport } from './routes/seasonal-house'
 import { Route as ExploreRouteImport } from './routes/explore'
 import { Route as BeginTheJourneyRouteImport } from './routes/begin-the-journey'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as StudioWorkWithMeRouteImport } from './routes/studio/work-with-me'
+import { Route as StudioWhySeasonalRouteImport } from './routes/studio/why-seasonal'
+import { Route as StudioPositioningRouteImport } from './routes/studio/positioning'
+import { Route as StudioManifestoRouteImport } from './routes/studio/manifesto'
+import { Route as StudioInteriorsRouteImport } from './routes/studio/interiors'
+import { Route as StudioDepthLevelsRouteImport } from './routes/studio/depth-levels'
+import { Route as StudioAboutRouteImport } from './routes/studio/about'
 import { Route as ProductsProductIdRouteImport } from './routes/products/$productId'
 
 const SeasonalHouseRoute = SeasonalHouseRouteImport.update({
@@ -35,6 +42,41 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioWorkWithMeRoute = StudioWorkWithMeRouteImport.update({
+  id: '/studio/work-with-me',
+  path: '/studio/work-with-me',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioWhySeasonalRoute = StudioWhySeasonalRouteImport.update({
+  id: '/studio/why-seasonal',
+  path: '/studio/why-seasonal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioPositioningRoute = StudioPositioningRouteImport.update({
+  id: '/studio/positioning',
+  path: '/studio/positioning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioManifestoRoute = StudioManifestoRouteImport.update({
+  id: '/studio/manifesto',
+  path: '/studio/manifesto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioInteriorsRoute = StudioInteriorsRouteImport.update({
+  id: '/studio/interiors',
+  path: '/studio/interiors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioDepthLevelsRoute = StudioDepthLevelsRouteImport.update({
+  id: '/studio/depth-levels',
+  path: '/studio/depth-levels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioAboutRoute = StudioAboutRouteImport.update({
+  id: '/studio/about',
+  path: '/studio/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProductsProductIdRoute = ProductsProductIdRouteImport.update({
   id: '/products/$productId',
   path: '/products/$productId',
@@ -47,6 +89,13 @@ export interface FileRoutesByFullPath {
   '/explore': typeof ExploreRoute
   '/seasonal-house': typeof SeasonalHouseRoute
   '/products/$productId': typeof ProductsProductIdRoute
+  '/studio/about': typeof StudioAboutRoute
+  '/studio/depth-levels': typeof StudioDepthLevelsRoute
+  '/studio/interiors': typeof StudioInteriorsRoute
+  '/studio/manifesto': typeof StudioManifestoRoute
+  '/studio/positioning': typeof StudioPositioningRoute
+  '/studio/why-seasonal': typeof StudioWhySeasonalRoute
+  '/studio/work-with-me': typeof StudioWorkWithMeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +103,13 @@ export interface FileRoutesByTo {
   '/explore': typeof ExploreRoute
   '/seasonal-house': typeof SeasonalHouseRoute
   '/products/$productId': typeof ProductsProductIdRoute
+  '/studio/about': typeof StudioAboutRoute
+  '/studio/depth-levels': typeof StudioDepthLevelsRoute
+  '/studio/interiors': typeof StudioInteriorsRoute
+  '/studio/manifesto': typeof StudioManifestoRoute
+  '/studio/positioning': typeof StudioPositioningRoute
+  '/studio/why-seasonal': typeof StudioWhySeasonalRoute
+  '/studio/work-with-me': typeof StudioWorkWithMeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,6 +118,13 @@ export interface FileRoutesById {
   '/explore': typeof ExploreRoute
   '/seasonal-house': typeof SeasonalHouseRoute
   '/products/$productId': typeof ProductsProductIdRoute
+  '/studio/about': typeof StudioAboutRoute
+  '/studio/depth-levels': typeof StudioDepthLevelsRoute
+  '/studio/interiors': typeof StudioInteriorsRoute
+  '/studio/manifesto': typeof StudioManifestoRoute
+  '/studio/positioning': typeof StudioPositioningRoute
+  '/studio/why-seasonal': typeof StudioWhySeasonalRoute
+  '/studio/work-with-me': typeof StudioWorkWithMeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -71,6 +134,13 @@ export interface FileRouteTypes {
     | '/explore'
     | '/seasonal-house'
     | '/products/$productId'
+    | '/studio/about'
+    | '/studio/depth-levels'
+    | '/studio/interiors'
+    | '/studio/manifesto'
+    | '/studio/positioning'
+    | '/studio/why-seasonal'
+    | '/studio/work-with-me'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -78,6 +148,13 @@ export interface FileRouteTypes {
     | '/explore'
     | '/seasonal-house'
     | '/products/$productId'
+    | '/studio/about'
+    | '/studio/depth-levels'
+    | '/studio/interiors'
+    | '/studio/manifesto'
+    | '/studio/positioning'
+    | '/studio/why-seasonal'
+    | '/studio/work-with-me'
   id:
     | '__root__'
     | '/'
@@ -85,6 +162,13 @@ export interface FileRouteTypes {
     | '/explore'
     | '/seasonal-house'
     | '/products/$productId'
+    | '/studio/about'
+    | '/studio/depth-levels'
+    | '/studio/interiors'
+    | '/studio/manifesto'
+    | '/studio/positioning'
+    | '/studio/why-seasonal'
+    | '/studio/work-with-me'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,6 +177,13 @@ export interface RootRouteChildren {
   ExploreRoute: typeof ExploreRoute
   SeasonalHouseRoute: typeof SeasonalHouseRoute
   ProductsProductIdRoute: typeof ProductsProductIdRoute
+  StudioAboutRoute: typeof StudioAboutRoute
+  StudioDepthLevelsRoute: typeof StudioDepthLevelsRoute
+  StudioInteriorsRoute: typeof StudioInteriorsRoute
+  StudioManifestoRoute: typeof StudioManifestoRoute
+  StudioPositioningRoute: typeof StudioPositioningRoute
+  StudioWhySeasonalRoute: typeof StudioWhySeasonalRoute
+  StudioWorkWithMeRoute: typeof StudioWorkWithMeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -125,6 +216,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/studio/work-with-me': {
+      id: '/studio/work-with-me'
+      path: '/studio/work-with-me'
+      fullPath: '/studio/work-with-me'
+      preLoaderRoute: typeof StudioWorkWithMeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/why-seasonal': {
+      id: '/studio/why-seasonal'
+      path: '/studio/why-seasonal'
+      fullPath: '/studio/why-seasonal'
+      preLoaderRoute: typeof StudioWhySeasonalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/positioning': {
+      id: '/studio/positioning'
+      path: '/studio/positioning'
+      fullPath: '/studio/positioning'
+      preLoaderRoute: typeof StudioPositioningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/manifesto': {
+      id: '/studio/manifesto'
+      path: '/studio/manifesto'
+      fullPath: '/studio/manifesto'
+      preLoaderRoute: typeof StudioManifestoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/interiors': {
+      id: '/studio/interiors'
+      path: '/studio/interiors'
+      fullPath: '/studio/interiors'
+      preLoaderRoute: typeof StudioInteriorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/depth-levels': {
+      id: '/studio/depth-levels'
+      path: '/studio/depth-levels'
+      fullPath: '/studio/depth-levels'
+      preLoaderRoute: typeof StudioDepthLevelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/about': {
+      id: '/studio/about'
+      path: '/studio/about'
+      fullPath: '/studio/about'
+      preLoaderRoute: typeof StudioAboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/products/$productId': {
       id: '/products/$productId'
       path: '/products/$productId'
@@ -141,6 +281,13 @@ const rootRouteChildren: RootRouteChildren = {
   ExploreRoute: ExploreRoute,
   SeasonalHouseRoute: SeasonalHouseRoute,
   ProductsProductIdRoute: ProductsProductIdRoute,
+  StudioAboutRoute: StudioAboutRoute,
+  StudioDepthLevelsRoute: StudioDepthLevelsRoute,
+  StudioInteriorsRoute: StudioInteriorsRoute,
+  StudioManifestoRoute: StudioManifestoRoute,
+  StudioPositioningRoute: StudioPositioningRoute,
+  StudioWhySeasonalRoute: StudioWhySeasonalRoute,
+  StudioWorkWithMeRoute: StudioWorkWithMeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
