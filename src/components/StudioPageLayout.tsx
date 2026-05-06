@@ -88,6 +88,8 @@ export function StudioPageLayout({ title, subtitle, children }: StudioPageLayout
             alignItems: 'center',
             justifyContent: 'space-between',
             marginBottom: '5rem',
+            position: 'relative',
+            zIndex: 9999,
           }}
         >
           <Link

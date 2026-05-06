@@ -135,6 +135,157 @@
     background: rgba(20, 22, 26, 0.36);
   }
 
+  @media (max-width: 768px) {
+    .studio-menu {
+      border-radius: 0 0 24px 24px;
+    }
+  }
+
+  .studio-menu a,
+  .studio-menu span {
+    color: #1a1a1f;
+    /* soft charcoal */
+  }
+
+  @media (max-width: 768px) {
+    .studio-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: rgba(15, 12, 28, 0.65);
+      /* soft indigo veil */
+      backdrop-filter: blur(12px);
+    }
+  }
+
+  .studio-footer {
+    margin-top: 120px;
+    margin-bottom: 60px;
+    text-align: center;
+    opacity: 0.92;
+    color: rgba(255, 235, 225, 0.85);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    position: relative;
+  }
+
+  .studio-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 140%;
+    height: 160%;
+    background: radial-gradient(circle at center,
+        rgba(255, 204, 178, 0.45),
+        rgba(222, 189, 255, 0.28),
+        rgba(20, 22, 45, 0.75));
+    filter: blur(80px);
+    z-index: -1;
+  }
+
+
+  @media (min-width: 481px) and (max-width: 900px) {
+    .positioning-wrapper {
+      margin-bottom: 72px;
+    }
+
+    .studio-footer {
+      margin-top: 80px;
+    }
+  }
+
+  .positioning-container {
+    padding-bottom: 48px;
+    /* desktop */
+  }
+
+  @media (max-width: 900px) {
+    .positioning-container {
+      padding-bottom: 40px;
+      /* tablet */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .positioning-container {
+      padding-bottom: 32px;
+      /* mobile SE */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .positioning-wrapper {
+      margin-bottom: 60px;
+      /* tighter for SE screens */
+    }
+
+    .studio-footer {
+      margin-top: 80px;
+      /* gentle, not heavy */
+    }
+  }
+
+  .footer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .footer-orb {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+    display: inline-block;
+    transition: all 0.28s ease;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+
+  /* Hover behaviour */
+  .footer-orb:hover {
+    transform: scale(1.06);
+    background: rgba(255, 255, 255, 0.28);
+    box-shadow: 0 0 12px rgba(255, 204, 178, 0.55);
+  }
+
+  /* Brand tints on hover */
+  .footer-orb.fb:hover {
+    background: #1877F2;
+  }
+
+  .footer-orb.ig:hover {
+    background: #E1306C;
+  }
+
+  .footer-orb.li:hover {
+    background: #0A66C2;
+  }
+
+  .footer-orb.pi:hover {
+    background: #BD081C;
+  }
+
+  .footer-orb.x:hover {
+    background: #000000;
+  }
+
+  .footer-orb.tb:hover {
+    background: #36465D;
+  }
+
+  .footer-line {
+    margin: 6px 0;
+    letter-spacing: 0.3px;
+    color: rgba(255, 235, 225, 0.85);
+  }
+
+
+
   /* ── Shimmer sweep ──────────────────────────────────────── */
   .shimmer {
     position: relative;
@@ -182,13 +333,12 @@
 }
 
 body {
-  margin: 0;
-  font-family: 'Outfit', system-ui, sans-serif;
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  background: radial-gradient(circle at 40% 0%,
+      rgba(245, 214, 170, 0.10) 0%,
+      rgba(111, 111, 163, 0.20) 35%,
+      rgba(29, 26, 51, 1) 100%);
 }
+
 
 code {
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
@@ -1637,258 +1787,674 @@ code {
   }
 }
 
-/* ── Carousel Layout ─────────────────────────────────────── */
+/* ── Depth Levels page ───────────────────────────────────── */
 
-.carousel-root {
-  position: fixed;
-  inset: 0;
-  background: #0a0a0a;
+.depth-page {
+  border-radius: 64px;
   overflow: hidden;
-  opacity: 1;
+  margin: 2rem auto;
+  padding-bottom: 8rem;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.35);
+  /* optional cinematic lift */
+  background: radial-gradient(circle at 40% 0%,
+      rgba(245, 214, 170, 0.12) 0%,
+      rgba(111, 111, 163, 0.25) 35%,
+      rgba(29, 26, 51, 1) 100%);
 }
 
-.carousel-root.carousel-is-entering {
-  animation: carouselArrivalDrift 2.8s cubic-bezier(0.2, 1, 0.28, 1) both;
+
+/* Header – radial twilight wash */
+
+.depth-header-box {
+  background: #f7f2eb;
+  /* your crème tone */
+  padding: 2.2rem 2.4rem;
+  border-radius: 14px;
+
+  /* The key part — subtle inner shadow */
+  box-shadow:
+    inset 0 0 18px rgba(0, 0, 0, 0.08),
+    0 4px 14px rgba(0, 0, 0, 0.06);
+
+  /* Smooth transitions if you want hover softness */
+  transition: box-shadow 0.35s ease;
 }
 
-.carousel-root.carousel-is-entering .carousel-caption,
-.carousel-root.carousel-is-entering .carousel-progress-track,
-.carousel-root.carousel-is-entering .carousel-dots,
-.carousel-root.carousel-is-entering .carousel-back,
-.carousel-root.carousel-is-entering .carousel-title {
-  opacity: 0;
-  transform: translateY(12px);
+.depth-header-box:hover {
+  box-shadow:
+    inset 0 0 22px rgba(0, 0, 0, 0.10),
+    0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-.carousel-root.carousel-is-entering .slide-visible .carousel-img-current {
-  animation: carouselHeroReveal 2.6s cubic-bezier(0.2, 1, 0.28, 1) both;
+.depth-header {
+  position: relative;
+  padding: 6rem 1.5rem 4rem;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
 }
 
-.carousel-root.carousel-is-settled .carousel-caption,
-.carousel-root.carousel-is-settled .carousel-progress-track,
-.carousel-root.carousel-is-settled .carousel-dots,
-.carousel-root.carousel-is-settled .carousel-back,
-.carousel-root.carousel-is-settled .carousel-title {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 1.05s cubic-bezier(0.2, 1, 0.28, 1), transform 1.05s cubic-bezier(0.2, 1, 0.28, 1);
-}
-
-.carousel-slide {
+.depth-header-orb {
   position: absolute;
-  inset: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.slide-visible {
-  opacity: 1;
-}
-
-.slide-entering {
-  animation: carouselFadeIn 2s cubic-bezier(0.2, 1, 0.28, 1) forwards;
-  z-index: 2;
-}
-
-.slide-exiting {
-  animation: carouselFadeOut 2s cubic-bezier(0.2, 1, 0.28, 1) forwards;
-  z-index: 1;
-}
-
-.carousel-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  will-change: transform, opacity, filter;
-}
-
-.carousel-vignette {
-  position: absolute;
-  inset: 0;
+  inset: -40%;
   background:
-    radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.45) 100%),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, transparent 30%, transparent 65%, rgba(0, 0, 0, 0.62) 100%);
-  pointer-events: none;
+    radial-gradient(circle at center,
+      rgba(245, 214, 170, 0.9) 0%,
+      rgba(199, 183, 224, 0.85) 25%,
+      rgba(111, 111, 163, 0.7) 55%,
+      rgba(29, 26, 51, 1) 100%);
+  z-index: 0;
 }
 
-/* ── Carousel Caption ────────────────────────────────────── */
+.depth-header-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
 
-.carousel-caption {
-  position: absolute;
-  bottom: 96px;
-  left: 48px;
-  z-index: 10;
+.depth-title {
+  font-size: 2.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #1b1230;
+}
+
+.depth-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #2a173f;
+  margin-bottom: 1.75rem;
+}
+
+.depth-reassurance {
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: #2a173f;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+/* Rooms container */
+
+.depth-rooms {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  animation: captionSlideIn 1.15s cubic-bezier(0.2, 1, 0.28, 1) both;
+  gap: 1.75rem;
+  margin-top: 2.5rem;
 }
 
-.carousel-caption-index {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.68rem;
-  /* matches season-badge / overline scale */
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  /* matches "The philosophy" overline */
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.42);
-}
+/* Depth header intro text */
 
-.carousel-caption-text {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-  /* matches site h2 scale */
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.2;
-  /* matches site h2 */
-  letter-spacing: -0.015em;
-  /* matches site h2 */
-  color: rgba(255, 255, 255, 0.88);
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
-}
-
-/* ── Carousel Progress ───────────────────────────────────── */
-
-.carousel-progress-track {
-  position: absolute;
-  bottom: 72px;
-  left: 48px;
-  right: 48px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.15);
-  z-index: 10;
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.carousel-progress-fill {
-  height: 100%;
-  background: rgba(255, 255, 255, 0.7);
-  transform-origin: left center;
-  transform: scaleX(0);
-  animation: progressSweep 16s linear forwards;
-  border-radius: 2px;
-}
-
-.progress-paused {
-  animation-play-state: paused;
-}
-
-/* ── Carousel Dots ───────────────────────────────────────── */
-
-.carousel-dots {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 10;
-}
-
-.carousel-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.3);
-  transition: background 0.35s ease, transform 0.35s ease;
-  padding: 0;
-}
-
-.carousel-dot:hover {
-  background: rgba(255, 255, 255, 0.65);
-}
-
-.dot-active {
-  background: rgba(255, 255, 255, 0.9);
-  transform: scale(1.4);
-}
-
-/* ── Carousel Back Link ──────────────────────────────────── */
-
-.carousel-back {
-  position: absolute;
-  top: 28px;
-  left: 32px;
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.68rem;
-  /* matches "Scroll" indicator + season badge */
-  font-weight: 400;
-  letter-spacing: 0.2em;
-  /* matches season badge */
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-  text-decoration: none;
-  transition: color 0.35s ease;
-}
-
-.carousel-back:hover {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* ── Carousel Collection Title ───────────────────────────── */
-
-.carousel-title {
-  position: absolute;
-  top: 24px;
-  right: 32px;
-  z-index: 10;
+.depth-header-intro {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
-  animation: fadeIn 1.9s ease 0.65s both;
+  gap: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.carousel-title-eyebrow {
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.68rem;
-  /* matches season badge exactly */
-  font-weight: 500;
-  letter-spacing: 0.22em;
+/* Room cards – shared */
+
+.depth-header-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.depth-room {
+  border-radius: 20px;
+  padding: 1px;
+  background: linear-gradient(135deg,
+      rgba(255, 191, 120, 0.35),
+      rgba(255, 255, 255, 0.04));
+}
+
+.depth-room-inner {
+  border-radius: 19px;
+  padding: 2rem 2.5rem;
+  display: grid;
+  gap: 0.6rem;
+  box-shadow:
+    0 20px 48px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.depth-room-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 0.25rem;
+}
+
+.depth-room-title {
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.38);
 }
 
-.carousel-title-name {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.05rem, 2vw, 1.4rem);
-  font-weight: 300;
-  font-style: italic;
-  letter-spacing: -0.01em;
-  line-height: 1.18;
-  color: rgba(255, 255, 255, 0.72);
-  text-align: right;
+.depth-room-price {
+  font-size: 0.95rem;
+  color: #f9e0b8;
 }
 
-@media (max-width: 640px) {
-  .carousel-caption {
-    left: 24px;
-    bottom: 100px;
+.depth-room-tagline {
+  font-size: 0.98rem;
+  color: #fdf4e4;
+}
+
+.depth-room-body {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #f6e7d3;
+}
+
+/* Individual room colours */
+
+.depth-room--surface .depth-room-inner {
+  background: #c7b7e0;
+  color: #1b1230;
+}
+
+.depth-room--surface .depth-room-price,
+.depth-room--surface .depth-room-tagline,
+.depth-room--surface .depth-room-body {
+  color: #2a173f;
+}
+
+.depth-room--structure .depth-room-inner {
+  background: #6f6fa3;
+}
+
+.depth-room--structure .depth-room-title,
+.depth-room--structure .depth-room-body {
+  color: #fdf4e4;
+}
+
+.depth-room--essence .depth-room-inner {
+  background: #3e3a66;
+}
+
+.depth-room--essence .depth-room-title,
+.depth-room--essence .depth-room-price,
+.depth-room--essence .depth-room-tagline,
+.depth-room--essence .depth-room-body {
+  color: #fdf4e4;
+}
+
+.depth-room--continuum .depth-room-inner {
+  background: #1d1a33;
+}
+
+.depth-room--continuum .depth-room-title,
+.depth-room--continuum .depth-room-price,
+.depth-room--continuum .depth-room-tagline,
+.depth-room--continuum .depth-room-body {
+  color: #fdf4e4;
+}
+
+/* Closing line */
+
+.depth-closing {
+  max-width: 720px;
+  margin: 3.5rem auto 0;
+  padding: 4rem 1.5rem 6rem;
+  text-align: center;
+  color: #f4e4cf;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 768px) {
+  .depth-header {
+    padding: 4.5rem 1.25rem 3rem;
   }
+
+  .depth-room-inner {
+    border-radius: 32px;
+    padding: 1.5rem 1.5rem;
+  }
+
+  .depth-room-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .depth-room {
+    padding: 0;
+    /* removes the halo border */
+    background: none;
+    /* removes the peach/indigo gradient */
+  }
+
+  @media (max-width: 768px) {
+    .depth-room-inner {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+  }
+}
+
+
+/* ── Positioning Page ────────────────────────────────────── */
+
+
+.positioning-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.positioning-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin-top: 80px;
+  margin-bottom: 220px;
+  /* softens the descent */
+}
+
+.positioning-glow {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 130%;
+  /* was 150% */
+  height: 140%;
+  /* was 170% */
+  background: radial-gradient(circle at center,
+      rgba(255, 204, 178, 0.55) 0%,
+      rgba(222, 189, 255, 0.45) 25%,
+      rgba(90, 70, 130, 0.40) 55%,
+      rgba(20, 22, 45, 0.75) 100%);
+  filter: blur(60px);
+  /* was 80px */
+  z-index: 0;
+}
+
+
+.positioning-container {
+  position: relative;
+  border-radius: 36px;
+  padding: 32px 32px;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+
+  background: rgba(255, 255, 255, 0.08);
+  /* slightly warmer */
+  backdrop-filter: blur(14px);
+  line-height: 1.75;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.positioning-header {
+  position: relative;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 60px;
+  margin-bottom: 40px;
+  letter-spacing: 0.5px;
+  opacity: 0.92;
+}
+
+.positioning-header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 260px;
+  height: 36px;
+  background: linear-gradient(90deg,
+      rgba(255, 204, 178, 0.45),
+      /* warmer peach */
+      rgba(222, 189, 255, 0.30)
+      /* soft lavender */
+    );
+  filter: blur(20px);
+  border-radius: 18px;
+  z-index: -1;
+}
+
+
+/* Poem text inside the pill container */
+.positioning-poem {
+  text-align: center;
+  font-size: 0.93rem;
+  line-height: 2.1;
+  color: rgba(238, 225, 205, 0.78);
+  letter-spacing: 0.025em;
+  font-style: italic;
+}
+
+.positioning-poem p {
+  margin-bottom: 2rem;
+}
+
+.positioning-poem p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .positioning-page {
+    padding: 0 32px;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+  }
+
+  .positioning-wrapper {
+    margin-top: 90px;
+    margin-bottom: 80px;
+  }
+
+  .positioning-glow {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 150%;
+    height: 170%;
+    background: radial-gradient(circle at center,
+        rgba(255, 204, 178, 0.55) 0%,
+        /* warm peach */
+        rgba(222, 189, 255, 0.45) 25%,
+        /* lavender-gold */
+        rgba(90, 70, 130, 0.40) 55%,
+        /* violet dusk */
+        rgba(20, 22, 45, 0.75) 100%
+        /* deep indigo */
+      );
+    filter: blur(80px);
+    z-index: 0;
+  }
+
+  .positioning-divider {
+    position: relative;
+    z-index: 3;
+    /* lifts above glow + container */
+    isolation: isolate;
+    /* creates its own stacking context */
+    width: 100%;
+    max-width: 420px;
+    height: 40px;
+    margin: 140px auto 0 auto;
+    background: radial-gradient(circle at center,
+        rgba(255, 204, 178, 0.55),
+        rgba(222, 189, 255, 0.32));
+    filter: blur(22px);
+    border-radius: 60px;
+    opacity: 0.95;
+  }
+
+
+
+  /* ── Carousel Layout ─────────────────────────────────────── */
+
+  .carousel-root {
+    position: fixed;
+    inset: 0;
+    background: #0a0a0a;
+    overflow: hidden;
+    opacity: 1;
+  }
+
+  .carousel-root.carousel-is-entering {
+    animation: carouselArrivalDrift 2.8s cubic-bezier(0.2, 1, 0.28, 1) both;
+  }
+
+  .carousel-root.carousel-is-entering .carousel-caption,
+  .carousel-root.carousel-is-entering .carousel-progress-track,
+  .carousel-root.carousel-is-entering .carousel-dots,
+  .carousel-root.carousel-is-entering .carousel-back,
+  .carousel-root.carousel-is-entering .carousel-title {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .carousel-root.carousel-is-entering .slide-visible .carousel-img-current {
+    animation: carouselHeroReveal 2.6s cubic-bezier(0.2, 1, 0.28, 1) both;
+  }
+
+  .carousel-root.carousel-is-settled .carousel-caption,
+  .carousel-root.carousel-is-settled .carousel-progress-track,
+  .carousel-root.carousel-is-settled .carousel-dots,
+  .carousel-root.carousel-is-settled .carousel-back,
+  .carousel-root.carousel-is-settled .carousel-title {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 1.05s cubic-bezier(0.2, 1, 0.28, 1), transform 1.05s cubic-bezier(0.2, 1, 0.28, 1);
+  }
+
+  .carousel-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .slide-visible {
+    opacity: 1;
+  }
+
+  .slide-entering {
+    animation: carouselFadeIn 2s cubic-bezier(0.2, 1, 0.28, 1) forwards;
+    z-index: 2;
+  }
+
+  .slide-exiting {
+    animation: carouselFadeOut 2s cubic-bezier(0.2, 1, 0.28, 1) forwards;
+    z-index: 1;
+  }
+
+  .carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    will-change: transform, opacity, filter;
+  }
+
+  .carousel-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.45) 100%),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, transparent 30%, transparent 65%, rgba(0, 0, 0, 0.62) 100%);
+    pointer-events: none;
+  }
+
+  /* ── Carousel Caption ────────────────────────────────────── */
+
+  .carousel-caption {
+    position: absolute;
+    bottom: 96px;
+    left: 48px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    animation: captionSlideIn 1.15s cubic-bezier(0.2, 1, 0.28, 1) both;
+  }
+
+  .carousel-caption-index {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    /* matches season-badge / overline scale */
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    /* matches "The philosophy" overline */
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  .carousel-caption-text {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    /* matches site h2 scale */
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.2;
+    /* matches site h2 */
+    letter-spacing: -0.015em;
+    /* matches site h2 */
+    color: rgba(255, 255, 255, 0.88);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+  }
+
+  /* ── Carousel Progress ───────────────────────────────────── */
 
   .carousel-progress-track {
-    left: 24px;
-    right: 24px;
-    bottom: 80px;
+    position: absolute;
+    bottom: 72px;
+    left: 48px;
+    right: 48px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+    z-index: 10;
+    border-radius: 2px;
+    overflow: hidden;
   }
+
+  .carousel-progress-fill {
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    transform-origin: left center;
+    transform: scaleX(0);
+    animation: progressSweep 16s linear forwards;
+    border-radius: 2px;
+  }
+
+  .progress-paused {
+    animation-play-state: paused;
+  }
+
+  /* ── Carousel Dots ───────────────────────────────────────── */
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .carousel-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3);
+    transition: background 0.35s ease, transform 0.35s ease;
+    padding: 0;
+  }
+
+  .carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.65);
+  }
+
+  .dot-active {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.4);
+  }
+
+  /* ── Carousel Back Link ──────────────────────────────────── */
 
   .carousel-back {
-    left: 20px;
-    top: 20px;
+    position: absolute;
+    top: 28px;
+    left: 32px;
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    /* matches "Scroll" indicator + season badge */
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    /* matches season badge */
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.35s ease;
   }
 
+  .carousel-back:hover {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* ── Carousel Collection Title ───────────────────────────── */
+
   .carousel-title {
-    right: 20px;
-    top: 20px;
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    animation: fadeIn 1.9s ease 0.65s both;
+  }
+
+  .carousel-title-eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.68rem;
+    /* matches season badge exactly */
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.38);
+  }
+
+  .carousel-title-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.05rem, 2vw, 1.4rem);
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: -0.01em;
+    line-height: 1.18;
+    color: rgba(255, 255, 255, 0.72);
+    text-align: right;
+  }
+
+  @media (max-width: 640px) {
+    .carousel-caption {
+      left: 24px;
+      bottom: 100px;
+    }
+
+    .carousel-progress-track {
+      left: 24px;
+      right: 24px;
+      bottom: 80px;
+    }
+
+    .carousel-back {
+      left: 20px;
+      top: 20px;
+    }
+
+    .carousel-title {
+      right: 20px;
+      top: 20px;
+    }
   }
 }

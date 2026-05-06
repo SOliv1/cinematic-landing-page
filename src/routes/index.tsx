@@ -313,6 +313,41 @@ function SeasonalOrb({ src, palette }: { src: string; palette: SeasonalPalette }
   )
 }
 
+// ── CTA Button ────────────────────────────────────────────────────────────────
+// Reads seasonal CSS vars (--cta-bg, --cta-hover, --cta-shadow) set on the page
+
+function CtaButton() {
+  const [hovered, setHovered] = useState(false)
+  return (
+    <Link
+      to="/begin-the-journey"
+      aria-label="Begin the journey"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: 'inline-block',
+        padding: '14px 32px',
+        borderRadius: '100px',
+        background: hovered ? 'var(--cta-hover)' : 'var(--cta-bg)',
+        color: 'rgba(255,255,255,0.95)',
+        fontFamily: "'Outfit', sans-serif",
+        fontSize: '0.72rem',
+        fontWeight: 500,
+        letterSpacing: '0.18em',
+        textTransform: 'uppercase',
+        textDecoration: 'none',
+        boxShadow: hovered
+          ? `0 8px 32px var(--cta-shadow), 0 0 0 1px rgba(255,255,255,0.12)`
+          : `0 4px 20px var(--cta-shadow), 0 0 0 1px rgba(255,255,255,0.06)`,
+        transform: hovered ? 'translateY(-1px)' : 'translateY(0)',
+        transition: 'background 0.4s ease, box-shadow 0.4s ease, transform 0.3s ease',
+      }}
+    >
+      Begin the Journey →
+    </Link>
+  )
+}
+
 // ── Scroll Indicator ──────────────────────────────────────────────────────────
 
 function ScrollIndicator({ accent }: { accent: string }) {
@@ -781,12 +816,7 @@ function LandingPage() {
             className="animate-fade-up"
             style={{ animationDelay: '0.72s' }}
           >
-            <Link to="/begin-the-journey" className="seasonal-pill begin-journey">
-              <span>Begin the journey</span>
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </Link>
+            <CtaButton />
           </div>
         </div>
 

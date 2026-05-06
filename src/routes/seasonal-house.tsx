@@ -282,7 +282,7 @@ function SeasonalHousePage() {
               The Seasonal House
             </h1>
             <p className="body fade-in mb-8 max-w-xl" style={{ color: veil.inkMuted }}>
-              A quiet interior of apps, atmospheres, and emerging experiences —
+              A quiet interior of apps, atmospheres, and emerging experiences,
               each one shaped by clarity, rhythm, and mood.
             </p>
           </div>
