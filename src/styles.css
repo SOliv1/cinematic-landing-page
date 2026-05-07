@@ -1679,6 +1679,10 @@ code {
   .principles-grid {
     grid-template-columns: 1.1fr 0.9fr;
   }
+
+  .feature-grid-neutral-orb {
+    left: calc(55% - 1px);
+  }
 }
 
 @media (max-width: 639px) {
@@ -1785,6 +1789,12 @@ code {
     height: 94px;
     margin: 0 auto 6px;
     font-size: 0.62rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .feature-grid-neutral-orb {
+    left: calc(55% - 1px);
   }
 }
 
