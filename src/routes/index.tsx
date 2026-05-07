@@ -438,10 +438,9 @@ function FeatureCard({
 }) {
   return (
     <div
-      className="glass-card"
+      className={`glass-card principles-card ${tall ? 'principles-card--tall' : ''}`}
       style={{
         padding: tall ? '48px 40px' : '36px 36px',
-        gridRow: tall ? 'span 2' : undefined,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: tall ? 'space-between' : 'flex-start',
@@ -738,6 +737,7 @@ function LandingPage() {
 
       {/* ── FEATURES ──────────────────────────────────────────── */}
       <section
+        className="principles-section"
         style={{
           position: 'relative',
           padding: 'clamp(80px, 10vw, 140px) clamp(24px, 6vw, 80px)',
@@ -757,7 +757,7 @@ function LandingPage() {
           }}
         />
 
-        <div style={{ position: 'relative', zIndex: 2, maxWidth: '1080px', margin: '0 auto' }}>
+        <div className="principles-inner" style={{ position: 'relative', zIndex: 2, maxWidth: '1080px', margin: '0 auto' }}>
           {/* Section header */}
           <div
             style={{
@@ -829,6 +829,7 @@ function LandingPage() {
 
           {/* Asymmetric grid: tall left + 2 stacked right */}
           <div
+            className="principles-grid-shell"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
@@ -838,28 +839,14 @@ function LandingPage() {
           >
             {/* On larger screens: left card tall, right 2 stacked */}
             <div
+              className="feature-grid principles-grid"
               style={{
                 display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
                 gap: '20px',
                 gridColumn: '1 / -1',
                 position: 'relative',
               }}
-              className="feature-grid"
             >
-                <style>{`
-                .feature-grid {
-                  grid-template-columns: 1fr;
-                }
-                @media (min-width: 640px) {
-                  .feature-grid {
-                    grid-template-columns: 1.1fr 0.9fr;
-                  }
-                  .feature-grid > *:first-child {
-                    grid-row: span 2;
-                  }
-                }
-              `}</style>
               {features.map((f, i) => (
                 <FeatureCard
                   key={f.index}

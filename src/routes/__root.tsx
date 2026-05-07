@@ -1,5 +1,6 @@
 import { HeadContent, Outlet, Scripts, createRootRoute, useRouterState } from '@tanstack/react-router'
 import Footer from '@/components/Footer'
+import ScrollToTopOrb from '@/components/ScrollToTopOrb'
 import '../styles.css'
 
 export const Route = createRootRoute({
@@ -33,6 +34,7 @@ function RootLayout() {
         <Outlet />
       </main>
       {!usesImmersiveLayout && <Footer />}
+      <ScrollToTopOrb />
     </>
   )
 }

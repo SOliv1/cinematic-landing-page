@@ -122,6 +122,107 @@
     white-space: nowrap;
   }
 
+  .scroll-top-orb {
+    --scroll-orb-bottom: 32px;
+    position: fixed;
+    right: 32px;
+    bottom: var(--scroll-orb-bottom);
+    z-index: 95;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 42% 32%,
+        rgba(255, 255, 255, 0.78) 0%,
+        rgba(232, 222, 210, 0.48) 38%,
+        rgba(172, 151, 188, 0.36) 68%,
+        rgba(92, 94, 128, 0.32) 100%);
+    -webkit-backdrop-filter: blur(14px) saturate(125%);
+    backdrop-filter: blur(14px) saturate(125%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.72),
+      inset 0 -10px 18px rgba(100, 90, 120, 0.12),
+      0 0 18px rgba(245, 229, 214, 0.16),
+      0 14px 36px rgba(20, 18, 28, 0.22);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px) scale(0.96);
+    transition:
+      opacity 350ms ease,
+      transform 350ms cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 350ms ease,
+      bottom 260ms ease;
+  }
+
+  .scroll-top-orb::before {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border-top: 1.5px solid rgba(40, 35, 48, 0.58);
+    border-left: 1.5px solid rgba(40, 35, 48, 0.58);
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .scroll-top-orb.is-visible {
+    opacity: 0.55;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+
+  .scroll-top-orb.is-visible:hover {
+    opacity: 0.85;
+    transform: translateY(0) scale(1.05);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.78),
+      inset 0 -10px 18px rgba(100, 90, 120, 0.14),
+      0 0 24px rgba(245, 229, 214, 0.22),
+      0 16px 42px rgba(20, 18, 28, 0.26);
+  }
+
+  .scroll-top-orb:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.62);
+    outline-offset: 5px;
+  }
+
+  .scroll-top-orb:active {
+    opacity: 0.75;
+    transform: translateY(0) scale(0.99);
+  }
+
+  @media (max-width: 640px) {
+    .scroll-top-orb {
+      right: auto;
+      left: 50%;
+      bottom: max(24px, calc(var(--scroll-orb-bottom) + env(safe-area-inset-bottom)));
+      width: 38px;
+      height: 38px;
+      transform: translate(-50%, 8px) scale(0.96);
+    }
+
+    .scroll-top-orb.is-visible {
+      opacity: 0.55;
+      transform: translate(-50%, 0) scale(1);
+    }
+
+    .scroll-top-orb.is-visible:hover {
+      opacity: 0.55;
+      transform: translate(-50%, 0) scale(1);
+    }
+
+    .scroll-top-orb:active {
+      opacity: 0.75;
+      transform: translate(-50%, 0) scale(0.99);
+    }
+
+    .scroll-top-orb::before {
+      inset: 11px;
+      transform: translateY(3px) rotate(45deg);
+    }
+  }
+
 
   /* ── Grain overlay ─────────────────────────────────────── */
   .grain-layer {
@@ -417,6 +518,14 @@ body {
       rgba(245, 214, 170, 0.10) 0%,
       rgba(111, 111, 163, 0.20) 35%,
       rgba(29, 26, 51, 1) 100%);
+}
+
+@media (max-width: 639px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 }
 
 
@@ -1549,6 +1658,85 @@ code {
     0 6px 20px rgba(0, 0, 0, 0.06);
 }
 
+/* ── Home Principles Grid ───────────────────────────────── */
+
+.principles-grid-shell {
+  width: 100%;
+  min-width: 0;
+}
+
+.principles-grid {
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: 1fr;
+}
+
+.principles-card--tall {
+  grid-row: span 2;
+}
+
+@media (min-width: 640px) {
+  .principles-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .principles-section {
+    padding-right: 18px !important;
+    padding-left: 18px !important;
+    overflow-x: hidden !important;
+  }
+
+  .principles-inner {
+    width: 100%;
+    max-width: 100% !important;
+    min-width: 0;
+  }
+
+  .principles-grid-shell {
+    width: 100%;
+    max-width: 100%;
+    display: block !important;
+  }
+
+  .principles-grid {
+    display: flex !important;
+    flex-direction: column;
+    gap: 18px !important;
+  }
+
+  .principles-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 0 !important;
+    padding: 32px 28px !important;
+    grid-row: auto !important;
+  }
+
+  .principles-card--tall {
+    grid-row: auto;
+  }
+
+  .living-quote-card {
+    min-height: 0;
+    padding: 2rem 1.5rem;
+  }
+
+  .feature-grid-neutral-orb {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    order: -1;
+    width: 94px;
+    height: 94px;
+    margin: 0 auto 6px;
+    font-size: 0.62rem;
+  }
+}
+
 /* ── Feature Grid Neutral Orb ───────────────────────────── */
 
 .feature-grid-neutral-orb {
@@ -1584,6 +1772,20 @@ code {
   letter-spacing: 0.02em;
   color: rgba(60, 50, 40, 0.75);
   pointer-events: none;
+}
+
+@media (max-width: 639px) {
+  .feature-grid-neutral-orb {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    order: -1;
+    width: 94px;
+    height: 94px;
+    margin: 0 auto 6px;
+    font-size: 0.62rem;
+  }
 }
 
 /* ── Luminous Quote Orb ─────────────────────────────────── */
