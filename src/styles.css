@@ -27,12 +27,15 @@
     letter-spacing: -0.01em;
   }
 
-  .body {
+  body {
     font-family: 'Outfit', system-ui, sans-serif;
     font-size: 1.05rem;
     font-weight: 300;
     line-height: 1.75;
     opacity: 0.85;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
   }
 
   .body-sm {
@@ -42,6 +45,83 @@
     line-height: 1.65;
     opacity: 0.75;
   }
+
+  main {
+    flex: 1;
+  }
+
+  .page-wrapper {
+    padding-top: 6rem;
+  }
+
+  .page-wrapper--immersive {
+    padding-top: 0;
+  }
+
+  .site-header {
+    width: 100%;
+    text-align: center;
+    height: 4.1rem;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.12);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  .site-title {
+    margin: 0;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .hero {
+    padding-top: 6rem;
+  }
+
+  .return-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.25s ease, color 0.25s ease;
+  }
+
+  .return-link:hover {
+    opacity: 1;
+  }
+
+  .return-link--immersive {
+    position: fixed;
+    top: 0;
+    left: 1.75rem;
+    z-index: 120;
+    display: inline-flex;
+    align-items: center;
+    height: 4.1rem;
+    max-width: min(32vw, 13rem);
+    margin-bottom: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
 
   /* ── Grain overlay ─────────────────────────────────────── */
   .grain-layer {
@@ -2199,6 +2279,7 @@ code {
     border-radius: 60px;
     opacity: 0.95;
   }
+}
 
 
 
@@ -2206,7 +2287,10 @@ code {
 
   .carousel-root {
     position: fixed;
-    inset: 0;
+    top: 4.1rem;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: #0a0a0a;
     overflow: hidden;
     opacity: 1;
@@ -2219,7 +2303,7 @@ code {
   .carousel-root.carousel-is-entering .carousel-caption,
   .carousel-root.carousel-is-entering .carousel-progress-track,
   .carousel-root.carousel-is-entering .carousel-dots,
-  .carousel-root.carousel-is-entering .carousel-back,
+  .carousel-root.carousel-is-entering .carousel-nav-button,
   .carousel-root.carousel-is-entering .carousel-title {
     opacity: 0;
     transform: translateY(12px);
@@ -2232,7 +2316,7 @@ code {
   .carousel-root.carousel-is-settled .carousel-caption,
   .carousel-root.carousel-is-settled .carousel-progress-track,
   .carousel-root.carousel-is-settled .carousel-dots,
-  .carousel-root.carousel-is-settled .carousel-back,
+  .carousel-root.carousel-is-settled .carousel-nav-button,
   .carousel-root.carousel-is-settled .carousel-title {
     opacity: 1;
     transform: translateY(0);
@@ -2374,30 +2458,85 @@ code {
     transform: scale(1.4);
   }
 
-  /* ── Carousel Back Link ──────────────────────────────────── */
+  /* ── Carousel Manual Controls ───────────────────────────── */
 
-  .carousel-back {
+  .carousel-nav-button {
     position: absolute;
-    top: 28px;
-    left: 32px;
-    z-index: 10;
+    top: 50%;
+    z-index: 12;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    gap: 0.65rem;
+    min-width: 8.5rem;
+    height: 3rem;
+    padding: 0 1.05rem;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    border-radius: 8px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.12)),
+      rgba(16, 14, 18, 0.52);
+    color: rgba(255, 255, 255, 0.94);
     font-family: 'Outfit', sans-serif;
-    font-size: 0.68rem;
-    /* matches "Scroll" indicator + season badge */
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    /* matches season badge */
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    transition: color 0.35s ease;
+    text-shadow: 0 1px 16px rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(16px) saturate(118%);
+    backdrop-filter: blur(16px) saturate(118%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.18),
+      0 12px 34px rgba(0, 0, 0, 0.34);
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition:
+      opacity 0.35s ease,
+      background 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.35s ease,
+      color 0.35s ease,
+      transform 0.35s ease;
   }
 
-  .carousel-back:hover {
-    color: rgba(255, 255, 255, 0.9);
+  .carousel-nav-button:hover {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0.18)),
+      rgba(16, 14, 18, 0.64);
+    border-color: rgba(255, 255, 255, 0.56);
+    color: rgba(255, 255, 255, 1);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.22),
+      0 0 28px rgba(255, 235, 218, 0.28),
+      0 16px 38px rgba(0, 0, 0, 0.38);
+  }
+
+  .carousel-nav-button:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.58);
+    outline-offset: 4px;
+  }
+
+  .carousel-nav-button:disabled {
+    cursor: default;
+    opacity: 0.38;
+  }
+
+  .carousel-nav-button--prev {
+    left: 2.25rem;
+    justify-content: flex-start;
+  }
+
+  .carousel-nav-button--next {
+    right: 2.25rem;
+    justify-content: flex-end;
+  }
+
+  .carousel-nav-button--prev:hover {
+    transform: translateY(-50%) translateX(-2px);
+  }
+
+  .carousel-nav-button--next:hover {
+    transform: translateY(-50%) translateX(2px);
   }
 
   /* ── Carousel Collection Title ───────────────────────────── */
@@ -2447,9 +2586,43 @@ code {
       bottom: 80px;
     }
 
-    .carousel-back {
+    .carousel-nav-button {
+      top: 50%;
+      bottom: auto;
+      min-width: 6.4rem;
+      width: auto;
+      height: 3.15rem;
+      padding: 0 0.85rem;
+      gap: 0.45rem;
+      border-radius: 8px;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.15)),
+        rgba(12, 10, 14, 0.68);
+      border-color: rgba(255, 255, 255, 0.5);
+      font-size: 0.58rem;
+      letter-spacing: 0.11em;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 12px 32px rgba(0, 0, 0, 0.44);
+    }
+
+    .carousel-nav-button--prev {
+      left: 14px;
+    }
+
+    .carousel-nav-button--next {
+      right: 14px;
+    }
+
+    .return-link--immersive {
       left: 20px;
-      top: 20px;
+      max-width: 8.8rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+    }
+
+    .site-title {
+      font-size: clamp(1.05rem, 4vw, 1.4rem);
     }
 
     .carousel-title {
@@ -2457,4 +2630,23 @@ code {
       top: 20px;
     }
   }
-}
+
+  @media (max-width: 430px) {
+    .carousel-nav-button {
+      min-width: 3.25rem;
+      width: 3.25rem;
+      padding: 0;
+      gap: 0;
+      font-size: 1.18rem;
+      letter-spacing: 0;
+    }
+
+    .carousel-nav-button span:not([aria-hidden="true"]) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+  }

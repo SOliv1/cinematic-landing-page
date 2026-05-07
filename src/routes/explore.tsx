@@ -69,6 +69,16 @@ function ImageCarousel() {
     advance(i)
   }
 
+  const goPrevious = () => {
+    if (fading) return
+    advance((current - 1 + carouselImages.length) % carouselImages.length)
+  }
+
+  const goNext = () => {
+    if (fading) return
+    advance()
+  }
+
   return (
     <div className={`carousel-root ${isSettled ? 'carousel-is-settled' : 'carousel-is-entering'}`}>
       {/* ── Slides ── */}
@@ -141,13 +151,27 @@ function ImageCarousel() {
         ))}
       </div>
 
-      {/* ── Back link ── */}
-      <Link to="/" className="carousel-back">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M13 7H1M7 1L1 7l6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-        <span>Return</span>
-      </Link>
+      {/* ── Manual controls ── */}
+      <button
+        type="button"
+        className="carousel-nav-button carousel-nav-button--prev"
+        onClick={goPrevious}
+        disabled={fading}
+        aria-label="Previous carousel image"
+      >
+        <span aria-hidden="true">&larr;</span>
+        <span>Previous</span>
+      </button>
+      <button
+        type="button"
+        className="carousel-nav-button carousel-nav-button--next"
+        onClick={goNext}
+        disabled={fading}
+        aria-label="Next carousel image"
+      >
+        <span>Next</span>
+        <span aria-hidden="true">&rarr;</span>
+      </button>
 
       {/* ── Collection title ── */}
       <div className="carousel-title">
@@ -161,5 +185,16 @@ function ImageCarousel() {
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 function ExplorePage() {
-  return <ImageCarousel />
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 })
+  }, [])
+
+  return (
+    <>
+      <Link to="/" className="return-link return-link--immersive">
+        &larr; The Seasonal House
+      </Link>
+      <ImageCarousel />
+    </>
+  )
 }

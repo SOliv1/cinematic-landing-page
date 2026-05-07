@@ -94,17 +94,7 @@ export function StudioPageLayout({ title, subtitle, children }: StudioPageLayout
         >
           <Link
             to="/"
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: '1rem',
-              fontWeight: 400,
-              letterSpacing: '0.06em',
-              color: INK_MUTED,
-              textDecoration: 'none',
-              transition: 'color 0.3s ease',
-            }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = INK)}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = INK_MUTED)}
+            className="return-link"
           >
             ← The Seasonal House
           </Link>

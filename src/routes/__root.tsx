@@ -1,4 +1,5 @@
-import { HeadContent, Outlet, Scripts, createRootRoute } from '@tanstack/react-router'
+import { HeadContent, Outlet, Scripts, createRootRoute, useRouterState } from '@tanstack/react-router'
+import Footer from '@/components/Footer'
 import '../styles.css'
 
 export const Route = createRootRoute({
@@ -15,9 +16,26 @@ export const Route = createRootRoute({
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/favicons/favicon-32.png' },
     ],
   }),
-  component: () => <Outlet />,
+  component: RootLayout,
   shellComponent: RootDocument,
 })
+
+function RootLayout() {
+  const pathname = useRouterState({ select: (state) => state.location.pathname })
+  const usesImmersiveLayout = pathname === '/begin-the-journey' || pathname === '/explore'
+
+  return (
+    <>
+      <header className="site-header">
+        <h1 className="site-title">The Living Interface</h1>
+      </header>
+      <main className={`page-wrapper ${usesImmersiveLayout ? 'page-wrapper--immersive' : ''}`}>
+        <Outlet />
+      </main>
+      {!usesImmersiveLayout && <Footer />}
+    </>
+  )
+}
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (

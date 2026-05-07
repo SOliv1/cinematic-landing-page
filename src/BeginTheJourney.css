@@ -1,20 +1,27 @@
 .btj-container {
-  position: fixed;
-  inset: 0;
-  height: 100vh;
+  position: relative;
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: linear-gradient(160deg, #1a1714 0%, #2a2320 60%, #1a1a1f 100%);
   overflow: hidden;
+  padding: 9.5rem 1.5rem 4rem;
+}
+
+.btj-container .btj-background-preview {
+  top: 5rem;
+  right: 24px;
+  bottom: auto;
+  z-index: 70;
+  transform: translateY(0);
 }
 
 .btj-container,
 .btj-orb-stage,
 .btj-text,
-.btj-back,
 .orb {
   transition:
     opacity 1.4s cubic-bezier(0.2, 1, 0.28, 1),
@@ -36,9 +43,10 @@
   position: relative;
   width: clamp(180px, 28vw, 240px);
   height: clamp(180px, 28vw, 240px);
-  margin-bottom: 6px;
+  margin-bottom: 3rem;
   z-index: 1;
   transform: translateY(0) scale(1);
+  flex: 0 0 auto;
 }
 
 .btj-orb-stage::after {
@@ -113,11 +121,15 @@
 }
 
 .btj-text {
-  margin-top: 38px;
+  margin-top: 0;
   text-align: center;
   opacity: 0;
   animation: btjFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1.15s forwards;
   z-index: 1;
+  width: min(100%, 760px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .btj-container.is-departing .btj-text {
@@ -126,16 +138,46 @@
   filter: blur(2.15px);
 }
 
-.btj-line {
+.tagline-primary {
+  margin: 0 0 1.8rem;
+  max-width: 760px;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: rgba(245, 240, 235, 0.76);
+}
+
+.tagline-secondary {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  font-size: clamp(1.8rem, 4.2vw, 2.6rem);
   font-weight: 300;
   font-style: italic;
   letter-spacing: -0.01em;
-  line-height: 1.4;
-  color: rgba(245, 240, 235, 0.75);
-  margin-bottom: 40px;
-  max-width: 480px;
+  line-height: 1.22;
+  color: rgba(245, 240, 235, 0.74);
+  margin: 0 0 2.8rem;
+  max-width: 680px;
+}
+
+.social-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  margin: 0 0 3rem;
+  padding: 0 0 1.8rem;
+  overflow: visible;
+}
+
+.btj-footer-line {
+  margin: 0 0 2.2rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(0.95rem, 1.8vw, 1.12rem);
+  font-weight: 300;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  color: rgba(245, 240, 235, 0.72);
 }
 
 .btj-button {
@@ -163,6 +205,7 @@
     transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+  margin-bottom: 4rem;
 }
 
 .btj-button:hover {
@@ -199,44 +242,7 @@
   opacity: 1;
 }
 
-.btj-back {
-  position: absolute;
-  top: 24px;
-  left: 28px;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 0.63rem;
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255, 250, 246, 0.94);
-  text-decoration: none;
-  padding: 8px 11px;
-  border-radius: 999px;
-  background:
-    linear-gradient(180deg, rgba(12, 16, 24, 0.28), rgba(12, 16, 24, 0.14)),
-    rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px) saturate(108%);
-  -webkit-backdrop-filter: blur(8px) saturate(108%);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  transition: color 0.3s ease, opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
-  animation: btjFadeIn 1.6s ease 1s both;
-  z-index: 2;
-}
-
-.btj-back:hover {
-  color: rgba(255, 250, 246, 1);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
-}
-
-.btj-container.is-departing .btj-back {
+.btj-container.is-departing .return-link--immersive {
   opacity: 0.18;
 }
 
@@ -276,13 +282,72 @@
   .btj-container,
   .btj-orb-stage,
   .btj-text,
-  .btj-back,
   .orb {
     transition: none;
   }
 
-  .btj-text,
-  .btj-back {
+  .btj-text {
     animation: none;
+  }
+}
+
+@media (max-height: 760px) {
+  .btj-container {
+    padding-top: 7.75rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .btj-orb-stage {
+    width: clamp(150px, 22vw, 200px);
+    height: clamp(150px, 22vw, 200px);
+    margin-bottom: 2rem;
+  }
+
+  .orb.neutral {
+    width: 138px;
+    height: 138px;
+  }
+
+  .orb.dramatic {
+    width: 154px;
+    height: 154px;
+  }
+
+  .tagline-primary {
+    margin-bottom: 1.2rem;
+  }
+
+  .tagline-secondary {
+    margin-bottom: 2rem;
+  }
+
+  .social-row {
+    margin-bottom: 2.2rem;
+  }
+
+  .btj-footer-line {
+    margin-bottom: 1.6rem;
+  }
+
+  .btj-button {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .btj-container {
+    padding: 8.5rem 1.25rem 3rem;
+  }
+
+  .social-row {
+    gap: 0.9rem;
+  }
+
+  .btj-container .btj-background-preview {
+    left: 16px;
+    right: 16px;
+    top: auto;
+    bottom: 1rem;
+    overflow-x: auto;
   }
 }

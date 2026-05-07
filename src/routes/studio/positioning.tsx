@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { StudioPageLayout } from '@/components/StudioPageLayout'
-import {Route as PostioningRoute } from '@/routes/studio/positioning'
 
 export const Route = createFileRoute('/studio/positioning')({
   component: () => (
@@ -57,10 +56,6 @@ export const Route = createFileRoute('/studio/positioning')({
             </div>
           </div>
         </div>
-
-        <footer className="studio-footer">
-          Designed by Sara @ KUK - shaped for clarity, rhythm, and quiet delight. Crafted with restraint &amp; intention · 2026
-        </footer>
 
       </div>
     </StudioPageLayout>
