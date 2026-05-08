@@ -83,21 +83,19 @@ function BeginTheJourney() {
         </button>
       </div>
 
-      {import.meta.env.DEV ? (
-        <div className="btj-background-preview" aria-label="Background preview controls">
-          <span className="btj-background-preview-label">Preview</span>
-          {BACKGROUND_VARIANTS.map((variant) => (
-            <button
-              key={variant.label}
-              type="button"
-              className={backgroundPreview === variant.key ? 'is-active' : ''}
-              onClick={() => setBackgroundPreview(variant.key)}
-            >
-              {variant.label}
-            </button>
-          ))}
-        </div>
-      ) : null}
+      <div className="btj-background-preview" aria-label="Background preview controls">
+        <span className="btj-background-preview-label">Preview</span>
+        {BACKGROUND_VARIANTS.map((variant) => (
+          <button
+            key={variant.label}
+            type="button"
+            className={backgroundPreview === variant.key ? 'is-active' : ''}
+            onClick={() => setBackgroundPreview(variant.key)}
+          >
+            {variant.label}
+          </button>
+        ))}
+      </div>
     </div>
   )
 }

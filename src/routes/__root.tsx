@@ -27,7 +27,7 @@ function RootLayout() {
 
   return (
     <>
-      <header className="site-header">
+      <header className={`site-header ${usesImmersiveLayout ? 'site-header--immersive' : ''}`}>
         <h1 className="site-title">The Living Interface</h1>
       </header>
       <main className={`page-wrapper ${usesImmersiveLayout ? 'page-wrapper--immersive' : ''}`}>

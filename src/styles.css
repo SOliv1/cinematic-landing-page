@@ -85,6 +85,14 @@
     color: rgba(255, 255, 255, 0.92);
   }
 
+  .site-header--immersive {
+    pointer-events: none;
+  }
+
+  .site-header--immersive .site-title {
+    pointer-events: auto;
+  }
+
   .hero {
     padding-top: 6rem;
   }
@@ -3833,6 +3841,10 @@ code {
 
     .site-title {
       font-size: clamp(1.05rem, 4vw, 1.4rem);
+    }
+
+    .site-header--immersive .site-title {
+      display: none;
     }
 
     .carousel-title {
