@@ -714,6 +714,814 @@ code {
   overflow: hidden;
 }
 
+.seasonal-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.seasonal-card:hover {
+  transform: translateY(-4px);
+  opacity: 0.95;
+}
+
+.seasonal-card.coming-soon {
+  opacity: 0.85;
+}
+
+.seasonal-card-content {
+  background:
+    linear-gradient(145deg,
+      rgba(60, 60, 80, 0.35),
+      rgba(30, 30, 45, 0.55));
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.25),
+    inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.seasonal-card.seasonal-weather-gradient .seasonal-card-content {
+  background: linear-gradient(
+    145deg,
+    rgba(215, 230, 255, 0.38),
+    rgba(195, 215, 255, 0.30),
+    rgba(175, 195, 240, 0.24),
+    rgba(145, 165, 225, 0.20)
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.20),
+    inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.seasonal-card.morning-room-gradient .seasonal-card-content {
+  background: linear-gradient(
+    145deg,
+    rgba(230, 215, 255, 0.35),
+    rgba(255, 240, 210, 0.28),
+    rgba(180, 160, 255, 0.22),
+    rgba(120, 110, 200, 0.18)
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.22),
+    inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.seasonal-card.soft-room-gradient .seasonal-card-content {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 214, 230, 0.18),
+    rgba(120, 110, 200, 0.22),
+    rgba(40, 40, 70, 0.35)
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.24),
+    inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.seasonal-card.evening-lounge-gradient .seasonal-card-content {
+  background: linear-gradient(
+    145deg,
+    rgba(90, 70, 140, 0.40),
+    rgba(140, 90, 120, 0.32),
+    rgba(60, 50, 110, 0.28),
+    rgba(30, 25, 60, 0.22)
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.28),
+    inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.seasonal-card.another-room-gradient .seasonal-card-content {
+  background: linear-gradient(
+    145deg,
+    rgba(200, 200, 220, 0.28),
+    rgba(160, 160, 190, 0.22),
+    rgba(120, 120, 150, 0.20),
+    rgba(80, 80, 110, 0.18)
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 22px;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.22),
+    inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.seasonal-card.evening-lounge-gradient .seasonal-card-title,
+.seasonal-card.evening-lounge-gradient .seasonal-card-text,
+.seasonal-card.soft-room-gradient .seasonal-card-title,
+.seasonal-card.soft-room-gradient .seasonal-card-text,
+.seasonal-card.another-room-gradient .seasonal-card-title,
+.seasonal-card.another-room-gradient .seasonal-card-text {
+  text-shadow: none;
+}
+
+.seasonal-card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.6rem;
+}
+
+.seasonal-card-text {
+  max-width: 48ch;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.55;
+  opacity: 0.85;
+}
+
+.seasonal-card-tag {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+@media (max-width: 640px) {
+  .seasonal-card-content {
+    padding: 1.6rem 1.4rem !important;
+  }
+
+  .seasonal-card-title {
+    font-size: 1.15rem;
+  }
+}
+
+.softroom-layout {
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 214, 230, 0.18),
+    rgba(120, 110, 200, 0.22),
+    rgba(40, 40, 70, 0.35)
+  );
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: rgba(253, 244, 238, 0.92);
+}
+
+.softroom-layout::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 28% 8%, rgba(255, 214, 230, 0.18), transparent 36%),
+    radial-gradient(circle at 78% 28%, rgba(120, 110, 200, 0.18), transparent 42%),
+    #1d1a33;
+}
+
+.softroom-return {
+  display: inline-flex;
+  margin-bottom: 5rem;
+  color: rgba(253, 244, 238, 0.78);
+}
+
+.softroom-header {
+  max-width: 720px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.softroom-title {
+  margin-bottom: 1.1rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.3rem, 7vw, 4.4rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: rgba(253, 244, 238, 0.94);
+}
+
+.softroom-subtitle {
+  max-width: 44rem;
+  margin: 0 auto;
+  color: rgba(253, 244, 238, 0.68);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.softroom-card {
+  max-width: 680px;
+  margin: 0 auto 2.8rem;
+  padding: 2rem 2rem 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 214, 230, 0.12),
+    rgba(120, 110, 200, 0.18),
+    rgba(40, 40, 70, 0.28)
+  );
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.25),
+    inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.softroom-card-title {
+  margin-bottom: 0.75rem;
+  color: rgba(253, 244, 238, 0.9);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.softroom-card-text {
+  max-width: 56ch;
+  color: rgba(253, 244, 238, 0.7);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.softroom-layout .studio-footer {
+  margin-top: 5rem;
+}
+
+.morningroom-layout {
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(
+    145deg,
+    rgba(230, 215, 255, 0.35),
+    rgba(255, 240, 210, 0.28),
+    rgba(180, 160, 255, 0.22),
+    rgba(120, 110, 200, 0.18)
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: rgba(45, 38, 64, 0.92);
+}
+
+.morningroom-layout::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 24% 10%, rgba(255, 240, 210, 0.34), transparent 34%),
+    radial-gradient(circle at 74% 24%, rgba(230, 215, 255, 0.3), transparent 42%),
+    radial-gradient(circle at 50% 100%, rgba(120, 110, 200, 0.22), transparent 48%),
+    #f7efe7;
+}
+
+.morningroom-return {
+  display: inline-flex;
+  margin-bottom: 5rem;
+  color: rgba(45, 38, 64, 0.7);
+}
+
+.morningroom-header {
+  max-width: 720px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.morningroom-title {
+  margin-bottom: 1.1rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.3rem, 7vw, 4.4rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: rgba(45, 38, 64, 0.92);
+}
+
+.morningroom-subtitle {
+  max-width: 42rem;
+  margin: 0 auto;
+  color: rgba(45, 38, 64, 0.64);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.morningroom-card {
+  max-width: 680px;
+  margin: 0 auto 2.8rem;
+  padding: 2rem 2rem 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(230, 215, 255, 0.34),
+    rgba(255, 240, 210, 0.26),
+    rgba(180, 160, 255, 0.18),
+    rgba(120, 110, 200, 0.14)
+  );
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 12px 32px rgba(70, 55, 110, 0.18),
+    inset 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.morningroom-card-title {
+  margin-bottom: 0.75rem;
+  color: rgba(45, 38, 64, 0.86);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.morningroom-card-text {
+  max-width: 58ch;
+  color: rgba(45, 38, 64, 0.66);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.morningroom-layout .studio-footer {
+  margin-top: 5rem;
+  color: rgba(45, 38, 64, 0.7);
+}
+
+.eveninglounge-layout {
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(
+    145deg,
+    rgba(90, 70, 140, 0.40),
+    rgba(140, 90, 120, 0.32),
+    rgba(60, 50, 110, 0.28),
+    rgba(30, 25, 60, 0.22)
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: rgba(250, 238, 232, 0.92);
+}
+
+.eveninglounge-layout::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 24% 12%, rgba(140, 90, 120, 0.24), transparent 38%),
+    radial-gradient(circle at 78% 24%, rgba(90, 70, 140, 0.3), transparent 42%),
+    radial-gradient(circle at 48% 100%, rgba(30, 25, 60, 0.5), transparent 52%),
+    #181229;
+}
+
+.eveninglounge-return {
+  display: inline-flex;
+  margin-bottom: 5rem;
+  color: rgba(250, 238, 232, 0.72);
+}
+
+.eveninglounge-header {
+  max-width: 720px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.eveninglounge-title {
+  margin-bottom: 1.1rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.3rem, 7vw, 4.4rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: rgba(250, 238, 232, 0.94);
+}
+
+.eveninglounge-subtitle {
+  max-width: 42rem;
+  margin: 0 auto;
+  color: rgba(250, 238, 232, 0.64);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.eveninglounge-card {
+  max-width: 680px;
+  margin: 0 auto 2.8rem;
+  padding: 2rem 2rem 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(90, 70, 140, 0.40),
+    rgba(140, 90, 120, 0.32),
+    rgba(60, 50, 110, 0.28),
+    rgba(30, 25, 60, 0.22)
+  );
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.28),
+    inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.eveninglounge-card-title {
+  margin-bottom: 0.75rem;
+  color: rgba(250, 238, 232, 0.9);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.eveninglounge-card-text {
+  max-width: 58ch;
+  color: rgba(250, 238, 232, 0.68);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.eveninglounge-layout .studio-footer {
+  margin-top: 5rem;
+}
+
+.anotherroom-layout {
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(
+    145deg,
+    rgba(200, 200, 220, 0.28),
+    rgba(160, 160, 190, 0.22),
+    rgba(120, 120, 150, 0.20),
+    rgba(80, 80, 110, 0.18)
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: rgba(240, 240, 248, 0.9);
+}
+
+.anotherroom-layout::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 26% 10%, rgba(200, 200, 220, 0.22), transparent 38%),
+    radial-gradient(circle at 76% 26%, rgba(160, 160, 190, 0.2), transparent 44%),
+    radial-gradient(circle at 50% 100%, rgba(80, 80, 110, 0.36), transparent 54%),
+    #202033;
+}
+
+.anotherroom-return {
+  display: inline-flex;
+  margin-bottom: 5rem;
+  color: rgba(240, 240, 248, 0.7);
+}
+
+.anotherroom-header {
+  max-width: 720px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.anotherroom-title {
+  margin-bottom: 1.1rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.3rem, 7vw, 4.4rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: rgba(240, 240, 248, 0.92);
+}
+
+.anotherroom-subtitle {
+  max-width: 42rem;
+  margin: 0 auto;
+  color: rgba(240, 240, 248, 0.62);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.anotherroom-card {
+  max-width: 680px;
+  margin: 0 auto 2.8rem;
+  padding: 2rem 2rem 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(200, 200, 220, 0.28),
+    rgba(160, 160, 190, 0.22),
+    rgba(120, 120, 150, 0.20),
+    rgba(80, 80, 110, 0.18)
+  );
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.22),
+    inset 0 0 40px rgba(255, 255, 255, 0.05);
+}
+
+.anotherroom-card-title {
+  margin-bottom: 0.75rem;
+  color: rgba(240, 240, 248, 0.88);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.anotherroom-card-text {
+  max-width: 58ch;
+  color: rgba(240, 240, 248, 0.66);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.anotherroom-layout .studio-footer {
+  margin-top: 5rem;
+}
+
+.seasonalweather-layout {
+  min-height: 100vh;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(
+    145deg,
+    rgba(215, 230, 255, 0.38),
+    rgba(195, 215, 255, 0.30),
+    rgba(175, 195, 240, 0.24),
+    rgba(145, 165, 225, 0.20)
+  );
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: rgba(36, 46, 72, 0.92);
+}
+
+.seasonalweather-layout::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 24% 8%, rgba(235, 244, 255, 0.5), transparent 36%),
+    radial-gradient(circle at 76% 22%, rgba(195, 215, 255, 0.32), transparent 44%),
+    radial-gradient(circle at 50% 100%, rgba(145, 165, 225, 0.22), transparent 54%),
+    #eef4ff;
+}
+
+.seasonalweather-return {
+  display: inline-flex;
+  margin-bottom: 5rem;
+  color: rgba(36, 46, 72, 0.68);
+}
+
+.seasonalweather-header {
+  max-width: 720px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.seasonalweather-title {
+  margin-bottom: 1.1rem;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.3rem, 7vw, 4.4rem);
+  font-weight: 300;
+  line-height: 1.05;
+  color: rgba(36, 46, 72, 0.92);
+}
+
+.seasonalweather-subtitle {
+  max-width: 42rem;
+  margin: 0 auto;
+  color: rgba(36, 46, 72, 0.62);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.seasonalweather-card {
+  max-width: 680px;
+  margin: 0 auto 2.8rem;
+  padding: 2rem 2rem 2.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 22px;
+  background: linear-gradient(
+    145deg,
+    rgba(215, 230, 255, 0.38),
+    rgba(195, 215, 255, 0.30),
+    rgba(175, 195, 240, 0.24),
+    rgba(145, 165, 225, 0.20)
+  );
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 12px 32px rgba(80, 105, 150, 0.18),
+    inset 0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.seasonalweather-card-title {
+  margin-bottom: 0.75rem;
+  color: rgba(36, 46, 72, 0.86);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.seasonalweather-card-text {
+  max-width: 58ch;
+  color: rgba(36, 46, 72, 0.66);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.seasonalweather-spectrum {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 680px;
+  margin: 0 auto 4rem;
+}
+
+.seasonalweather-swatch {
+  min-height: 7rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 10px 26px rgba(60, 75, 110, 0.14),
+    inset 0 0 24px rgba(255, 255, 255, 0.08);
+}
+
+.seasonalweather-swatch span {
+  color: rgba(36, 46, 72, 0.68);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.seasonalweather-swatch--weather {
+  background: linear-gradient(145deg, rgba(215, 230, 255, 0.38), rgba(195, 215, 255, 0.30), rgba(175, 195, 240, 0.24), rgba(145, 165, 225, 0.20));
+}
+
+.seasonalweather-swatch--morning {
+  background: linear-gradient(145deg, rgba(230, 215, 255, 0.35), rgba(255, 240, 210, 0.28), rgba(180, 160, 255, 0.22), rgba(120, 110, 200, 0.18));
+}
+
+.seasonalweather-swatch--evening {
+  background: linear-gradient(145deg, rgba(90, 70, 140, 0.40), rgba(140, 90, 120, 0.32), rgba(60, 50, 110, 0.28), rgba(30, 25, 60, 0.22));
+}
+
+.seasonalweather-swatch--evening span,
+.seasonalweather-swatch--soft span,
+.seasonalweather-swatch--another span {
+  color: rgba(20, 20, 30, 0.85);
+}
+
+.seasonalweather-swatch--soft {
+  background: linear-gradient(145deg, rgba(255, 214, 230, 0.18), rgba(120, 110, 200, 0.22), rgba(40, 40, 70, 0.35));
+}
+
+.seasonalweather-swatch--another {
+  background: linear-gradient(145deg, rgba(200, 200, 220, 0.28), rgba(160, 160, 190, 0.22), rgba(120, 120, 150, 0.20), rgba(80, 80, 110, 0.18));
+}
+
+.seasonalweather-layout .studio-footer {
+  margin-top: 5rem;
+  color: rgba(36, 46, 72, 0.66);
+}
+
+.seasonalweather-layout .footer-line {
+  color: rgba(20, 20, 30, 0.85);
+}
+
+@media (max-width: 640px) {
+  .softroom-layout {
+    padding: 3rem 1.25rem;
+  }
+
+  .softroom-return {
+    margin-bottom: 4rem;
+  }
+
+  .softroom-header {
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .softroom-subtitle {
+    margin: 0;
+  }
+
+  .softroom-card {
+    padding: 1.6rem 1.4rem 2rem;
+  }
+
+  .morningroom-layout {
+    padding: 3rem 1.25rem;
+  }
+
+  .morningroom-return {
+    margin-bottom: 4rem;
+  }
+
+  .morningroom-header {
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .morningroom-subtitle {
+    margin: 0;
+  }
+
+  .morningroom-card {
+    padding: 1.6rem 1.4rem 2rem;
+  }
+
+  .eveninglounge-layout {
+    padding: 3rem 1.25rem;
+  }
+
+  .eveninglounge-return {
+    margin-bottom: 4rem;
+  }
+
+  .eveninglounge-header {
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .eveninglounge-subtitle {
+    margin: 0;
+  }
+
+  .eveninglounge-card {
+    padding: 1.6rem 1.4rem 2rem;
+  }
+
+  .anotherroom-layout {
+    padding: 3rem 1.25rem;
+  }
+
+  .anotherroom-return {
+    margin-bottom: 4rem;
+  }
+
+  .anotherroom-header {
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .anotherroom-subtitle {
+    margin: 0;
+  }
+
+  .anotherroom-card {
+    padding: 1.6rem 1.4rem 2rem;
+  }
+
+  .seasonalweather-layout {
+    padding: 3rem 1.25rem;
+  }
+
+  .seasonalweather-return {
+    margin-bottom: 4rem;
+  }
+
+  .seasonalweather-header {
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .seasonalweather-subtitle {
+    margin: 0;
+  }
+
+  .seasonalweather-card {
+    padding: 1.6rem 1.4rem 2rem;
+  }
+
+  .seasonalweather-spectrum {
+    grid-template-columns: 1fr;
+  }
+
+  .seasonalweather-swatch {
+    min-height: 4.8rem;
+  }
+}
+
 .btj-background-preview {
   position: absolute;
   top: 24px;
@@ -1258,6 +2066,27 @@ code {
   background: linear-gradient(135deg, rgba(58, 42, 26, 0.62) 0%, rgba(20, 18, 14, 0.72) 100%);
 }
 
+@media (max-width: 640px) {
+  .cinematic-mode-btn {
+    right: auto;
+    left: 50%;
+    bottom: max(5.25rem, calc(env(safe-area-inset-bottom) + 5.25rem));
+    min-height: 40px;
+    padding: 10px 16px;
+    transform: translateX(-50%);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    color: rgba(245, 238, 226, 0.82);
+    border-color: rgba(240, 225, 202, 0.2);
+    background: linear-gradient(135deg, rgba(58, 42, 26, 0.62) 0%, rgba(14, 12, 10, 0.72) 100%);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+  }
+
+  .cinematic-mode-btn:hover {
+    transform: translateX(-50%);
+  }
+}
+
 /* ── About Page ──────────────────────────────────────────── */
 
 .about-page {
@@ -1696,6 +2525,16 @@ code {
     width: 100%;
     max-width: 100% !important;
     min-width: 0;
+  }
+
+  .principles-transition {
+    max-width: 18rem !important;
+    margin-top: -18px !important;
+    margin-bottom: 38px !important;
+    font-size: 1.12rem !important;
+    line-height: 1.5 !important;
+    letter-spacing: 0.015em !important;
+    opacity: 0.86 !important;
   }
 
   .principles-grid-shell {
@@ -2336,6 +3175,165 @@ code {
     .depth-room-inner {
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     }
+  }
+}
+
+
+/* ── Depth Levels refined layout ─────────────────────────── */
+
+.depth-layout {
+  --depth-ink: rgba(253, 244, 228, 0.92);
+  --depth-muted: rgba(253, 244, 228, 0.72);
+  --depth-soft: rgba(253, 244, 228, 0.58);
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 3rem 1.5rem 4rem;
+  border-radius: 42px;
+  background: radial-gradient(circle at 34% 0%,
+      rgba(245, 214, 170, 0.14) 0%,
+      rgba(111, 111, 163, 0.18) 36%,
+      rgba(29, 26, 51, 0.86) 100%);
+  box-shadow: 0 34px 72px rgba(0, 0, 0, 0.28);
+  color: var(--depth-ink);
+}
+
+.depth-layout .depth-header {
+  display: block;
+  margin-bottom: 3.5rem;
+  padding: 0;
+  overflow: visible;
+  text-align: left;
+}
+
+.depth-kicker {
+  margin-bottom: 0.6rem;
+  color: var(--depth-soft);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.depth-layout .depth-title {
+  margin-bottom: 1rem;
+  color: var(--depth-ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 2rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.14;
+  text-transform: none;
+}
+
+.depth-intro {
+  max-width: 48ch;
+  color: var(--depth-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.depth-layout .depth-level {
+  margin-bottom: 4rem;
+}
+
+.depth-layout .depth-level:last-child {
+  margin-bottom: 0;
+}
+
+.depth-pill {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 1.4rem;
+  padding: 0.35rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(10, 10, 15, 0.44);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: rgba(253, 244, 228, 0.84);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.depth-description {
+  max-width: 56ch;
+  margin-bottom: 2.4rem;
+  color: var(--depth-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.depth-examples {
+  margin-bottom: 2.4rem;
+}
+
+.depth-examples-title {
+  margin-bottom: 0.6rem;
+  color: rgba(253, 244, 228, 0.76);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.depth-examples ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.depth-examples li {
+  margin-bottom: 0.25rem;
+  color: var(--depth-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.depth-featured {
+  margin-bottom: 2.8rem;
+}
+
+.depth-featured-label {
+  margin-bottom: 0.4rem;
+  color: var(--depth-soft);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.depth-featured-title {
+  margin-bottom: 0.6rem;
+  color: var(--depth-ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.depth-featured-text {
+  max-width: 60ch;
+  color: var(--depth-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .depth-layout {
+    margin: 1rem auto;
+    padding: 2.5rem 1.25rem 3.5rem;
+    border-radius: 30px;
+  }
+
+  .depth-layout .depth-title {
+    font-size: 1.7rem;
+  }
+
+  .depth-layout .depth-level {
+    margin-bottom: 3.2rem;
   }
 }
 

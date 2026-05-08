@@ -812,16 +812,19 @@ function LandingPage() {
 
           {/* Micro-transition */}
           <p
+            className="principles-transition"
             style={{
               fontFamily: "'Cormorant Garamond', serif",
-              fontSize: '0.82rem',
+              fontSize: 'clamp(1.02rem, 2.4vw, 1.18rem)',
               fontWeight: 400,
               fontStyle: 'italic',
-              letterSpacing: '0.06em',
+              lineHeight: 1.45,
+              letterSpacing: '0.025em',
               color: palette.accent,
-              opacity: 0.55,
+              opacity: 0.78,
+              maxWidth: '38rem',
               marginBottom: '48px',
-              marginTop: '-32px',
+              marginTop: '-24px',
             }}
           >
             A quiet shift into the principles that shape the Seasonal house

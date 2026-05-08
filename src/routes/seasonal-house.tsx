@@ -122,60 +122,97 @@ interface Room {
   title: string
   description: string
   comingSoon?: boolean
+  href?: string
+  className?: string
 }
 
 const rooms: Room[] = [
   {
     title: 'Seasonal Weather',
     description: 'A calm space shaped by light, colour, and the rhythm of the day.',
+    href: '/studio/seasonal-weather',
+    className: 'seasonal-weather-gradient',
   },
   {
     title: 'The Morning Room',
     description: 'A gentle start, soft tones, warm light, and quiet intention.',
     comingSoon: true,
+    href: '/studio/morning-room',
+    className: 'morning-room-gradient',
   },
   {
     title: 'The Evening Lounge',
     description: 'Where the day slows down and the atmosphere deepens.',
     comingSoon: true,
+    href: '/studio/evening-lounge',
+    className: 'evening-lounge-gradient',
+  },
+  {
+    title: 'The Soft Room',
+    description: 'A warm space for connection. A quiet interior shaped for presence and gentle conversation.',
+    comingSoon: true,
+    href: '/studio/soft-room',
+    className: 'soft-room-gradient',
   },
   {
     title: 'Another Room',
     description: 'This room is still being arranged.',
     comingSoon: true,
+    href: '/studio/another-room',
+    className: 'another-room-gradient',
   },
 ]
 
 // ── RoomCard ──────────────────────────────────────────────────────────────────
 
-function RoomCard({ title, description, comingSoon, ink, inkMuted }: Room & Pick<Veil, 'ink' | 'inkMuted'>) {
-  if (comingSoon) {
-    return (
-      <div className="relative group">
+function RoomCard({ title, description, comingSoon, href, className, ink, inkMuted }: Room & Pick<Veil, 'ink' | 'inkMuted'>) {
+  const cardClassName = ['seasonal-card', className, comingSoon ? 'coming-soon' : '', 'relative group']
+    .filter(Boolean)
+    .join(' ')
+
+  if (comingSoon || href) {
+    const cardContent = (
+      <>
         {/* Seasonal glow halo */}
         <div className="absolute inset-0 rounded-3xl blur-xl bg-[var(--seasonal-tint-dim)] opacity-0 group-hover:opacity-60 transition-all duration-500 pointer-events-none" />
         {/* Card */}
-        <div className="relative rounded-3xl p-6 bg-white/5 backdrop-blur-xl border border-white/10 opacity-85 transition-all duration-300 hover:opacity-95 hover:bg-[var(--seasonal-tint-dim)] hover:shadow-[0_0_20px_var(--seasonal-tint)] flex flex-col justify-center min-h-[140px] shimmer">
-          <span className="absolute top-4 right-4 text-xs px-2 py-1 rounded bg-white/20 backdrop-blur-sm" style={{ color: inkMuted }}>
-            Coming Soon
-          </span>
-          <h3 className="h3 mb-2" style={{ color: inkMuted }}>{title}</h3>
-          <p className="body-sm" style={{ color: inkMuted }}>{description}</p>
+        <div className="seasonal-card-content relative rounded-3xl p-6 bg-white/5 backdrop-blur-xl border border-white/10 opacity-85 transition-all duration-300 hover:opacity-95 hover:bg-[var(--seasonal-tint-dim)] hover:shadow-[0_0_20px_var(--seasonal-tint)] flex flex-col justify-center min-h-[140px] shimmer">
+          <h3 className="seasonal-card-title h3 mb-2" style={{ color: inkMuted }}>{title}</h3>
+          <p className="seasonal-card-text body-sm" style={{ color: inkMuted }}>{description}</p>
+          {comingSoon ? (
+            <span className="seasonal-card-tag" style={{ color: inkMuted }}>
+              Coming Soon
+            </span>
+          ) : null}
         </div>
+      </>
+    )
+
+    if (href) {
+      return (
+        <a href={href} className={cardClassName}>
+          {cardContent}
+        </a>
+      )
+    }
+
+    return (
+      <div className={cardClassName}>
+        {cardContent}
       </div>
     )
   }
 
   return (
-    <div className="relative group">
+    <div className={cardClassName}>
       {/* Seasonal glow halo */}
       <div className="absolute inset-0 rounded-3xl blur-xl bg-[var(--seasonal-tint)] opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none" />
       {/* Orb glow */}
       <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_30%_20%,var(--seasonal-tint)_0%,transparent_70%)] opacity-40 blur-2xl pointer-events-none" />
       {/* Card */}
-      <div className="relative rounded-3xl p-6 bg-white/10 backdrop-blur-xl border border-white/20 transition-all duration-300 hover:bg-[var(--seasonal-tint)] hover:shadow-[0_0_25px_var(--seasonal-tint-glow)] flex flex-col justify-center min-h-[140px] shimmer glint">
-        <h3 className="h3 mb-2" style={{ color: ink }}>{title}</h3>
-        <p className="body-sm" style={{ color: inkMuted }}>{description}</p>
+      <div className="seasonal-card-content relative rounded-3xl p-6 bg-white/10 backdrop-blur-xl border border-white/20 transition-all duration-300 hover:bg-[var(--seasonal-tint)] hover:shadow-[0_0_25px_var(--seasonal-tint-glow)] flex flex-col justify-center min-h-[140px] shimmer glint">
+        <h3 className="seasonal-card-title h3 mb-2" style={{ color: ink }}>{title}</h3>
+        <p className="seasonal-card-text body-sm" style={{ color: inkMuted }}>{description}</p>
       </div>
     </div>
   )

@@ -15,10 +15,15 @@ import { Route as BeginTheJourneyRouteImport } from './routes/begin-the-journey'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StudioWorkWithMeRouteImport } from './routes/studio/work-with-me'
 import { Route as StudioWhySeasonalRouteImport } from './routes/studio/why-seasonal'
+import { Route as StudioSoftRoomRouteImport } from './routes/studio/soft-room'
+import { Route as StudioSeasonalWeatherRouteImport } from './routes/studio/seasonal-weather'
 import { Route as StudioPositioningRouteImport } from './routes/studio/positioning'
+import { Route as StudioMorningRoomRouteImport } from './routes/studio/morning-room'
 import { Route as StudioManifestoRouteImport } from './routes/studio/manifesto'
 import { Route as StudioInteriorsRouteImport } from './routes/studio/interiors'
+import { Route as StudioEveningLoungeRouteImport } from './routes/studio/evening-lounge'
 import { Route as StudioDepthLevelsRouteImport } from './routes/studio/depth-levels'
+import { Route as StudioAnotherRoomRouteImport } from './routes/studio/another-room'
 import { Route as StudioAboutRouteImport } from './routes/studio/about'
 import { Route as ProductsProductIdRouteImport } from './routes/products/$productId'
 
@@ -52,9 +57,24 @@ const StudioWhySeasonalRoute = StudioWhySeasonalRouteImport.update({
   path: '/studio/why-seasonal',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioSoftRoomRoute = StudioSoftRoomRouteImport.update({
+  id: '/studio/soft-room',
+  path: '/studio/soft-room',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioSeasonalWeatherRoute = StudioSeasonalWeatherRouteImport.update({
+  id: '/studio/seasonal-weather',
+  path: '/studio/seasonal-weather',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StudioPositioningRoute = StudioPositioningRouteImport.update({
   id: '/studio/positioning',
   path: '/studio/positioning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioMorningRoomRoute = StudioMorningRoomRouteImport.update({
+  id: '/studio/morning-room',
+  path: '/studio/morning-room',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StudioManifestoRoute = StudioManifestoRouteImport.update({
@@ -67,9 +87,19 @@ const StudioInteriorsRoute = StudioInteriorsRouteImport.update({
   path: '/studio/interiors',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioEveningLoungeRoute = StudioEveningLoungeRouteImport.update({
+  id: '/studio/evening-lounge',
+  path: '/studio/evening-lounge',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StudioDepthLevelsRoute = StudioDepthLevelsRouteImport.update({
   id: '/studio/depth-levels',
   path: '/studio/depth-levels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioAnotherRoomRoute = StudioAnotherRoomRouteImport.update({
+  id: '/studio/another-room',
+  path: '/studio/another-room',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StudioAboutRoute = StudioAboutRouteImport.update({
@@ -90,10 +120,15 @@ export interface FileRoutesByFullPath {
   '/seasonal-house': typeof SeasonalHouseRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/studio/about': typeof StudioAboutRoute
+  '/studio/another-room': typeof StudioAnotherRoomRoute
   '/studio/depth-levels': typeof StudioDepthLevelsRoute
+  '/studio/evening-lounge': typeof StudioEveningLoungeRoute
   '/studio/interiors': typeof StudioInteriorsRoute
   '/studio/manifesto': typeof StudioManifestoRoute
+  '/studio/morning-room': typeof StudioMorningRoomRoute
   '/studio/positioning': typeof StudioPositioningRoute
+  '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
+  '/studio/soft-room': typeof StudioSoftRoomRoute
   '/studio/why-seasonal': typeof StudioWhySeasonalRoute
   '/studio/work-with-me': typeof StudioWorkWithMeRoute
 }
@@ -104,10 +139,15 @@ export interface FileRoutesByTo {
   '/seasonal-house': typeof SeasonalHouseRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/studio/about': typeof StudioAboutRoute
+  '/studio/another-room': typeof StudioAnotherRoomRoute
   '/studio/depth-levels': typeof StudioDepthLevelsRoute
+  '/studio/evening-lounge': typeof StudioEveningLoungeRoute
   '/studio/interiors': typeof StudioInteriorsRoute
   '/studio/manifesto': typeof StudioManifestoRoute
+  '/studio/morning-room': typeof StudioMorningRoomRoute
   '/studio/positioning': typeof StudioPositioningRoute
+  '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
+  '/studio/soft-room': typeof StudioSoftRoomRoute
   '/studio/why-seasonal': typeof StudioWhySeasonalRoute
   '/studio/work-with-me': typeof StudioWorkWithMeRoute
 }
@@ -119,10 +159,15 @@ export interface FileRoutesById {
   '/seasonal-house': typeof SeasonalHouseRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/studio/about': typeof StudioAboutRoute
+  '/studio/another-room': typeof StudioAnotherRoomRoute
   '/studio/depth-levels': typeof StudioDepthLevelsRoute
+  '/studio/evening-lounge': typeof StudioEveningLoungeRoute
   '/studio/interiors': typeof StudioInteriorsRoute
   '/studio/manifesto': typeof StudioManifestoRoute
+  '/studio/morning-room': typeof StudioMorningRoomRoute
   '/studio/positioning': typeof StudioPositioningRoute
+  '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
+  '/studio/soft-room': typeof StudioSoftRoomRoute
   '/studio/why-seasonal': typeof StudioWhySeasonalRoute
   '/studio/work-with-me': typeof StudioWorkWithMeRoute
 }
@@ -135,10 +180,15 @@ export interface FileRouteTypes {
     | '/seasonal-house'
     | '/products/$productId'
     | '/studio/about'
+    | '/studio/another-room'
     | '/studio/depth-levels'
+    | '/studio/evening-lounge'
     | '/studio/interiors'
     | '/studio/manifesto'
+    | '/studio/morning-room'
     | '/studio/positioning'
+    | '/studio/seasonal-weather'
+    | '/studio/soft-room'
     | '/studio/why-seasonal'
     | '/studio/work-with-me'
   fileRoutesByTo: FileRoutesByTo
@@ -149,10 +199,15 @@ export interface FileRouteTypes {
     | '/seasonal-house'
     | '/products/$productId'
     | '/studio/about'
+    | '/studio/another-room'
     | '/studio/depth-levels'
+    | '/studio/evening-lounge'
     | '/studio/interiors'
     | '/studio/manifesto'
+    | '/studio/morning-room'
     | '/studio/positioning'
+    | '/studio/seasonal-weather'
+    | '/studio/soft-room'
     | '/studio/why-seasonal'
     | '/studio/work-with-me'
   id:
@@ -163,10 +218,15 @@ export interface FileRouteTypes {
     | '/seasonal-house'
     | '/products/$productId'
     | '/studio/about'
+    | '/studio/another-room'
     | '/studio/depth-levels'
+    | '/studio/evening-lounge'
     | '/studio/interiors'
     | '/studio/manifesto'
+    | '/studio/morning-room'
     | '/studio/positioning'
+    | '/studio/seasonal-weather'
+    | '/studio/soft-room'
     | '/studio/why-seasonal'
     | '/studio/work-with-me'
   fileRoutesById: FileRoutesById
@@ -178,10 +238,15 @@ export interface RootRouteChildren {
   SeasonalHouseRoute: typeof SeasonalHouseRoute
   ProductsProductIdRoute: typeof ProductsProductIdRoute
   StudioAboutRoute: typeof StudioAboutRoute
+  StudioAnotherRoomRoute: typeof StudioAnotherRoomRoute
   StudioDepthLevelsRoute: typeof StudioDepthLevelsRoute
+  StudioEveningLoungeRoute: typeof StudioEveningLoungeRoute
   StudioInteriorsRoute: typeof StudioInteriorsRoute
   StudioManifestoRoute: typeof StudioManifestoRoute
+  StudioMorningRoomRoute: typeof StudioMorningRoomRoute
   StudioPositioningRoute: typeof StudioPositioningRoute
+  StudioSeasonalWeatherRoute: typeof StudioSeasonalWeatherRoute
+  StudioSoftRoomRoute: typeof StudioSoftRoomRoute
   StudioWhySeasonalRoute: typeof StudioWhySeasonalRoute
   StudioWorkWithMeRoute: typeof StudioWorkWithMeRoute
 }
@@ -230,11 +295,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudioWhySeasonalRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/studio/soft-room': {
+      id: '/studio/soft-room'
+      path: '/studio/soft-room'
+      fullPath: '/studio/soft-room'
+      preLoaderRoute: typeof StudioSoftRoomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/seasonal-weather': {
+      id: '/studio/seasonal-weather'
+      path: '/studio/seasonal-weather'
+      fullPath: '/studio/seasonal-weather'
+      preLoaderRoute: typeof StudioSeasonalWeatherRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/studio/positioning': {
       id: '/studio/positioning'
       path: '/studio/positioning'
       fullPath: '/studio/positioning'
       preLoaderRoute: typeof StudioPositioningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/morning-room': {
+      id: '/studio/morning-room'
+      path: '/studio/morning-room'
+      fullPath: '/studio/morning-room'
+      preLoaderRoute: typeof StudioMorningRoomRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/studio/manifesto': {
@@ -251,11 +337,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudioInteriorsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/studio/evening-lounge': {
+      id: '/studio/evening-lounge'
+      path: '/studio/evening-lounge'
+      fullPath: '/studio/evening-lounge'
+      preLoaderRoute: typeof StudioEveningLoungeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/studio/depth-levels': {
       id: '/studio/depth-levels'
       path: '/studio/depth-levels'
       fullPath: '/studio/depth-levels'
       preLoaderRoute: typeof StudioDepthLevelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/another-room': {
+      id: '/studio/another-room'
+      path: '/studio/another-room'
+      fullPath: '/studio/another-room'
+      preLoaderRoute: typeof StudioAnotherRoomRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/studio/about': {
@@ -282,10 +382,15 @@ const rootRouteChildren: RootRouteChildren = {
   SeasonalHouseRoute: SeasonalHouseRoute,
   ProductsProductIdRoute: ProductsProductIdRoute,
   StudioAboutRoute: StudioAboutRoute,
+  StudioAnotherRoomRoute: StudioAnotherRoomRoute,
   StudioDepthLevelsRoute: StudioDepthLevelsRoute,
+  StudioEveningLoungeRoute: StudioEveningLoungeRoute,
   StudioInteriorsRoute: StudioInteriorsRoute,
   StudioManifestoRoute: StudioManifestoRoute,
+  StudioMorningRoomRoute: StudioMorningRoomRoute,
   StudioPositioningRoute: StudioPositioningRoute,
+  StudioSeasonalWeatherRoute: StudioSeasonalWeatherRoute,
+  StudioSoftRoomRoute: StudioSoftRoomRoute,
   StudioWhySeasonalRoute: StudioWhySeasonalRoute,
   StudioWorkWithMeRoute: StudioWorkWithMeRoute,
 }

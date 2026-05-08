@@ -191,7 +191,7 @@ function ExplorePage() {
 
   return (
     <>
-      <Link to="/" className="return-link return-link--immersive">
+      <Link to="/seasonal-house" className="return-link return-link--immersive">
         &larr; The Seasonal House
       </Link>
       <ImageCarousel />

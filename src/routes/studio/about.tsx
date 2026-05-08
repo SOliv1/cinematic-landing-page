@@ -98,7 +98,7 @@ function AboutPage() {
 
         {/* §6 — Closing Note */}
         <section className="about-closing">
-          <p className="about-closing-line">I am building digital experiences that feel like places — quiet, atmospheric, and alive with intention.</p>
+          <p className="about-closing-line">I am building digital experiences that feel like places; quiet, atmospheric, and alive with intention.</p>
         </section>
 
       </div>

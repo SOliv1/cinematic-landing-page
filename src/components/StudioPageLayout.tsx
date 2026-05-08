@@ -93,7 +93,7 @@ export function StudioPageLayout({ title, subtitle, children }: StudioPageLayout
           }}
         >
           <Link
-            to="/"
+            to="/seasonal-house"
             className="return-link"
           >
             ← The Seasonal House
