@@ -26,6 +26,7 @@ import { Route as StudioDepthLevelsRouteImport } from './routes/studio/depth-lev
 import { Route as StudioAnotherRoomRouteImport } from './routes/studio/another-room'
 import { Route as StudioAboutRouteImport } from './routes/studio/about'
 import { Route as ProductsProductIdRouteImport } from './routes/products/$productId'
+import { Route as ApiWeatherRouteImport } from './routes/api.weather'
 
 const SeasonalHouseRoute = SeasonalHouseRouteImport.update({
   id: '/seasonal-house',
@@ -112,12 +113,18 @@ const ProductsProductIdRoute = ProductsProductIdRouteImport.update({
   path: '/products/$productId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiWeatherRoute = ApiWeatherRouteImport.update({
+  id: '/api/weather',
+  path: '/api/weather',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/begin-the-journey': typeof BeginTheJourneyRoute
   '/explore': typeof ExploreRoute
   '/seasonal-house': typeof SeasonalHouseRoute
+  '/api/weather': typeof ApiWeatherRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
@@ -137,6 +144,7 @@ export interface FileRoutesByTo {
   '/begin-the-journey': typeof BeginTheJourneyRoute
   '/explore': typeof ExploreRoute
   '/seasonal-house': typeof SeasonalHouseRoute
+  '/api/weather': typeof ApiWeatherRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
@@ -157,6 +165,7 @@ export interface FileRoutesById {
   '/begin-the-journey': typeof BeginTheJourneyRoute
   '/explore': typeof ExploreRoute
   '/seasonal-house': typeof SeasonalHouseRoute
+  '/api/weather': typeof ApiWeatherRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
@@ -178,6 +187,7 @@ export interface FileRouteTypes {
     | '/begin-the-journey'
     | '/explore'
     | '/seasonal-house'
+    | '/api/weather'
     | '/products/$productId'
     | '/studio/about'
     | '/studio/another-room'
@@ -197,6 +207,7 @@ export interface FileRouteTypes {
     | '/begin-the-journey'
     | '/explore'
     | '/seasonal-house'
+    | '/api/weather'
     | '/products/$productId'
     | '/studio/about'
     | '/studio/another-room'
@@ -216,6 +227,7 @@ export interface FileRouteTypes {
     | '/begin-the-journey'
     | '/explore'
     | '/seasonal-house'
+    | '/api/weather'
     | '/products/$productId'
     | '/studio/about'
     | '/studio/another-room'
@@ -236,6 +248,7 @@ export interface RootRouteChildren {
   BeginTheJourneyRoute: typeof BeginTheJourneyRoute
   ExploreRoute: typeof ExploreRoute
   SeasonalHouseRoute: typeof SeasonalHouseRoute
+  ApiWeatherRoute: typeof ApiWeatherRoute
   ProductsProductIdRoute: typeof ProductsProductIdRoute
   StudioAboutRoute: typeof StudioAboutRoute
   StudioAnotherRoomRoute: typeof StudioAnotherRoomRoute
@@ -372,6 +385,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsProductIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/weather': {
+      id: '/api/weather'
+      path: '/api/weather'
+      fullPath: '/api/weather'
+      preLoaderRoute: typeof ApiWeatherRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -380,6 +400,7 @@ const rootRouteChildren: RootRouteChildren = {
   BeginTheJourneyRoute: BeginTheJourneyRoute,
   ExploreRoute: ExploreRoute,
   SeasonalHouseRoute: SeasonalHouseRoute,
+  ApiWeatherRoute: ApiWeatherRoute,
   ProductsProductIdRoute: ProductsProductIdRoute,
   StudioAboutRoute: StudioAboutRoute,
   StudioAnotherRoomRoute: StudioAnotherRoomRoute,

@@ -1,12 +1,12 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { StudioDropdown } from '@/components/StudioDropdown'
 import { ReflectionsSplash, useSplashTrigger, useSplashShow } from '@/components/ReflectionsSplash'
-import OrbLogo from '/images/logo/orb-silver-R.png'
 import OrbNeutral from '/images/orbs/orb-neutral.png'
 import OrbWarmDawn from '/images/orbs/orb-warm-dawn.png'
 import OrbMidnightGlow from '/images/orbs/orb-midnight-glow.png'
 import OrbAutumnEmber from '/images/orbs/orb-autumn-ember.png'
+import { useOrbState } from '@/hooks/useOrbState'
 import { useSeasonalBackground, useSeasonalBackgroundVariant } from '@/hooks/useSeasonalBackground'
 import type { SeasonalBackgroundVariant } from '@/utils/getSeasonalBackground'
 
@@ -184,29 +184,20 @@ function getSurfaceVeilStyles(veilTone: SeasonalBackgroundVariant) {
 // ── Orb Component ─────────────────────────────────────────────────────────────
 
 function SeasonalOrb({ src, palette }: { src: string; palette: SeasonalPalette }) {
+  const orbState = useOrbState()
   const [hovered, setHovered] = useState(false)
-  const [logoVisible, setLogoVisible] = useState(false)
-  const dismissTimer = useRef<number | null>(null)
 
   const handleMouseEnter = () => {
-    if (dismissTimer.current !== null) window.clearTimeout(dismissTimer.current)
     setHovered(true)
-    setLogoVisible(true)
   }
 
   const handleMouseLeave = () => {
     setHovered(false)
-    dismissTimer.current = window.setTimeout(() => setLogoVisible(false), 400)
   }
-
-  useEffect(() => {
-    return () => {
-      if (dismissTimer.current !== null) window.clearTimeout(dismissTimer.current)
-    }
-  }, [])
 
   return (
     <div
+      className={orbState.className}
       style={{
         position: 'relative',
         width: '84px',
@@ -255,60 +246,21 @@ function SeasonalOrb({ src, palette }: { src: string; palette: SeasonalPalette }
           filter: hovered ? 'brightness(1.08) saturate(1.1)' : 'none',
         }}
       />
+      <span className="orb-tint" aria-hidden="true" />
+      <span className="orb-sparkles" aria-hidden="true" />
 
-      {/* Reflections identity — born from the orb's light on hover */}
-      {logoVisible && (
-        <div
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: '160px',
-            height: '160px',
-            pointerEvents: 'none',
-            zIndex: 4,
-          }}
-        >
-          <div
-            className={hovered ? 'reflections-logo-enter' : 'reflections-logo-exit'}
-            style={{
-              position: 'relative',
-              width: '100%',
-              height: '100%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: '50%',
-            }}
-          >
-            {/* Bloom — the light behind the veil */}
-            <div
-              style={{
-                position: 'absolute',
-                inset: 0,
-                borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(255,248,240,0.32) 0%, rgba(255,238,215,0.14) 48%, transparent 72%)',
-                filter: 'blur(10px)',
-              }}
-            />
-            {/* Identity mark emerging through the veil */}
-            <img
-              src={OrbLogo}
-              alt=""
-              aria-label="Reflections"
-              style={{
-                position: 'relative',
-                width: '46px',
-                height: '46px',
-                objectFit: 'contain',
-                filter: 'drop-shadow(0 0 14px rgba(255,248,240,0.6)) brightness(1.08)',
-                zIndex: 1,
-              }}
-            />
-          </div>
-        </div>
-      )}
+      <picture className="orb-logo">
+        <source
+          srcSet="/images/logo/r-logo-pearl-128.webp 128w, /images/logo/r-logo-pearl-256.webp 256w, /images/logo/r-logo-pearl-512.webp 512w"
+          sizes="60px"
+          type="image/webp"
+        />
+        <img
+          src="/images/logo/r-logo-pearl-512.png"
+          alt="Reflections Logo"
+          className="r-logo"
+        />
+      </picture>
     </div>
   )
 }
