@@ -39,6 +39,15 @@ npx netlify dev
 
 This runs at [http://localhost:8888](http://localhost:8888).
 
+## GitHub Actions deployment to Netlify
+
+This repository includes `.github/workflows/netlify-deploy.yml`, which deploys production builds to Netlify on pushes to `master` (and can also be run manually with **workflow_dispatch**).
+
+Add these repository secrets in GitHub before using the workflow:
+
+- `NETLIFY_AUTH_TOKEN` — a Netlify personal access token with deploy permissions
+- `NETLIFY_SITE_ID` — the Netlify Site ID for `cinematic-landing-page`
+
 ## Design
 
 - **Hero** — translucent pearl panel floating over drifting atmospheric blobs, with a pulsing orb and whisper-weight typography
