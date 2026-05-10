@@ -46,7 +46,7 @@ This repository includes `.github/workflows/netlify-deploy.yml`, which deploys p
 Add these repository secrets in GitHub before using the workflow:
 
 - `NETLIFY_AUTH_TOKEN` — a Netlify personal access token with deploy permissions
-- `NETLIFY_SITE_ID` — the Netlify Site ID for `cinematic-landing-page`
+- `NETLIFY_SITE_ID` — the Netlify Site ID for your Netlify site
 
 ## Design
 
