@@ -89,7 +89,7 @@ export const Route = createFileRoute('/studio/interiors')({
             Rooms
           </h3>
           <p className="text-lg md:text-xl leading-relaxed">
-            Each app is a room with its own interior truth — a space shaped for clarity,
+            Each app is a room with its own interior truth; a space shaped for clarity,
             calm, and purpose. Nothing extra, nothing hurried. Just the essence, held
             with intention.
           </p>
@@ -118,7 +118,7 @@ export const Route = createFileRoute('/studio/interiors')({
             Thresholds
           </h3>
           <p className="text-lg md:text-xl leading-relaxed">
-            Movement between spaces should feel natural — a quiet shift, a gentle
+            Movement between spaces should feel natural; a quiet shift, a gentle
             transition. Thresholds guide the pace, protect the mood, and keep the
             experience coherent.
           </p>
@@ -148,7 +148,7 @@ export const Route = createFileRoute('/studio/interiors')({
           </h3>
           <p className="text-lg md:text-xl leading-relaxed">
             Light, colour, and tone shift gently through the day. Atmosphere is the
-            quiet presence that holds the room — warm, alive, and always in motion.
+            quiet presence that holds the room; warm, alive, and always in motion.
           </p>
         </div>
 
