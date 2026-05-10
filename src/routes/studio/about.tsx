@@ -35,7 +35,7 @@ function AboutPage() {
         <section className="about-story">
           <div className="about-room about-room-origins">
             <span className="about-room-label">Origins</span>
-            <p className="about-room-text">My career began in the layered worlds of advertising, luxury retail, PR, property, and brand communications. These early years taught me how people respond to stories, environments, and emotional cues — lessons that still shape everything I create.</p>
+            <p className="about-room-text">My career began in the layered worlds of advertising, luxury retail, PR, property, and brand communications. These early years taught me how people respond to stories, environments, and emotional cues; lessons that still shape everything I create.</p>
           </div>
           <div className="about-room about-room-software">
             <span className="about-room-label">The Shift Into Software</span>

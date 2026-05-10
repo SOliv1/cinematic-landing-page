@@ -15,7 +15,7 @@ export const Route = createFileRoute('/studio/why-seasonal')({
       <p className="positioning-body">
         Seasonal is a different way of building digital interiors.<br />
         Most studios build brands.<br />
-        Seasonal builds <span className="soft-emphasis">places</span> —<br />
+        Seasonal builds <span className="soft-emphasis">places</span>; <br />
         digital interiors with atmosphere,<br />
         rhythm,<br />
         and emotional clarity.
@@ -58,7 +58,7 @@ export const Route = createFileRoute('/studio/why-seasonal')({
 
       <p className="positioning-body">
         These are not screens.<br />
-        They are interiors —<br />
+        They are interiors,<br />
         crafted with the same care<br />
         as physical architecture.
       </p>
@@ -127,7 +127,7 @@ export const Route = createFileRoute('/studio/why-seasonal')({
       </p>
 
       <p className="positioning-body">
-        This is Seasonal —<br />
+        This is Seasonal<br />
         a studio shaped by rhythm,<br />
         architecture,<br />
         and the quiet courage<br />
