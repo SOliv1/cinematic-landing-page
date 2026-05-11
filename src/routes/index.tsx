@@ -354,14 +354,14 @@ const features: Feature[] = [
   {
     index: '01',
     title: 'Seasonal Awareness',
-    subtitle: 'Interfaces that shift with light, time, and season.',
+    subtitle: 'Interfaces that evolve with light, time, and season.',
     body: 'Keeping your space aligned with the world outside.',
   },
   {
     index: '02',
     title: 'Quiet Performance',
     subtitle: 'Motion and detail stay out of the way.',
-    body: 'Everything is tuned for focus, not noise.',
+    body: 'Tuned into focus. No distractions.',
   },
   {
     index: '03',
@@ -673,7 +673,7 @@ function LandingPage() {
               animationDelay: '0.52s',
             }}
           >
-            Designed for clarity, mood, and quiet delight.
+            Designed for clarity, mood, and delight.
           </p>
 
           <div
