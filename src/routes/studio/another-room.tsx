@@ -22,10 +22,8 @@ function AnotherRoomPage() {
       <section className="anotherroom-card">
         <h2 className="anotherroom-card-title">A quiet interior in progress</h2>
         <p className="anotherroom-card-text">
-          This room holds a neutral, cinematic atmosphere while its purpose is
-          still taking shape. Soft grey lavender, muted violet-grey, cool
-          shadow, and quiet interior depth keep the space alive without pulling
-          it toward morning or evening.
+          An interior in progress.
+          Soft grey‑lavender, muted violet‑grey, and cool shadow keep the space alive while its purpose takes shape.
         </p>
       </section>
 

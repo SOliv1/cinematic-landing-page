@@ -359,7 +359,7 @@ const features: Feature[] = [
   },
   {
     index: '02',
-    title: 'Quiet Performance',
+    title: 'Composed Performance',
     subtitle: 'Motion and detail stay out of the way.',
     body: 'Tuned into focus. No distractions.',
   },
@@ -768,7 +768,7 @@ function LandingPage() {
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontSize: 'clamp(1.02rem, 2.4vw, 1.18rem)',
-              fontWeight: 400,
+              fontWeight: 500,
               fontStyle: 'italic',
               lineHeight: 1.45,
               letterSpacing: '0.025em',

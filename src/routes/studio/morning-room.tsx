@@ -15,16 +15,14 @@ function MorningRoomPage() {
       <header className="morningroom-header">
         <h1 className="morningroom-title">The Morning Room</h1>
         <p className="morningroom-subtitle">
-          A gentle start, soft tones, warm light, and quiet intention.
+          A gentle start, soft tones, warm light, and calm intention.
         </p>
       </header>
 
       <section className="morningroom-card">
         <h2 className="morningroom-card-title">A lavender morning interior</h2>
         <p className="morningroom-card-text">
-          This room opens with a soft lavender wash, warm orb tint, atmospheric
-          violet, and a quiet indigo echo. It is shaped for first thoughts,
-          gentle focus, and the small rituals that begin the day.
+          A lavender interior with soft wash, warm tint, and indigo echo, shaped for first thoughts and early focus.
         </p>
       </section>
 

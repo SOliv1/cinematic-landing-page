@@ -129,13 +129,13 @@ interface Room {
 const rooms: Room[] = [
   {
     title: 'Seasonal Weather',
-    description: 'A calm space shaped by light, colour, and the rhythm of the day.',
+    description: 'A calm space shaped by colour, and the light of day.',
     href: '/studio/seasonal-weather',
     className: 'seasonal-weather-gradient',
   },
   {
     title: 'The Morning Room',
-    description: 'A gentle start, soft tones, warm light, and quiet intention.',
+    description: 'A gentle start, soft tones, warm light, and calm intention.',
     comingSoon: true,
     href: '/studio/morning-room',
     className: 'morning-room-gradient',
@@ -149,7 +149,7 @@ const rooms: Room[] = [
   },
   {
     title: 'The Soft Room',
-    description: 'A warm space for connection. A quiet interior shaped for presence and gentle conversation.',
+    description: 'An interior shaped for presence, softness, and connection.',
     comingSoon: true,
     href: '/studio/soft-room',
     className: 'soft-room-gradient',
@@ -319,8 +319,7 @@ function SeasonalHousePage() {
               The Seasonal House
             </h1>
             <p className="body fade-in mb-8 max-w-xl" style={{ color: veil.inkMuted }}>
-              A quiet interior of apps, atmospheres, and emerging experiences,
-              each one shaped by clarity, rhythm, and mood.
+              A suite of interior atmospheres and emerging experiences, each shaped by clarity, rhythm, and mood.
             </p>
           </div>
         </section>

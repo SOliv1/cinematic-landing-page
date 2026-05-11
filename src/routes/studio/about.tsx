@@ -25,9 +25,9 @@ function AboutPage() {
         {/* §2 — Studio Philosophy */}
         <section className="about-philosophy">
           <div className="about-philosophy-inner">
-            <p className="about-philosophy-line">I build digital experiences that breathe spaces shaped by light, rhythm, and emotional clarity.</p>
-            <p className="about-philosophy-line">My work sits at the intersection of software, design, and storytelling, where atmosphere matters as much as function.</p>
-            <p className="about-philosophy-line">I believe in products that feel lived-in, intuitive, and quietly cinematic.</p>
+            <p className="about-philosophy-line">I build digital experiences shaped by light, rhythm, and clarity.</p>
+            <p className="about-philosophy-line">My work blends software, design, and storytelling.</p>
+            <p className="about-philosophy-line">I create products that feel lived‑in, intuitive, and cinematic.</p>
           </div>
         </section>
 
@@ -35,15 +35,15 @@ function AboutPage() {
         <section className="about-story">
           <div className="about-room about-room-origins">
             <span className="about-room-label">Origins</span>
-            <p className="about-room-text">My career began in the layered worlds of advertising, luxury retail, PR, property, and brand communications. These early years taught me how people respond to stories, environments, and emotional cues; lessons that still shape everything I create.</p>
+            <p className="about-room-text">I began in advertising, retail, PR, property, and brand communications; work that taught me how people respond to stories and environments. That understanding still shapes what I create.</p>
           </div>
           <div className="about-room about-room-software">
             <span className="about-room-label">The Shift Into Software</span>
-            <p className="about-room-text">In 2020, I stepped fully into software development, drawn to the precision and possibility of building interactive experiences. I trained in full-stack development and began crafting digital products that merge technical depth with atmospheric design.</p>
+            <p className="about-room-text">In 2020, I shifted into software development and trained in full‑stack work, creating digital experiences that merge technical depth with atmospheric design.</p>
           </div>
           <div className="about-room about-room-fusion">
             <span className="about-room-label">The Fusion</span>
-            <p className="about-room-text">Today, my work blends brand psychology, narrative clarity, and software engineering into a single practice. I design products that are functional, elegant, and emotionally resonant experiences that guide, comfort, and quietly transform.</p>
+            <p className="about-room-text">Today, my work blends brand psychology, narrative clarity, and software engineering to create functional, elegant, emotionally resonant experiences.</p>
           </div>
         </section>
 

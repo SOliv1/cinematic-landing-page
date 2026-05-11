@@ -22,9 +22,8 @@ function EveningLoungePage() {
       <section className="eveninglounge-card">
         <h2 className="eveninglounge-card-title">The moment the day exhales</h2>
         <p className="eveninglounge-card-text">
-          This room settles into plum violet, warm dusk rose, deep twilight
-          indigo, and a near-night shadow. It is a slower interior for closing
-          loops, soft focus, and letting the atmosphere deepen.
+          This room settles into plum violet, warm dusk rose, deep twilight indigo, and an evening shadow;
+          shaped for soft focus and bringing the day to a close.
         </p>
       </section>
 

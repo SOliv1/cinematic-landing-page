@@ -56,17 +56,20 @@ export const Route = createFileRoute('/studio/interiors')({
             p-10 md:p-14
           "
         >
-        <p className="text-lg md:text-xl leading-relaxed mb-6">
-          Every space begins with essence.
-          Form follows interior truth, not surface appearance.
-        </p>
+          <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight mb-4">
+            Interiors
+          </h3>
 
-        <p className="text-lg md:text-xl leading-relaxed">
-          Rooms, thresholds, atmospheres, each one shaped to reveal clarity,
-          hold stillness, and carry light.
-        </p>
+          <div className="space-y-1 leading-tight">
+            <p>Interior first.</p>
+            <p>Essence leads.</p>
+            <p>Form follows truth.</p>
+            <p>Rooms, thresholds, atmospheres shaped for clarity and light.</p>
+          </div>
         </div>
       </section>
+
+      <section className="space-y-24"></section>
       <section className="space-y-24">
 
       {/* Rooms */}
@@ -89,10 +92,9 @@ export const Route = createFileRoute('/studio/interiors')({
             Rooms
           </h3>
           <p className="text-lg md:text-xl leading-relaxed">
-            Each app is a room with its own interior truth; a space shaped for clarity,
-            calm, and purpose. Nothing extra, nothing hurried. Just the essence, held
-            with intention.
+            Each app is a room with its own interior truth, shaped for clarity and calm. Nothing extra.
           </p>
+          <p className="text-lg md:text-xl leading-relaxed">Just the essence.</p>
         </div>
 
       {/* Warm Divider */}
@@ -118,9 +120,7 @@ export const Route = createFileRoute('/studio/interiors')({
             Thresholds
           </h3>
           <p className="text-lg md:text-xl leading-relaxed">
-            Movement between spaces should feel natural; a quiet shift, a gentle
-            transition. Thresholds guide the pace, protect the mood, and keep the
-            experience coherent.
+            Movement between spaces should feel natural. Thresholds guide the pace and keep the experience coherent.
           </p>
         </div>
 
