@@ -354,20 +354,20 @@ const features: Feature[] = [
   {
     index: '01',
     title: 'Seasonal Awareness',
-    subtitle: 'The interface is a space that can breathe and move with you.',
-    body: ' It can be a place that feels alive, not just a static container for content. By reflecting the rhythms of the day and year, it can help you feel more connected to your work and the world around you.',
+    subtitle: 'Interfaces that shift with light, time, and season.',
+    body: 'Keeping your space aligned with the world outside.',
   },
   {
     index: '02',
     title: 'Quiet Performance',
-    subtitle: 'Transitions unfold gently, never rushing, never demanding.',
-    body: 'The interface stays quiet enough for you to hear your own thoughts.',
+    subtitle: 'Motion and detail stay out of the way.',
+    body: 'Everything is tuned for focus, not noise.',
   },
   {
     index: '03',
     title: 'Modular Clarity',
-    subtitle: 'Each app is its own quiet room',
-    body: 'Shaped with clarity, connected in spirit, and free to grow without disturbing the calm of the whole.',
+    subtitle: 'Each feature stands on its own, yet belongs to the same calm structure. ',
+    body: 'Simple to expand, effortless to navigate.',
   },
   {
     index: '04',
@@ -968,7 +968,7 @@ function LandingPage() {
               marginBottom: '36px',
             }}
           >
-            Explore the rooms of Seasonal, simple spaces designed to feel clear, calm, and alive in their own quiet way.
+            Explore the rooms of Seasonal, a set of calm, clear, unhurried spaces.
           </p>
           <Link to="/seasonal-house" className="seasonal-pill step-inside">
             <span>Step inside</span>

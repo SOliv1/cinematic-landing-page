@@ -18,7 +18,7 @@ function AboutPage() {
               Software Developer&nbsp;&middot;&nbsp;Digital Experience Designer&nbsp;&middot;&nbsp;Brand &amp; Communications Specialist
             </p>
             <p className="about-location">London, UK</p>
-            <p className="about-opening-line">A quiet introduction to who I am and how I think.</p>
+            <p className="about-opening-line">An introduction to who I am and how I think.</p>
           </div>
         </section>
 
