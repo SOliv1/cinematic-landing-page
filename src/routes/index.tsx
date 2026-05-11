@@ -779,7 +779,7 @@ function LandingPage() {
               marginTop: '-24px',
             }}
           >
-            A quiet shift into the principles that shape the Seasonal house
+            A shift into the principles that shape the Seasonal house
           </p>
 
           {/* Asymmetric grid: tall left + 2 stacked right */}
