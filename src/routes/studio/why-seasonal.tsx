@@ -1,139 +1,74 @@
-import { createFileRoute } from '@tanstack/react-router'
-import { StudioPageLayout } from '@/components/StudioPageLayout'
+import { createFileRoute } from "@tanstack/react-router";
+import AtmosphericBanner from "@/components/AtmosphericBanner";
+import SeasonalCard from "@/components/SeasonalCard";
+import { StudioPageLayout } from "@/components/StudioPageLayout";
+import StudioNavBar from "@/components/StudioNavBar";
 
-export const Route = createFileRoute('/studio/why-seasonal')({
-  component: () => (
+export const Route = createFileRoute("/studio/why-seasonal")({
+  component: WhySeasonalPage,
+});
+
+function WhySeasonalPage() {
+  return (
     <StudioPageLayout
       title="Why Seasonal"
-      subtitle="My competitive differentiators, why these interiors feel different."
+      subtitle="A studio shaped by rhythm, architecture, and emotional clarity."
     >
-      <div className="positioning-container">
-      <h1 className="positioning-title">
-        Why Seasonal
-      </h1>
+      <div className="positioning-page why-seasonal-page">
+        <h1 className="positioning-header">The Studio ▾ Why Seasonal</h1>
 
-      <p className="positioning-body">
-        Seasonal is a different way of building digital interiors.<br />
-        Most studios build brands.<br />
-        Seasonal builds <span className="soft-emphasis">places</span>; <br />
-        digital interiors with atmosphere,<br />
-        rhythm,<br />
-        and emotional clarity.
-      </p>
+        <div className="positioning-wrapper why-seasonal-wrapper">
+          <div className="positioning-glow" />
 
-      <p className="positioning-body">
-        This is not branding theatre.<br />
-        This is architectural strategy<br />
-        for people who want depth,<br />
-        not noise.
-      </p>
+          <div className="positioning-container why-seasonal-container">
+            <StudioNavBar />
 
-      <p className="positioning-body">
-        <span className="soft-heading">Strategic clarity without the performance.</span><br />
-        The industry sells “big brand energy.”<br />
-        Seasonal offers something rarer:<br />
-        interior alignment.
-      </p>
+            <AtmosphericBanner
+              src="/images/orbs/originOfLight.png"
+              title="The Origin Light"
+              alt="The Origin Light — atmospheric glowing orb in warm dusk haze"
+            />
 
-      <p className="positioning-body">
-        You don’t need to shout.<br />
-        You need to stand in the place<br />
-        where your work feels most itself.<br />
-        This is positioning as a centre,<br />
-        not a claim.
-      </p>
+            <div className="why-seasonal-grid">
+              <SeasonalCard>
+                <p>Most studios build brands.</p>
+                <p>Seasonal builds places — digital interiors with atmosphere, rhythm, and emotional clarity.</p>
+                <p>Not branding theatre. Architectural strategy for people who want depth, not noise.</p>
+              </SeasonalCard>
 
-      <p className="positioning-body">
-        <span className="soft-heading">Cinematic digital interiors.</span><br />
-        Your work doesn’t feel like a website.<br />
-        It feels like a room you can walk into.
-      </p>
+              <SeasonalCard>
+                <p>The industry sells “big brand energy.” Seasonal offers interior alignment.</p>
+                <p>You don’t need to shout. You need to stand where your work feels most itself.</p>
+                <p>Positioning as a centre, not a claim.</p>
+              </SeasonalCard>
 
-      <p className="positioning-body">
-        Warm dusk gradients.<br />
-        Soft architectural beams.<br />
-        Negative space that breathes.<br />
-        Typography that feels like a whisper.
-      </p>
+              <SeasonalCard>
+                <p>Your work shouldn’t feel like a website. It should feel like a room you can walk into.</p>
+                <p>Warm dusk gradients. Soft architectural beams. Negative space that breathes. Typography like a whisper.</p>
+                <p>These aren’t screens. They’re interiors.</p>
+              </SeasonalCard>
 
-      <p className="positioning-body">
-        These are not screens.<br />
-        They are interiors,<br />
-        crafted with the same care<br />
-        as physical architecture.
-      </p>
+              <SeasonalCard>
+                <p>Most studios move fast. Seasonal moves with intention.</p>
+                <p>A seasonal rhythm. A gentle pace. A way of working that supports the work.</p>
+                <p>No pressure. No performance. Clarity at the right tempo.</p>
+              </SeasonalCard>
 
-      <p className="positioning-body">
-        <span className="soft-heading">Rhythm over urgency.</span><br />
-        Most studios move fast.<br />
-        Seasonal moves with intention.
-      </p>
+              <SeasonalCard>
+                <p>Clients don’t just get a brand. They get a place where their work feels safe, seen, understood.</p>
+                <p>Design as care. Strategy as listening. Architecture as emotional clarity.</p>
+              </SeasonalCard>
 
-      <p className="positioning-body">
-        A seasonal rhythm.<br />
-        A gentle pace.<br />
-        A way of working that supports the work<br />
-        instead of overwhelming it.
-      </p>
-
-      <p className="positioning-body">
-        No pressure.<br />
-        No performance.<br />
-        Just clarity unfolding<br />
-        at the right tempo.
-      </p>
-
-      <p className="positioning-body">
-        <span className="soft-heading">Emotional intelligence as a design principle.</span><br />
-        Your clients don’t just get a brand.<br />
-        They get a place where their work<br />
-        feels safe,<br />
-        seen,<br />
-        and understood.
-      </p>
-
-      <p className="positioning-body">
-        This is design as care.<br />
-        Strategy as listening.<br />
-        Architecture as emotional clarity.
-      </p>
-
-      <p className="positioning-body">
-        <span className="soft-heading">Built for thoughtful, intuitive creators.</span><br />
-        Seasonal is not for everyone.<br />
-        It’s for people who want depth,<br />
-        meaning,<br />
-        resonance,<br />
-        a home for their work.
-      </p>
-
-      <p className="positioning-body">
-        Not noise.<br />
-        Not spectacle.<br />
-        Not a brand mask.
-      </p>
-
-      <p className="positioning-body">
-        Seasonal exists to build digital interiors<br />
-        that feel natural, grounded,<br />
-        and true.
-      </p>
-
-      <p className="positioning-body">
-        To create spaces that breathe.<br />
-        To give your work a place to stand.<br />
-        To offer clarity without pressure,<br />
-        and beauty without noise.
-      </p>
-
-      <p className="positioning-body">
-        This is Seasonal<br />
-        a studio shaped by rhythm,<br />
-        architecture,<br />
-        and the quiet courage<br />
-        to design from the inside out.
-      </p>
-    </div>
+              <SeasonalCard>
+                <p>Seasonal is for people who want depth, meaning, resonance — a home for their work.</p>
+                <p>Not noise. Not spectacle. Not a brand mask.</p>
+                <p>Digital interiors that feel natural, grounded, and true.</p>
+                <p>A place to stand.</p>
+              </SeasonalCard>
+            </div>
+          </div>
+        </div>
+      </div>
     </StudioPageLayout>
-  ),
-})
+  );
+}

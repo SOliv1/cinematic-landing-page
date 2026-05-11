@@ -1,7 +1,7 @@
 import { type ReactNode } from 'react'
 import { Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
-import { useSeasonalBackground, useSeasonalBackgroundVariant } from '@/hooks/useSeasonalBackground'
+import { useSeasonalBackground } from '@/hooks/useSeasonalBackground'
 import { StudioDropdown } from '@/components/StudioDropdown'
 
 // ── Universal veil: soft dark overlay readable across all seasons ─────────────
@@ -18,7 +18,6 @@ interface StudioPageLayoutProps {
 
 export function StudioPageLayout({ title, subtitle, children }: StudioPageLayoutProps) {
   const bg      = useSeasonalBackground()
-  const _variant = useSeasonalBackgroundVariant()
   const contentRef = useRef<HTMLDivElement>(null)
 
   // Fade-in observer

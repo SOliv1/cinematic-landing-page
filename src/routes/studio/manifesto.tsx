@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { StudioPageLayout } from '@/components/StudioPageLayout'
-import { Route as InteriorsRoute } from '@/routes/studio/interiors'
 
 export const Route = createFileRoute('/studio/manifesto')({
   component: () => (

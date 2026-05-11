@@ -1,4 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
+import AtmosphericBanner from '@/components/AtmosphericBanner'
+import StudioLayout from '@/components/StudioLayout'
 import { StudioPageLayout } from '@/components/StudioPageLayout'
 
 
@@ -8,7 +10,14 @@ export const Route = createFileRoute('/studio/interiors')({
       title="Interiors"
       subtitle="My services, framed as cinematic digital interiors."
     >
-      <div className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,_rgba(255,220,180,0.12),_transparent_70%)]">
+      <StudioLayout title="The Studio ▾ Interiors">
+        <AtmosphericBanner
+          src="/images/orbs/glowing-orb-translucent-chamber16x9.png"
+          title="The Translucent Chamber"
+          alt="The glowing orb translucent chamber with soft reflections in mist"
+        />
+
+        <div className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,_rgba(255,220,180,0.12),_transparent_70%)]">
 
       <header className="relative mb-28 pt-28 pb-24 px-6 md:px-12">
 
@@ -154,7 +163,8 @@ export const Route = createFileRoute('/studio/interiors')({
 
       </section>
 
-      </div>
+        </div>
+      </StudioLayout>
     </StudioPageLayout>
 
     ),

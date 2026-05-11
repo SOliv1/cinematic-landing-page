@@ -5,6 +5,7 @@ import { Link } from '@tanstack/react-router'
 // ── Items ─────────────────────────────────────────────────────────────────────
 
 const studioItems = [
+  { label: 'Home',         to: '/',                     description: 'Return to the main landing page.' },
   { label: 'About',        to: '/studio/about',         description: 'A quiet introduction to who I am and how I think.' },
   { label: 'Manifesto',    to: '/studio/manifesto',     description: 'My Seasonal principles, my philosophy.' },
   { label: 'Interiors',    to: '/studio/interiors',     description: 'My services, framed as cinematic digital interiors.' },
@@ -157,7 +158,7 @@ export function StudioDropdown() {
                 key={item.to}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                className="studio-item"
+                className={item.to === '/' ? 'studio-item studio-item-home' : 'studio-item'}
               >
                 <span style={{
                   display: 'block',
