@@ -11,7 +11,7 @@ export const Route = createFileRoute('/studio/manifesto')({
     >
       <StudioLayout title="The Studio ▾ Manifesto">
         <AtmosphericBanner
-          src="/public/images/orbs/glowingOrb-pink-pearl.png"
+          src="/images/orbs/glowingOrb-pink-pearl.png"
           title="The Pink Pearl"
           alt="The Pink Pearl, pale pink luminous orb floating in a cream space, casting a soft rosy glow"
         />
