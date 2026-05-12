@@ -1,7 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { StudioPageLayout } from '@/components/StudioPageLayout'
 import StudioLayout from '@/components/StudioLayout'
-import AtmosphericBanner from '@/components/AtmosphericBanner'
 
 export const Route = createFileRoute('/studio/manifesto')({
   component: () => (
@@ -10,11 +9,6 @@ export const Route = createFileRoute('/studio/manifesto')({
       subtitle="My Seasonal principles, my philosophy."
     >
       <StudioLayout title="The Studio ▾ Manifesto">
-        <AtmosphericBanner
-          src="/images/orbs/glowingOrb-pink-pearl.png"
-          title="The Pink Pearl"
-          alt="The Pink Pearl, pale pink luminous orb floating in a cream space, casting a soft rosy glow"
-        />
         <section className="mb-32">
           <div className="
             rounded-3xl
