@@ -52,6 +52,7 @@ export function StudioPageLayout({ title, subtitle, children }: StudioPageLayout
           inset: 0,
           background: bg,
           zIndex: 0,
+          pointerEvents: 'none',
         }}
       />
 
@@ -62,6 +63,7 @@ export function StudioPageLayout({ title, subtitle, children }: StudioPageLayout
           inset: 0,
           background: VEIL,
           zIndex: 1,
+          pointerEvents: 'none',
         }}
       />
 

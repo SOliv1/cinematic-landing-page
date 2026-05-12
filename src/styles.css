@@ -758,6 +758,7 @@
     font-size: 0.9rem;
     line-height: 1.6;
     position: relative;
+    z-index: 3;
   }
 
   .studio-footer::before {
