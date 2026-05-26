@@ -326,21 +326,38 @@ function SeasonalHousePage() {
 
         <div className="seasonal-house-prelude fade-in" aria-hidden="true">
           <div className="seasonal-house-prelude-orbs">
-            <img
-              className="seasonal-house-prelude-orb seasonal-house-prelude-orb--cool"
-              src="/images/orbs/todays-rooms-orb-cool.png"
-              alt=""
-            />
-            <img
-              className="seasonal-house-prelude-orb seasonal-house-prelude-orb--warm"
-              src="/images/orbs/todays-rooms-orb.png"
-              alt=""
-            />
-            <img
-              className="seasonal-house-prelude-orb seasonal-house-prelude-orb--violet"
-              src="/images/orbs/todays-rooms-orb-violet.png"
-              alt=""
-            />
+            <figure className="seasonal-house-prelude-phase seasonal-house-prelude-phase--morning">
+              <img
+                className="seasonal-house-prelude-orb seasonal-house-prelude-orb--warm"
+                src="/images/orbs/todays-rooms-orb.png"
+                alt=""
+              />
+              <figcaption>Morning</figcaption>
+            </figure>
+            <figure className="seasonal-house-prelude-phase seasonal-house-prelude-phase--cool">
+              <img
+                className="seasonal-house-prelude-orb seasonal-house-prelude-orb--cool"
+                src="/images/orbs/todays-rooms-orb-cool.png"
+                alt=""
+              />
+              <figcaption>Cool</figcaption>
+            </figure>
+            <figure className="seasonal-house-prelude-phase seasonal-house-prelude-phase--evening">
+              <img
+                className="seasonal-house-prelude-orb seasonal-house-prelude-orb--violet"
+                src="/images/orbs/todays-rooms-orb-violet.png"
+                alt=""
+              />
+              <figcaption>Evening</figcaption>
+            </figure>
+            <figure className="seasonal-house-prelude-phase seasonal-house-prelude-phase--night">
+              <img
+                className="seasonal-house-prelude-orb seasonal-house-prelude-orb--night"
+                src="/images/orbs/todays-rooms-orb-night.png"
+                alt=""
+              />
+              <figcaption>Continuum</figcaption>
+            </figure>
           </div>
           <div className="seasonal-house-prelude-divider" />
         </div>
