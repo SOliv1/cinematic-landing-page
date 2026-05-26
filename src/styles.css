@@ -706,6 +706,101 @@
     transform: translateY(-1px);
   }
 
+  .seasonal-house-prelude {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    margin: 4.5rem 0 6rem;
+    padding-top: 1.5rem;
+  }
+
+  .seasonal-house-prelude-orbs {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    gap: clamp(0.65rem, 3vw, 1.4rem);
+    margin-bottom: -0.28rem;
+  }
+
+  .seasonal-house-prelude-orb {
+    position: relative;
+    width: clamp(5.5rem, 16vw, 8.75rem);
+    aspect-ratio: 1;
+    border-radius: 999px;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.9;
+    filter: saturate(0.92) contrast(0.96) brightness(1.02);
+    box-shadow:
+      0 0 34px rgba(245, 185, 110, 0.18),
+      0 18px 46px rgba(0, 0, 0, 0.2);
+    mix-blend-mode: screen;
+  }
+
+  .seasonal-house-prelude-orb--cool,
+  .seasonal-house-prelude-orb--violet {
+    width: clamp(4.1rem, 12vw, 6.6rem);
+    opacity: 0.72;
+    transform: translateY(0.08rem);
+  }
+
+  .seasonal-house-prelude-orb--cool {
+    filter: saturate(0.82) contrast(0.94) brightness(1.04);
+  }
+
+  .seasonal-house-prelude-orb--warm {
+    z-index: 3;
+  }
+
+  .seasonal-house-prelude-orb--violet {
+    filter: saturate(0.9) contrast(0.96) brightness(1.02);
+  }
+
+  .seasonal-house-prelude::before {
+    content: "";
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    z-index: 1;
+    width: min(24rem, 72vw);
+    height: min(9rem, 28vw);
+    border-radius: 999px;
+    background: radial-gradient(circle at center, rgba(255, 204, 142, 0.16), transparent 66%);
+    filter: blur(20px);
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .seasonal-house-prelude-divider {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.18), transparent);
+  }
+
+  @media (max-width: 640px) {
+    .seasonal-house-prelude {
+      margin: 3.5rem 0 4.75rem;
+    }
+
+    .seasonal-house-prelude-orb {
+      width: clamp(4.75rem, 28vw, 6.5rem);
+    }
+
+    .seasonal-house-prelude-orbs {
+      gap: 0.35rem;
+    }
+
+    .seasonal-house-prelude-orb--cool,
+    .seasonal-house-prelude-orb--violet {
+      width: clamp(3.2rem, 21vw, 4.9rem);
+    }
+  }
+
   .return-link {
     display: inline-block;
     margin-bottom: 2rem;

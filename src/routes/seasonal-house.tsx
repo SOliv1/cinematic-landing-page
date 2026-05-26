@@ -324,7 +324,26 @@ function SeasonalHousePage() {
           </div>
         </section>
 
-        <div className="fade-in w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent my-24" />
+        <div className="seasonal-house-prelude fade-in" aria-hidden="true">
+          <div className="seasonal-house-prelude-orbs">
+            <img
+              className="seasonal-house-prelude-orb seasonal-house-prelude-orb--cool"
+              src="/images/orbs/todays-rooms-orb-cool.png"
+              alt=""
+            />
+            <img
+              className="seasonal-house-prelude-orb seasonal-house-prelude-orb--warm"
+              src="/images/orbs/todays-rooms-orb.png"
+              alt=""
+            />
+            <img
+              className="seasonal-house-prelude-orb seasonal-house-prelude-orb--violet"
+              src="/images/orbs/todays-rooms-orb-violet.png"
+              alt=""
+            />
+          </div>
+          <div className="seasonal-house-prelude-divider" />
+        </div>
 
         {/* ── Rooms ────────────────────────────────────────────────── */}
         <section className="relative mb-32 fade-in">
