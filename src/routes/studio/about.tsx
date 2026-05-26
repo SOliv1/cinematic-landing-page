@@ -25,9 +25,9 @@ function AboutPage() {
         {/* §2 — Studio Philosophy */}
         <section className="about-philosophy">
           <div className="about-philosophy-inner">
-            <p className="about-philosophy-line">I build digital experiences shaped by light, rhythm, and clarity.</p>
-            <p className="about-philosophy-line">My work blends software, design, and storytelling.</p>
-            <p className="about-philosophy-line">I create products that feel lived‑in, intuitive, and cinematic.</p>
+            <p className="about-philosophy-line">I design digital experiences that feel calm, clear, and thoughtfully paced.</p>
+            <p className="about-philosophy-line">My work brings together software, design, and narrative to create spaces that invite reflection.</p>
+            <p className="about-philosophy-line">I aim for products that are intuitive, welcoming, and memorable.</p>
           </div>
         </section>
 
@@ -43,7 +43,7 @@ function AboutPage() {
           </div>
           <div className="about-room about-room-fusion">
             <span className="about-room-label">The Fusion</span>
-            <p className="about-room-text">Today, my work blends brand psychology, narrative clarity, and software engineering to create functional, elegant, emotionally resonant experiences.</p>
+            <p className="about-room-text">Today, I combine brand psychology, clear storytelling, and software engineering to build digital experiences that are both practical and emotionally engaging.</p>
           </div>
         </section>
 
@@ -96,7 +96,56 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* §6 — Closing Note */}
+
+        {/* §6 — Explore My Apps */}
+        <section className="about-apps">
+          <h2 className="about-section-label">Explore My Apps</h2>
+          <div className="about-apps-panel">
+            <ul className="about-apps-grid">
+              <li>
+                <strong>Daily Reflections</strong>
+                <p>Start or end your day with a meaningful journaling prompt. Personal and private.</p>
+                <a className="app-download-btn" href="https://soliv1.github.io/Daily-Reflections-App/" target="_blank" rel="noopener noreferrer">Try App</a>
+              </li>
+              <li>
+                <strong>Seasonal Mind Space</strong>
+                <p>Reflect with the rhythm of the year. Track your moods and thoughts seasonally.</p>
+                <a className="app-download-btn" href="https://soliv1.github.io/Seasonal-mind-space/" target="_blank" rel="noopener noreferrer">Try App</a>
+              </li>
+              <li>
+                <strong>Cinematic Home Glow</strong>
+                <p>Create a reflective home mood. This app can be personalised to your taste and space.</p>
+                <a className="app-download-btn" href="https://inspo-home-cinematic.onrender.com/" target="_blank" rel="noopener noreferrer">Try App</a>
+              </li>
+              <li>
+                <strong>Weather Atmosphere</strong>
+                <p>Let today’s sky shape today’s reflection. (Weather activation coming soon!)</p>
+                <a className="app-download-btn" href="https://reflections-weather-atmosphere.netlify.app/" target="_blank" rel="noopener noreferrer">Try App</a>
+              </li>
+              <li>
+                <strong>Moods Board</strong>
+                <p>Coming soon: Curate your emotional landscape with a personal, visual moods board.</p>
+                <span className="app-download-btn app-coming-soon">Coming Soon</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* §7 — Other Projects */}
+        <section className="about-projects">
+          <h2 className="about-section-label">Other Projects &amp; Websites</h2>
+          <div className="about-projects-panel">
+            <ul className="about-projects-grid">
+              <li>
+                <strong>Portfolio &amp; Studio</strong>
+                <p>Discover more about my work, ethos, and creative process.</p>
+                <a className="project-link-btn" href="/" rel="noopener noreferrer">Visit Main Site</a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* §8 — Closing Note */}
         <section className="about-closing">
           <p className="about-closing-line">I am building digital experiences that feel like places; quiet, atmospheric, and alive with intention.</p>
         </section>

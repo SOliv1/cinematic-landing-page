@@ -10,6 +10,7 @@ const studioItems = [
   { label: 'Manifesto',    to: '/studio/manifesto',     description: 'My Seasonal principles, my philosophy.' },
   { label: 'Interiors',    to: '/studio/interiors',     description: 'My services, framed as cinematic digital interiors.' },
   { label: 'Depth Levels', to: '/studio/depth-levels',  description: 'My pricing tiers, framed as layers of involvement.' },
+  { label: 'Unlock More',  to: '/studio/unlock-more',   description: 'See free, premium, and seasonal upgrade options.' },
   { label: 'Positioning',  to: '/studio/positioning',   description: 'My strategic identity and value proposition.' },
   { label: 'Why Seasonal', to: '/studio/why-seasonal',  description: 'My competitive differentiators, why these interiors feel different.' },
   { label: 'Work With Me', to: '/studio/work-with-me',  description: 'A soft, atmospheric contact page.' },
@@ -120,79 +121,91 @@ export function StudioDropdown() {
 
       {/* Panel — rendered via portal so it escapes all stacking contexts */}
       {open && createPortal(
-        <div ref={panelRef} style={{
-          position: 'fixed',
-          ...panelStyle,
-          minWidth: '300px',
-          borderRadius: '22px',
-          background: 'linear-gradient(160deg, rgba(18, 18, 24, 0.88) 0%, rgba(12, 12, 18, 0.92) 100%)',
-          border: '1px solid rgba(255, 255, 255, 0.10)',
-          backdropFilter: 'blur(40px) saturate(160%) brightness(0.9)',
-          WebkitBackdropFilter: 'blur(40px) saturate(160%) brightness(0.9)',
-          boxShadow: '0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.07)',
-          padding: '0',
-          overflow: 'hidden',
-          animation: 'panelReveal 0.25s ease both',
-          zIndex: 99999,
-        }}>
-          {/* Scroll fade — top */}
-          <div style={{
-            position: 'absolute',
-            top: 0, left: 0, right: 0,
-            height: '32px',
-            background: 'linear-gradient(to bottom, rgba(14,14,20,0.75), transparent)',
-            pointerEvents: 'none',
-            borderRadius: '22px 22px 0 0',
-            opacity: canScrollUp ? 1 : 0,
-            transition: 'opacity 0.2s ease',
-            zIndex: 1,
-          }} />
-          {/* Scrollable list */}
+        <>
           <div
-            ref={scrollRef}
-            onScroll={updateScrollState}
-            style={{ overflowY: 'auto', maxHeight: panelStyle.maxHeight, padding: '10px' }}
-          >
-            {studioItems.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className={item.to === '/' ? 'studio-item studio-item-home' : 'studio-item'}
-              >
-                <span style={{
-                  display: 'block',
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: '1.05rem',
-                  fontWeight: 400,
-                  letterSpacing: '0.03em',
-                  color: 'rgba(245,238,228,0.95)',
-                  marginBottom: '2px',
-                }}>{item.label}</span>
-                <span style={{
-                  display: 'block',
-                  fontFamily: "'Outfit', sans-serif",
-                  fontSize: '0.72rem',
-                  fontWeight: 300,
-                  letterSpacing: '0.05em',
-                  color: 'rgba(220,210,195,0.52)',
-                }}>{item.description}</span>
-              </Link>
-            ))}
+            aria-hidden="true"
+            onMouseDown={() => setOpen(false)}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 99998,
+              background: 'transparent',
+            }}
+          />
+          <div ref={panelRef} style={{
+            position: 'fixed',
+            ...panelStyle,
+            minWidth: '300px',
+            borderRadius: '22px',
+            background: 'linear-gradient(160deg, rgba(18, 18, 24, 0.88) 0%, rgba(12, 12, 18, 0.92) 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.10)',
+            backdropFilter: 'blur(40px) saturate(160%) brightness(0.9)',
+            WebkitBackdropFilter: 'blur(40px) saturate(160%) brightness(0.9)',
+            boxShadow: '0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.07)',
+            padding: '0',
+            overflow: 'hidden',
+            animation: 'panelReveal 0.25s ease both',
+            zIndex: 99999,
+          }}>
+            {/* Scroll fade — top */}
+            <div style={{
+              position: 'absolute',
+              top: 0, left: 0, right: 0,
+              height: '32px',
+              background: 'linear-gradient(to bottom, rgba(14,14,20,0.75), transparent)',
+              pointerEvents: 'none',
+              borderRadius: '22px 22px 0 0',
+              opacity: canScrollUp ? 1 : 0,
+              transition: 'opacity 0.2s ease',
+              zIndex: 1,
+            }} />
+            {/* Scrollable list */}
+            <div
+              ref={scrollRef}
+              onScroll={updateScrollState}
+              style={{ overflowY: 'auto', maxHeight: panelStyle.maxHeight, padding: '10px' }}
+            >
+              {studioItems.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className={item.to === '/' ? 'studio-item studio-item-home' : 'studio-item'}
+                >
+                  <span style={{
+                    display: 'block',
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontSize: '1.05rem',
+                    fontWeight: 400,
+                    letterSpacing: '0.03em',
+                    color: 'rgba(245,238,228,0.95)',
+                    marginBottom: '2px',
+                  }}>{item.label}</span>
+                  <span style={{
+                    display: 'block',
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: '0.72rem',
+                    fontWeight: 300,
+                    letterSpacing: '0.05em',
+                    color: 'rgba(220,210,195,0.52)',
+                  }}>{item.description}</span>
+                </Link>
+              ))}
+            </div>
+            {/* Scroll fade — bottom */}
+            <div style={{
+              position: 'absolute',
+              bottom: 0, left: 0, right: 0,
+              height: '36px',
+              background: 'linear-gradient(to top, rgba(14,14,20,0.85), transparent)',
+              pointerEvents: 'none',
+              borderRadius: '0 0 22px 22px',
+              opacity: canScrollDown ? 1 : 0,
+              transition: 'opacity 0.2s ease',
+              zIndex: 1,
+            }} />
           </div>
-          {/* Scroll fade — bottom */}
-          <div style={{
-            position: 'absolute',
-            bottom: 0, left: 0, right: 0,
-            height: '36px',
-            background: 'linear-gradient(to top, rgba(14,14,20,0.85), transparent)',
-            pointerEvents: 'none',
-            borderRadius: '0 0 22px 22px',
-            opacity: canScrollDown ? 1 : 0,
-            transition: 'opacity 0.2s ease',
-            zIndex: 1,
-          }} />
-        </div>,
+        </>,
         document.body
       )}
     </div>

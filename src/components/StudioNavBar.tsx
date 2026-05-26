@@ -5,6 +5,7 @@ const studioLinks = [
   { to: "/studio/positioning", label: "Positioning" },
   { to: "/studio/why-seasonal", label: "Why Seasonal" },
   { to: "/studio/depth-levels", label: "Depth Levels" },
+  { to: "/studio/unlock-more", label: "Unlock More" },
   { to: "/studio/interiors", label: "Interiors" },
 ] as const;
 

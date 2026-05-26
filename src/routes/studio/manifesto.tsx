@@ -9,8 +9,11 @@ export const Route = createFileRoute('/studio/manifesto')({
   component: () => (
     <StudioPageLayout
       title="Manifesto"
-      subtitle="My Seasonal principles, my philosophy."
+      subtitle="My Seasonal principles guide everything I create."
     >
+      <h2 className="font-display text-2xl md:text-3xl font-semibold tracking-tight mb-2 text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+        Tranquil, thoughtfully designed digital spaces for those who value reflection and a slower, more intentional way of living.
+      </h2>
       <StudioLayout title="The Studio ▾ Manifesto">
         <section className="mb-32">
           <div className="

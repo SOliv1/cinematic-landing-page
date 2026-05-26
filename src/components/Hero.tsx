@@ -104,8 +104,13 @@ export const Hero: FC = () => {
       </div>
       <div className="hero-scrim" aria-hidden="true" />
       <div className="hero-content">
-        <h1 className="hero-title" id="seasonal-hero-title">Seasonal The Living Interface</h1>
-        <p className="hero-tagline">Web apps that breathe</p>
+        <h1 className="hero-title" id="seasonal-hero-title">
+          Seasonal The Living Interface
+        </h1>
+        <p className="hero-tagline">
+          Digital spaces that breathe with season, mood, and atmosphere.
+        </p>
+
         <Link className="hero-button" to="/begin-the-journey">
           Follow the Light
         </Link>

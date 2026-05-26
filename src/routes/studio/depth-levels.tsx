@@ -24,6 +24,7 @@ export const Route = createFileRoute('/studio/depth-levels')({
               Four levels of digital depth. From a simple threshold to a complete
               Seasonal system.
             </p>
+            <a href="/studio/unlock-more" className="unlockmore-link-btn">Unlock More &rarr;</a>
           </header>
 
           <section className="depth-level">
@@ -112,6 +113,14 @@ export const Route = createFileRoute('/studio/depth-levels')({
               </ul>
             </div>
           </section>
+        {/* Unlock More CTA */}
+        <section className="depth-unlockmore-cta">
+          <p>
+            Want to unlock more mindful features and seasonal packs?
+            <br />
+            <a href="/studio/unlock-more" className="unlockmore-link-btn">See all upgrade options &rarr;</a>
+          </p>
+        </section>
         </main>
       </StudioLayout>
     </StudioPageLayout>

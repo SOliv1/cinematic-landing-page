@@ -574,6 +574,7 @@ function LandingPage() {
 
         <div className="principles-inner" style={{ position: 'relative', zIndex: 2, maxWidth: '1080px', margin: '0 auto' }}>
           {/* Section header */}
+
           <div
             style={{
               marginBottom: '64px',
@@ -610,8 +611,8 @@ function LandingPage() {
                   maxWidth: '420px',
                 }}
               >
-                The principles that<br />
-                <em style={{ fontStyle: 'italic' }}>refuse to be hurried.</em>
+                A space for reflection,<br />
+                self-awareness, and mindful moments.
               </h2>
             </div>
             <div
@@ -642,7 +643,7 @@ function LandingPage() {
               marginTop: '-24px',
             }}
           >
-            A shift into the principles that shape the Seasonal house
+            Designed for journaling, mood check-ins, and digital wellbeing—where emotional aesthetics and seasonal awareness shape every interaction.
           </p>
 
           {/* Asymmetric grid: tall left + 2 stacked right */}

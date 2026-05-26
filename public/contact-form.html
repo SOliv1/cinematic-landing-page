@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <!-- This hidden form lets Netlify register the React-rendered contact form at build time. -->
+    <form name="studio-contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="studio-contact" />
+      <input type="text" name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="projectType" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

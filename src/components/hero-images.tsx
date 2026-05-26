@@ -9,10 +9,10 @@ export interface HeroImage {
 
 const localHeroImages: Array<HeroImage> = [
   {
-    src: '/images/hero/hero-3.jpg',
+    src: '/images/hero/soft-Breeze-Orb.png',
     alt: 'A glowing orb of light breaking through a green forest path',
     position: 'center 58%',
-    timeOfDay: 'morning',
+    timeOfDay: 'day',
   },
   {
     src: '/images/hero/hero-4.png',
@@ -44,9 +44,60 @@ const localHeroImages: Array<HeroImage> = [
     position: 'center',
     timeOfDay: 'evening',
   },
+  {
+    src: '/images/hero/soft-Breeze-Orb.png',
+    alt: 'A glowing orb in a soft breeze on a forest path',
+    position: 'center 58%',
+    timeOfDay: 'day',
+  }
 ];
 
 const cloudinaryHeroImages: Array<HeroImage> = [
+  {
+    src: 'https://res.cloudinary.com/dwpvbtoad/image/upload/v1777123244/Sandbox/rqpjnc16awydk81lcb01.jpg',
+    alt: 'A Cloudinary hosted hero image',
+    position: 'center',
+    timeOfDay: 'evening',
+  },
+  {
+    src: 'https://res.cloudinary.com/dwpvbtoad/image/upload/v1777374490/lightBulb-reflections_hxw7tp.jpg',
+    alt: 'Another Cloudinary hosted hero image',
+    position: 'center',
+    timeOfDay: 'day',
+  },
+  {
+    src: 'https://res.cloudinary.com/dwpvbtoad/image/upload/v1779536199/and-machines-p9Of0dvgvcs-unsplash_1_i2xgpa.jpg',
+    alt: 'Yet another Cloudinary hosted hero image',
+    position: 'center',
+    timeOfDay: 'day',
+  },
+  {
+    src: 'https://res.cloudinary.com/dwpvbtoad/image/upload/v1777373439/Sandbox/ec4w8wkzmvhx9wckamxv.png',
+    alt: 'Yet another Cloudinary hosted hero image',
+    position: 'center',
+    timeOfDay: 'evening',
+  },
+  {
+    src: 'https://res.cloudinary.com/dwpvbtoad/image/upload/v1775136063/Sandbox/rebckt233tkaxpe9znve.jpg',
+    alt: 'Yet another Cloudinary hosted hero image',
+    position: 'center',
+    timeOfDay: 'night',
+  },
+  {
+    src: 'https://res.cloudinary.com/dwpvbtoad/image/upload/v1779537880/stephanie-klepacki-NZlMckfh7Ng-unsplash_eicffw.jpg',
+    alt: 'Yet another Cloudinary hosted hero image',
+    position: 'center',
+    timeOfDay: 'morning',
+  },
+  {
+    src: 'https://res.cloudinary.com/dwpvbtoad/image/upload/v1779537876/Tidal-Blue-Orb_iuqlyw.png',
+    alt: 'Yet another Cloudinary hosted hero image',
+    position: 'center',
+    timeOfDay: 'morning',
+  }
+
+
+
   // Add Cloudinary delivery URLs here after copying them from the Media Library.
   // The previously guessed hero-images/hero-*.jpg URLs return 404, so they are
   // intentionally not included in the active rotation.
