@@ -76,10 +76,24 @@ function WorkWithMePage() {
           <p className="work-kicker">Quiet enquiries</p>
           <h2 className="work-title">Tell me what you are imagining.</h2>
           <p className="work-lead">
-            Use this form for project enquiries, early access, collaborations, or
-            questions about Daily Orb: Reflections. Your message is handled through
-            the site form, so your private inbox does not need to appear here.
+            Send a note about collaborations, project enquiries, early access, or
+            questions about any of the Reflections in Light spaces. Your message is
+            handled through the site form, so my private inbox does not need to
+            appear here.
           </p>
+          <div className="work-intro-actions">
+            <a className="work-form-jump" href="#studio-contact-form">
+              Go to message form
+            </a>
+            <a
+              className="work-orb-link"
+              href="https://soliv1.github.io/Daily-Reflections-App/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Daily Orb: Reflections
+            </a>
+          </div>
         </section>
 
         <section className="work-about">
@@ -90,6 +104,32 @@ function WorkWithMePage() {
             collection of calm, intentional digital spaces designed to support
             clarity, emotional rhythm, and gentle daily practice.
           </p>
+          <p className="work-about-text">
+            It is a complimentary companion to this studio: a smaller daily space
+            for prompts, quiet check-ins, and reflective moments.
+          </p>
+          <div className="work-install-card">
+            <h3>Save it as a companion app</h3>
+            <p>
+              Daily Orb: Reflections can be saved to your phone, tablet, laptop,
+              or desktop from the browser.
+            </p>
+            <ul>
+              <li>
+                <strong>iPhone or iPad:</strong> open the app in Safari, tap Share,
+                then choose Add to Home Screen.
+              </li>
+              <li>
+                <strong>Android:</strong> open the app, tap the browser menu, then
+                choose Add to Home screen or Install app.
+              </li>
+              <li>
+                <strong>Laptop or desktop:</strong> open it in Chrome or Edge, then
+                choose Install app or Create shortcut from the address bar or
+                browser menu.
+              </li>
+            </ul>
+          </div>
           <p className="work-about-text">
             Daily Orb: Reflections is shaped around three principles:
           </p>
@@ -141,10 +181,20 @@ function WorkWithMePage() {
         </section>
 
         <form
+          id="studio-contact-form"
           className="work-contact-form"
           name="studio-contact"
           onSubmit={handleSubmit}
         >
+          <div className="work-form-heading">
+            <p className="work-kicker">Send a message</p>
+            <h2>Collaborations, questions, and enquiries</h2>
+            <p>
+              Use the form below for collaborations, project ideas, app questions,
+              early access, or anything you would like to explore.
+            </p>
+          </div>
+
           <input type="hidden" name="form-name" value="studio-contact" />
           <p className="work-honeypot">
             <label>

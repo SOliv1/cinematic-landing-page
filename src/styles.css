@@ -662,6 +662,50 @@
     background: rgba(255, 255, 255, 0.22);
   }
 
+  .daily-orb-home-link {
+    display: grid;
+    gap: 0.28rem;
+    width: min(100%, 22rem);
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(26, 23, 20, 0.12);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.22);
+    color: rgba(26, 23, 20, 0.72);
+    font-family: 'Outfit', system-ui, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    -webkit-backdrop-filter: blur(12px) saturate(112%);
+    backdrop-filter: blur(12px) saturate(112%);
+    box-shadow:
+      0 14px 34px rgba(26, 23, 20, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.32);
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  }
+
+  .daily-orb-home-link span {
+    color: rgba(26, 23, 20, 0.86);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .daily-orb-home-link small {
+    color: rgba(26, 23, 20, 0.56);
+    font-size: 0.86rem;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+  .daily-orb-home-link:hover,
+  .daily-orb-home-link:focus-visible {
+    border-color: rgba(26, 23, 20, 0.18);
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+  }
+
   .return-link {
     display: inline-block;
     margin-bottom: 2rem;
@@ -4983,6 +5027,52 @@ code {
   line-height: 1.65;
 }
 
+.work-intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.4rem;
+}
+
+.work-form-jump,
+.work-orb-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0 1.05rem;
+  border-radius: 8px;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.35;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.work-form-jump {
+  border: 1px solid rgba(244, 222, 177, 0.48);
+  background: rgba(244, 222, 177, 0.2);
+  color: rgba(255, 250, 236, 0.98);
+}
+
+.work-orb-link {
+  border: 1px solid rgba(244, 222, 177, 0.28);
+  background: rgba(244, 222, 177, 0.1);
+  color: rgba(255, 250, 236, 0.9);
+}
+
+.work-form-jump:hover,
+.work-form-jump:focus-visible,
+.work-orb-link:hover,
+.work-orb-link:focus-visible {
+  border-color: rgba(244, 222, 177, 0.58);
+  background: rgba(244, 222, 177, 0.18);
+  transform: translateY(-1px);
+}
+
 .work-about-title {
   margin: 0 0 1rem;
   color: var(--work-ink);
@@ -4998,6 +5088,48 @@ code {
   color: var(--work-muted);
   font-size: 1rem;
   line-height: 1.65;
+}
+
+.work-install-card {
+  margin: 1.35rem 0 1.45rem;
+  padding: 1.1rem;
+  border: 1px solid rgba(244, 222, 177, 0.18);
+  border-radius: 8px;
+  background: rgba(244, 222, 177, 0.08);
+}
+
+.work-install-card h3 {
+  margin: 0 0 0.55rem;
+  color: var(--work-ink);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.work-install-card p {
+  margin: 0 0 0.9rem;
+  color: var(--work-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.work-install-card ul {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-install-card li {
+  color: var(--work-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.work-install-card strong {
+  color: rgba(244, 222, 177, 0.94);
+  font-weight: 500;
 }
 
 .work-principles {
@@ -5055,6 +5187,30 @@ code {
   display: grid;
   gap: 1.15rem;
   padding: clamp(1.35rem, 3vw, 2rem);
+  scroll-margin-top: 5rem;
+}
+
+.work-form-heading {
+  margin-bottom: 0.35rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.work-form-heading h2 {
+  margin: 0 0 0.65rem;
+  color: var(--work-ink);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.work-form-heading p:last-child {
+  max-width: 58ch;
+  margin: 0;
+  color: var(--work-muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
 }
 
 .work-honeypot {

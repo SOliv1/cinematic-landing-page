@@ -840,6 +840,15 @@ function LandingPage() {
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </Link>
+          <a
+            className="daily-orb-home-link"
+            href="https://soliv1.github.io/Daily-Reflections-App/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Daily Orb: Reflections</span>
+            <small>Open the companion app, then save it to your phone or desktop</small>
+          </a>
 
           <p
             style={{
