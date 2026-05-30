@@ -48,12 +48,13 @@ function AboutPage() {
         </section>
 
 
-        <p style={{ textAlign: 'center', marginTop: '2rem', marginBottom: '2rem' }}>
-          If you’re looking for my creations, they’re gathered quietly further down.
+        <p className="about-centered-note">
+          I am building digital experiences that feel like places; quiet, atmospheric, and alive with intention.
         </p>
 
-
-
+        <p className="about-centered-note">
+          If you’re looking for my creations, they’re gathered quietly further down.
+        </p>
 
         {/* §4 — Competencies */}
         <section className="about-competencies-section">
@@ -165,7 +166,9 @@ function AboutPage() {
 
         {/* §8 — Closing Note */}
         <section className="about-closing">
-          <p className="about-closing-line">I am building digital experiences that feel like places; quiet, atmospheric, and alive with intention.</p>
+         <p className="about-closing-note">
+          This site is a living project, updated thoughtfully as my work grows.
+         </p>
         </section>
 
       </div>
