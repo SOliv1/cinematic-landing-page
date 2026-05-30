@@ -47,9 +47,11 @@ function AboutPage() {
           </div>
         </section>
 
-        <p className="about-center-text">
+
+        <p style={{ textAlign: 'center', marginTop: '2rem', marginBottom: '2rem' }}>
           If you’re looking for my creations, they’re gathered quietly further down.
         </p>
+
 
 
 
