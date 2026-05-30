@@ -47,6 +47,12 @@ function AboutPage() {
           </div>
         </section>
 
+        <p className="about-center-text">
+          If you’re looking for my creations, they’re gathered quietly further down.
+        </p>
+
+
+
         {/* §4 — Competencies */}
         <section className="about-competencies-section">
           <h2 className="about-section-label">Competencies</h2>
@@ -105,22 +111,30 @@ function AboutPage() {
               <li>
                 <strong>Daily Reflections</strong>
                 <p>Start or end your day with a meaningful journaling prompt. Personal and private.</p>
-                <a className="app-download-btn" href="https://soliv1.github.io/Daily-Reflections-App/" target="_blank" rel="noopener noreferrer">Try App</a>
+                <div className="about-app-center">
+                  <a href="https://soliv1.github.io/Daily-Reflections-App/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                </div>
               </li>
               <li>
                 <strong>Seasonal Mind Space</strong>
                 <p>Reflect with the rhythm of the year. Track your moods and thoughts seasonally.</p>
-                <a className="app-download-btn" href="https://soliv1.github.io/Seasonal-mind-space/" target="_blank" rel="noopener noreferrer">Try App</a>
+                <div className="about-app-center">
+                  <a href="https://soliv1.github.io/Seasonal-mind-space/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                </div>
               </li>
               <li>
                 <strong>Cinematic Home Glow</strong>
                 <p>Create a reflective home mood. This app can be personalised to your taste and space.</p>
-                <a className="app-download-btn" href="https://inspo-home-cinematic.onrender.com/" target="_blank" rel="noopener noreferrer">Try App</a>
+                <div className="about-app-center">
+                  <a href="https://inspo-home-cinematic.onrender.com/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                </div>
               </li>
               <li>
                 <strong>Weather Atmosphere</strong>
                 <p>Let today’s sky shape today’s reflection. (Weather activation coming soon!)</p>
-                <a className="app-download-btn" href="https://reflections-weather-atmosphere.netlify.app/" target="_blank" rel="noopener noreferrer">Try App</a>
+                <div className="about-app-center">
+                  <a href="https://reflections-weather-atmosphere.netlify.app/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                </div>
               </li>
               <li>
                 <strong>Moods Board</strong>
@@ -139,7 +153,9 @@ function AboutPage() {
               <li>
                 <strong>Portfolio &amp; Studio</strong>
                 <p>Discover more about my work, ethos, and creative process.</p>
-                <a className="project-link-btn" href="/" rel="noopener noreferrer">Visit Main Site</a>
+                <div className="about-app-center">
+                  <a href="https://soliv1.github.io/Daily-Reflections-App/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                </div><a className="project-link-btn ghost-button" target="_blank" rel="noopener noreferrer" href="/">Visit Main Site</a>
               </li>
             </ul>
           </div>

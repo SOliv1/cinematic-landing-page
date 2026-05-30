@@ -3220,6 +3220,8 @@ code {
   text-align: center;
 }
 
+/* Pill grid */
+
 .about-pills {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -3299,6 +3301,32 @@ code {
   border-top: 1px solid rgba(255, 255, 255, 0.04);
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
+
+
+/*Ghost buttons */
+.ghost-button {
+  display: inline-block;
+  padding: 0.55rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  letter-spacing: 0.2px;
+  text-align: center;
+  transition: all 0.25s ease;
+  margin-top: 1.2rem;
+}
+
+.ghost-button:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+/* Collaborations section */
+
 
 .about-collaborations .about-section-label {
   margin-bottom: 2.5rem;
@@ -5458,6 +5486,7 @@ code {
 }
 
 @media (max-width: 640px) {
+
   .work-form-grid,
   .work-form-footer {
     grid-template-columns: 1fr;
