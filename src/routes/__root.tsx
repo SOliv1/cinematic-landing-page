@@ -9,8 +9,26 @@ export const Route = createRootRoute({
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'google-site-verification', content: 'N0gV4nqYRcKs7HGGNdbiZqzJ6UyTyOan8QQuGFmyGBI' },
-      { title: 'Seasonal — Web apps that breathe' },
-      { name: 'description', content: 'Designed for clarity, mood, and quiet delight.' },
+      { title: 'Seasonal.Studio — Atmospheric Web Design & Cinematic Web Apps' },
+      {
+        name: 'description',
+        content: 'Independent UK studio creating atmospheric, cinematic web apps and slow-tech digital experiences. Calm, minimal, handcrafted interfaces built with React and Django.',
+      },
+      { property: 'og:title', content: 'Seasonal.Studio — Atmospheric Web Design & Cinematic Web Apps' },
+      {
+        property: 'og:description',
+        content: 'Independent UK studio creating atmospheric, cinematic web apps and slow-tech digital experiences.',
+      },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://seasonal.studio' },
+      { property: 'og:image', content: 'https://seasonal.studio/og/seasonal-studio-preview.png' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'Seasonal.Studio — Atmospheric Web Design & Cinematic Web Apps' },
+      {
+        name: 'twitter:description',
+        content: 'Independent UK studio creating atmospheric, cinematic web apps and slow-tech digital experiences.',
+      },
+      { name: 'twitter:image', content: 'https://seasonal.studio/og/seasonal-studio-preview.png' },
     ],
     links: [
       { rel: 'manifest', href: '/manifest.json' },
