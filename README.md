@@ -23,7 +23,7 @@ A landing page designed as a quiet gallery foyer — soft atmospheric gradients,
 - [x] Add OpenGraph and Twitter preview tags
 - [x] Add `public/sitemap.xml`
 - [x] Add `public/robots.txt`
-- [ ] Submit `https://seasonal.studio/sitemap.xml` to Google Search Console after deployment
+- [ ] Submit `https://seasonal.studio/sitemap.xml` in [Google Search Console](https://search.google.com/search-console/welcome) after deployment. Use Search Console to verify ownership, request indexing, and monitor how Google reads Seasonal.Studio.
 
 ### Home Page Keywords
 
