@@ -9,6 +9,7 @@ export const Route = createFileRoute('/studio/work-with-me')({
 type ContactFields = {
   name: string
   email: string
+  recipientEmail: string
   projectType: string
   message: string
   'bot-field': string
@@ -17,6 +18,7 @@ type ContactFields = {
 const initialFields: ContactFields = {
   name: '',
   email: '',
+  recipientEmail: 'saraoliver316@gmail.com',
   projectType: '',
   message: '',
   'bot-field': '',
@@ -78,12 +80,14 @@ function WorkWithMePage() {
           <p className="work-lead">
             Send a note about collaborations, project enquiries, early access, or
             questions about any of the Reflections in Light spaces. Your message is
-            handled through the site form, so my private inbox does not need to
-            appear here.
+            handled through the site form and can be routed to my private inbox.
           </p>
           <div className="work-intro-actions">
             <a className="work-form-jump" href="#studio-contact-form">
               Go to message form
+            </a>
+            <a className="work-form-jump" href="mailto:saraoliver316@gmail.com">
+              Email Sara directly
             </a>
             <a
               className="work-orb-link"
@@ -180,12 +184,17 @@ function WorkWithMePage() {
           </div>
         </section>
 
-        <form
-          id="studio-contact-form"
-          className="work-contact-form"
-          name="studio-contact"
-          onSubmit={handleSubmit}
-        >
+          <form
+            id="studio-contact-form"
+            className="work-contact-form"
+            name="studio-contact"
+            method="POST"
+            action="/contact-form.html"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit}
+          >
+
           <div className="work-form-heading">
             <p className="work-kicker">Send a message</p>
             <h2>Collaborations, questions, and enquiries</h2>
@@ -196,6 +205,7 @@ function WorkWithMePage() {
           </div>
 
           <input type="hidden" name="form-name" value="studio-contact" />
+          <input type="hidden" name="recipientEmail" value={fields.recipientEmail} />
           <p className="work-honeypot">
             <label>
               Do not fill this out if you are human
@@ -277,7 +287,7 @@ function WorkWithMePage() {
             <p className="work-form-note" aria-live="polite">
               {status === 'sent' && 'Thank you. Your message has been sent.'}
               {status === 'error' && 'Something went wrong. Please try again in a moment.'}
-              {status === 'idle' && 'Messages can be forwarded to a private inbox or alias from Netlify.'}
+              {status === 'idle' && 'Messages are captured by Netlify Forms for saraoliver316@gmail.com.'}
               {status === 'sending' && 'Sending your message securely through the site form.'}
             </p>
           </div>
