@@ -3,6 +3,29 @@ import { useState, type ChangeEvent, type FormEvent } from 'react'
 import { StudioPageLayout } from '@/components/StudioPageLayout'
 
 export const Route = createFileRoute('/studio/work-with-me')({
+  head: () => ({
+    meta: [
+      { title: 'Work With Me — Seasonal.Studio' },
+      {
+        property: 'og:title',
+        content: 'Work With Me — Seasonal.Studio',
+      },
+      {
+        property: 'og:description',
+        content: 'Collaborate with an independent UK studio crafting atmospheric, cinematic web apps and slow-tech digital experiences.',
+      },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:url', content: 'https://seasonal.studio/studio/work-with-me' },
+      { property: 'og:image', content: 'https://seasonal.studio/og/seasonal-studio-preview.png' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'Work With Me — Seasonal.Studio' },
+      {
+        name: 'twitter:description',
+        content: 'Collaborate with an independent UK studio crafting atmospheric, cinematic web apps and slow-tech digital experiences.',
+      },
+      { name: 'twitter:image', content: 'https://seasonal.studio/og/seasonal-studio-preview.png' },
+    ],
+  }),
   component: WorkWithMePage,
 })
 
