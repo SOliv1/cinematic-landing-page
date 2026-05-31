@@ -8,6 +8,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'google-site-verification', content: 'N0gV4nqYRcKs7HGGNdbiZqzJ6UyTyOan8QQuGFmyGBI' },
       { title: 'Seasonal — Web apps that breathe' },
       { name: 'description', content: 'Designed for clarity, mood, and quiet delight.' },
     ],
