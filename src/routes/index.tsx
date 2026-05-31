@@ -643,7 +643,7 @@ function LandingPage() {
               marginTop: '-24px',
             }}
           >
-            Designed for journaling, mood check-ins, and digital wellbeing—where emotional aesthetics and seasonal awareness shape every interaction.
+            Designed for journaling, mood check-ins, and digital wellbeing where emotional aesthetics and seasonal awareness shape every interaction.
           </p>
 
           {/* Asymmetric grid: tall left + 2 stacked right */}
