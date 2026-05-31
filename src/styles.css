@@ -664,6 +664,16 @@
     text-shadow: none;
   }
 
+  .hero-seo-copy {
+    max-width: 42rem;
+    margin: 1rem auto 0;
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-size: clamp(0.98rem, 1.6vw, 1.12rem);
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(26, 23, 20, 0.62);
+  }
+
   .hero-button {
     display: inline-flex;
     align-items: center;

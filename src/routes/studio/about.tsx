@@ -2,32 +2,58 @@ import { createFileRoute } from '@tanstack/react-router'
 import { StudioPageLayout } from '@/components/StudioPageLayout'
 
 export const Route = createFileRoute('/studio/about')({
+  head: () => ({
+    meta: [
+      { title: 'About Seasonal.Studio — Independent UK Web Studio for Calm, Cinematic Design' },
+      {
+        name: 'description',
+        content: 'Seasonal.Studio is a countryside-based independent studio crafting calm, cinematic, and nature-inspired slow-tech digital experiences. Led by a React and Django developer.',
+      },
+      { property: 'og:title', content: 'About Seasonal.Studio — Independent UK Web Studio for Calm, Cinematic Design' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:description',
+        content: 'Seasonal.Studio is a countryside-based independent studio crafting calm, cinematic, and nature-inspired slow-tech digital experiences. Led by a React and Django developer.',
+      },
+      { property: 'og:image', content: '/images/carousel/seasonal-studio-cinematic-glow.png' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'About Seasonal.Studio — Independent UK Web Studio for Calm, Cinematic Design' },
+      {
+        name: 'twitter:description',
+        content: 'Seasonal.Studio is a countryside-based independent studio crafting calm, cinematic, and nature-inspired slow-tech digital experiences. Led by a React and Django developer.',
+      },
+      { name: 'twitter:image', content: '/images/carousel/seasonal-studio-cinematic-glow.png' },
+    ],
+  }),
   component: AboutPage,
 })
 
 function AboutPage() {
   return (
-    <StudioPageLayout title="About" subtitle="">
+    <StudioPageLayout
+      title="A small studio for calm, cinematic digital experiences."
+      subtitle="Seasonal.Studio is a countryside-based independent studio shaped by nature-inspired design, slow-tech digital experiences, and the craft of a React and Django developer."
+    >
       <div className="about-page">
 
         {/* §1 — Opening Shot */}
         <section className="about-opening">
           <div className="about-opening-inner">
-            <h1 className="about-name">Sara Jane Oliver</h1>
+            <h2 className="about-name">Sara Jane Oliver</h2>
             <p className="about-roles">
               Software Developer&nbsp;&middot;&nbsp;Digital Experience Designer&nbsp;&middot;&nbsp;Brand &amp; Communications Specialist
             </p>
-            <p className="about-location">London, UK</p>
-            <p className="about-opening-line">An introduction to who I am and how I think.</p>
+            <p className="about-location">Independent web studio, UK</p>
+            <p className="about-opening-line">An introduction to the person, place, and slow-tech digital experiences behind Seasonal.Studio.</p>
           </div>
         </section>
 
         {/* §2 — Studio Philosophy */}
         <section className="about-philosophy">
           <div className="about-philosophy-inner">
-            <p className="about-philosophy-line">I design digital experiences that feel calm, clear, and thoughtfully paced.</p>
-            <p className="about-philosophy-line">My work brings together software, design, and narrative to create spaces that invite reflection.</p>
-            <p className="about-philosophy-line">I aim for products that are intuitive, welcoming, and memorable.</p>
+            <p className="about-philosophy-line">I design calm, cinematic digital experiences that feel clear, thoughtfully paced, and quietly useful.</p>
+            <p className="about-philosophy-line">As a React and Django developer, my work brings together visual atmosphere, narrative, and nature-inspired spaces that invite reflection.</p>
+            <p className="about-philosophy-line">I aim for products that are intuitive, welcoming, memorable, and rooted in a slow-tech design philosophy.</p>
           </div>
         </section>
 

@@ -10,8 +10,8 @@ export interface HeroImage {
 
 const localHeroImages: Array<HeroImage> = [
   {
-    src: '/images/carousel/seasonalStudio-orb.png',
-    alt: 'Seasonal Studio brand orb artwork',
+    src: '/images/carousel/seasonal-studio-cinematic-glow.png',
+    alt: 'Atmospheric gradient artwork symbolising calm, slow-tech digital experiences.',
     position: 'center',
     fit: 'contain',
   },

@@ -11,6 +11,29 @@ import { useOrbState } from '@/hooks/useOrbState'
 import { useSeasonalBackground, useSeasonalBackgroundVariant } from '@/hooks/useSeasonalBackground'
 import type { SeasonalBackgroundVariant } from '@/utils/getSeasonalBackground'
 export const Route = createFileRoute('/')({
+  head: () => ({
+    meta: [
+      { title: 'Seasonal.Studio Atmospheric Web Design & Cinematic Web Apps' },
+      {
+        name: 'description',
+        content: 'Independent UK studio creating atmospheric, cinematic web apps and slow-tech digital experiences. Calm, minimal, handcrafted interfaces built with React and Django.',
+      },
+      { property: 'og:title', content: 'Seasonal.Studio Atmospheric Web Design & Cinematic Web Apps' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:description',
+        content: 'Independent UK studio creating atmospheric, cinematic web apps and slow-tech digital experiences. Calm, minimal, handcrafted interfaces built with React and Django.',
+      },
+      { property: 'og:image', content: '/images/carousel/seasonal-studio-cinematic-glow.png' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'Seasonal.Studio Atmospheric Web Design & Cinematic Web Apps' },
+      {
+        name: 'twitter:description',
+        content: 'Independent UK studio creating atmospheric, cinematic web apps and slow-tech digital experiences. Calm, minimal, handcrafted interfaces built with React and Django.',
+      },
+      { name: 'twitter:image', content: '/images/carousel/seasonal-studio-cinematic-glow.png' },
+    ],
+  }),
   component: LandingPage,
 })
 

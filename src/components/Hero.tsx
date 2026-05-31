@@ -116,10 +116,14 @@ export const Hero: FC<HeroProps> = ({ onCinematicMode }) => {
     <section className="hero-intro" aria-labelledby="seasonal-hero-title">
       <div className="hero-intro-content">
         <h1 className="hero-title" id="seasonal-hero-title">
-          Seasonal The Living Interface
+          Web apps that breathe.
         </h1>
         <p className="hero-tagline">
-          Digital spaces that breathe with season, mood, and atmosphere.
+          Seasonal.Studio is an independent UK studio for atmospheric web design,
+          cinematic web apps, and slow-tech digital experiences.
+        </p>
+        <p className="hero-seo-copy">
+          I create calm, minimal, handcrafted web apps with React, Python, and Django.
         </p>
         <div className="hero-follow-panel" aria-label="Begin the Seasonal experience">
           <Link className="hero-button hero-button--below" to="/begin-the-journey">
