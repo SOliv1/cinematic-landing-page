@@ -14,6 +14,29 @@ An interactive portfolio/marketing application with a cinematic landing page tha
 
 A landing page designed as a quiet gallery foyer — soft atmospheric gradients, translucent glass panels, and a breathing orb that pulses gently. The palette shifts automatically based on the time of year: blush rose in spring, warm cream in summer, amber in autumn, lavender in winter.
 
+## SEO Launch Checklist
+
+- [x] Add title and meta description to Home and About pages
+- [x] Use one H1 per page on Home and About
+- [x] Add alt text to key images
+- [x] Use primary keywords naturally in visible copy
+- [x] Add OpenGraph and Twitter preview tags
+- [x] Add `public/sitemap.xml`
+- [x] Add `public/robots.txt`
+- [ ] Submit `https://seasonal.studio/sitemap.xml` to Google Search Console after deployment
+
+### Home Page Keywords
+
+- [x] atmospheric web design
+- [x] cinematic web apps
+- [x] independent UK studio
+
+### About Page Keywords
+
+- [x] slow-tech digital experiences
+- [x] React and Django developer
+- [x] countryside-based independent studio
+
 ## Tech Stack
 
 | Layer | Technology |
