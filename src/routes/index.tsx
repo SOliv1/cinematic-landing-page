@@ -529,7 +529,7 @@ function LandingPage() {
           <SeasonalOrb src={orbArtwork} palette={palette} />
         </div>
         {/* Studio dropdown stays on top right */}
-        <div style={{ position: 'absolute', top: '28px', right: '32px', zIndex: 10, height: '66px', display: 'flex', alignItems: 'center' }}>
+        <div style={{ position: 'absolute', top: '28px', right: '32px', zIndex: 80, height: '66px', display: 'flex', alignItems: 'center' }}>
           <StudioDropdown />
         </div>
         <Hero onCinematicMode={() => showSplash('cinematic-mode')} />
