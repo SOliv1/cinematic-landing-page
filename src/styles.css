@@ -1922,6 +1922,74 @@ code {
   color: rgba(253, 244, 238, 0.78);
 }
 
+.room-orb-arrival {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  width: min(72vw, 460px);
+  margin: -1.75rem auto 2.4rem;
+  pointer-events: none;
+}
+
+.room-orb-arrival::before {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  z-index: -1;
+  border-radius: 999px;
+  background: var(--room-orb-glow, rgba(255, 255, 255, 0.28));
+  filter: blur(42px);
+  opacity: 0.86;
+  transform: scale(1.16);
+}
+
+.room-orb-arrival-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.04) contrast(1.02);
+  opacity: 0.96;
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.18),
+    0 0 110px var(--room-orb-aura, rgba(255, 255, 255, 0.22));
+}
+
+.room-orb-arrival-image--wide {
+  aspect-ratio: 16 / 9;
+  border-radius: 30px;
+}
+
+.room-orb-arrival--morning {
+  --room-orb-glow: rgba(255, 202, 136, 0.42);
+  --room-orb-aura: rgba(232, 157, 92, 0.34);
+}
+
+.room-orb-arrival--cool {
+  --room-orb-glow: rgba(158, 206, 221, 0.34);
+  --room-orb-aura: rgba(142, 192, 216, 0.28);
+}
+
+.room-orb-arrival--evening {
+  --room-orb-glow: rgba(190, 170, 235, 0.38);
+  --room-orb-aura: rgba(172, 138, 220, 0.32);
+}
+
+.room-orb-arrival--empty {
+  width: min(82vw, 620px);
+  --room-orb-glow: rgba(190, 190, 225, 0.3);
+  --room-orb-aura: rgba(175, 166, 215, 0.26);
+}
+
+.room-orb-arrival--studio {
+  width: min(84vw, 640px);
+  --room-orb-glow: rgba(236, 178, 118, 0.36);
+  --room-orb-aura: rgba(188, 144, 210, 0.26);
+}
+
 .softroom-header {
   max-width: 720px;
   margin: 0 auto 4rem;
@@ -2414,6 +2482,28 @@ code {
 }
 
 @media (max-width: 640px) {
+  .room-orb-arrival {
+    width: min(84vw, 340px);
+    margin: -1.4rem auto 2rem;
+  }
+
+  .room-orb-arrival--empty {
+    width: min(88vw, 380px);
+  }
+
+  .room-orb-arrival--studio {
+    width: min(88vw, 400px);
+  }
+
+  .room-orb-arrival::before {
+    filter: blur(30px);
+    opacity: 0.74;
+  }
+
+  .room-orb-arrival-image--wide {
+    border-radius: 22px;
+  }
+
   .softroom-layout {
     padding: 3rem 1.25rem;
   }

@@ -35,6 +35,14 @@ function SeasonalWeatherPage() {
         &larr; The Seasonal House
       </Link>
 
+      <figure className="room-orb-arrival room-orb-arrival--studio">
+        <img
+          src="/images/carousel/seasonalStudio-orb.png"
+          alt="Seasonal.Studio atmospheric orb brand image"
+          className="room-orb-arrival-image room-orb-arrival-image--wide"
+        />
+      </figure>
+
       <header className="seasonalweather-header">
         <h1 className="seasonalweather-title">Seasonal Weather</h1>
         <p className="seasonalweather-subtitle">

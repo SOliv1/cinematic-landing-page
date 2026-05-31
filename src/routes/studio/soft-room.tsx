@@ -12,6 +12,14 @@ function SoftRoomPage() {
         &larr; The Seasonal House
       </Link>
 
+      <figure className="room-orb-arrival room-orb-arrival--cool">
+        <img
+          src="/images/orbs/todays-rooms-orb-cool.png"
+          alt="Cool abstract orb for the Clarity Room"
+          className="room-orb-arrival-image"
+        />
+      </figure>
+
       <header className="softroom-header">
         <h1 className="softroom-title">The Soft Room</h1>
         <p className="softroom-subtitle">

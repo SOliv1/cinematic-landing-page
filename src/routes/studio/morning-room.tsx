@@ -12,6 +12,14 @@ function MorningRoomPage() {
         &larr; The Seasonal House
       </Link>
 
+      <figure className="room-orb-arrival room-orb-arrival--morning">
+        <img
+          src="/images/orbs/todays-rooms-orb.png"
+          alt="Warm morning orb for the Morning Room"
+          className="room-orb-arrival-image"
+        />
+      </figure>
+
       <header className="morningroom-header">
         <h1 className="morningroom-title">The Morning Room</h1>
         <p className="morningroom-subtitle">

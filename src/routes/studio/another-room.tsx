@@ -12,6 +12,14 @@ function AnotherRoomPage() {
         &larr; The Seasonal House
       </Link>
 
+      <figure className="room-orb-arrival room-orb-arrival--empty">
+        <img
+          src="/images/orbs/the-three-orbs-16x9.png"
+          alt="Three atmospheric orbs marking a room still being arranged"
+          className="room-orb-arrival-image room-orb-arrival-image--wide"
+        />
+      </figure>
+
       <header className="anotherroom-header">
         <h1 className="anotherroom-title">Another Room</h1>
         <p className="anotherroom-subtitle">

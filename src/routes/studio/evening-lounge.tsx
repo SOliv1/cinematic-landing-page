@@ -12,6 +12,14 @@ function EveningLoungePage() {
         &larr; The Seasonal House
       </Link>
 
+      <figure className="room-orb-arrival room-orb-arrival--evening">
+        <img
+          src="/images/orbs/todays-rooms-orb-violet.png"
+          alt="Silver-lavender twilight orb for the Evening Lounge"
+          className="room-orb-arrival-image"
+        />
+      </figure>
+
       <header className="eveninglounge-header">
         <h1 className="eveninglounge-title">The Evening Lounge</h1>
         <p className="eveninglounge-subtitle">
