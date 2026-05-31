@@ -67,7 +67,7 @@ export function ReflectionsSplash({ reason, onComplete }: ReflectionsSplashProps
       <div className={`rsplash-mark rsplash-mark--${phase}`}>
         <img
           src={OrbLogo}
-          alt="Reflections"
+          alt="Seasonal"
           className="rsplash-logo"
           draggable={false}
         />

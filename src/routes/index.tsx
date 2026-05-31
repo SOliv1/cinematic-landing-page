@@ -250,14 +250,9 @@ function SeasonalOrb({ src, palette }: { src: string; palette: SeasonalPalette }
       <span className="orb-sparkles" aria-hidden="true" />
 
       <picture className="orb-logo">
-        <source
-          srcSet="/images/logo/r-logo-pearl-128.webp 128w, /images/logo/r-logo-pearl-256.webp 256w, /images/logo/r-logo-pearl-512.webp 512w"
-          sizes="60px"
-          type="image/webp"
-        />
         <img
           src="/images/logo/r-logo-pearl-512.png"
-          alt="Reflections Logo"
+          alt="Seasonal sunrise-gold orb logo"
           className="r-logo"
         />
       </picture>
@@ -508,16 +503,6 @@ function LandingPage() {
       <ReflectionsSplash reason={activeSplashReason} onComplete={dismissSplash} />
     )}
 
-    {/* ── Cinematic Mode button ─────────────────────────── */}
-    <button
-      type="button"
-      className="cinematic-mode-btn"
-      onClick={() => showSplash('cinematic-mode')}
-      aria-label="Enter Cinematic Mode"
-    >
-      ◎ cinematic mode
-    </button>
-
     <div
       className="seasonal-background"
       style={{
@@ -547,7 +532,7 @@ function LandingPage() {
         <div style={{ position: 'absolute', top: '28px', right: '32px', zIndex: 10, height: '66px', display: 'flex', alignItems: 'center' }}>
           <StudioDropdown />
         </div>
-        <Hero />
+        <Hero onCinematicMode={() => showSplash('cinematic-mode')} />
       </div>
 
       {/* ── FEATURES ──────────────────────────────────────────── */}

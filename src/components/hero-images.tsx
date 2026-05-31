@@ -4,10 +4,17 @@ export interface HeroImage {
   src: string;
   alt: string;
   position?: string;
+  fit?: 'cover' | 'contain';
   timeOfDay?: TimeOfDay; // optional, defaults to all
 }
 
 const localHeroImages: Array<HeroImage> = [
+  {
+    src: '/images/carousel/seasonalStudio-orb.png',
+    alt: 'Seasonal Studio brand orb artwork',
+    position: 'center',
+    fit: 'contain',
+  },
   {
     src: '/images/hero/soft-Breeze-Orb.png',
     alt: 'A glowing orb of light breaking through a green forest path',

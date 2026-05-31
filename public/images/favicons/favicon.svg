@@ -7,6 +7,6 @@
     </radialGradient>
   </defs>
   <rect width="512" height="512" fill="transparent" />
-  <image href="/images/logo/orb-neutral-r@2x.png" x="0" y="0" width="512" height="512" preserveAspectRatio="xMidYMid meet" />
+  <image href="/images/favicons/favicon-512.png" x="0" y="0" width="512" height="512" preserveAspectRatio="xMidYMid meet" />
   <ellipse cx="256" cy="238" rx="176" ry="176" fill="url(#favGlow)" opacity="0.32" />
 </svg>

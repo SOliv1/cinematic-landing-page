@@ -3,7 +3,11 @@ import { Link } from '@tanstack/react-router'
 import { useEffect, useRef, useState, type FC } from 'react'
 import { getCurrentTimeOfDay, getHeroImagesForTimeOfDay, fallbackHeroImage } from './hero-images'
 
-export const Hero: FC = () => {
+interface HeroProps {
+  onCinematicMode?: () => void
+}
+
+export const Hero: FC<HeroProps> = ({ onCinematicMode }) => {
 
   const [index, setIndex] = useState(0)
   const [fade, setFade] = useState(true)
@@ -59,6 +63,10 @@ export const Hero: FC = () => {
     }
   }
 
+  function getFitClass(fit?: string) {
+    return fit === 'contain' ? 'hero-image--contain' : '';
+  }
+
   // Manual controls
   const goTo = (i: number) => {
     setFade(false)
@@ -71,11 +79,12 @@ export const Hero: FC = () => {
   const next = () => goTo((index + 1) % images.length)
 
   return (
-    <section className="hero hero--carousel" aria-labelledby="seasonal-hero-title">
+    <>
+    <section className="hero hero--carousel" aria-label="Seasonal Studio brand hero">
       {images.map((img, i) => (
         <img
           key={img.src}
-          className={`hero-image${i === index && fade ? ' hero-image--fade-in' : ' hero-image--fade-out'} ${getPositionClass(img.position)}`}
+          className={`hero-image${i === index && fade ? ' hero-image--fade-in' : ' hero-image--fade-out'} ${getPositionClass(img.position)} ${getFitClass(img.fit)}`}
           src={img.src}
           alt={img.alt}
           fetchPriority={i === index ? 'high' : undefined}
@@ -103,18 +112,32 @@ export const Hero: FC = () => {
         ))}
       </div>
       <div className="hero-scrim" aria-hidden="true" />
-      <div className="hero-content">
+    </section>
+    <section className="hero-intro" aria-labelledby="seasonal-hero-title">
+      <div className="hero-intro-content">
         <h1 className="hero-title" id="seasonal-hero-title">
           Seasonal The Living Interface
         </h1>
         <p className="hero-tagline">
           Digital spaces that breathe with season, mood, and atmosphere.
         </p>
-
-        <Link className="hero-button" to="/begin-the-journey">
-          Follow the Light
-        </Link>
+        <div className="hero-follow-panel" aria-label="Begin the Seasonal experience">
+          <Link className="hero-button hero-button--below" to="/begin-the-journey">
+            Follow the Light
+          </Link>
+          {onCinematicMode && (
+            <button
+              type="button"
+              className="cinematic-mode-btn"
+              onClick={onCinematicMode}
+              aria-label="Enter Cinematic Mode"
+            >
+              ◎ cinematic mode
+            </button>
+          )}
+        </div>
       </div>
     </section>
+    </>
   )
 }
