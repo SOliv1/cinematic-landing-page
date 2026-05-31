@@ -2991,7 +2991,7 @@ code {
 
 .rsplash-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 300;
   font-style: italic;
   letter-spacing: 0.04em;
@@ -2999,6 +2999,20 @@ code {
   text-shadow:
     0 0 40px rgba(255, 248, 230, 0.25),
     0 2px 8px rgba(0, 0, 0, 0.4);
+  line-height: 1;
+}
+
+.rsplash-kicker {
+  margin-top: -4px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.25rem, 3vw, 1.7rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: rgba(245, 238, 226, 0.68);
+  text-shadow:
+    0 0 26px rgba(255, 248, 230, 0.18),
+    0 2px 8px rgba(0, 0, 0, 0.34);
   line-height: 1;
 }
 
