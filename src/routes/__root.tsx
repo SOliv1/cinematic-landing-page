@@ -8,6 +8,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'application-name', content: 'Seasonal.Studio' },
+      { name: 'apple-mobile-web-app-title', content: 'Seasonal.Studio' },
+      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+      { name: 'mobile-web-app-capable', content: 'yes' },
       { name: 'google-site-verification', content: 'N0gV4nqYRcKs7HGGNdbiZqzJ6UyTyOan8QQuGFmyGBI' },
       { title: 'Seasonal.Studio — Atmospheric Web Design & Cinematic Web Apps' },
       {
@@ -32,8 +36,12 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: 'manifest', href: '/manifest.json' },
-      { rel: 'icon', type: 'image/png', sizes: 'any', href: '/images/favicons/favicon-r-visible.png' },
+      { rel: 'icon', href: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+      { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+      { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/favicon-96x96.png' },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
       { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/favicons/favicon-32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/images/favicons/favicon-16.png' },
     ],
   }),
   component: RootLayout,
