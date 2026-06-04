@@ -2,6 +2,7 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
 import { StudioDropdown } from '@/components/StudioDropdown'
 import { ReflectionsSplash, useSplashTrigger, useSplashShow } from '@/components/ReflectionsSplash'
+import { Hero } from '@/components/Hero'
 import OrbNeutral from '/images/orbs/orb-neutral.png'
 import OrbWarmDawn from '/images/orbs/orb-warm-dawn.png'
 import OrbMidnightGlow from '/images/orbs/orb-midnight-glow.png'
@@ -9,8 +10,30 @@ import OrbAutumnEmber from '/images/orbs/orb-autumn-ember.png'
 import { useOrbState } from '@/hooks/useOrbState'
 import { useSeasonalBackground, useSeasonalBackgroundVariant } from '@/hooks/useSeasonalBackground'
 import type { SeasonalBackgroundVariant } from '@/utils/getSeasonalBackground'
-
 export const Route = createFileRoute('/')({
+  head: () => ({
+    meta: [
+      { title: 'Seasonal.Studio Atmospheric Web Design & Cinematic Web Apps' },
+      {
+        name: 'description',
+        content: 'Independent UK studio creating atmospheric, cinematic web apps and slow-tech digital experiences. Calm, minimal, handcrafted interfaces built with React and Django.',
+      },
+      { property: 'og:title', content: 'Seasonal.Studio Atmospheric Web Design & Cinematic Web Apps' },
+      { property: 'og:type', content: 'website' },
+      {
+        property: 'og:description',
+        content: 'Independent UK studio creating atmospheric, cinematic web apps and slow-tech digital experiences. Calm, minimal, handcrafted interfaces built with React and Django.',
+      },
+      { property: 'og:image', content: '/images/carousel/seasonal-studio-cinematic-glow.png' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: 'Seasonal.Studio Atmospheric Web Design & Cinematic Web Apps' },
+      {
+        name: 'twitter:description',
+        content: 'Independent UK studio creating atmospheric, cinematic web apps and slow-tech digital experiences. Calm, minimal, handcrafted interfaces built with React and Django.',
+      },
+      { name: 'twitter:image', content: '/images/carousel/seasonal-studio-cinematic-glow.png' },
+    ],
+  }),
   component: LandingPage,
 })
 
@@ -250,14 +273,9 @@ function SeasonalOrb({ src, palette }: { src: string; palette: SeasonalPalette }
       <span className="orb-sparkles" aria-hidden="true" />
 
       <picture className="orb-logo">
-        <source
-          srcSet="/images/logo/r-logo-pearl-128.webp 128w, /images/logo/r-logo-pearl-256.webp 256w, /images/logo/r-logo-pearl-512.webp 512w"
-          sizes="60px"
-          type="image/webp"
-        />
         <img
           src="/images/logo/r-logo-pearl-512.png"
-          alt="Reflections Logo"
+          alt="Seasonal sunrise-gold orb logo"
           className="r-logo"
         />
       </picture>
@@ -354,20 +372,20 @@ const features: Feature[] = [
   {
     index: '01',
     title: 'Seasonal Awareness',
-    subtitle: 'The interface is a space that can breathe and move with you.',
-    body: ' It can be a place that feels alive, not just a static container for content. By reflecting the rhythms of the day and year, it can help you feel more connected to your work and the world around you.',
+    subtitle: 'Interfaces that evolve with light, time, and season.',
+    body: 'Keeping your space aligned with the world outside.',
   },
   {
     index: '02',
-    title: 'Quiet Performance',
-    subtitle: 'Transitions unfold gently, never rushing, never demanding.',
-    body: 'The interface stays quiet enough for you to hear your own thoughts.',
+    title: 'Composed Performance',
+    subtitle: 'Motion and detail stay out of the way.',
+    body: 'Tuned into focus. No distractions.',
   },
   {
     index: '03',
     title: 'Modular Clarity',
-    subtitle: 'Each app is its own quiet room',
-    body: 'Shaped with clarity, connected in spirit, and free to grow without disturbing the calm of the whole.',
+    subtitle: 'Each feature stands on its own, yet belongs to the same calm structure. ',
+    body: 'Simple to expand, effortless to navigate.',
   },
   {
     index: '04',
@@ -508,16 +526,6 @@ function LandingPage() {
       <ReflectionsSplash reason={activeSplashReason} onComplete={dismissSplash} />
     )}
 
-    {/* ── Cinematic Mode button ─────────────────────────── */}
-    <button
-      type="button"
-      className="cinematic-mode-btn"
-      onClick={() => showSplash('cinematic-mode')}
-      aria-label="Enter Cinematic Mode"
-    >
-      ◎ cinematic mode
-    </button>
-
     <div
       className="seasonal-background"
       style={{
@@ -530,162 +538,25 @@ function LandingPage() {
         ...cssVars,
       }}
     >
-      {/* ── HERO ──────────────────────────────────────────────── */}
-      <section
-        style={{
-          position: 'relative',
-          minHeight: '100vh',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          overflow: 'hidden',
-          background: surfaceVeil.hero,
-          backdropFilter: 'blur(8px) saturate(1.02)',
-          WebkitBackdropFilter: 'blur(8px) saturate(1.02)',
-          padding: '40px 24px',
-        }}
-      >
-        {/* Atmospheric background blobs */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: palette.blob1,
-            animation: 'slowDrift 22s ease-in-out infinite',
-            willChange: 'transform',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: palette.blob2,
-            animation: 'slowDriftAlt 28s ease-in-out infinite',
-            willChange: 'transform',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: palette.blob3,
-          }}
-        />
-
-        {/* Grain overlay */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E")`,
-            backgroundRepeat: 'repeat',
-            backgroundSize: '128px',
-            pointerEvents: 'none',
-            zIndex: 1,
-          }}
-        />
-
-        {/* Studio dropdown */}
-        <div style={{ position: 'absolute', top: '28px', right: '32px', zIndex: 10, height: '66px', display: 'flex', alignItems: 'center' }}>
+      {/* ── HERO IMAGE SECTION ──────────────────────────────── */}
+      <div style={{ position: 'relative', minHeight: '100vh', width: '100%' }}>
+        {/* OrbLogo at top center, overlays hero image */}
+        <div style={{
+          position: 'absolute',
+          top: '86px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 20,
+          pointerEvents: 'none',
+        }}>
+          <SeasonalOrb src={orbArtwork} palette={palette} />
+        </div>
+        {/* Studio dropdown stays on top right */}
+        <div style={{ position: 'absolute', top: '28px', right: '32px', zIndex: 80, height: '66px', display: 'flex', alignItems: 'center' }}>
           <StudioDropdown />
         </div>
-
-        {/* Central panel */}
-        <div
-          className="glass-panel"
-          style={{
-            position: 'relative',
-            zIndex: 5,
-            maxWidth: '620px',
-            width: '100%',
-            padding: 'clamp(40px, 6vw, 72px) clamp(32px, 6vw, 80px)',
-            textAlign: 'center',
-            background: `rgba(255,255,255,0.46), ${palette.panelTint}`,
-          }}
-        >
-          {/* Panel shimmer border */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              borderRadius: '28px',
-              border: '1px solid rgba(255,255,255,0.85)',
-              animation: 'borderShimmer 5s ease-in-out infinite',
-              pointerEvents: 'none',
-            }}
-          />
-
-          <SeasonalOrb src={orbArtwork} palette={palette} />
-
-          <div
-            style={{
-              marginTop: '-10px',
-              marginBottom: '28px',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              padding: '8px 14px',
-              borderRadius: '999px',
-              background: 'rgba(255,255,255,0.42)',
-              border: '1px solid rgba(255,255,255,0.72)',
-              backdropFilter: 'blur(10px) saturate(140%)',
-              WebkitBackdropFilter: 'blur(10px) saturate(140%)',
-              boxShadow: '0 10px 24px rgba(0,0,0,0.06)',
-              fontFamily: "'Outfit', sans-serif",
-              fontSize: '0.68rem',
-              fontWeight: 500,
-              letterSpacing: '0.18em',
-              textTransform: 'uppercase',
-              color: palette.accent,
-              opacity: 0.85,
-            }}
-          >
-            <span style={{ width: '6px', height: '6px', borderRadius: '999px', background: palette.accent }} />
-            <span>{dayCycleLabel}</span>
-          </div>
-
-          <h1
-            className="font-display animate-fade-up"
-            style={{
-              fontSize: 'clamp(2rem, 4.5vw, 3.2rem)',
-              fontWeight: 300,
-              fontStyle: 'normal',
-              lineHeight: 1.18,
-              letterSpacing: '-0.02em',
-              color: '#1a1714',
-              marginBottom: '20px',
-              animationDelay: '0.3s',
-            }}
-          >
-            Web apps that breathe<br />
-            <em style={{ fontStyle: 'italic', fontWeight: 300 }}>with the seasons.</em>
-          </h1>
-
-          <p
-            className="font-body animate-fade-up"
-            style={{
-              fontSize: 'clamp(0.92rem, 1.8vw, 1.05rem)',
-              fontWeight: 300,
-              lineHeight: 1.7,
-              color: 'rgba(26,23,20,0.52)',
-              letterSpacing: '0.025em',
-              marginBottom: '40px',
-              animationDelay: '0.52s',
-            }}
-          >
-            Designed for clarity, mood, and quiet delight.
-          </p>
-
-          <div
-            className="animate-fade-up"
-            style={{ animationDelay: '0.72s' }}
-          >
-            <CtaButton />
-          </div>
-        </div>
-
-        <ScrollIndicator accent={palette.accent} />
-      </section>
+        <Hero onCinematicMode={() => showSplash('cinematic-mode')} />
+      </div>
 
       {/* ── FEATURES ──────────────────────────────────────────── */}
       <section
@@ -711,6 +582,7 @@ function LandingPage() {
 
         <div className="principles-inner" style={{ position: 'relative', zIndex: 2, maxWidth: '1080px', margin: '0 auto' }}>
           {/* Section header */}
+
           <div
             style={{
               marginBottom: '64px',
@@ -747,8 +619,8 @@ function LandingPage() {
                   maxWidth: '420px',
                 }}
               >
-                The principles that<br />
-                <em style={{ fontStyle: 'italic' }}>refuse to be hurried.</em>
+                A space for reflection,<br />
+                self-awareness, and mindful moments.
               </h2>
             </div>
             <div
@@ -768,7 +640,7 @@ function LandingPage() {
             style={{
               fontFamily: "'Cormorant Garamond', serif",
               fontSize: 'clamp(1.02rem, 2.4vw, 1.18rem)',
-              fontWeight: 400,
+              fontWeight: 500,
               fontStyle: 'italic',
               lineHeight: 1.45,
               letterSpacing: '0.025em',
@@ -779,7 +651,7 @@ function LandingPage() {
               marginTop: '-24px',
             }}
           >
-            A quiet shift into the principles that shape the Seasonal house
+            Designed for journaling, mood check-ins, and digital wellbeing where emotional aesthetics and seasonal awareness shape every interaction.
           </p>
 
           {/* Asymmetric grid: tall left + 2 stacked right */}
@@ -968,7 +840,7 @@ function LandingPage() {
               marginBottom: '36px',
             }}
           >
-            Explore the rooms of Seasonal, simple spaces designed to feel clear, calm, and alive in their own quiet way.
+            Explore the rooms of Seasonal, a set of calm, clear, unhurried spaces.
           </p>
           <Link to="/seasonal-house" className="seasonal-pill step-inside">
             <span>Step inside</span>
@@ -976,6 +848,15 @@ function LandingPage() {
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </Link>
+          <a
+            className="daily-orb-home-link"
+            href="https://soliv1.github.io/Daily-Reflections-App/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Daily Orb: Reflections</span>
+            <small>Open the companion app, then save it to your phone or desktop</small>
+          </a>
 
           <p
             style={{

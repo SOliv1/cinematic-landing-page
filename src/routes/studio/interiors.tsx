@@ -1,4 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
+import AtmosphericBanner from '@/components/AtmosphericBanner'
+import StudioLayout from '@/components/StudioLayout'
 import { StudioPageLayout } from '@/components/StudioPageLayout'
 
 
@@ -8,7 +10,14 @@ export const Route = createFileRoute('/studio/interiors')({
       title="Interiors"
       subtitle="My services, framed as cinematic digital interiors."
     >
-      <div className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,_rgba(255,220,180,0.12),_transparent_70%)]">
+      <StudioLayout title="The Studio ▾ Interiors">
+        <AtmosphericBanner
+          src="/images/orbs/glowing-orb-translucent-chamber16x9.png"
+          title="The Translucent Chamber"
+          alt="The glowing orb translucent chamber with soft reflections in mist"
+        />
+
+        <div className="relative min-h-screen bg-[radial-gradient(ellipse_at_top,_rgba(255,220,180,0.12),_transparent_70%)]">
 
       <header className="relative mb-28 pt-28 pb-24 px-6 md:px-12">
 
@@ -56,17 +65,20 @@ export const Route = createFileRoute('/studio/interiors')({
             p-10 md:p-14
           "
         >
-        <p className="text-lg md:text-xl leading-relaxed mb-6">
-          Every space begins with essence.
-          Form follows interior truth, not surface appearance.
-        </p>
+          <h3 className="font-display text-2xl md:text-3xl font-medium tracking-tight mb-4">
+            Interiors
+          </h3>
 
-        <p className="text-lg md:text-xl leading-relaxed">
-          Rooms, thresholds, atmospheres, each one shaped to reveal clarity,
-          hold stillness, and carry light.
-        </p>
+          <div className="space-y-1 leading-tight">
+            <p>Interior first.</p>
+            <p>Essence leads.</p>
+            <p>Form follows truth.</p>
+            <p>Rooms, thresholds, atmospheres shaped for clarity and light.</p>
+          </div>
         </div>
       </section>
+
+      <section className="space-y-24"></section>
       <section className="space-y-24">
 
       {/* Rooms */}
@@ -89,10 +101,9 @@ export const Route = createFileRoute('/studio/interiors')({
             Rooms
           </h3>
           <p className="text-lg md:text-xl leading-relaxed">
-            Each app is a room with its own interior truth; a space shaped for clarity,
-            calm, and purpose. Nothing extra, nothing hurried. Just the essence, held
-            with intention.
+            Each app is a room with its own interior truth, shaped for clarity and calm. Nothing extra.
           </p>
+          <p className="text-lg md:text-xl leading-relaxed">Just the essence.</p>
         </div>
 
       {/* Warm Divider */}
@@ -118,9 +129,7 @@ export const Route = createFileRoute('/studio/interiors')({
             Thresholds
           </h3>
           <p className="text-lg md:text-xl leading-relaxed">
-            Movement between spaces should feel natural; a quiet shift, a gentle
-            transition. Thresholds guide the pace, protect the mood, and keep the
-            experience coherent.
+            Movement between spaces should feel natural. Thresholds guide the pace and keep the experience coherent.
           </p>
         </div>
 
@@ -148,13 +157,14 @@ export const Route = createFileRoute('/studio/interiors')({
           </h3>
           <p className="text-lg md:text-xl leading-relaxed">
             Light, colour, and tone shift gently through the day. Atmosphere is the
-            quiet presence that holds the room; warm, alive, and always in motion.
+            steady presence that holds the room; warm, alive, and always in motion.
           </p>
         </div>
 
       </section>
 
-      </div>
+        </div>
+      </StudioLayout>
     </StudioPageLayout>
 
     ),

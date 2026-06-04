@@ -73,11 +73,11 @@ export const socialLinks: SocialLink[] = [
 export default function Footer() {
   return (
     <footer className="studio-footer">
-      <p className="footer-line">Designed by Sara @ KUK, shaped for clarity, rhythm, and quiet delight.</p>
+      <p className="footer-line">Designed by Sara @ KUK, shaped for clarity, rhythm, and simplicity.</p>
 
       <SocialLinks className="footer-socials" />
 
-      <p className="footer-line">Crafted with restraint &amp; intention · {new Date().getFullYear()}</p>
+      <p className="footer-line">Made with care · {new Date().getFullYear()}</p>
     </footer>
   )
 }

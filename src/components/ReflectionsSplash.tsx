@@ -54,7 +54,7 @@ export function ReflectionsSplash({ reason, onComplete }: ReflectionsSplashProps
       className={`rsplash-veil rsplash-veil--${phase}`}
       aria-modal="true"
       role="dialog"
-      aria-label="Reflections identity"
+      aria-label="Seasonal.Studio identity"
       onClick={skip}
     >
       {/* Atmospheric grain */}
@@ -67,7 +67,7 @@ export function ReflectionsSplash({ reason, onComplete }: ReflectionsSplashProps
       <div className={`rsplash-mark rsplash-mark--${phase}`}>
         <img
           src={OrbLogo}
-          alt="Reflections"
+          alt="Seasonal"
           className="rsplash-logo"
           draggable={false}
         />
@@ -75,7 +75,8 @@ export function ReflectionsSplash({ reason, onComplete }: ReflectionsSplashProps
 
       {/* Wordmark */}
       <div className={`rsplash-wordmark rsplash-wordmark--${phase}`}>
-        <span className="rsplash-title">Reflections</span>
+        <span className="rsplash-title">Seasonal.Studio</span>
+        <span className="rsplash-kicker">Reflections</span>
         <span className="rsplash-subtitle">{subtitleMap[reason]}</span>
       </div>
 

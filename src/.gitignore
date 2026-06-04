@@ -1,0 +1,28 @@
+*.tsconfig.json
+vite.config.js
+node_modules/
+dist/
+build/
+coverage/
+*.log
+.DS_Store
+.env
+.vscode/
+.idea/
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.wakatime-project.json
+
+# Ignore Mac system files
+
+# Ignore Windows system files
+
+# Ignore Linux system files
+# Ignore IDE and editor files
+# Ignore log files
+# Ignore environment variable files
+

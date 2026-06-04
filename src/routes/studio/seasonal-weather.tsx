@@ -35,6 +35,14 @@ function SeasonalWeatherPage() {
         &larr; The Seasonal House
       </Link>
 
+      <figure className="room-orb-arrival room-orb-arrival--studio">
+        <img
+          src="/images/carousel/seasonalStudio-orb.png"
+          alt="Seasonal.Studio atmospheric orb brand image"
+          className="room-orb-arrival-image room-orb-arrival-image--wide"
+        />
+      </figure>
+
       <header className="seasonalweather-header">
         <h1 className="seasonalweather-title">Seasonal Weather</h1>
         <p className="seasonalweather-subtitle">
@@ -45,9 +53,9 @@ function SeasonalWeatherPage() {
       <section className="seasonalweather-card">
         <h2 className="seasonalweather-card-title">A sky-lit weather wash</h2>
         <p className="seasonalweather-card-text">
-          This room holds the full house gently. Morning blue, soft daylight,
-          cool atmospheric haze, and a quiet indigo echo create a calm interior
-          that lets each room keep its own emotional temperature.
+          This room holds the house in a gentle balance.
+          Morning blue, soft daylight, cool haze,
+          and an indigo echo create an interior where each room keeps its own emotional temperature.
         </p>
       </section>
 

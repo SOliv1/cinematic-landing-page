@@ -15,6 +15,7 @@ import { Route as BeginTheJourneyRouteImport } from './routes/begin-the-journey'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StudioWorkWithMeRouteImport } from './routes/studio/work-with-me'
 import { Route as StudioWhySeasonalRouteImport } from './routes/studio/why-seasonal'
+import { Route as StudioUnlockMoreRouteImport } from './routes/studio/unlock-more'
 import { Route as StudioSoftRoomRouteImport } from './routes/studio/soft-room'
 import { Route as StudioSeasonalWeatherRouteImport } from './routes/studio/seasonal-weather'
 import { Route as StudioPositioningRouteImport } from './routes/studio/positioning'
@@ -56,6 +57,11 @@ const StudioWorkWithMeRoute = StudioWorkWithMeRouteImport.update({
 const StudioWhySeasonalRoute = StudioWhySeasonalRouteImport.update({
   id: '/studio/why-seasonal',
   path: '/studio/why-seasonal',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioUnlockMoreRoute = StudioUnlockMoreRouteImport.update({
+  id: '/studio/unlock-more',
+  path: '/studio/unlock-more',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StudioSoftRoomRoute = StudioSoftRoomRouteImport.update({
@@ -136,6 +142,7 @@ export interface FileRoutesByFullPath {
   '/studio/positioning': typeof StudioPositioningRoute
   '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
   '/studio/soft-room': typeof StudioSoftRoomRoute
+  '/studio/unlock-more': typeof StudioUnlockMoreRoute
   '/studio/why-seasonal': typeof StudioWhySeasonalRoute
   '/studio/work-with-me': typeof StudioWorkWithMeRoute
 }
@@ -156,6 +163,7 @@ export interface FileRoutesByTo {
   '/studio/positioning': typeof StudioPositioningRoute
   '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
   '/studio/soft-room': typeof StudioSoftRoomRoute
+  '/studio/unlock-more': typeof StudioUnlockMoreRoute
   '/studio/why-seasonal': typeof StudioWhySeasonalRoute
   '/studio/work-with-me': typeof StudioWorkWithMeRoute
 }
@@ -177,6 +185,7 @@ export interface FileRoutesById {
   '/studio/positioning': typeof StudioPositioningRoute
   '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
   '/studio/soft-room': typeof StudioSoftRoomRoute
+  '/studio/unlock-more': typeof StudioUnlockMoreRoute
   '/studio/why-seasonal': typeof StudioWhySeasonalRoute
   '/studio/work-with-me': typeof StudioWorkWithMeRoute
 }
@@ -199,6 +208,7 @@ export interface FileRouteTypes {
     | '/studio/positioning'
     | '/studio/seasonal-weather'
     | '/studio/soft-room'
+    | '/studio/unlock-more'
     | '/studio/why-seasonal'
     | '/studio/work-with-me'
   fileRoutesByTo: FileRoutesByTo
@@ -219,6 +229,7 @@ export interface FileRouteTypes {
     | '/studio/positioning'
     | '/studio/seasonal-weather'
     | '/studio/soft-room'
+    | '/studio/unlock-more'
     | '/studio/why-seasonal'
     | '/studio/work-with-me'
   id:
@@ -239,6 +250,7 @@ export interface FileRouteTypes {
     | '/studio/positioning'
     | '/studio/seasonal-weather'
     | '/studio/soft-room'
+    | '/studio/unlock-more'
     | '/studio/why-seasonal'
     | '/studio/work-with-me'
   fileRoutesById: FileRoutesById
@@ -260,6 +272,7 @@ export interface RootRouteChildren {
   StudioPositioningRoute: typeof StudioPositioningRoute
   StudioSeasonalWeatherRoute: typeof StudioSeasonalWeatherRoute
   StudioSoftRoomRoute: typeof StudioSoftRoomRoute
+  StudioUnlockMoreRoute: typeof StudioUnlockMoreRoute
   StudioWhySeasonalRoute: typeof StudioWhySeasonalRoute
   StudioWorkWithMeRoute: typeof StudioWorkWithMeRoute
 }
@@ -306,6 +319,13 @@ declare module '@tanstack/react-router' {
       path: '/studio/why-seasonal'
       fullPath: '/studio/why-seasonal'
       preLoaderRoute: typeof StudioWhySeasonalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/unlock-more': {
+      id: '/studio/unlock-more'
+      path: '/studio/unlock-more'
+      fullPath: '/studio/unlock-more'
+      preLoaderRoute: typeof StudioUnlockMoreRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/studio/soft-room': {
@@ -412,6 +432,7 @@ const rootRouteChildren: RootRouteChildren = {
   StudioPositioningRoute: StudioPositioningRoute,
   StudioSeasonalWeatherRoute: StudioSeasonalWeatherRoute,
   StudioSoftRoomRoute: StudioSoftRoomRoute,
+  StudioUnlockMoreRoute: StudioUnlockMoreRoute,
   StudioWhySeasonalRoute: StudioWhySeasonalRoute,
   StudioWorkWithMeRoute: StudioWorkWithMeRoute,
 }
