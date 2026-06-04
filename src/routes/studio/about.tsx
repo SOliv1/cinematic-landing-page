@@ -1,6 +1,18 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { StudioPageLayout } from '@/components/StudioPageLayout'
 
+const STUDIO_ABOUT_URL = 'https://seasonal.studio/studio/about'
+const DAILY_REFLECTIONS_URL = 'https://soliv1.github.io/Daily-Reflections-App/'
+const CENTRE_NOTES_URL = 'https://centre-notes.netlify.app/'
+const SEASONAL_MIND_SPACE_URL = 'https://soliv1.github.io/Seasonal-mind-space/'
+const CINEMATIC_HOME_GLOW_URL = 'https://inspo-home-cinematic.onrender.com/'
+const WEATHER_ATMOSPHERE_URL = 'https://reflections-weather-atmosphere.netlify.app/'
+
+function withStudioReturn(url: string) {
+  const separator = url.includes('?') ? '&' : '?'
+  return `${url}${separator}from=seasonal-studio&returnTo=${encodeURIComponent(STUDIO_ABOUT_URL)}`
+}
+
 export const Route = createFileRoute('/studio/about')({
   head: () => ({
     meta: [
@@ -145,35 +157,35 @@ function AboutPage() {
                 <strong>Daily Reflections</strong>
                 <p>Start or end your day with a meaningful journaling prompt. Personal and private.</p>
                 <div className="about-app-center">
-                  <a href="https://soliv1.github.io/Daily-Reflections-App/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                  <a href={withStudioReturn(DAILY_REFLECTIONS_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
                 </div>
               </li>
               <li>
                 <strong>Centre Notes</strong>
                 <p>Write a thought, hold it tightly, let it pass.</p>
                 <div className="about-app-center">
-                  <a href="https://centre-notes.netlify.app/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                  <a href={withStudioReturn(CENTRE_NOTES_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
                 </div>
               </li>
               <li>
                 <strong>Seasonal Mind Space</strong>
                 <p>Reflect with the rhythm of the year. Track your moods and thoughts seasonally.</p>
                 <div className="about-app-center">
-                  <a href="https://soliv1.github.io/Seasonal-mind-space/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                  <a href={withStudioReturn(SEASONAL_MIND_SPACE_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
                 </div>
               </li>
               <li>
                 <strong>Cinematic Home Glow</strong>
                 <p>Create a reflective home mood. This app can be personalised to your taste and space.</p>
                 <div className="about-app-center">
-                  <a href="https://inspo-home-cinematic.onrender.com/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                  <a href={withStudioReturn(CINEMATIC_HOME_GLOW_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
                 </div>
               </li>
               <li>
                 <strong>Weather Atmosphere</strong>
                 <p>Let today’s sky shape today’s reflection. (Weather activation coming soon!)</p>
                 <div className="about-app-center">
-                  <a href="https://reflections-weather-atmosphere.netlify.app/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                  <a href={withStudioReturn(WEATHER_ATMOSPHERE_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
                 </div>
               </li>
               <li>
@@ -194,8 +206,8 @@ function AboutPage() {
                 <strong>Portfolio &amp; Studio</strong>
                 <p>Discover more about my work, ethos, and creative process.</p>
                 <div className="about-app-center">
-                  <a href="https://soliv1.github.io/Daily-Reflections-App/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
-                </div><a className="project-link-btn ghost-button" target="_blank" rel="noopener noreferrer" href="/">Visit Main Site</a>
+                  <a href={STUDIO_ABOUT_URL} className="ghost-button">Stay Here</a>
+                </div><a className="project-link-btn ghost-button" href="/">Visit Main Site</a>
               </li>
             </ul>
           </div>
