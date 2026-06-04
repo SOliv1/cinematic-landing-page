@@ -101,7 +101,7 @@ export const Route = createFileRoute('/studio/manifesto')({
               'To make technology feel more appealing and human again.',
             ]}
             drawerTitle="What I hope you feel"
-            drawerText="My work is not about productivity — it is about presence.
+            drawerText="My work is not about productivity, it is about presence.
                 I want my apps to feel like stepping into a quiet room where your thoughts can land softly.
                 A place where you can breathe, organise, imagine, or simply be.
                 If you leave feeling clearer, calmer, or more connected to yourself, then the purpose has been fulfilled.
