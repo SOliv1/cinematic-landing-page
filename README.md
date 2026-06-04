@@ -12,7 +12,7 @@ An interactive portfolio/marketing application with a cinematic landing page tha
 
 ## What it is
 
-A landing page designed as a quiet gallery foyer — soft atmospheric gradients, translucent glass panels, and a breathing orb that pulses gently. The palette shifts automatically based on the time of year: blush rose in spring, warm cream in summer, amber in autumn, lavender in winter.
+A landing page designed as a serene gallery foyer — soft atmospheric gradients, translucent glass panels, and a breathing orb that pulses gently. The palette shifts automatically based on the time of year: blush rose in spring, warm cream in summer, amber in autumn, lavender in winter.
 
 ## SEO Launch Checklist
 

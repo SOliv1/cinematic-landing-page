@@ -98,7 +98,7 @@ function WorkWithMePage() {
     >
       <main className="work-page fade-in">
         <section className="work-intro">
-          <p className="work-kicker">Quiet enquiries</p>
+          <p className="work-kicker">Thoughtful enquiries</p>
           <h2 className="work-title">Tell me what you are imagining.</h2>
           <p className="work-lead">
             Send a note about collaborations, project enquiries, early access, or
@@ -133,7 +133,7 @@ function WorkWithMePage() {
           </p>
           <p className="work-about-text">
             It is a complimentary companion to this studio: a smaller daily space
-            for prompts, quiet check-ins, and reflective moments.
+            for prompts, mindful check-ins, and reflective moments.
           </p>
           <div className="work-install-card">
             <h3>Save it as a companion app</h3>
@@ -198,7 +198,7 @@ function WorkWithMePage() {
               expression of a wider intention: creating digital spaces that feel
               peaceful, spacious, and emotionally safe. More projects will join
               this family over time, each with its own focus but sharing the same
-              quiet ethos.
+              shared ethos.
             </p>
             <p>
               Thank you for being here and for making space for reflection in your

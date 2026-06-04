@@ -64,7 +64,7 @@ function BeginTheJourney() {
       </div>
       <div className="btj-text">
         <p className="tagline-primary">
-          Designed by Sara @ KUK, shaped for clarity, rhythm, and quiet delight.
+          Designed by Sara @ KUK, shaped for clarity, rhythm, and uplifting delight.
         </p>
         <p className="tagline-secondary">
           Every season begins with a single step into the light.

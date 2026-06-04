@@ -29,7 +29,7 @@ const localHeroImages: Array<HeroImage> = [
   },
   {
     src: '/images/orbs/glowing-orb-translucent-chamber16x9.png',
-    alt: 'A glowing translucent orb suspended in a quiet chamber',
+    alt: 'A glowing translucent orb suspended in a luminous chamber',
     position: 'center',
     timeOfDay: 'evening',
   },

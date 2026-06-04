@@ -157,7 +157,7 @@ export const Route = createFileRoute('/studio/interiors')({
           </h3>
           <p className="text-lg md:text-xl leading-relaxed">
             Light, colour, and tone shift gently through the day. Atmosphere is the
-            quiet presence that holds the room; warm, alive, and always in motion.
+            steady presence that holds the room; warm, alive, and always in motion.
           </p>
         </div>
 

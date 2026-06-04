@@ -85,7 +85,7 @@ export const Route = createFileRoute('/studio/manifesto')({
             ]}
             drawerTitle="How I build atmosphere"
             drawerText="My aesthetic is rooted in softness and intention.
-                Orbs act as anchors, quiet suns that centre the experience.
+                Orbs act as anchors, luminous suns that centre the experience.
                 Gradients create emotional temperature: warmth, coolness, clarity, dusk.
                 Motion is slow, cinematic, and deliberate.
                 Negative space is not emptiness; it is breath.
@@ -117,7 +117,7 @@ export const Route = createFileRoute('/studio/manifesto')({
               'My brushstrokes are gradients, orbs, and motion.',
             ]}
             drawerTitle="My story as an artist"
-            drawerText="I come from a world of drawing and painting, a world of colour, texture, and quiet observation.
+            drawerText="I come from a world of drawing and painting, a world of colour, texture, and attentive observation.
                 That artistic instinct never left; it simply changed medium.
                 Now I create through code, shaping digital spaces with the same care I once gave to paper and canvas.
                 My apps are my studio.
@@ -137,7 +137,7 @@ export const Route = createFileRoute('/studio/manifesto')({
             drawerText="You are invited to explore at your own pace.
                 Open the drawers that call to you.
                 Follow the colours, the light, the rhythm.
-                Let the Seasonal Suite be a companion, a quiet architecture for your inner world.
+                Let the Seasonal Suite be a companion, a calm architecture for your inner world.
                 This is a living interface, shaped for reflection, clarity, and a softer way of being online."
           />
 

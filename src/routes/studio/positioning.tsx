@@ -29,7 +29,7 @@ function PositioningPage() {
           <div className="h-px bg-gradient-to-r from-white/0 via-white/20 to-white/0" />
 
           <div className="space-y-2">
-            <p>Positioning is the quiet architecture</p>
+            <p>Positioning is the orderly architecture</p>
             <p>beneath the work, the stance, the shape;</p>
             <p>the way it meets the world.</p>
           </div>
@@ -46,7 +46,7 @@ function PositioningPage() {
           <div className="space-y-2">
             <p>No pressure. No performance.</p>
             <p>Only clarity, alignment,</p>
-            <p>and a quiet sense of direction.</p>
+            <p>and a steadfast sense of direction.</p>
           </div>
 
           <div className="h-px bg-gradient-to-r from-white/0 via-white/20 to-white/0" />

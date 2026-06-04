@@ -6,7 +6,7 @@ import { Link } from '@tanstack/react-router'
 
 const studioItems = [
   { label: 'Home',         to: '/',                     description: 'Return to the main landing page.' },
-  { label: 'About',        to: '/studio/about',         description: 'A quiet introduction to who I am and how I think.' },
+  { label: 'About',        to: '/studio/about',         description: 'An introduction to who I am and how I think.' },
   { label: 'Manifesto',    to: '/studio/manifesto',     description: 'My Seasonal principles, my philosophy.' },
   { label: 'Interiors',    to: '/studio/interiors',     description: 'My services, framed as cinematic digital interiors.' },
   { label: 'Depth Levels', to: '/studio/depth-levels',  description: 'My pricing tiers, framed as layers of involvement.' },

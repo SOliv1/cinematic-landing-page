@@ -20,7 +20,7 @@ const features = [
 const packs = [
   {
     title: 'Winter Reflection Pack',
-    summary: 'Slow prompts for rest, quiet rituals, and making meaning in the darker months.',
+    summary: 'Slow prompts for rest, restorative rituals, and making meaning in the darker months.',
   },
   {
     title: 'New Year Reset',
