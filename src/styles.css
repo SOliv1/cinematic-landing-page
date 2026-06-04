@@ -3335,6 +3335,66 @@ code {
   margin: 0;
 }
 
+/* §3.5 — Intention Bridge */
+.about-intention-bridge {
+  position: relative;
+  margin: 0 -1.5rem;
+  padding: clamp(4.75rem, 9vw, 7.5rem) 1.5rem;
+  isolation: isolate;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(190, 206, 236, 0.22) 0%, rgba(190, 206, 236, 0) 62%),
+    linear-gradient(180deg, rgba(15, 22, 36, 0.72) 0%, rgba(18, 26, 42, 0.58) 100%);
+  border-top: 1px solid rgba(210, 224, 244, 0.10);
+  border-bottom: 1px solid rgba(210, 224, 244, 0.08);
+}
+
+.about-intention-bridge::before {
+  content: "";
+  position: absolute;
+  inset: 1.2rem 1.2rem;
+  border-radius: 20px;
+  background: linear-gradient(160deg, rgba(230, 238, 252, 0.12) 0%, rgba(230, 238, 252, 0.04) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 -28px 56px rgba(10, 16, 28, 0.28),
+    0 24px 64px rgba(6, 10, 18, 0.30);
+  z-index: -1;
+}
+
+.about-intention-inner {
+  max-width: 48rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-intention-line {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  margin: 0;
+}
+
+.about-intention-line-main {
+  font-size: clamp(1.45rem, 2.85vw, 2.05rem);
+  line-height: 1.58;
+  color: rgba(238, 244, 255, 0.92);
+  letter-spacing: 0.01em;
+}
+
+.about-intention-line-echo {
+  margin-top: 1.25rem;
+  font-size: clamp(1rem, 2vw, 1.22rem);
+  line-height: 1.6;
+  color: rgba(198, 214, 238, 0.70);
+  font-style: italic;
+  letter-spacing: 0.015em;
+}
+
+@media (max-width: 767px) {
+  .about-intention-bridge::before {
+    inset: 0.8rem;
+    border-radius: 16px;
+  }
+}
+
 /* §4 — Competencies */
 .about-competencies-section {
   position: relative;

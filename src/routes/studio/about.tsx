@@ -74,14 +74,17 @@ function AboutPage() {
           </div>
         </section>
 
+        <section className="about-intention-bridge" aria-label="Studio intention">
+          <div className="about-intention-inner">
+            <p className="about-intention-line about-intention-line-main">
+              I design for the feeling a space leaves behind.
+            </p>
+            <p className="about-intention-line about-intention-line-echo">
+              Made for clarity, calm, and reflection.
+            </p>
+          </div>
+        </section>
 
-        <p className="about-centered-note">
-          I am building digital experiences that feel like places; quiet, atmospheric, and alive with intention.
-        </p>
-
-        <p className="about-centered-note">
-          If you’re looking for my creations, they’re gathered quietly further down.
-        </p>
 
         {/* §4 — Competencies */}
         <section className="about-competencies-section">
@@ -143,6 +146,13 @@ function AboutPage() {
                 <p>Start or end your day with a meaningful journaling prompt. Personal and private.</p>
                 <div className="about-app-center">
                   <a href="https://soliv1.github.io/Daily-Reflections-App/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                </div>
+              </li>
+              <li>
+                <strong>Centre Notes</strong>
+                <p>Write a thought, hold it tightly, let it pass.</p>
+                <div className="about-app-center">
+                  <a href="https://centre-notes.netlify.app/" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
                 </div>
               </li>
               <li>

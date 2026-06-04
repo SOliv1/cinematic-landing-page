@@ -97,7 +97,7 @@ export const Route = createFileRoute('/studio/manifesto')({
             lines={[
               'I create digital spaces that feel alive.',
               'To offer clarity in a world of overwhelm.',
-              'To build tools that support reflection, not distraction.',
+              'To build calm, focused spaces that encourage reflection over noise.',
               'To make technology feel more appealing and human again.',
             ]}
             drawerTitle="What I hope you feel"
