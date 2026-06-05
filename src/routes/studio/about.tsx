@@ -5,6 +5,7 @@ const STUDIO_ABOUT_URL = 'https://seasonal.studio/studio/about'
 const DAILY_REFLECTIONS_URL = 'https://soliv1.github.io/Daily-Reflections-App/'
 const CENTRE_NOTES_URL = 'https://centre-notes.netlify.app/'
 const SEASONAL_MIND_SPACE_URL = 'https://soliv1.github.io/Seasonal-mind-space/'
+const MOODS_BOARD_REFLECTIONS_FAMILY_URL = 'https://soliv1.github.io/moodsboard-reflections-family/#'
 const CINEMATIC_HOME_GLOW_URL = 'https://inspo-home-cinematic.onrender.com/'
 const WEATHER_ATMOSPHERE_URL = 'https://reflections-weather-atmosphere.netlify.app/'
 
@@ -192,6 +193,7 @@ function AboutPage() {
                 <strong>Moods Board</strong>
                 <p>Coming soon: Curate your emotional landscape with a personal, visual moods board.</p>
                 <span className="app-download-btn app-coming-soon">Coming Soon</span>
+                <a href={withStudioReturn(MOODS_BOARD_REFLECTIONS_FAMILY_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
               </li>
             </ul>
           </div>
