@@ -192,7 +192,7 @@ function AboutPage() {
               <li>
                 <strong>Moods Board</strong>
                 <p>Curate your emotional landscape with a personal, visual moods board.</p>
-                <span className="app-download-btn app-coming-soon">Coming Soon</span>
+                <div className="about-app-center">
                 <a href={withStudioReturn(MOODS_BOARD_REFLECTIONS_FAMILY_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
               </li>
             </ul>
