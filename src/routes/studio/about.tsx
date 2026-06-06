@@ -193,7 +193,8 @@ function AboutPage() {
                 <strong>Moods Board</strong>
                 <p>Curate your emotional landscape with a personal, visual moods board.</p>
                 <div className="about-app-center">
-                <a href={withStudioReturn(MOODS_BOARD_REFLECTIONS_FAMILY_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                  <a href={withStudioReturn(MOODS_BOARD_REFLECTIONS_FAMILY_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
+                </div>
               </li>
             </ul>
           </div>
