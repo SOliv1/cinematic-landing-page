@@ -1312,6 +1312,24 @@
     color: rgba(255, 235, 225, 0.85);
   }
 
+/* Legal */ 
+  .footer-legal {
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer-privacy-link {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.footer-privacy-link:hover {
+  opacity: 1;
+}
+
+
 
 
   /* ── Shimmer sweep ──────────────────────────────────────── */
