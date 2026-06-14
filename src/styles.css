@@ -5860,7 +5860,55 @@ code {
 .legal-page__nav {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
   margin-bottom: 2rem;
+}
+
+/* ── Legal sibling navigation ─────────────────────────── */
+.legal-sibling-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid rgba(255, 238, 210, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.legal-sibling-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  color: rgba(255, 235, 225, 0.72);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.legal-sibling-link:hover {
+  color: rgba(255, 248, 240, 0.98);
+  background: rgba(255, 238, 210, 0.10);
+}
+
+.legal-sibling-link.is-active {
+  color: rgba(255, 248, 240, 0.98);
+  background: rgba(255, 215, 130, 0.18);
+  font-weight: 500;
+  pointer-events: none;
+}
+
+/* bottom micro-footer sibling nav gets a touch more breathing room */
+.legal-micro-footer .legal-sibling-nav {
+  margin-bottom: 0.5rem;
 }
 
 /* Prominent bottom return button inside the micro-footer */

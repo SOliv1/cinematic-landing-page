@@ -1,6 +1,29 @@
 import LegalMicroFooter from "../../components/LegalMicroFooter";
 import ReturnHomePill from "../../components/ReturnHomePill";
 
+const LEGAL_LINKS = [
+  { href: '/legal/privacy', label: 'Privacy Policy' },
+  { href: '/legal/terms',   label: 'Terms of Use'   },
+  { href: '/legal/cookies', label: 'Cookie Notice'  },
+];
+
+export function LegalSiblingNav({ current }: { current: string }) {
+  return (
+    <nav className="legal-sibling-nav" aria-label="Legal pages">
+      {LEGAL_LINKS.map(({ href, label }) => (
+        <a
+          key={href}
+          href={href}
+          className={`legal-sibling-link${label === current ? ' is-active' : ''}`}
+          aria-current={label === current ? 'page' : undefined}
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+  );
+}
+
 export default function LegalLayout({
   title,
   eyebrow,
@@ -14,6 +37,7 @@ export default function LegalLayout({
     <main className="legal-page fade-in">
       <div className="legal-page__nav">
         <ReturnHomePill />
+        <LegalSiblingNav current={title} />
       </div>
 
       <header className="legal-page__hero">
@@ -24,7 +48,7 @@ export default function LegalLayout({
 
       <div className="legal-page__content">{children}</div>
 
-      <LegalMicroFooter />
+      <LegalMicroFooter currentTitle={title} />
     </main>
   );
 }
