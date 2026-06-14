@@ -27,6 +27,9 @@ import { Route as StudioDepthLevelsRouteImport } from './routes/studio/depth-lev
 import { Route as StudioAnotherRoomRouteImport } from './routes/studio/another-room'
 import { Route as StudioAboutRouteImport } from './routes/studio/about'
 import { Route as ProductsProductIdRouteImport } from './routes/products/$productId'
+import { Route as LegalTermsRouteImport } from './routes/legal/terms'
+import { Route as LegalPrivacyRouteImport } from './routes/legal/privacy'
+import { Route as LegalCookiesRouteImport } from './routes/legal/cookies'
 import { Route as ApiWeatherRouteImport } from './routes/api.weather'
 
 const SeasonalHouseRoute = SeasonalHouseRouteImport.update({
@@ -119,6 +122,21 @@ const ProductsProductIdRoute = ProductsProductIdRouteImport.update({
   path: '/products/$productId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LegalTermsRoute = LegalTermsRouteImport.update({
+  id: '/legal/terms',
+  path: '/legal/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalPrivacyRoute = LegalPrivacyRouteImport.update({
+  id: '/legal/privacy',
+  path: '/legal/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LegalCookiesRoute = LegalCookiesRouteImport.update({
+  id: '/legal/cookies',
+  path: '/legal/cookies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiWeatherRoute = ApiWeatherRouteImport.update({
   id: '/api/weather',
   path: '/api/weather',
@@ -131,6 +149,9 @@ export interface FileRoutesByFullPath {
   '/explore': typeof ExploreRoute
   '/seasonal-house': typeof SeasonalHouseRoute
   '/api/weather': typeof ApiWeatherRoute
+  '/legal/cookies': typeof LegalCookiesRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
@@ -152,6 +173,9 @@ export interface FileRoutesByTo {
   '/explore': typeof ExploreRoute
   '/seasonal-house': typeof SeasonalHouseRoute
   '/api/weather': typeof ApiWeatherRoute
+  '/legal/cookies': typeof LegalCookiesRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
@@ -174,6 +198,9 @@ export interface FileRoutesById {
   '/explore': typeof ExploreRoute
   '/seasonal-house': typeof SeasonalHouseRoute
   '/api/weather': typeof ApiWeatherRoute
+  '/legal/cookies': typeof LegalCookiesRoute
+  '/legal/privacy': typeof LegalPrivacyRoute
+  '/legal/terms': typeof LegalTermsRoute
   '/products/$productId': typeof ProductsProductIdRoute
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
@@ -197,6 +224,9 @@ export interface FileRouteTypes {
     | '/explore'
     | '/seasonal-house'
     | '/api/weather'
+    | '/legal/cookies'
+    | '/legal/privacy'
+    | '/legal/terms'
     | '/products/$productId'
     | '/studio/about'
     | '/studio/another-room'
@@ -218,6 +248,9 @@ export interface FileRouteTypes {
     | '/explore'
     | '/seasonal-house'
     | '/api/weather'
+    | '/legal/cookies'
+    | '/legal/privacy'
+    | '/legal/terms'
     | '/products/$productId'
     | '/studio/about'
     | '/studio/another-room'
@@ -239,6 +272,9 @@ export interface FileRouteTypes {
     | '/explore'
     | '/seasonal-house'
     | '/api/weather'
+    | '/legal/cookies'
+    | '/legal/privacy'
+    | '/legal/terms'
     | '/products/$productId'
     | '/studio/about'
     | '/studio/another-room'
@@ -261,6 +297,9 @@ export interface RootRouteChildren {
   ExploreRoute: typeof ExploreRoute
   SeasonalHouseRoute: typeof SeasonalHouseRoute
   ApiWeatherRoute: typeof ApiWeatherRoute
+  LegalCookiesRoute: typeof LegalCookiesRoute
+  LegalPrivacyRoute: typeof LegalPrivacyRoute
+  LegalTermsRoute: typeof LegalTermsRoute
   ProductsProductIdRoute: typeof ProductsProductIdRoute
   StudioAboutRoute: typeof StudioAboutRoute
   StudioAnotherRoomRoute: typeof StudioAnotherRoomRoute
@@ -405,6 +444,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsProductIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/legal/terms': {
+      id: '/legal/terms'
+      path: '/legal/terms'
+      fullPath: '/legal/terms'
+      preLoaderRoute: typeof LegalTermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/privacy': {
+      id: '/legal/privacy'
+      path: '/legal/privacy'
+      fullPath: '/legal/privacy'
+      preLoaderRoute: typeof LegalPrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/legal/cookies': {
+      id: '/legal/cookies'
+      path: '/legal/cookies'
+      fullPath: '/legal/cookies'
+      preLoaderRoute: typeof LegalCookiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/weather': {
       id: '/api/weather'
       path: '/api/weather'
@@ -421,6 +481,9 @@ const rootRouteChildren: RootRouteChildren = {
   ExploreRoute: ExploreRoute,
   SeasonalHouseRoute: SeasonalHouseRoute,
   ApiWeatherRoute: ApiWeatherRoute,
+  LegalCookiesRoute: LegalCookiesRoute,
+  LegalPrivacyRoute: LegalPrivacyRoute,
+  LegalTermsRoute: LegalTermsRoute,
   ProductsProductIdRoute: ProductsProductIdRoute,
   StudioAboutRoute: StudioAboutRoute,
   StudioAnotherRoomRoute: StudioAnotherRoomRoute,
