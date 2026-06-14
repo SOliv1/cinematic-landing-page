@@ -11,6 +11,10 @@ export default function LegalLayout({
 }) {
   return (
     <main className="legal-page fade-in">
+      <a href="/" className="legal-return-home" aria-label="Return to Seasonal.Studio home">
+        ← Seasonal.Studio
+      </a>
+
       <header className="legal-page__hero">
         <p className="legal-page__eyebrow">{eyebrow}</p>
         <h1>{title}</h1>
