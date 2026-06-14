@@ -5746,8 +5746,17 @@ code {
   margin-top: 4rem;
   padding: 2rem 0;
   text-align: center;
-  opacity: 0.6;
   font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 1;
+}
+
+.legal-micro-footer p {
+  opacity: 0.6;
+  margin: 0;
 }
 
 .footer-legal {
@@ -5848,31 +5857,52 @@ code {
   color: rgba(255, 246, 232, 1);
 }
 
-.legal-return-home {
+.legal-page__nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+/* Prominent bottom return button inside the micro-footer */
+.legal-return-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  margin-bottom: 1.75rem;
-  color: rgba(255, 235, 225, 0.78);
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  margin: 0 auto 1.4rem;
+  padding: 0.75rem 1.6rem;
+  border: 1px solid rgba(255, 238, 190, 0.38);
+  border-radius: 999px;
+  background:
+    linear-gradient(135deg, rgba(255, 215, 130, 0.34), rgba(255, 180, 90, 0.20)),
+    rgba(18, 12, 18, 0.32);
+  color: rgba(255, 250, 232, 0.98);
   font-family: 'Outfit', system-ui, sans-serif;
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.06em;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-decoration: none;
   text-transform: uppercase;
-  transition: color 180ms ease, transform 180ms ease;
+  text-shadow: 0 1px 10px rgba(40, 20, 0, 0.38);
+  box-shadow:
+    0 0 28px -10px rgba(255, 205, 120, 0.65),
+    0 8px 22px rgba(30, 16, 6, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
 }
 
-.legal-return-home:hover,
-.legal-return-home:focus-visible {
-  color: rgba(255, 248, 240, 1);
-  transform: translateX(-3px);
-}
-
-.legal-return-home--bottom {
-  display: block;
-  margin: 0 auto 0.6rem;
-  text-align: center;
+.legal-return-btn:hover,
+.legal-return-btn:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(255, 232, 178, 0.54);
+  box-shadow:
+    0 0 34px -8px rgba(255, 205, 120, 0.82),
+    0 12px 28px rgba(30, 16, 6, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  background:
+    linear-gradient(135deg, rgba(255, 225, 145, 0.44), rgba(255, 180, 90, 0.28)),
+    rgba(18, 12, 18, 0.28);
 }
 
 @media (max-width: 640px) {

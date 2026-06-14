@@ -1,4 +1,5 @@
 import LegalMicroFooter from "../../components/LegalMicroFooter";
+import ReturnHomePill from "../../components/ReturnHomePill";
 
 export default function LegalLayout({
   title,
@@ -11,9 +12,9 @@ export default function LegalLayout({
 }) {
   return (
     <main className="legal-page fade-in">
-      <a href="/" className="legal-return-home" aria-label="Return to Seasonal.Studio home">
-        ← Seasonal.Studio
-      </a>
+      <div className="legal-page__nav">
+        <ReturnHomePill />
+      </div>
 
       <header className="legal-page__hero">
         <p className="legal-page__eyebrow">{eyebrow}</p>
