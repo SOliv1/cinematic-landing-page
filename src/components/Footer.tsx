@@ -77,6 +77,16 @@ export default function Footer() {
 
       <SocialLinks className="footer-socials" />
 
+        {/* Privacy Policy Link */}
+      <p className="footer-legal">
+        <a
+          href="/legal/privacy"
+          className="footer-privacy-link"
+        >
+          Privacy Policy
+        </a>
+      </p>
+
       <p className="footer-line">Made with care · {new Date().getFullYear()}</p>
     </footer>
   )
