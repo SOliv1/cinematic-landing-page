@@ -1,4 +1,4 @@
-import { HeadContent, Outlet, Scripts, createRootRoute, useRouterState } from '@tanstack/react-router'
+import { HeadContent, Link, Outlet, Scripts, createRootRoute, useRouterState } from '@tanstack/react-router'
 import Footer from '@/components/Footer'
 import ScrollToTopOrb from '@/components/ScrollToTopOrb'
 import '../styles.css'
@@ -55,7 +55,9 @@ function RootLayout() {
   return (
     <>
       <header className={`site-header ${usesImmersiveLayout ? 'site-header--immersive' : ''}`}>
-        <div className="site-title">The Living Interface</div>
+        <Link to="/" className="site-title">
+          The Living Interface
+        </Link>
       </header>
       <main className={`page-wrapper ${usesImmersiveLayout ? 'page-wrapper--immersive' : ''}`}>
         <Outlet />
