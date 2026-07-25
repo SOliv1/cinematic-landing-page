@@ -16,6 +16,19 @@ const studioItems = [
   { label: 'Work With Me', to: '/studio/work-with-me',  description: 'A soft, atmospheric contact page.' },
 ]
 
+const sampleWebsiteItems = [
+  {
+    label: 'Boutique House (Sample)',
+    to: '/seasonal-house',
+    description: 'Showcase room-based storytelling and atmospheric collection presentation.',
+  },
+  {
+    label: 'Vintage Notes (Sample)',
+    to: '/products/1',
+    description: 'Showcase a product-detail style page as a sample website experience.',
+  },
+]
+
 // ── Component ─────────────────────────────────────────────────────────────────
 
 export function StudioDropdown() {
@@ -191,6 +204,53 @@ export function StudioDropdown() {
                   }}>{item.description}</span>
                 </Link>
               ))}
+              <div
+                style={{
+                  margin: '8px 6px 4px',
+                  padding: '14px 12px 4px',
+                  borderTop: '1px solid rgba(255,255,255,0.08)',
+                }}
+              >
+                <p
+                  style={{
+                    margin: '0 0 10px',
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: '0.62rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    color: 'rgba(220,210,195,0.42)',
+                  }}
+                >
+                  Sample Websites
+                </p>
+                {sampleWebsiteItems.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className="studio-item"
+                    style={{ padding: '9px 10px' }}
+                  >
+                    <span style={{
+                      display: 'block',
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontSize: '0.98rem',
+                      fontWeight: 400,
+                      letterSpacing: '0.03em',
+                      color: 'rgba(245,238,228,0.88)',
+                    }}>{item.label}</span>
+                    <span style={{
+                      display: 'block',
+                      fontFamily: "'Outfit', sans-serif",
+                      fontSize: '0.72rem',
+                      fontWeight: 300,
+                      letterSpacing: '0.05em',
+                      color: 'rgba(220,210,195,0.52)',
+                    }}>{item.description}</span>
+                  </Link>
+                ))}
+              </div>
             </div>
             {/* Scroll fade — bottom */}
             <div style={{
