@@ -41,7 +41,7 @@ type ContactFields = {
 const initialFields: ContactFields = {
   name: '',
   email: '',
-  recipientEmail: 'saraoliver316@gmail.com',
+  recipientEmail: 'hello@seasonal.studio',
   projectType: '',
   message: '',
   'bot-field': '',
@@ -109,8 +109,8 @@ function WorkWithMePage() {
             <a className="work-form-jump" href="#studio-contact-form">
               Go to message form
             </a>
-            <a className="work-form-jump" href="mailto:saraoliver316@gmail.com">
-              Email Sara directly
+            <a className="work-form-jump" href="mailto:hello@seasonal.studio">
+              Email hello@seasonal.studio
             </a>
             <a
               className="work-orb-link"
@@ -310,7 +310,7 @@ function WorkWithMePage() {
             <p className="work-form-note" aria-live="polite">
               {status === 'sent' && 'Thank you. Your message has been sent.'}
               {status === 'error' && 'Something went wrong. Please try again in a moment.'}
-              {status === 'idle' && 'Messages are captured by Netlify Forms for saraoliver316@gmail.com.'}
+              {status === 'idle' && 'Messages are captured by Netlify Forms for hello@seasonal.studio.'}
               {status === 'sending' && 'Sending your message securely through the site form.'}
             </p>
           </div>

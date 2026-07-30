@@ -5,15 +5,57 @@ import { Link } from '@tanstack/react-router'
 // ── Items ─────────────────────────────────────────────────────────────────────
 
 const studioItems = [
-  { label: 'Home',         to: '/',                     description: 'Return to the main landing page.' },
-  { label: 'About',        to: '/studio/about',         description: 'An introduction to who I am and how I think.' },
-  { label: 'Manifesto',    to: '/studio/manifesto',     description: 'My Seasonal principles, my philosophy.' },
-  { label: 'Interiors',    to: '/studio/interiors',     description: 'My services, framed as cinematic digital interiors.' },
-  { label: 'Depth Levels', to: '/studio/depth-levels',  description: 'My pricing tiers, framed as layers of involvement.' },
-  { label: 'Unlock More',  to: '/studio/unlock-more',   description: 'See free, premium, and seasonal upgrade options.' },
-  { label: 'Positioning',  to: '/studio/positioning',   description: 'My strategic identity and value proposition.' },
-  { label: 'Why Seasonal', to: '/studio/why-seasonal',  description: 'My competitive differentiators, why these interiors feel different.' },
-  { label: 'Work With Me', to: '/studio/work-with-me',  description: 'A soft, atmospheric contact page.' },
+  { label: 'About', to: '/studio/about', description: 'Studio profile, experience, and selected collaborations.' },
+  { label: 'Depth Levels', to: '/studio/depth-levels', description: 'Layers of intention, atmosphere, and interface pacing.' },
+  { label: 'Manifesto', to: '/studio/manifesto', description: 'The Seasonal principles guiding the whole studio.' },
+  { label: 'Journal', to: '/studio/journal', description: 'Stories, references, sketches, and house notes.' },
+  { label: 'The Morning Room', to: '/studio/morning-room', description: 'A calm space shaped by warm light and soft rhythm.' },
+  { label: 'Positioning', to: '/studio/positioning', description: 'How Seasonal.Studio is placed and understood.' },
+  { label: 'Seasonal Weather', to: '/studio/seasonal-weather', description: 'A page tuned to the light and mood of the day.' },
+  { label: 'The Soft Room', to: '/studio/soft-room', description: 'An interior for presence, softness, and reflection.' },
+  { label: 'Why Seasonal', to: '/studio/why-seasonal', description: 'Why seasonality is central to the experience design.' },
+  { label: 'Unlock More', to: '/studio/unlock-more', description: 'Further tools and rooms currently being revealed.' },
+  { label: 'Work With Me', to: '/studio/work-with-me', description: 'Ways to collaborate on calm, cinematic digital work.' },
+]
+
+const collectionItems = [
+  { label: 'The Studio', to: '/studio/collections', description: 'The complete Seasonal.Studio edit of spaces, notes, and mood-led collections.' },
+  {
+    label: 'Vintage Notes',
+    to: '/studio/vintage-notes',
+    description: 'The Early Sketch Collection, Timeless Dressing, Worn & Loved, Sketchbook, and The Wardrobe.',
+  },
+  { label: 'Homeware', to: '/studio/homeware', description: 'Atmospheric objects for rooms, rituals, and quiet interiors.' },
+  { label: 'Garden', to: '/studio/garden', description: 'Outdoor notes, seasonal planting, and weathered beauty.' },
+  { label: 'Moodboard', to: '/studio/moodboard', description: 'Textures, palettes, silhouettes, and visual references.' },
+]
+
+const vintageNoteItems = [
+  'The Early Sketch Collection',
+  'Timeless Dressing',
+  'Worn & Loved',
+  'Sketchbook',
+  'The Wardrobe',
+]
+
+const sampleWebsiteItems = [
+  {
+    label: 'Boutique House',
+    to: '/studio/collections',
+    description: 'Sample website featuring the Boutique House collection experience.',
+  },
+  {
+    label: 'Vintage Notes',
+    to: '/studio/vintage-notes',
+    description: 'Sample website showcasing archival storytelling and product narratives.',
+  },
+]
+
+const houseItems = [
+  { label: 'Begin the Journey', to: '/begin-the-journey', description: 'Immersive transition into the experience.' },
+  { label: 'Explore', to: '/explore', description: 'Cinematic carousel and ambient discovery page.' },
+  { label: 'Home', to: '/', description: 'Main landing page for Seasonal.Studio.' },
+  { label: 'Seasonal House', to: '/seasonal-house', description: 'The central room map and navigation hub.' },
 ]
 
 // ── Component ─────────────────────────────────────────────────────────────────
@@ -165,12 +207,12 @@ export function StudioDropdown() {
               onScroll={updateScrollState}
               style={{ overflowY: 'auto', maxHeight: panelStyle.maxHeight, padding: '10px' }}
             >
-              {studioItems.map((item) => (
+              {collectionItems.map((item) => (
                 <Link
                   key={item.to}
                   to={item.to}
                   onClick={() => setOpen(false)}
-                  className={item.to === '/' ? 'studio-item studio-item-home' : 'studio-item'}
+                  className={item.to === '/studio/collections' ? 'studio-item studio-item-home' : 'studio-item'}
                 >
                   <span style={{
                     display: 'block',
@@ -191,6 +233,187 @@ export function StudioDropdown() {
                   }}>{item.description}</span>
                 </Link>
               ))}
+              <div
+                style={{
+                  margin: '8px 6px 4px',
+                  padding: '14px 12px 4px',
+                  borderTop: '1px solid rgba(255,255,255,0.08)',
+                }}
+              >
+                <p
+                  style={{
+                    margin: '0 0 10px',
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: '0.62rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    color: 'rgba(220,210,195,0.42)',
+                  }}
+                >
+                  Studio Pages
+                </p>
+                {studioItems.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className="studio-item"
+                    style={{ padding: '9px 10px' }}
+                  >
+                    <span style={{
+                      display: 'block',
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontSize: '0.98rem',
+                      fontWeight: 400,
+                      letterSpacing: '0.03em',
+                      color: 'rgba(245,238,228,0.88)',
+                    }}>{item.label}</span>
+                    <span style={{
+                      display: 'block',
+                      fontFamily: "'Outfit', sans-serif",
+                      fontSize: '0.72rem',
+                      fontWeight: 300,
+                      letterSpacing: '0.05em',
+                      color: 'rgba(220,210,195,0.52)',
+                    }}>{item.description}</span>
+                  </Link>
+                ))}
+              </div>
+              <div
+                style={{
+                  margin: '8px 6px 4px',
+                  padding: '14px 12px 4px',
+                  borderTop: '1px solid rgba(255,255,255,0.08)',
+                }}
+              >
+                <p
+                  style={{
+                    margin: '0 0 10px',
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: '0.62rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    color: 'rgba(220,210,195,0.42)',
+                  }}
+                >
+                  Under Vintage Notes
+                </p>
+                {vintageNoteItems.map((item) => (
+                  <Link
+                    key={item}
+                    to="/studio/vintage-notes"
+                    hash={item.toLowerCase().replaceAll(' ', '-').replaceAll('&', 'and')}
+                    onClick={() => setOpen(false)}
+                    className="studio-item"
+                    style={{ padding: '9px 10px' }}
+                  >
+                    <span style={{
+                      display: 'block',
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontSize: '0.98rem',
+                      fontWeight: 400,
+                      letterSpacing: '0.03em',
+                      color: 'rgba(245,238,228,0.88)',
+                    }}>{item}</span>
+                  </Link>
+                ))}
+              </div>
+              <div
+                style={{
+                  margin: '8px 6px 4px',
+                  padding: '14px 12px 4px',
+                  borderTop: '1px solid rgba(255,255,255,0.08)',
+                }}
+              >
+                <p
+                  style={{
+                    margin: '0 0 10px',
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: '0.62rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    color: 'rgba(220,210,195,0.42)',
+                  }}
+                >
+                  Sample Websites
+                </p>
+                {sampleWebsiteItems.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className="studio-item"
+                    style={{ padding: '9px 10px' }}
+                  >
+                    <span style={{
+                      display: 'block',
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontSize: '0.98rem',
+                      fontWeight: 400,
+                      letterSpacing: '0.03em',
+                      color: 'rgba(245,238,228,0.88)',
+                    }}>{item.label}</span>
+                    <span style={{
+                      display: 'block',
+                      fontFamily: "'Outfit', sans-serif",
+                      fontSize: '0.72rem',
+                      fontWeight: 300,
+                      letterSpacing: '0.05em',
+                      color: 'rgba(220,210,195,0.52)',
+                    }}>{item.description}</span>
+                  </Link>
+                ))}
+              </div>
+              <div
+                style={{
+                  margin: '8px 6px 4px',
+                  padding: '14px 12px 4px',
+                  borderTop: '1px solid rgba(255,255,255,0.08)',
+                }}
+              >
+                <p
+                  style={{
+                    margin: '0 0 10px',
+                    fontFamily: "'Outfit', sans-serif",
+                    fontSize: '0.62rem',
+                    fontWeight: 500,
+                    letterSpacing: '0.2em',
+                    textTransform: 'uppercase',
+                    color: 'rgba(220,210,195,0.42)',
+                  }}
+                >
+                  Site Navigation
+                </p>
+                {houseItems.map((item) => (
+                  <Link
+                    key={item.to}
+                    to={item.to}
+                    onClick={() => setOpen(false)}
+                    className="studio-item"
+                    style={{ padding: '9px 10px' }}
+                  >
+                    <span style={{
+                      display: 'block',
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontSize: '0.98rem',
+                      fontWeight: 400,
+                      letterSpacing: '0.03em',
+                      color: 'rgba(245,238,228,0.88)',
+                    }}>{item.label}</span>
+                    <span style={{
+                      display: 'block',
+                      fontFamily: "'Outfit', sans-serif",
+                      fontSize: '0.72rem',
+                      fontWeight: 300,
+                      letterSpacing: '0.05em',
+                      color: 'rgba(220,210,195,0.52)',
+                    }}>{item.description}</span>
+                  </Link>
+                ))}
+              </div>
             </div>
             {/* Scroll fade — bottom */}
             <div style={{

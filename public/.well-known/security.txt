@@ -1,0 +1,4 @@
+Contact: mailto:security@seasonal.studio
+Expires: 2027-01-01T00:00:00Z
+Preferred-Languages: en
+Canonical: https://seasonal.studio/.well-known/security.txt

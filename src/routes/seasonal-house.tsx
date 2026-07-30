@@ -155,6 +155,12 @@ const rooms: Room[] = [
     className: 'soft-room-gradient',
   },
   {
+    title: 'Vintage Notes ✦',
+    description: 'A wardrobe drawn from memory. Quiet luxury, softly worn.',
+    href: '/studio/vintage-notes',
+    className: 'another-room-gradient',
+  },
+  {
     title: 'Another Room',
     description: 'This room is still being arranged.',
     comingSoon: true,
