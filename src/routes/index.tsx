@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import { StudioDropdown } from '@/components/StudioDropdown'
 import { ReflectionsSplash, useSplashTrigger, useSplashShow } from '@/components/ReflectionsSplash'
 import { Hero } from '@/components/Hero'
 import OrbNeutral from '/images/orbs/orb-neutral.png'
@@ -550,10 +549,6 @@ function LandingPage() {
           pointerEvents: 'none',
         }}>
           <SeasonalOrb src={orbArtwork} palette={palette} />
-        </div>
-        {/* Studio dropdown stays on top right */}
-        <div style={{ position: 'absolute', top: '28px', right: '32px', zIndex: 80, height: '66px', display: 'flex', alignItems: 'center' }}>
-          <StudioDropdown />
         </div>
         <Hero onCinematicMode={() => showSplash('cinematic-mode')} />
       </div>

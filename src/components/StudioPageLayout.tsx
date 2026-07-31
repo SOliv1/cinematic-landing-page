@@ -2,7 +2,6 @@ import { type ReactNode } from 'react'
 import { Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { useSeasonalBackground } from '@/hooks/useSeasonalBackground'
-import { StudioDropdown } from '@/components/StudioDropdown'
 
 // ── Universal veil: soft dark overlay readable across all seasons ─────────────
 
@@ -87,7 +86,7 @@ export function StudioPageLayout({ title, subtitle, children }: StudioPageLayout
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'flex-start',
             marginBottom: '5rem',
             position: 'relative',
             zIndex: 9999,
@@ -99,7 +98,6 @@ export function StudioPageLayout({ title, subtitle, children }: StudioPageLayout
           >
             ← The Seasonal House
           </Link>
-          <StudioDropdown />
         </nav>
 
         {/* Hero text */}

@@ -3,17 +3,14 @@ import ReturnHomePill from "@/components/ReturnHomePill";
 
 const studioLinks = [
   { to: "/studio/about", label: "About" },
-  { to: "/studio/depth-levels", label: "Depth Levels" },
   { to: "/studio/manifesto", label: "Manifesto" },
-  { to: "/studio/journal", label: "Journal" },
-  { to: "/studio/morning-room", label: "Morning Room" },
   { to: "/studio/positioning", label: "Positioning" },
-  { to: "/studio/seasonal-weather", label: "Seasonal Weather" },
-  { to: "/studio/soft-room", label: "Soft Room" },
   { to: "/studio/why-seasonal", label: "Why Seasonal" },
-  { to: "/studio/unlock-more", label: "Unlock More" },
+  { to: "/studio/depth-levels", label: "Depth Levels" },
+  { to: "/studio/seasonal-weather", label: "Seasonal Weather" },
   { to: "/studio/work-with-me", label: "Work With Me" },
-  { to: "/studio/collections", label: "Boutique House" },
+  { to: "/studio/unlock-more", label: "Unlock More" },
+  { to: "/studio/collections", label: "Collections" },
   { to: "/studio/vintage-notes", label: "Vintage Notes ✦" },
 ] as const;
 
