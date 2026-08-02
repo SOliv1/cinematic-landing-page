@@ -79,3 +79,9 @@ Add these repository secrets in GitHub before using the workflow:
 - **Features** — asymmetric grid with glass cards that reveal on scroll
 - **Quote** — full-width atmospheric break, typeset in Cormorant Garamond
 - **Seasonal detection** — palette auto-selects based on the current month at render time
+
+## Future Project: Digital Resource Care
+
+A future project note has been added for a low-impact website pass focused on measuring and reducing digital resource use, including page weight, image optimisation, motion settings, API behaviour, and careful wording around carbon, water, and hosting claims.
+
+See [Digital Resource Care / Low-Impact Atmosphere Pass](docs/digital-resource-care-task-note.md).
