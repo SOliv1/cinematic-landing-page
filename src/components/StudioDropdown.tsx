@@ -17,45 +17,14 @@ interface NavSection {
 
 const navSections: NavSection[] = [
   {
-    title: 'Start Here',
+    title: 'Top Menu',
     items: [
       { label: 'Home', to: '/', description: 'Main landing page and introduction.' },
-      { label: 'Seasonal House', to: '/seasonal-house', description: 'Central navigation hub.' },
-      { label: 'Begin the Journey', to: '/begin-the-journey', description: 'Immersive entry into the experience.' },
-      { label: 'Explore', to: '/explore', description: 'Cinematic carousel and discovery page.' },
-    ],
-  },
-  {
-    title: 'Studio',
-    items: [
-      { label: 'About', to: '/studio/about', description: 'Identity, experience, and collaborations.' },
-      { label: 'Manifesto', to: '/studio/manifesto', description: 'Principles that guide the work.' },
-      { label: 'Positioning', to: '/studio/positioning', description: 'How Seasonal.Studio is placed.' },
-      { label: 'Why Seasonal', to: '/studio/why-seasonal', description: 'The role of seasonality in the studio.' },
-      { label: 'Depth Levels', to: '/studio/depth-levels', description: 'Scope, intention, and interface pacing.' },
-      { label: 'Seasonal Weather', to: '/studio/seasonal-weather', description: 'Mood, light, and daily atmosphere.' },
       { label: 'Work With Me', to: '/studio/work-with-me', description: 'Collaboration and project enquiries.' },
-      { label: 'Unlock More', to: '/studio/unlock-more', description: 'Additional tools and rooms.' },
-    ],
-  },
-  {
-    title: 'Collections',
-    items: [
-      { label: 'Collections', to: '/studio/collections', description: 'Full edit of spaces, notes, and mood-led work.' },
-      { label: 'Vintage Notes', to: '/studio/vintage-notes', description: 'Archival style, sketches, and product narratives.' },
-      { label: 'Homeware', to: '/studio/homeware', description: 'Objects for rooms and rituals.' },
-      { label: 'Garden', to: '/studio/garden', description: 'Outdoor notes and seasonal planting.' },
+      { label: 'Licencing', to: '/studio/licencing', description: 'Licencing, usage, and collaboration terms.' },
+      { label: 'Studio', to: '/studio/about', description: 'Identity, experience, and studio practice.' },
       { label: 'Journal', to: '/studio/journal', description: 'Stories, references, and house notes.' },
-      { label: 'Moodboard', to: '/studio/moodboard', description: 'Textures, palettes, and visual references.' },
-      { label: 'Morning Room', to: '/studio/morning-room', description: 'Warm light and soft rhythm.' },
-      { label: 'Soft Room', to: '/studio/soft-room', description: 'Presence, softness, and reflection.' },
-    ],
-  },
-  {
-    title: 'Sample Sites',
-    items: [
-      { label: 'Boutique House', to: '/studio/collections', description: 'Lifestyle collection demonstration.' },
-      { label: 'Vintage Notes', to: '/studio/vintage-notes', description: 'Archival storytelling demonstration.' },
+      { label: 'Contact', to: '/studio/work-with-me#studio-contact-form', description: 'Send an enquiry or project note.' },
     ],
   },
 ]
@@ -122,16 +91,18 @@ export function StudioDropdown() {
 
   return (
     <div className="site-nav" ref={rootRef}>
+      <nav className="site-nav-primary" aria-label="Primary navigation">
+        {navSections[0].items.map((item, index) => (
+          <Link key={`${item.to}-${item.label}`} to={item.to} className="site-nav-primary-link">
+            {item.label}
+            {index < navSections[0].items.length - 1 && (
+              <span className="site-nav-primary-separator" aria-hidden="true">/</span>
+            )}
+          </Link>
+        ))}
+      </nav>
+
       <div className="site-nav-actions" aria-label="Site navigation">
-        <button
-          type="button"
-          className={`site-nav-button ${open && mode === 'menu' ? 'is-active' : ''}`}
-          aria-expanded={open && mode === 'menu'}
-          aria-haspopup="dialog"
-          onClick={() => toggleMode('menu')}
-        >
-          <span>Menu</span>
-        </button>
         <button
           type="button"
           className={`site-nav-button ${open && mode === 'search' ? 'is-active' : ''}`}

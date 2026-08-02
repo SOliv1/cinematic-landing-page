@@ -539,15 +539,8 @@ function LandingPage() {
     >
       {/* ── HERO IMAGE SECTION ──────────────────────────────── */}
       <div style={{ position: 'relative', minHeight: '100vh', width: '100%' }}>
-        {/* OrbLogo at top center, overlays hero image */}
-        <div style={{
-          position: 'absolute',
-          top: '86px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 20,
-          pointerEvents: 'none',
-        }}>
+        {/* OrbLogo sits inside the central hero artwork. */}
+        <div className="hero-orb-anchor">
           <SeasonalOrb src={orbArtwork} palette={palette} />
         </div>
         <Hero onCinematicMode={() => showSplash('cinematic-mode')} />

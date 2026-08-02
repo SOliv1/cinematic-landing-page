@@ -23,12 +23,14 @@ import { Route as StudioPositioningRouteImport } from './routes/studio/positioni
 import { Route as StudioMorningRoomRouteImport } from './routes/studio/morning-room'
 import { Route as StudioMoodboardRouteImport } from './routes/studio/moodboard'
 import { Route as StudioManifestoRouteImport } from './routes/studio/manifesto'
+import { Route as StudioLicencingRouteImport } from './routes/studio/licencing'
 import { Route as StudioJournalRouteImport } from './routes/studio/journal'
 import { Route as StudioInteriorsRouteImport } from './routes/studio/interiors'
 import { Route as StudioHomewareRouteImport } from './routes/studio/homeware'
 import { Route as StudioGardenRouteImport } from './routes/studio/garden'
 import { Route as StudioEveningLoungeRouteImport } from './routes/studio/evening-lounge'
 import { Route as StudioDepthLevelsRouteImport } from './routes/studio/depth-levels'
+import { Route as StudioDemoRouteImport } from './routes/studio/demo'
 import { Route as StudioCollectionsRouteImport } from './routes/studio/collections'
 import { Route as StudioAnotherRoomRouteImport } from './routes/studio/another-room'
 import { Route as StudioAboutRouteImport } from './routes/studio/about'
@@ -108,6 +110,11 @@ const StudioManifestoRoute = StudioManifestoRouteImport.update({
   path: '/studio/manifesto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioLicencingRoute = StudioLicencingRouteImport.update({
+  id: '/studio/licencing',
+  path: '/studio/licencing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StudioJournalRoute = StudioJournalRouteImport.update({
   id: '/studio/journal',
   path: '/studio/journal',
@@ -136,6 +143,11 @@ const StudioEveningLoungeRoute = StudioEveningLoungeRouteImport.update({
 const StudioDepthLevelsRoute = StudioDepthLevelsRouteImport.update({
   id: '/studio/depth-levels',
   path: '/studio/depth-levels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioDemoRoute = StudioDemoRouteImport.update({
+  id: '/studio/demo',
+  path: '/studio/demo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StudioCollectionsRoute = StudioCollectionsRouteImport.update({
@@ -192,12 +204,14 @@ export interface FileRoutesByFullPath {
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
   '/studio/collections': typeof StudioCollectionsRoute
+  '/studio/demo': typeof StudioDemoRoute
   '/studio/depth-levels': typeof StudioDepthLevelsRoute
   '/studio/evening-lounge': typeof StudioEveningLoungeRoute
   '/studio/garden': typeof StudioGardenRoute
   '/studio/homeware': typeof StudioHomewareRoute
   '/studio/interiors': typeof StudioInteriorsRoute
   '/studio/journal': typeof StudioJournalRoute
+  '/studio/licencing': typeof StudioLicencingRoute
   '/studio/manifesto': typeof StudioManifestoRoute
   '/studio/moodboard': typeof StudioMoodboardRoute
   '/studio/morning-room': typeof StudioMorningRoomRoute
@@ -222,12 +236,14 @@ export interface FileRoutesByTo {
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
   '/studio/collections': typeof StudioCollectionsRoute
+  '/studio/demo': typeof StudioDemoRoute
   '/studio/depth-levels': typeof StudioDepthLevelsRoute
   '/studio/evening-lounge': typeof StudioEveningLoungeRoute
   '/studio/garden': typeof StudioGardenRoute
   '/studio/homeware': typeof StudioHomewareRoute
   '/studio/interiors': typeof StudioInteriorsRoute
   '/studio/journal': typeof StudioJournalRoute
+  '/studio/licencing': typeof StudioLicencingRoute
   '/studio/manifesto': typeof StudioManifestoRoute
   '/studio/moodboard': typeof StudioMoodboardRoute
   '/studio/morning-room': typeof StudioMorningRoomRoute
@@ -253,12 +269,14 @@ export interface FileRoutesById {
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
   '/studio/collections': typeof StudioCollectionsRoute
+  '/studio/demo': typeof StudioDemoRoute
   '/studio/depth-levels': typeof StudioDepthLevelsRoute
   '/studio/evening-lounge': typeof StudioEveningLoungeRoute
   '/studio/garden': typeof StudioGardenRoute
   '/studio/homeware': typeof StudioHomewareRoute
   '/studio/interiors': typeof StudioInteriorsRoute
   '/studio/journal': typeof StudioJournalRoute
+  '/studio/licencing': typeof StudioLicencingRoute
   '/studio/manifesto': typeof StudioManifestoRoute
   '/studio/moodboard': typeof StudioMoodboardRoute
   '/studio/morning-room': typeof StudioMorningRoomRoute
@@ -285,12 +303,14 @@ export interface FileRouteTypes {
     | '/studio/about'
     | '/studio/another-room'
     | '/studio/collections'
+    | '/studio/demo'
     | '/studio/depth-levels'
     | '/studio/evening-lounge'
     | '/studio/garden'
     | '/studio/homeware'
     | '/studio/interiors'
     | '/studio/journal'
+    | '/studio/licencing'
     | '/studio/manifesto'
     | '/studio/moodboard'
     | '/studio/morning-room'
@@ -315,12 +335,14 @@ export interface FileRouteTypes {
     | '/studio/about'
     | '/studio/another-room'
     | '/studio/collections'
+    | '/studio/demo'
     | '/studio/depth-levels'
     | '/studio/evening-lounge'
     | '/studio/garden'
     | '/studio/homeware'
     | '/studio/interiors'
     | '/studio/journal'
+    | '/studio/licencing'
     | '/studio/manifesto'
     | '/studio/moodboard'
     | '/studio/morning-room'
@@ -345,12 +367,14 @@ export interface FileRouteTypes {
     | '/studio/about'
     | '/studio/another-room'
     | '/studio/collections'
+    | '/studio/demo'
     | '/studio/depth-levels'
     | '/studio/evening-lounge'
     | '/studio/garden'
     | '/studio/homeware'
     | '/studio/interiors'
     | '/studio/journal'
+    | '/studio/licencing'
     | '/studio/manifesto'
     | '/studio/moodboard'
     | '/studio/morning-room'
@@ -376,12 +400,14 @@ export interface RootRouteChildren {
   StudioAboutRoute: typeof StudioAboutRoute
   StudioAnotherRoomRoute: typeof StudioAnotherRoomRoute
   StudioCollectionsRoute: typeof StudioCollectionsRoute
+  StudioDemoRoute: typeof StudioDemoRoute
   StudioDepthLevelsRoute: typeof StudioDepthLevelsRoute
   StudioEveningLoungeRoute: typeof StudioEveningLoungeRoute
   StudioGardenRoute: typeof StudioGardenRoute
   StudioHomewareRoute: typeof StudioHomewareRoute
   StudioInteriorsRoute: typeof StudioInteriorsRoute
   StudioJournalRoute: typeof StudioJournalRoute
+  StudioLicencingRoute: typeof StudioLicencingRoute
   StudioManifestoRoute: typeof StudioManifestoRoute
   StudioMoodboardRoute: typeof StudioMoodboardRoute
   StudioMorningRoomRoute: typeof StudioMorningRoomRoute
@@ -494,6 +520,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudioManifestoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/studio/licencing': {
+      id: '/studio/licencing'
+      path: '/studio/licencing'
+      fullPath: '/studio/licencing'
+      preLoaderRoute: typeof StudioLicencingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/studio/journal': {
       id: '/studio/journal'
       path: '/studio/journal'
@@ -534,6 +567,13 @@ declare module '@tanstack/react-router' {
       path: '/studio/depth-levels'
       fullPath: '/studio/depth-levels'
       preLoaderRoute: typeof StudioDepthLevelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/demo': {
+      id: '/studio/demo'
+      path: '/studio/demo'
+      fullPath: '/studio/demo'
+      preLoaderRoute: typeof StudioDemoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/studio/collections': {
@@ -608,12 +648,14 @@ const rootRouteChildren: RootRouteChildren = {
   StudioAboutRoute: StudioAboutRoute,
   StudioAnotherRoomRoute: StudioAnotherRoomRoute,
   StudioCollectionsRoute: StudioCollectionsRoute,
+  StudioDemoRoute: StudioDemoRoute,
   StudioDepthLevelsRoute: StudioDepthLevelsRoute,
   StudioEveningLoungeRoute: StudioEveningLoungeRoute,
   StudioGardenRoute: StudioGardenRoute,
   StudioHomewareRoute: StudioHomewareRoute,
   StudioInteriorsRoute: StudioInteriorsRoute,
   StudioJournalRoute: StudioJournalRoute,
+  StudioLicencingRoute: StudioLicencingRoute,
   StudioManifestoRoute: StudioManifestoRoute,
   StudioMoodboardRoute: StudioMoodboardRoute,
   StudioMorningRoomRoute: StudioMorningRoomRoute,
