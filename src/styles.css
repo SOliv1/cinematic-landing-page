@@ -625,7 +625,7 @@
     align-items: center;
     justify-content: center;
     gap: clamp(0.25rem, 0.8vw, 0.55rem);
-    overflow-x: auto;
+    overflow: visible;
     scrollbar-width: none;
     pointer-events: auto;
   }
@@ -652,6 +652,14 @@
       0 1px 8px rgba(0, 0, 0, 0.72),
       0 0 18px rgba(0, 0, 0, 0.52);
     transition: color 0.18s ease, text-shadow 0.18s ease;
+  }
+
+  .site-nav-primary-trigger {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
   }
 
   .site-nav-primary-link:nth-child(2),
@@ -7840,7 +7848,8 @@ code {
 }
 
 .site-nav-primary-group:hover .site-nav-submenu,
-.site-nav-primary-group:focus-within .site-nav-submenu {
+.site-nav-primary-group:focus-within .site-nav-submenu,
+.site-nav-primary-group.is-open .site-nav-submenu {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, 0);
@@ -8111,7 +8120,15 @@ code {
 
 @media (max-width: 820px) {
   .site-nav-submenu {
-    display: none;
+    left: 0;
+    min-width: min(15rem, calc(100vw - 2rem));
+    transform: translate(0, -4px);
+  }
+
+  .site-nav-primary-group:hover .site-nav-submenu,
+  .site-nav-primary-group:focus-within .site-nav-submenu,
+  .site-nav-primary-group.is-open .site-nav-submenu {
+    transform: translate(0, 0);
   }
 
   .licencing-tier-grid,

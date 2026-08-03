@@ -53,6 +53,7 @@ function matchesQuery(item: NavItem & { section: string }, query: string) {
 
 export function StudioDropdown() {
   const [open, setOpen] = useState(false)
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
   const [mode, setMode] = useState<MenuMode>('menu')
   const [query, setQuery] = useState('')
   const rootRef = useRef<HTMLDivElement>(null)
@@ -65,7 +66,7 @@ export function StudioDropdown() {
   }, [query])
 
   useEffect(() => {
-    if (!open) return
+    if (!open && !openSubmenu) return
 
     const handler = (event: MouseEvent) => {
       const target = event.target as Node
@@ -74,12 +75,13 @@ export function StudioDropdown() {
 
       if (!insideButtons && !insidePanel) {
         setOpen(false)
+        setOpenSubmenu(null)
       }
     }
 
     document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
-  }, [open])
+  }, [open, openSubmenu])
 
   useEffect(() => {
     if (open && mode === 'search') {
@@ -99,6 +101,7 @@ export function StudioDropdown() {
 
   const closePanel = () => {
     setOpen(false)
+    setOpenSubmenu(null)
     setQuery('')
   }
 
@@ -107,20 +110,33 @@ export function StudioDropdown() {
       <nav className="site-nav-primary" aria-label="Primary navigation">
         {navSections[0].items.map((item, index) => (
           <span
-            className={`site-nav-primary-group ${item.children ? 'has-submenu' : ''}`}
+            className={`site-nav-primary-group ${item.children ? 'has-submenu' : ''} ${openSubmenu === item.label ? 'is-open' : ''}`}
             key={`${item.to}-${item.label}`}
+            onMouseEnter={() => item.children && setOpenSubmenu(item.label)}
+            onMouseLeave={() => item.children && setOpenSubmenu(null)}
           >
-            <Link
-              to={item.to}
-              className="site-nav-primary-link"
-              aria-haspopup={item.children ? 'true' : undefined}
-            >
-              {item.label}
-            </Link>
+            {item.children ? (
+              <button
+                type="button"
+                className="site-nav-primary-link site-nav-primary-trigger"
+                aria-haspopup="menu"
+                aria-expanded={openSubmenu === item.label}
+                onClick={() => setOpenSubmenu((current) => current === item.label ? null : item.label)}
+              >
+                {item.label}
+              </button>
+            ) : (
+              <Link to={item.to} className="site-nav-primary-link">
+                {item.label}
+              </Link>
+            )}
             {item.children && (
-              <span className="site-nav-submenu" aria-label={`${item.label} submenu`}>
+              <span className="site-nav-submenu" role="menu" aria-label={`${item.label} submenu`}>
+                <Link to={item.to} className="site-nav-submenu-link" role="menuitem" onClick={closePanel}>
+                  Licencing Overview
+                </Link>
                 {item.children.map((child) => (
-                  <Link key={`${item.label}-${child.to}`} to={child.to} className="site-nav-submenu-link">
+                  <Link key={`${item.label}-${child.to}`} to={child.to} className="site-nav-submenu-link" role="menuitem" onClick={closePanel}>
                     {child.label}
                   </Link>
                 ))}
