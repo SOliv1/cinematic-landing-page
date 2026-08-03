@@ -20,7 +20,16 @@ const navSections: NavSection[] = [
   {
     title: 'Top Menu',
     items: [
-      { label: 'Home', to: '/', description: 'Main landing page and introduction.' },
+      {
+        label: 'Home',
+        to: '/',
+        description: 'Main landing page and introduction.',
+        children: [
+          { label: 'The Philosophy', to: '/#philosophy', description: 'Jump to the homepage philosophy section.' },
+          { label: 'Ready To Explore', to: '/#ready-to-explore', description: 'Jump to the closing home call-to-action.' },
+          { label: 'Step Inside', to: '/seasonal-house', description: 'Enter the Seasonal House experience.' },
+        ],
+      },
       { label: 'Work With Me', to: '/studio/work-with-me', description: 'Collaboration and project enquiries.' },
       {
         label: 'Licencing',
@@ -133,7 +142,7 @@ export function StudioDropdown() {
             {item.children && (
               <span className="site-nav-submenu" role="menu" aria-label={`${item.label} submenu`}>
                 <Link to={item.to} className="site-nav-submenu-link" role="menuitem" onClick={closePanel}>
-                  Licencing Overview
+                  {item.label} Overview
                 </Link>
                 {item.children.map((child) => (
                   <Link key={`${item.label}-${child.to}`} to={child.to} className="site-nav-submenu-link" role="menuitem" onClick={closePanel}>

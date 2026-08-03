@@ -555,6 +555,11 @@
     padding-top: 0;
   }
 
+  #philosophy,
+  #ready-to-explore {
+    scroll-margin-top: 5.5rem;
+  }
+
   .site-header {
     width: 100%;
     text-align: center;

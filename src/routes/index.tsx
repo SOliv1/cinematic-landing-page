@@ -489,8 +489,26 @@ function LandingPage() {
   const surfaceVeil = getSurfaceVeilStyles(veilTone)
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    const scrollToHomeTarget = () => {
+      const hash = window.location.hash.replace('#', '')
+
+      if (hash) {
+        const target = document.getElementById(hash)
+        if (target) {
+          target.scrollIntoView({ block: 'start', behavior: 'auto' })
+          return
+        }
+      }
+
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    }
+
+    window.requestAnimationFrame(scrollToHomeTarget)
+    window.addEventListener('hashchange', scrollToHomeTarget)
+
+    return () => window.removeEventListener('hashchange', scrollToHomeTarget)
   }, [])
+
 
   // ── Splash logic ──────────────────────────────────────────
   const { reason: autoReason, dismiss: dismissAuto } = useSplashTrigger()
@@ -552,6 +570,7 @@ function LandingPage() {
 
       {/* ── FEATURES ──────────────────────────────────────────── */}
       <section
+        id="philosophy"
         className="principles-section"
         style={{
           position: 'relative',
@@ -753,6 +772,7 @@ function LandingPage() {
 
       {/* ── CALL TO ACTION ────────────────────────────────────── */}
       <section
+        id="ready-to-explore"
         style={{
           position: 'relative',
           padding: 'clamp(100px, 12vw, 180px) clamp(24px, 6vw, 80px)',
