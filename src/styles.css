@@ -556,7 +556,8 @@
   }
 
   #philosophy,
-  #ready-to-explore {
+  #ready-to-explore,
+  #seasonal-house-front-door {
     scroll-margin-top: 5.5rem;
   }
 
@@ -3136,6 +3137,34 @@ code {
     transform 0.25s ease;
 }
 
+.seasonal-house-door .door-label,
+.seasonal-house-door .door-invitation {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+
+.seasonal-house-door .door-label {
+  max-width: 16ch;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.seasonal-house-door .door-invitation {
+  margin-top: -0.25rem;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.86;
+}
+
 .seasonal-house-door.step-inside::before {
   content: "";
   position: absolute;
@@ -3221,12 +3250,19 @@ code {
   .seasonal-house-door.step-inside {
     min-width: 9.5rem;
     padding: 1rem 1.15rem 0.9rem;
-    font-size: 0.72rem;
   }
 
   .door-visual {
     width: 4.1rem;
     height: 5.9rem;
+  }
+
+  .seasonal-house-door .door-label {
+    font-size: 1.05rem;
+  }
+
+  .seasonal-house-door .door-invitation {
+    font-size: 0.62rem;
   }
 }
 
