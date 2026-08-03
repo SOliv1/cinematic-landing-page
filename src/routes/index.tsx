@@ -811,6 +811,7 @@ function LandingPage() {
         />
 
         <div
+          className="seasonal-house-entry"
           style={{
             position: 'relative',
             zIndex: 2,
@@ -854,7 +855,8 @@ function LandingPage() {
           >
             Explore the rooms of Seasonal, a set of calm, clear, unhurried spaces.
           </p>
-          <Link to="/seasonal-house" className="seasonal-pill step-inside">
+          <Link to="/seasonal-house" className="seasonal-house-door step-inside">
+            <span className="door-visual" aria-hidden="true" />
             <span>Step inside</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>

@@ -3096,6 +3096,146 @@ code {
   transform: scale(1.012);
 }
 
+.seasonal-house-entry {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.seasonal-house-door.step-inside {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.72rem;
+  min-width: 11rem;
+  padding: 1.25rem 1.55rem 1.05rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, #ffb27e, #ff7e7e, #7ebeff, #7effc8);
+  background-size: 300% 300%;
+  color: #fff;
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-shadow: 0 1px 14px rgba(42, 24, 18, 0.38);
+  box-shadow:
+    0 18px 38px rgba(95, 58, 68, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.34);
+  animation: seasonalShift 12s ease infinite;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.seasonal-house-door.step-inside::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 50% 14%, rgba(255, 255, 255, 0.36), transparent 36%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(20, 18, 24, 0.12));
+  pointer-events: none;
+}
+
+.seasonal-house-door.step-inside:hover,
+.seasonal-house-door.step-inside:focus-visible {
+  border-color: rgba(255, 255, 255, 0.66);
+  box-shadow:
+    0 20px 42px rgba(95, 58, 68, 0.24),
+    0 0 36px rgba(126, 190, 255, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.door-visual {
+  position: relative;
+  display: block;
+  width: 5rem;
+  height: 7rem;
+  margin: 0 auto 0.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 6px 6px 2px 2px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.14));
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -18px 30px rgba(34, 25, 28, 0.08);
+}
+
+.door-visual::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0.78rem;
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.45);
+  transform: translateY(-50%);
+}
+
+.seasonal-house-door svg {
+  position: relative;
+  z-index: 1;
+  opacity: 0.86;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.seasonal-house-door:hover svg {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+@keyframes seasonalShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 640px) {
+  .seasonal-house-entry {
+    padding: 2.25rem 0;
+  }
+
+  .seasonal-house-door.step-inside {
+    min-width: 9.5rem;
+    padding: 1rem 1.15rem 0.9rem;
+    font-size: 0.72rem;
+  }
+
+  .door-visual {
+    width: 4.1rem;
+    height: 5.9rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seasonal-house-door.step-inside {
+    animation: none;
+  }
+}
+
 .seasonal-pill svg {
   position: relative;
   z-index: 1;
