@@ -52,6 +52,7 @@ export const Route = createRootRoute({
 function RootLayout() {
   const pathname = useRouterState({ select: (state) => state.location.pathname })
   const usesImmersiveLayout = pathname === '/begin-the-journey' || pathname === '/explore'
+  const isHome = pathname === '/'
 
   return (
     <>
@@ -63,7 +64,7 @@ function RootLayout() {
       <div className="site-menu">
         <StudioDropdown />
       </div>
-      <main className={`page-wrapper ${usesImmersiveLayout ? 'page-wrapper--immersive' : ''}`}>
+      <main className={`page-wrapper ${usesImmersiveLayout ? 'page-wrapper--immersive' : ''} ${isHome ? 'page-wrapper--home' : ''}`}>
         <Outlet />
       </main>
       {!usesImmersiveLayout && <Footer />}

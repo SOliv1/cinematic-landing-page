@@ -488,6 +488,10 @@ function LandingPage() {
   const veilTone = useSeasonalBackgroundVariant()
   const surfaceVeil = getSurfaceVeilStyles(veilTone)
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [])
+
   // ── Splash logic ──────────────────────────────────────────
   const { reason: autoReason, dismiss: dismissAuto } = useSplashTrigger()
   const { reason: manualReason, show: showSplash, dismiss: dismissManual } = useSplashShow()

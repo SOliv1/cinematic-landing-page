@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+@source "../";
+
 /* Hero image object-position classes */
 .hero-image--center {
   object-position: center;
@@ -124,10 +128,6 @@
   font-weight: 300;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap');
-@import "tailwindcss";
-@source "../";
-
 @layer base {
   p {
     font-size: 1.125rem;
@@ -176,6 +176,7 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0;
   }
 
   .body-sm {
@@ -544,6 +545,10 @@
 
   .page-wrapper {
     padding-top: 5.15rem;
+  }
+
+  .page-wrapper--home {
+    padding-top: 0;
   }
 
   .page-wrapper--immersive {
