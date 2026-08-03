@@ -2322,8 +2322,6 @@ code {
 }
 
 .continuum-orb {
-  width: 140px;
-  height: 140px;
   border-radius: 50%;
   background: radial-gradient(
     circle at 30% 30%,
@@ -2470,8 +2468,6 @@ code {
 }
 
 .room-orb-arrival--continuum .room-orb-arrival-image {
-  width: 140px;
-  height: 140px;
   transition: all 0.4s ease;
   background: radial-gradient(
     circle at 30% 30%,
