@@ -854,11 +854,11 @@ function LandingPage() {
               marginBottom: '36px',
             }}
           >
-            Explore the rooms of Seasonal, a set of calm, clear, unhurried spaces.
+            Explore the rooms of Seasonal House, a set of calm, clear, unhurried rooms.
           </p>
           <Link to="/seasonal-house" className="seasonal-house-door step-inside">
             <span className="door-visual" aria-hidden="true" />
-            <span className="door-label">The Seasonal House</span>
+            <span className="door-label">Seasonal House Front Door</span>
             <span className="door-invitation">Step inside</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>

@@ -27,7 +27,7 @@ const navSections: NavSection[] = [
         children: [
           { label: 'The Philosophy', to: '/#philosophy', description: 'Jump to the homepage philosophy section.' },
           { label: 'Ready To Explore', to: '/#ready-to-explore', description: 'Jump to the closing home call-to-action.' },
-          { label: 'Seasonal House Door', to: '/#seasonal-house-front-door', description: 'Arrive at the Seasonal House front door.' },
+          { label: 'Seasonal House Front Door', to: '/#seasonal-house-front-door', description: 'Arrive at the Seasonal House front door.' },
         ],
       },
       { label: 'Work With Me', to: '/studio/work-with-me', description: 'Collaboration and project enquiries.' },
