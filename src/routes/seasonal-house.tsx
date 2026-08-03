@@ -160,6 +160,12 @@ const rooms: Room[] = [
     className: 'another-room-gradient',
   },
   {
+    title: 'Boutique House',
+    description: 'An atelier entrance for wardrobe, home, garden, journal, and mood.',
+    href: '/studio/collections',
+    className: 'boutique-house-gradient',
+  },
+  {
     title: 'Another Room',
     description: 'This room is still being arranged.',
     comingSoon: true,

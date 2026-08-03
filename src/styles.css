@@ -2238,10 +2238,28 @@ code {
     inset 0 0 40px rgba(255, 255, 255, 0.05);
 }
 
+.seasonal-card.boutique-house-gradient .seasonal-card-content {
+  background: linear-gradient(145deg,
+      rgba(255, 221, 178, 0.30),
+      rgba(238, 178, 196, 0.24),
+      rgba(164, 188, 236, 0.22),
+      rgba(126, 204, 178, 0.18));
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 244, 226, 0.16);
+  border-radius: 22px;
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.20),
+    0 0 34px rgba(255, 190, 132, 0.12),
+    inset 0 0 42px rgba(255, 255, 255, 0.07);
+}
+
 .seasonal-card.evening-lounge-gradient .seasonal-card-title,
 .seasonal-card.evening-lounge-gradient .seasonal-card-text,
 .seasonal-card.soft-room-gradient .seasonal-card-title,
 .seasonal-card.soft-room-gradient .seasonal-card-text,
+.seasonal-card.boutique-house-gradient .seasonal-card-title,
+.seasonal-card.boutique-house-gradient .seasonal-card-text,
 .seasonal-card.another-room-gradient .seasonal-card-title,
 .seasonal-card.another-room-gradient .seasonal-card-text {
   text-shadow: none;
