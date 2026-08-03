@@ -148,11 +148,10 @@ const rooms: Room[] = [
     className: 'evening-lounge-gradient',
   },
   {
-    title: 'The Soft Room',
-    description: 'An interior shaped for presence, softness, and connection.',
-    comingSoon: true,
+    title: 'Continuum',
+    description: 'A deeper room of ink violet, spectral lavender, and ultraviolet glow.',
     href: '/studio/soft-room',
-    className: 'soft-room-gradient',
+    className: 'continuum-gradient',
   },
   {
     title: 'Vintage Notes ✦',

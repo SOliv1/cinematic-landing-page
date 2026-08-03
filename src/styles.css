@@ -2196,17 +2196,18 @@ code {
     inset 0 0 40px rgba(255, 255, 255, 0.05);
 }
 
-.seasonal-card.soft-room-gradient .seasonal-card-content {
-  background: linear-gradient(145deg,
-      rgba(255, 214, 230, 0.18),
-      rgba(120, 110, 200, 0.22),
-      rgba(40, 40, 70, 0.35));
+.seasonal-card.continuum-gradient .seasonal-card-content {
+  background: linear-gradient(160deg,
+      #1E1630 0%,
+      #2A1B3F 50%,
+      #5A3D8C 100%);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(200, 168, 255, 0.24);
   box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.24),
-    inset 0 0 40px rgba(255, 255, 255, 0.05);
+    0 16px 42px rgba(18, 12, 31, 0.34),
+    0 0 34px rgba(200, 168, 255, 0.14),
+    inset 0 0 40px rgba(36, 26, 69, 0.42);
 }
 
 .seasonal-card.evening-lounge-gradient .seasonal-card-content {
@@ -2256,8 +2257,8 @@ code {
 
 .seasonal-card.evening-lounge-gradient .seasonal-card-title,
 .seasonal-card.evening-lounge-gradient .seasonal-card-text,
-.seasonal-card.soft-room-gradient .seasonal-card-title,
-.seasonal-card.soft-room-gradient .seasonal-card-text,
+.seasonal-card.continuum-gradient .seasonal-card-title,
+.seasonal-card.continuum-gradient .seasonal-card-text,
 .seasonal-card.boutique-house-gradient .seasonal-card-title,
 .seasonal-card.boutique-house-gradient .seasonal-card-text,
 .seasonal-card.another-room-gradient .seasonal-card-title,
@@ -2300,6 +2301,72 @@ code {
     rgba(255, 255, 255, 0.08);
 }
 
+.continuum-bg {
+  background: linear-gradient(
+    135deg,
+    #120C1F 0%,
+    #241A45 35%,
+    #5A3D8C 65%,
+    #C8A8FF 100%
+  );
+}
+
+.continuum-orb-glow {
+  background: radial-gradient(
+    circle at center,
+    #C8A8FF 0%,
+    #7C4FB3 40%,
+    #241A45 80%,
+    #120C1F 100%
+  );
+}
+
+.continuum-orb {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #C8A8FF 0%,
+    #7C4FB3 35%,
+    #5A3D8C 55%,
+    #241A45 80%,
+    #120C1F 100%
+  );
+  box-shadow:
+    0 0 25px rgba(200, 168, 255, 0.45),
+    inset 0 0 40px rgba(36, 26, 69, 0.6),
+    inset 0 0 80px rgba(18, 12, 31, 0.9);
+}
+
+.continuum-panel {
+  background: linear-gradient(
+    160deg,
+    #1E1630 0%,
+    #2A1B3F 50%,
+    #5A3D8C 100%
+  );
+}
+
+.continuum-edge {
+  background: linear-gradient(
+    90deg,
+    #E6D9FF 0%,
+    #C8A8FF 40%,
+    #7C4FB3 100%
+  );
+}
+
+.continuum-fade {
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 12, 31, 0.9) 0%,
+    rgba(36, 26, 69, 0.7) 40%,
+    rgba(90, 61, 140, 0.5) 70%,
+    rgba(200, 168, 255, 0.3) 100%
+  );
+}
+
 @media (max-width: 640px) {
   .seasonal-card-content {
     padding: 1.6rem 1.4rem !important;
@@ -2313,13 +2380,15 @@ code {
 .softroom-layout {
   min-height: 100vh;
   padding: 4rem 1.5rem;
-  background: linear-gradient(145deg,
-      rgba(255, 214, 230, 0.18),
-      rgba(120, 110, 200, 0.22),
-      rgba(40, 40, 70, 0.35));
+  background: linear-gradient(
+      135deg,
+      #120C1F 0%,
+      #241A45 35%,
+      #5A3D8C 65%,
+      #C8A8FF 100%);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  color: rgba(253, 244, 238, 0.92);
+  color: rgba(245, 238, 255, 0.94);
 }
 
 .softroom-layout::before {
@@ -2328,9 +2397,14 @@ code {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 28% 8%, rgba(255, 214, 230, 0.18), transparent 36%),
-    radial-gradient(circle at 78% 28%, rgba(120, 110, 200, 0.18), transparent 42%),
-    #1d1a33;
+    linear-gradient(to bottom,
+      rgba(18, 12, 31, 0.9) 0%,
+      rgba(36, 26, 69, 0.7) 40%,
+      rgba(90, 61, 140, 0.5) 70%,
+      rgba(200, 168, 255, 0.3) 100%),
+    radial-gradient(circle at 30% 18%, rgba(200, 168, 255, 0.22), transparent 38%),
+    radial-gradient(circle at 76% 26%, rgba(124, 79, 179, 0.24), transparent 44%),
+    #120C1F;
 }
 
 .softroom-return {
@@ -2390,6 +2464,39 @@ code {
   --room-orb-aura: rgba(142, 192, 216, 0.28);
 }
 
+.room-orb-arrival--continuum {
+  --room-orb-glow: rgba(200, 168, 255, 0.45);
+  --room-orb-aura: rgba(124, 79, 179, 0.34);
+}
+
+.room-orb-arrival--continuum .room-orb-arrival-image {
+  width: 140px;
+  height: 140px;
+  transition: all 0.4s ease;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #C8A8FF 0%,
+    #7C4FB3 35%,
+    #5A3D8C 55%,
+    #241A45 80%,
+    #120C1F 100%
+  );
+  box-shadow:
+    0 0 25px rgba(200, 168, 255, 0.45),
+    inset 0 0 40px rgba(36, 26, 69, 0.6),
+    inset 0 0 80px rgba(18, 12, 31, 0.9),
+    0 28px 80px rgba(0, 0, 0, 0.28);
+}
+
+.room-orb-arrival--continuum .room-orb-arrival-image:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 0 35px rgba(200, 168, 255, 0.55),
+    inset 0 0 50px rgba(36, 26, 69, 0.7),
+    inset 0 0 90px rgba(18, 12, 31, 1),
+    0 30px 88px rgba(0, 0, 0, 0.3);
+}
+
 .room-orb-arrival--evening {
   --room-orb-glow: rgba(190, 170, 235, 0.38);
   --room-orb-aura: rgba(172, 138, 220, 0.32);
@@ -2434,17 +2541,18 @@ code {
   max-width: 680px;
   margin: 0 auto 2.8rem;
   padding: 2rem 2rem 2.4rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(200, 168, 255, 0.22);
   border-radius: 22px;
-  background: linear-gradient(145deg,
-      rgba(255, 214, 230, 0.12),
-      rgba(120, 110, 200, 0.18),
-      rgba(40, 40, 70, 0.28));
+  background: linear-gradient(
+      160deg,
+      #1E1630 0%,
+      #2A1B3F 50%,
+      #5A3D8C 100%);
   -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.25),
-    inset 0 0 40px rgba(255, 255, 255, 0.05);
+    0 16px 42px rgba(18, 12, 31, 0.34),
+    inset 0 0 40px rgba(36, 26, 69, 0.36);
 }
 
 .softroom-card-title {

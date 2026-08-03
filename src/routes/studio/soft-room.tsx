@@ -7,33 +7,33 @@ export const Route = createFileRoute('/studio/soft-room')({
 
 function SoftRoomPage() {
   return (
-    <main className="softroom-layout">
+    <main className="softroom-layout continuum-bg">
       <Link to="/seasonal-house" className="return-link seasonal-house-invitation softroom-return">
         <span aria-hidden="true">&larr;</span>
         <span>The Seasonal House</span>
       </Link>
 
-      <figure className="room-orb-arrival room-orb-arrival--cool">
+      <figure className="room-orb-arrival room-orb-arrival--continuum continuum-orb-glow">
         <img
-          src="/images/orbs/todays-rooms-orb-cool.png"
-          alt="Cool abstract orb for the Clarity Room"
-          className="room-orb-arrival-image"
+          src="/images/orbs/todays-rooms-orb-night.png"
+          alt="Deep violet abstract orb for the Continuum room"
+          className="room-orb-arrival-image continuum-orb"
         />
       </figure>
 
       <header className="softroom-header">
-        <h1 className="softroom-title">The Soft Room</h1>
+        <h1 className="softroom-title">Continuum</h1>
         <p className="softroom-subtitle">
-          A warm space for connection.
+          Ink violet, spectral lavender, and ultraviolet glow.
         </p>
       </header>
 
-      <section className="softroom-card">
-        <h2 className="softroom-card-title">A warm space for connection.
+      <section className="softroom-card continuum-panel">
+        <h2 className="softroom-card-title">A deeper interior atmosphere.
         </h2>
         <p className="softroom-card-text">
-          An interior shaped for presence, softness, and gentle conversation.
-          Soft gradients, cinematic glow, and a gentle interior atmosphere.
+          A room shaped as a continuum: quiet shadow, lavender edge light,
+          and a cinematic ultraviolet glow that holds the whole space together.
         </p>
       </section>
 
