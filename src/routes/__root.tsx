@@ -4,6 +4,45 @@ import ScrollToTopOrb from '@/components/ScrollToTopOrb'
 import { StudioDropdown } from '@/components/StudioDropdown'
 import '../styles.css'
 
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': 'https://seasonal.studio/#organization',
+      name: 'Seasonal.Studio',
+      url: 'https://seasonal.studio/',
+      logo: 'https://seasonal.studio/logo.png',
+      description:
+        'Independent UK studio creating atmospheric, cinematic web apps and slow-tech digital experiences.',
+      sameAs: [
+        'https://boutique-house-production-751b.up.railway.app/',
+        'https://boutique-house-vintage-note-production.up.railway.app/',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': 'https://seasonal.studio/#website',
+      url: 'https://seasonal.studio/',
+      name: 'Seasonal.Studio',
+      publisher: {
+        '@id': 'https://seasonal.studio/#organization',
+      },
+    },
+    {
+      '@type': 'Service',
+      '@id': 'https://seasonal.studio/#living-atmosphere',
+      name: 'Living Atmosphere',
+      provider: {
+        '@id': 'https://seasonal.studio/#organization',
+      },
+      serviceType: 'Atmospheric web design and cinematic web app licensing',
+      areaServed: 'United Kingdom',
+      url: 'https://seasonal.studio/studio/licencing',
+    },
+  ],
+}
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -78,6 +117,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </head>
       <body>
         {children}
