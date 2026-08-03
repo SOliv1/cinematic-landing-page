@@ -151,10 +151,11 @@ export default function SeasonalTerms() {
             <section className="legal-section">
                 <h2>12. Changes to these terms</h2>
                 <p>
-                    Seasonal.Studio may update these Terms & Conditions to reflect new
-                    products, licensing options, support arrangements, or legal requirements.
-                    The version published on this page applies from the date it appears on the
-                    website unless a written agreement states otherwise.
+                    These Terms & Conditions are effective from August 2026. Seasonal.Studio
+                    may update them to reflect new products, licensing options, support
+                    arrangements, or legal requirements. The version published on this page
+                    applies from its stated effective date unless a written agreement states
+                    otherwise.
                 </p>
             </section>
         </LegalLayout>
