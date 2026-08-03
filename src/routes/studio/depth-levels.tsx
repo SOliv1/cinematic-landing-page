@@ -28,7 +28,8 @@ export const Route = createFileRoute('/studio/depth-levels')({
               <a href="#level-1">Level 1</a>
               <a href="#level-2">Level 2</a>
               <a href="#level-3">Level 3</a>
-              <a href="/seasonal-house">Seasonal House</a>
+              <a href="#level-4">Level 4</a>
+              <a href="/studio/unlock-more">Unlock More</a>
             </nav>
             <a href="/studio/unlock-more" className="unlockmore-link-btn">Unlock More &rarr;</a>
           </header>
@@ -101,7 +102,7 @@ export const Route = createFileRoute('/studio/depth-levels')({
             </div>
           </section>
 
-          <section className="depth-level">
+          <section className="depth-level" id="level-4">
             <div className="depth-pill">LEVEL 4 · THE SEASONAL SYSTEM</div>
             <p className="depth-description">
               A fully bespoke ecosystem designed for depth, continuity, and long
