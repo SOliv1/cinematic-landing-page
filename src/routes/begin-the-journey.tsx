@@ -55,8 +55,9 @@ function BeginTheJourney() {
         transition: 'background-image 1.5s ease, background-color 1.5s ease',
       }}
     >
-      <Link to="/seasonal-house" className="return-link return-link--immersive">
-        &larr; The Seasonal House
+      <Link to="/seasonal-house" className="return-link return-link--immersive seasonal-house-invitation">
+        <span aria-hidden="true">&larr;</span>
+        <span>The Seasonal House</span>
       </Link>
       <div className="btj-orb-stage" aria-hidden="true">
         <div className="orb neutral" />

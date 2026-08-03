@@ -8,8 +8,9 @@ export const Route = createFileRoute('/studio/morning-room')({
 function MorningRoomPage() {
   return (
     <main className="morningroom-layout">
-      <Link to="/seasonal-house" className="return-link morningroom-return">
-        &larr; The Seasonal House
+      <Link to="/seasonal-house" className="return-link seasonal-house-invitation morningroom-return">
+        <span aria-hidden="true">&larr;</span>
+        <span>The Seasonal House</span>
       </Link>
 
       <figure className="room-orb-arrival room-orb-arrival--morning">

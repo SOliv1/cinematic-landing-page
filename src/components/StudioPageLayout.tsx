@@ -90,8 +90,9 @@ export function StudioPageLayout({ title, subtitle, children }: StudioPageLayout
             zIndex: 9999,
           }}
         >
-          <Link to="/seasonal-house" className="return-link">
-            ← The Seasonal House
+          <Link to="/seasonal-house" className="return-link seasonal-house-invitation">
+            <span aria-hidden="true">←</span>
+            <span>The Seasonal House</span>
           </Link>
           <StudioNavBar />
         </div>

@@ -31,8 +31,9 @@ export const Route = createFileRoute('/studio/seasonal-weather')({
 function SeasonalWeatherPage() {
   return (
     <main className="seasonalweather-layout">
-      <Link to="/seasonal-house" className="return-link seasonalweather-return">
-        &larr; The Seasonal House
+      <Link to="/seasonal-house" className="return-link seasonal-house-invitation seasonalweather-return">
+        <span aria-hidden="true">&larr;</span>
+        <span>The Seasonal House</span>
       </Link>
 
       <figure className="room-orb-arrival room-orb-arrival--studio">

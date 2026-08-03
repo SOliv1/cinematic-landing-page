@@ -8,8 +8,9 @@ export const Route = createFileRoute('/studio/soft-room')({
 function SoftRoomPage() {
   return (
     <main className="softroom-layout">
-      <Link to="/seasonal-house" className="return-link softroom-return">
-        &larr; The Seasonal House
+      <Link to="/seasonal-house" className="return-link seasonal-house-invitation softroom-return">
+        <span aria-hidden="true">&larr;</span>
+        <span>The Seasonal House</span>
       </Link>
 
       <figure className="room-orb-arrival room-orb-arrival--cool">

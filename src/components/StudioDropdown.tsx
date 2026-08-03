@@ -60,6 +60,10 @@ function matchesQuery(item: NavItem & { section: string }, query: string) {
   return value.includes(query.trim().toLowerCase())
 }
 
+function isSeasonalHouseLink(to: string) {
+  return to === '/seasonal-house' || to === '/#seasonal-house-front-door'
+}
+
 export function StudioDropdown() {
   const [open, setOpen] = useState(false)
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null)
@@ -145,7 +149,13 @@ export function StudioDropdown() {
                   {item.label} Overview
                 </Link>
                 {item.children.map((child) => (
-                  <Link key={`${item.label}-${child.to}`} to={child.to} className="site-nav-submenu-link" role="menuitem" onClick={closePanel}>
+                  <Link
+                    key={`${item.label}-${child.to}`}
+                    to={child.to}
+                    className={`site-nav-submenu-link ${isSeasonalHouseLink(child.to) ? 'seasonal-house-menu-link' : ''}`}
+                    role="menuitem"
+                    onClick={closePanel}
+                  >
                     {child.label}
                   </Link>
                 ))}
@@ -189,7 +199,12 @@ export function StudioDropdown() {
                 <section className="site-nav-section" key={section.title}>
                   <h2>{section.title}</h2>
                   {section.items.map((item) => (
-                    <Link key={`${section.title}-${item.to}-${item.label}`} to={item.to} className="site-nav-item" onClick={closePanel}>
+                    <Link
+                      key={`${section.title}-${item.to}-${item.label}`}
+                      to={item.to}
+                      className={`site-nav-item ${isSeasonalHouseLink(item.to) ? 'seasonal-house-menu-item' : ''}`}
+                      onClick={closePanel}
+                    >
                       <span>{item.label}</span>
                       <small>{item.description}</small>
                     </Link>
@@ -201,7 +216,12 @@ export function StudioDropdown() {
                 <h2>{query.trim() ? 'Results' : 'All Pages'}</h2>
                 {searchResults.length > 0 ? (
                   searchResults.map((item) => (
-                    <Link key={`${item.section}-${item.to}-${item.label}`} to={item.to} className="site-nav-item" onClick={closePanel}>
+                    <Link
+                      key={`${item.section}-${item.to}-${item.label}`}
+                      to={item.to}
+                      className={`site-nav-item ${isSeasonalHouseLink(item.to) ? 'seasonal-house-menu-item' : ''}`}
+                      onClick={closePanel}
+                    >
                       <span>{item.label}</span>
                       <small>{item.section} - {item.description}</small>
                     </Link>
