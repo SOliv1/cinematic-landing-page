@@ -2,6 +2,7 @@ import { type ReactNode } from 'react'
 import { Link } from '@tanstack/react-router'
 import { useEffect, useRef } from 'react'
 import { useSeasonalBackground } from '@/hooks/useSeasonalBackground'
+import StudioNavBar from '@/components/StudioNavBar'
 
 // ── Universal veil: soft dark overlay readable across all seasons ─────────────
 
@@ -81,24 +82,19 @@ export function StudioPageLayout({ title, subtitle, children }: StudioPageLayout
         }}
       >
         {/* Nav bar */}
-        <nav
+        <div
           className="fade-in"
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-start',
             marginBottom: '5rem',
             position: 'relative',
             zIndex: 9999,
           }}
         >
-          <Link
-            to="/seasonal-house"
-            className="return-link"
-          >
+          <Link to="/seasonal-house" className="return-link">
             ← The Seasonal House
           </Link>
-        </nav>
+          <StudioNavBar />
+        </div>
 
         {/* Hero text */}
         <div className="fade-in" style={{ transitionDelay: '0.15s', marginBottom: '2rem' }}>

@@ -84,7 +84,7 @@ export default function Footer() {
         </Link>
         <span aria-hidden="true" className="footer-legal-sep">·</span>
         <Link to="/studio/terms" className="footer-legal-link">
-          Terms & Conditions
+          Terms
         </Link>
         <span aria-hidden="true" className="footer-legal-sep">·</span>
         <Link to="/studio/support" className="footer-legal-link">
@@ -92,15 +92,7 @@ export default function Footer() {
         </Link>
         <span aria-hidden="true" className="footer-legal-sep">·</span>
         <Link to="/studio/maintenance-roadmap" className="footer-legal-link">
-          Maintenance Roadmap
-        </Link>
-        <span aria-hidden="true" className="footer-legal-sep">·</span>
-        <Link to="/legal/privacy" className="footer-legal-link">
-          Privacy
-        </Link>
-        <span aria-hidden="true" className="footer-legal-sep">·</span>
-        <Link to="/legal/cookies" className="footer-legal-link">
-          Cookies
+          Maintenance
         </Link>
       </nav>
 

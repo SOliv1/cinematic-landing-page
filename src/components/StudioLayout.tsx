@@ -1,5 +1,4 @@
 import { type ReactNode } from "react";
-import StudioNavBar from "@/components/StudioNavBar.tsx";
 
 interface StudioLayoutProps {
   title: string;
@@ -25,8 +24,6 @@ export default function StudioLayout({
         <div className="positioning-glow" />
 
         <div className={`positioning-container ${containerClassName}`.trim()}>
-
-          <StudioNavBar />
 
           {children}
 

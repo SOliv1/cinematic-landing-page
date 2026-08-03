@@ -24,10 +24,16 @@ export const Route = createFileRoute('/studio/depth-levels')({
               Four levels of digital depth. From a simple threshold to a complete
               Seasonal system.
             </p>
+            <nav className="depth-page-nav" aria-label="Depth levels page navigation">
+              <a href="#level-1">Level 1</a>
+              <a href="#level-2">Level 2</a>
+              <a href="#level-3">Level 3</a>
+              <a href="/seasonal-house">Seasonal House</a>
+            </nav>
             <a href="/studio/unlock-more" className="unlockmore-link-btn">Unlock More &rarr;</a>
           </header>
 
-          <section className="depth-level">
+          <section className="depth-level" id="level-1">
             <div className="depth-pill">LEVEL 1 · THE THRESHOLD</div>
             <p className="depth-description">
               A simple, clear entry point designed to introduce the core idea with
@@ -45,7 +51,7 @@ export const Route = createFileRoute('/studio/depth-levels')({
             </div>
           </section>
 
-          <section className="depth-level">
+          <section className="depth-level" id="level-2">
             <div className="depth-pill">LEVEL 2 · THE QUIET ROOM</div>
             <p className="depth-description">
               A focused, minimal environment shaped for clarity and calm. A
@@ -63,7 +69,7 @@ export const Route = createFileRoute('/studio/depth-levels')({
             </div>
           </section>
 
-          <section className="depth-level">
+          <section className="depth-level" id="level-3">
             <div className="depth-pill">LEVEL 3 · THE INTERIOR STUDIO</div>
             <p className="depth-description">
               A crafted digital interior shaped with architectural depth,
