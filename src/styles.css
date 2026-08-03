@@ -2281,6 +2281,7 @@ code {
 .seasonal-card-tag {
   display: inline-block;
   width: fit-content;
+  margin-top: 0.1rem;
   padding: 0.3rem 0.75rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
@@ -2290,6 +2291,13 @@ code {
   line-height: 1.2;
   text-transform: uppercase;
   opacity: 0.75;
+}
+
+.seasonal-card-tag--live {
+  border-color: rgba(255, 244, 226, 0.20);
+  background:
+    linear-gradient(135deg, rgba(255, 178, 126, 0.16), rgba(126, 190, 255, 0.12)),
+    rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 640px) {

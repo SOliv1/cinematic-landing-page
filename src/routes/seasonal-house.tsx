@@ -122,6 +122,7 @@ interface Room {
   description: string
   comingSoon?: boolean
   href?: string
+  external?: boolean
   className?: string
 }
 
@@ -155,14 +156,16 @@ const rooms: Room[] = [
   },
   {
     title: 'Vintage Notes ✦',
-    description: 'A wardrobe drawn from memory. Quiet luxury, softly worn.',
-    href: '/studio/vintage-notes',
+    description: 'Enter the live Boutique House Vintage Notes app.',
+    href: 'https://boutique-house-vintage-note-production.up.railway.app/',
+    external: true,
     className: 'another-room-gradient',
   },
   {
     title: 'Boutique House',
-    description: 'An atelier entrance for wardrobe, home, garden, journal, and mood.',
-    href: '/studio/collections',
+    description: 'Visit the live Boutique House atelier.',
+    href: 'https://boutique-house-production-751b.up.railway.app/',
+    external: true,
     className: 'boutique-house-gradient',
   },
   {
@@ -176,7 +179,7 @@ const rooms: Room[] = [
 
 // ── RoomCard ──────────────────────────────────────────────────────────────────
 
-function RoomCard({ title, description, comingSoon, href, className, ink, inkMuted }: Room & Pick<Veil, 'ink' | 'inkMuted'>) {
+function RoomCard({ title, description, comingSoon, href, external, className, ink, inkMuted }: Room & Pick<Veil, 'ink' | 'inkMuted'>) {
   const cardClassName = ['seasonal-card', className, comingSoon ? 'coming-soon' : '', 'relative group']
     .filter(Boolean)
     .join(' ')
@@ -195,13 +198,23 @@ function RoomCard({ title, description, comingSoon, href, className, ink, inkMut
               Coming Soon
             </span>
           ) : null}
+          {external ? (
+            <span className="seasonal-card-tag seasonal-card-tag--live" style={{ color: inkMuted }}>
+              Seasonal House Stays Open
+            </span>
+          ) : null}
         </div>
       </>
     )
 
     if (href) {
       return (
-        <a href={href} className={cardClassName}>
+        <a
+          href={href}
+          className={cardClassName}
+          target={external ? '_blank' : undefined}
+          rel={external ? 'noopener noreferrer' : undefined}
+        >
           {cardContent}
         </a>
       )
