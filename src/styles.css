@@ -2210,6 +2210,14 @@ code {
     inset 0 0 40px rgba(36, 26, 69, 0.42);
 }
 
+.seasonal-card.continuum-gradient .seasonal-card-title {
+  color: #f5f0f4;
+}
+
+.seasonal-card.continuum-gradient .seasonal-card-text {
+  color: rgba(245, 240, 244, 0.78);
+}
+
 .seasonal-card.evening-lounge-gradient .seasonal-card-content {
   background: linear-gradient(145deg,
       rgba(90, 70, 140, 0.40),

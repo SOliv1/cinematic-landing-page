@@ -182,6 +182,9 @@ function RoomCard({ title, description, comingSoon, href, external, className, i
   const cardClassName = ['seasonal-card', className, comingSoon ? 'coming-soon' : '', 'relative group']
     .filter(Boolean)
     .join(' ')
+  const usesCardMoodText = className === 'continuum-gradient'
+  const titleStyle = usesCardMoodText ? undefined : { color: ink }
+  const mutedStyle = usesCardMoodText ? undefined : { color: inkMuted }
 
   if (comingSoon || href) {
     const cardContent = (
@@ -190,15 +193,15 @@ function RoomCard({ title, description, comingSoon, href, external, className, i
         <div className="absolute inset-0 rounded-3xl blur-xl bg-[var(--seasonal-tint-dim)] opacity-0 group-hover:opacity-60 transition-all duration-500 pointer-events-none" />
         {/* Card */}
         <div className="seasonal-card-content relative rounded-3xl p-6 bg-white/5 backdrop-blur-xl border border-white/10 opacity-85 transition-all duration-300 hover:opacity-95 hover:bg-[var(--seasonal-tint-dim)] hover:shadow-[0_0_20px_var(--seasonal-tint)] flex flex-col justify-center min-h-[140px] shimmer">
-          <h3 className="seasonal-card-title h3 mb-2" style={{ color: inkMuted }}>{title}</h3>
-          <p className="seasonal-card-text body-sm" style={{ color: inkMuted }}>{description}</p>
+          <h3 className="seasonal-card-title h3 mb-2" style={mutedStyle}>{title}</h3>
+          <p className="seasonal-card-text body-sm" style={mutedStyle}>{description}</p>
           {comingSoon ? (
-            <span className="seasonal-card-tag" style={{ color: inkMuted }}>
+            <span className="seasonal-card-tag" style={mutedStyle}>
               Coming Soon
             </span>
           ) : null}
           {external ? (
-            <span className="seasonal-card-tag seasonal-card-tag--live" style={{ color: inkMuted }}>
+            <span className="seasonal-card-tag seasonal-card-tag--live" style={mutedStyle}>
               Seasonal House Stays Open
             </span>
           ) : null}
@@ -234,8 +237,8 @@ function RoomCard({ title, description, comingSoon, href, external, className, i
       <div className="absolute inset-0 rounded-3xl bg-[radial-gradient(circle_at_30%_20%,var(--seasonal-tint)_0%,transparent_70%)] opacity-40 blur-2xl pointer-events-none" />
       {/* Card */}
       <div className="seasonal-card-content relative rounded-3xl p-6 bg-white/10 backdrop-blur-xl border border-white/20 transition-all duration-300 hover:bg-[var(--seasonal-tint)] hover:shadow-[0_0_25px_var(--seasonal-tint-glow)] flex flex-col justify-center min-h-[140px] shimmer glint">
-        <h3 className="seasonal-card-title h3 mb-2" style={{ color: ink }}>{title}</h3>
-        <p className="seasonal-card-text body-sm" style={{ color: inkMuted }}>{description}</p>
+        <h3 className="seasonal-card-title h3 mb-2" style={titleStyle}>{title}</h3>
+        <p className="seasonal-card-text body-sm" style={mutedStyle}>{description}</p>
       </div>
     </div>
   )
