@@ -2,79 +2,146 @@ import LegalLayout from "./LegalLayout";
 
 export default function SeasonalTerms() {
     return (
-        <LegalLayout title="Terms of Use" eyebrow="Seasonal.Studio">
+        <LegalLayout title="Terms & Conditions" eyebrow="Seasonal.Studio">
             <section className="legal-section">
                 <h2>1. Who we are</h2>
                 <p>
-                    Seasonal.Studio is an independent creative space exploring atmospheric
-                    web design, seasonal rhythm, and digital calm. These terms explain how
-                    you may use the site and its content.
+                    Seasonal.Studio is an independent UK creative studio offering atmospheric
+                    web design, digital product concepts, licensing options, and related
+                    support services. These Terms & Conditions explain how you may use this
+                    website, enquire about a licence, purchase or receive digital materials,
+                    and work with the studio.
                 </p>
             </section>
 
             <section className="legal-section">
-                <h2>2. Using this website</h2>
+                <h2>2. Acceptance of these terms</h2>
                 <p>
-                    By visiting or browsing Seasonal.Studio, you agree to these terms.
-                    They may be updated occasionally, so it is helpful to check back from time to time.
+                    By visiting Seasonal.Studio, requesting a licence, purchasing a digital
+                    product, downloading studio materials, or commissioning related work, you
+                    agree to these Terms & Conditions. If a separate written licence agreement,
+                    order confirmation, or statement of work is provided, that document will
+                    apply alongside these terms.
                 </p>
                 <p>
-                    You agree not to misuse the site, attempt to interfere with its
-                    security, or use any content without permission.
-                </p>
-            </section>
-
-            <section className="legal-section">
-                <h2>3. Creative content and ownership</h2>
-                <p>
-                    All visuals, layouts, writing, photography, animations, and design
-                    systems on Seasonal.Studio are original works. They are protected by
-                    copyright and may not be copied, reproduced, or redistributed without
-                    written permission.
-                </p>
-                <p>
-                    You are welcome to browse, read, and be inspired, but not to reuse
-                    the content commercially or claim it as your own.
+                    If there is a conflict between these general terms and a signed written
+                    agreement, the signed written agreement will take priority for that
+                    specific project or licence.
                 </p>
             </section>
 
             <section className="legal-section">
-                <h2>4. Accuracy and updates</h2>
+                <h2>3. Digital products and licensed materials</h2>
                 <p>
-                    Seasonal.Studio is a living project. Content may evolve, be refined,
-                    or be archived over time. While we aim for clarity and accuracy, we
-                    cannot guarantee that everything will always be up to date.
+                    Licensed materials may include code modules, interface patterns,
+                    atmospheric interaction systems, design assets, documentation, written
+                    guidance, templates, or other digital files supplied by Seasonal.Studio.
+                    Unless otherwise agreed in writing, these materials are licensed, not
+                    sold.
                 </p>
                 <p>
-                    If you notice something that feels incorrect or unclear, you are
-                    welcome to get in touch.
-                </p>
-            </section>
-
-            <section className="legal-section">
-                <h2>5. External links</h2>
-                <p>
-                    Seasonal.Studio may include links to external websites or tools.
-                    These are provided for context or inspiration, but we are not
-                    responsible for their content, policies, or availability.
+                    Your licence tier, permitted use, delivery format, payment terms, and any
+                    support allowance will be confirmed before purchase or delivery. You must
+                    only use the materials within the scope of the licence you have obtained.
                 </p>
             </section>
 
             <section className="legal-section">
-                <h2>6. Limitation of liability</h2>
+                <h2>4. Ownership and intellectual property</h2>
                 <p>
-                    Seasonal.Studio is offered as a calm, creative resource. We are not
-                    liable for any loss, interruption, or damage arising from your use of
-                    the site.
+                    Seasonal.Studio retains ownership of its original visuals, layouts,
+                    writing, code, design systems, product concepts, documentation, and other
+                    creative materials unless ownership transfer is expressly agreed in
+                    writing.
                 </p>
                 <p>
-                    You use the site at your own discretion and are responsible for
-                    ensuring your device and connection are secure.
+                    A licence allows you to use the agreed materials for the agreed purpose.
+                    It does not give you permission to resell, redistribute, sublicense,
+                    repackage, publish, or claim ownership of Seasonal.Studio materials unless
+                    those rights are specifically included in your written licence.
                 </p>
             </section>
 
             <section className="legal-section">
-                <h2>7. Privacy</h2>
+                <h2>5. Purchases, payment, and delivery</h2>
+                <p>
+                    Prices, licence tiers, and availability may change over time. Any confirmed
+                    quote or invoice will state the relevant price and payment requirements.
+                    Digital materials are normally delivered electronically after payment or
+                    according to the schedule agreed in writing.
+                </p>
+                <p>
+                    You are responsible for checking that the selected licence is suitable for
+                    your intended use before purchasing. If you are unsure, please contact the
+                    studio before completing a purchase or implementation.
+                </p>
+            </section>
+
+            <section className="legal-section">
+                <h2>6. Refunds and cancellations</h2>
+                <p>
+                    Because licensed digital materials may be accessed, copied, or downloaded
+                    immediately after delivery, refunds are not guaranteed once digital access
+                    has been supplied, unless required by law or agreed in writing.
+                </p>
+                <p>
+                    For bespoke work, cancellation terms will depend on the scope, schedule,
+                    and work already completed. Any project-specific cancellation terms should
+                    be confirmed before work begins.
+                </p>
+            </section>
+
+            <section className="legal-section">
+                <h2>7. Support and maintenance</h2>
+                <p>
+                    Support is provided only where it is included in your licence, purchase,
+                    or written agreement. Support may cover reasonable setup guidance,
+                    integration questions, documentation clarification, and bug reports
+                    relating to Seasonal.Studio materials.
+                </p>
+                <p>
+                    Maintenance, roadmap updates, compatibility changes, customisation, and
+                    implementation work are separate from general support unless expressly
+                    included. See the <a href="/studio/support">Support Policy</a> and{' '}
+                    <a href="/studio/maintenance-roadmap">Maintenance Roadmap</a> for more
+                    context.
+                </p>
+            </section>
+
+            <section className="legal-section">
+                <h2>8. Acceptable use</h2>
+                <p>
+                    You must not misuse the website or supplied materials, attempt to bypass
+                    security, copy protected content without permission, use materials outside
+                    your licence scope, or use Seasonal.Studio work in a way that is unlawful,
+                    misleading, harmful, or infringing.
+                </p>
+            </section>
+
+            <section className="legal-section">
+                <h2>9. Third-party services</h2>
+                <p>
+                    Seasonal.Studio may link to or integrate with third-party tools, hosting
+                    providers, payment providers, APIs, fonts, libraries, or platforms. Those
+                    services are governed by their own terms and policies. Seasonal.Studio is
+                    not responsible for third-party availability, changes, or external policies.
+                </p>
+            </section>
+
+            <section className="legal-section">
+                <h2>10. Limitation of liability</h2>
+                <p>
+                    Seasonal.Studio materials are provided with care, but digital products and
+                    creative systems may require adaptation for your environment. To the fullest
+                    extent permitted by law, Seasonal.Studio is not liable for indirect losses,
+                    lost profit, business interruption, data loss, platform changes, or issues
+                    caused by third-party services, local implementation, or unauthorised
+                    modification.
+                </p>
+            </section>
+
+            <section className="legal-section">
+                <h2>11. Privacy</h2>
                 <p>
                     For information on how we handle data, please refer to the Seasonal.Studio{' '}
                     <a href="/legal/privacy">Privacy Policy</a>.
@@ -82,11 +149,12 @@ export default function SeasonalTerms() {
             </section>
 
             <section className="legal-section">
-                <h2>8. Changes to these terms</h2>
+                <h2>12. Changes to these terms</h2>
                 <p>
-                    We may update these terms occasionally to reflect new features,
-                    design changes, or legal requirements. Continued use of the site
-                    means you accept the updated terms.
+                    Seasonal.Studio may update these Terms & Conditions to reflect new
+                    products, licensing options, support arrangements, or legal requirements.
+                    The version published on this page applies from the date it appears on the
+                    website unless a written agreement states otherwise.
                 </p>
             </section>
         </LegalLayout>

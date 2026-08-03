@@ -8,6 +8,7 @@ interface NavItem {
   label: string
   to: string
   description: string
+  children?: NavItem[]
 }
 
 interface NavSection {
@@ -21,7 +22,16 @@ const navSections: NavSection[] = [
     items: [
       { label: 'Home', to: '/', description: 'Main landing page and introduction.' },
       { label: 'Work With Me', to: '/studio/work-with-me', description: 'Collaboration and project enquiries.' },
-      { label: 'Licencing', to: '/studio/licencing', description: 'Licencing, usage, and collaboration terms.' },
+      {
+        label: 'Licencing',
+        to: '/studio/licencing',
+        description: 'Licencing, usage, and collaboration terms.',
+        children: [
+          { label: 'Terms & Conditions', to: '/studio/terms', description: 'Full licence and digital product terms.' },
+          { label: 'Support', to: '/studio/support', description: 'How support works.' },
+          { label: 'Maintenance Roadmap', to: '/studio/maintenance-roadmap', description: 'Engine updates and compatibility.' },
+        ],
+      },
       { label: 'Studio', to: '/studio/about', description: 'Identity, experience, and studio practice.' },
       { label: 'Journal', to: '/studio/journal', description: 'Stories, references, and house notes.' },
       { label: 'Contact', to: '/studio/work-with-me#studio-contact-form', description: 'Send an enquiry or project note.' },
@@ -30,7 +40,10 @@ const navSections: NavSection[] = [
 ]
 
 const allItems = navSections.flatMap((section) =>
-  section.items.map((item) => ({ ...item, section: section.title })),
+  section.items.flatMap((item) => [
+    { ...item, section: section.title },
+    ...(item.children ?? []).map((child) => ({ ...child, section: section.title })),
+  ]),
 )
 
 function matchesQuery(item: NavItem & { section: string }, query: string) {
@@ -93,12 +106,23 @@ export function StudioDropdown() {
     <div className="site-nav" ref={rootRef}>
       <nav className="site-nav-primary" aria-label="Primary navigation">
         {navSections[0].items.map((item, index) => (
-          <Link key={`${item.to}-${item.label}`} to={item.to} className="site-nav-primary-link">
-            {item.label}
+          <span className="site-nav-primary-group" key={`${item.to}-${item.label}`}>
+            <Link to={item.to} className="site-nav-primary-link">
+              {item.label}
+            </Link>
+            {item.children && (
+              <span className="site-nav-submenu" aria-label={`${item.label} submenu`}>
+                {item.children.map((child) => (
+                  <Link key={`${item.label}-${child.to}`} to={child.to} className="site-nav-submenu-link">
+                    {child.label}
+                  </Link>
+                ))}
+              </span>
+            )}
             {index < navSections[0].items.length - 1 && (
               <span className="site-nav-primary-separator" aria-hidden="true">/</span>
             )}
-          </Link>
+          </span>
         ))}
       </nav>
 

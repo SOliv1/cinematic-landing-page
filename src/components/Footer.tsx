@@ -1,3 +1,4 @@
+import { Link } from '@tanstack/react-router'
 import type { CSSProperties, ReactElement } from 'react'
 
 interface SocialLink {
@@ -77,21 +78,33 @@ export default function Footer() {
 
       <SocialLinks className="footer-socials" />
 
-      <nav className="footer-legal" aria-label="Legal">
-        <a href="/legal/privacy" className="footer-legal-link">
+      <nav className="footer-legal footer-legal--expanded" aria-label="Legal and support">
+        <Link to="/studio/licencing" className="footer-legal-link">
+          Licensing
+        </Link>
+        <span aria-hidden="true" className="footer-legal-sep">·</span>
+        <Link to="/studio/terms" className="footer-legal-link">
+          Terms & Conditions
+        </Link>
+        <span aria-hidden="true" className="footer-legal-sep">·</span>
+        <Link to="/studio/support" className="footer-legal-link">
+          Support
+        </Link>
+        <span aria-hidden="true" className="footer-legal-sep">·</span>
+        <Link to="/studio/maintenance-roadmap" className="footer-legal-link">
+          Maintenance Roadmap
+        </Link>
+        <span aria-hidden="true" className="footer-legal-sep">·</span>
+        <Link to="/legal/privacy" className="footer-legal-link">
           Privacy
-        </a>
+        </Link>
         <span aria-hidden="true" className="footer-legal-sep">·</span>
-        <a href="/legal/terms" className="footer-legal-link">
-          Terms
-        </a>
-        <span aria-hidden="true" className="footer-legal-sep">·</span>
-        <a href="/legal/cookies" className="footer-legal-link">
+        <Link to="/legal/cookies" className="footer-legal-link">
           Cookies
-        </a>
+        </Link>
       </nav>
 
-      <p className="footer-line">Made with care · {new Date().getFullYear()}</p>
+      <p className="footer-line">© 2026 Seasonal.Studio</p>
     </footer>
   )
 }

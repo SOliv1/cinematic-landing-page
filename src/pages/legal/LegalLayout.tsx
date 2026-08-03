@@ -3,7 +3,7 @@ import ReturnHomePill from "../../components/ReturnHomePill";
 
 const LEGAL_LINKS = [
   { href: '/legal/privacy', label: 'Privacy Policy' },
-  { href: '/legal/terms',   label: 'Terms of Use'   },
+  { href: '/legal/terms',   label: 'Terms & Conditions' },
   { href: '/legal/cookies', label: 'Cookie Notice'  },
 ];
 

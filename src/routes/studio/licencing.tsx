@@ -2,129 +2,138 @@ import { Link, createFileRoute } from '@tanstack/react-router'
 import { StudioPageLayout } from '@/components/StudioPageLayout'
 
 export const Route = createFileRoute('/studio/licencing')({
-  component: () => (
-    <StudioPageLayout
-      title="Licencing"
-      subtitle="Usage, adaptation, and partnership terms for Seasonal.Studio work."
-    >
-      <section className="licensing">
-        <header className="page-header">
-          <h1>Licensing: Living Atmosphere</h1>
-          <p className="subtitle">A calm, atmospheric interaction layer for digital experiences.</p>
-        </header>
-
-        <section className="intro">
-          <p>
-            Living Atmosphere brings seasonal ambience, cinematic transitions, and emotional pacing
-            to any web app or studio environment. It's designed for creators who want their digital
-            spaces to feel gentle, intentional, and alive.
-          </p>
-        </section>
-
-        <section className="definition">
-          <h2>What Living Atmosphere Is</h2>
-          <ul>
-            <li>seasonal tinting</li>
-            <li>time-of-day ambience</li>
-            <li>weather-aware shimmer</li>
-            <li>cinematic transitions</li>
-            <li>reflective pacing</li>
-            <li>mood-aware UI behaviour</li>
-            <li>calm, intentional interaction patterns</li>
-          </ul>
-          <p>
-            A lightweight layer that sits inside your existing app or site, shaping how it feels
-            rather than how it looks.
-          </p>
-        </section>
-
-        <section className="function">
-          <h2>What It Does</h2>
-          <ul>
-            <li>a sense of rhythm and emotional safety</li>
-            <li>a calmer, more reflective user experience</li>
-            <li>atmospheric transitions that feel cinematic</li>
-            <li>seasonal intelligence that responds to time, light, and weather</li>
-            <li>gentle pacing that supports wellbeing, journaling, and mindful interaction</li>
-          </ul>
-          <p>
-            Designed for digital spaces that value clarity, warmth, and emotional resonance.
-          </p>
-        </section>
-
-        <section className="audience">
-          <h2>Who It's For</h2>
-          <ul>
-            <li>wellbeing apps</li>
-            <li>journaling platforms</li>
-            <li>mindfulness studios</li>
-            <li>boutique creative agencies</li>
-            <li>slow-tech communities</li>
-            <li>atmospheric landing pages</li>
-            <li>reflective digital spaces</li>
-            <li>seasonal or nature-aligned brands</li>
-          </ul>
-          <p>
-            If your work centres on calm, clarity, or emotional rhythm, Living Atmosphere adds
-            depth without complexity.
-          </p>
-        </section>
-
-        <section className="pricing">
-          <h2>Licensing Options</h2>
-
-          <section className="pricing-graphic" aria-label="Living Atmosphere pricing tiers">
-            <div className="tier">
-              <h3>Single-Use Licence</h3>
-              <p>One app or one digital experience</p>
-              <p className="price">£199-£499</p>
-            </div>
-
-            <div className="tier">
-              <h3>Studio Licence</h3>
-              <p>Unlimited use within one studio</p>
-              <p className="price">£799-£1,500</p>
-            </div>
-
-            <div className="tier">
-              <h3>Extended Commercial</h3>
-              <p>Large-scale apps and subscription platforms</p>
-              <p className="price">£2,000+</p>
-            </div>
-          </section>
-        </section>
-
-        <section className="demo">
-          <h2>Demo</h2>
-          <p>
-            A small interactive demo is available to show Living Atmosphere in motion - seasonal
-            tinting, cinematic transitions, and reflective pacing.
-          </p>
-          <Link className="licensing-demo-link" to="/studio/demo">
-            View the demo
-          </Link>
-        </section>
-
-        <section className="how-it-works">
-          <h2>How Licensing Works</h2>
-          <ol>
-            <li>Choose your licence tier</li>
-            <li>Receive the Living Atmosphere module</li>
-            <li>Integrate it into your app or site</li>
-            <li>Add ambience, rhythm, and cinematic behaviour with minimal setup</li>
-          </ol>
-          <p>Support is available for integration and customisation.</p>
-        </section>
-
-        <section className="contact">
-          <h2>Contact</h2>
-          <p>
-            If you'd like to license Living Atmosphere or explore how it can support your digital
-            space, you can reach out through the studio's contact page.
-          </p>
-          <p>A calm, atmospheric layer for digital experiences - available to license.</p>
-        </section>
-      </section>
-    </StudioPageLayout>
-  ),
+  component: StudioLicencingPage,
 })
+
+function StudioLicencingPage() {
+  return (
+    <StudioPageLayout
+      title="Licensing"
+      subtitle="Clear licensing, calm support, and long-term care for Living Atmosphere."
+    >
+      <main className="licencing-page">
+        <section className="licencing-hero">
+          <div className="licencing-hero-inner">
+            <h1>Living Atmosphere Licensing</h1>
+            <p>
+              Bring Seasonal.Studio's cinematic atmosphere into your own digital space.
+              Clear licensing. Calm support. No hidden complexity.
+            </p>
+          </div>
+        </section>
+
+        <section className="licencing-intro">
+          <div className="licencing-intro-inner">
+            <h2>How licensing works</h2>
+            <p>
+              The Living Atmosphere is licensed per project. You keep the engine forever.
+              Support and updates are available in simple tiers.
+            </p>
+            <div className="licencing-cta-row">
+              <Link to="/studio/demo" className="btn-primary">
+                View Atmosphere Demo
+              </Link>
+              <Link to="/studio/terms" className="btn-ghost">
+                View full Terms & Conditions
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="licencing-tiers">
+          <h2>Licence tiers</h2>
+          <p>Choose the level of support and refinement that matches your project.</p>
+
+          <div className="licencing-tier-grid">
+            <article className="licencing-tier-card">
+              <h3>Atmosphere Basic</h3>
+              <p className="tier-price">£199-£499 per project</p>
+              <ul>
+                <li>Perpetual licence for one website or app</li>
+                <li>Core Living Atmosphere engine</li>
+                <li>90 days bug-fix support</li>
+                <li>Required attribution: "Atmospheric engine by Seasonal.Studio"</li>
+              </ul>
+              <Link className="btn-secondary" to="/studio/work-with-me#studio-contact-form">
+                Request Basic Licence
+              </Link>
+            </article>
+
+            <article className="licencing-tier-card">
+              <h3>Atmosphere Studio</h3>
+              <p className="tier-price">£799-£1,500 per project</p>
+              <ul>
+                <li>Perpetual licence for one website or app</li>
+                <li>Refined configuration and integration guidance</li>
+                <li>6 months bug-fix support + minor updates</li>
+                <li>Optional attribution</li>
+              </ul>
+              <Link className="btn-secondary" to="/studio/work-with-me#studio-contact-form">
+                Request Studio Licence
+              </Link>
+            </article>
+
+            <article className="licencing-tier-card">
+              <h3>Atmosphere Cinematic</h3>
+              <p className="tier-price">£2,000+ per project</p>
+              <ul>
+                <li>Perpetual licence for one flagship experience</li>
+                <li>Custom tuning of moods, seasons and transitions</li>
+                <li>12 months bug-fix support + feature updates</li>
+                <li>Priority support and implementation calls</li>
+              </ul>
+              <Link className="btn-secondary" to="/studio/work-with-me#studio-contact-form">
+                Request Cinematic Licence
+              </Link>
+            </article>
+          </div>
+        </section>
+
+        <section className="licencing-support">
+          <h2>Support and maintenance</h2>
+          <p>
+            Every licence includes a defined support period. You can renew support annually
+            without losing your licence.
+          </p>
+
+          <div className="licencing-support-grid">
+            <div>
+              <h3>Support periods</h3>
+              <ul>
+                <li>Basic: 90 days bug-fix support</li>
+                <li>Studio: 6 months bug-fix + minor updates</li>
+                <li>Cinematic: 12 months bug-fix + feature updates</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Renewal options</h3>
+              <ul>
+                <li>Basic: £49/year support renewal</li>
+                <li>Studio: £149/year support renewal</li>
+                <li>Cinematic: £299/year support renewal</li>
+                <li>3-year continuity plans with loyalty pricing</li>
+              </ul>
+            </div>
+          </div>
+
+          <nav className="licencing-links" aria-label="Licensing resources">
+            <Link to="/studio/support">How Support Works</Link>
+            <Link to="/studio/maintenance-roadmap">Maintenance Roadmap</Link>
+            <Link to="/studio/terms">View full Terms & Conditions</Link>
+          </nav>
+        </section>
+
+        <section className="licencing-contact">
+          <h2>Talk to Seasonal.Studio</h2>
+          <p>
+            For bespoke licensing, multi-project agreements or agency partnerships,
+            contact us with a short outline of your project.
+          </p>
+          <p className="licencing-email">
+            Email: <a href="mailto:support@seasonal.studio">support@seasonal.studio</a>
+          </p>
+        </section>
+      </main>
+    </StudioPageLayout>
+  )
+}

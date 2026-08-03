@@ -17,12 +17,15 @@ import { Route as StudioWorkWithMeRouteImport } from './routes/studio/work-with-
 import { Route as StudioWhySeasonalRouteImport } from './routes/studio/why-seasonal'
 import { Route as StudioVintageNotesRouteImport } from './routes/studio/vintage-notes'
 import { Route as StudioUnlockMoreRouteImport } from './routes/studio/unlock-more'
+import { Route as StudioTermsRouteImport } from './routes/studio/terms'
+import { Route as StudioSupportRouteImport } from './routes/studio/support'
 import { Route as StudioSoftRoomRouteImport } from './routes/studio/soft-room'
 import { Route as StudioSeasonalWeatherRouteImport } from './routes/studio/seasonal-weather'
 import { Route as StudioPositioningRouteImport } from './routes/studio/positioning'
 import { Route as StudioMorningRoomRouteImport } from './routes/studio/morning-room'
 import { Route as StudioMoodboardRouteImport } from './routes/studio/moodboard'
 import { Route as StudioManifestoRouteImport } from './routes/studio/manifesto'
+import { Route as StudioMaintenanceRoadmapRouteImport } from './routes/studio/maintenance-roadmap'
 import { Route as StudioLicencingRouteImport } from './routes/studio/licencing'
 import { Route as StudioJournalRouteImport } from './routes/studio/journal'
 import { Route as StudioInteriorsRouteImport } from './routes/studio/interiors'
@@ -80,6 +83,16 @@ const StudioUnlockMoreRoute = StudioUnlockMoreRouteImport.update({
   path: '/studio/unlock-more',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioTermsRoute = StudioTermsRouteImport.update({
+  id: '/studio/terms',
+  path: '/studio/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioSupportRoute = StudioSupportRouteImport.update({
+  id: '/studio/support',
+  path: '/studio/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StudioSoftRoomRoute = StudioSoftRoomRouteImport.update({
   id: '/studio/soft-room',
   path: '/studio/soft-room',
@@ -110,6 +123,12 @@ const StudioManifestoRoute = StudioManifestoRouteImport.update({
   path: '/studio/manifesto',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioMaintenanceRoadmapRoute =
+  StudioMaintenanceRoadmapRouteImport.update({
+    id: '/studio/maintenance-roadmap',
+    path: '/studio/maintenance-roadmap',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const StudioLicencingRoute = StudioLicencingRouteImport.update({
   id: '/studio/licencing',
   path: '/studio/licencing',
@@ -212,12 +231,15 @@ export interface FileRoutesByFullPath {
   '/studio/interiors': typeof StudioInteriorsRoute
   '/studio/journal': typeof StudioJournalRoute
   '/studio/licencing': typeof StudioLicencingRoute
+  '/studio/maintenance-roadmap': typeof StudioMaintenanceRoadmapRoute
   '/studio/manifesto': typeof StudioManifestoRoute
   '/studio/moodboard': typeof StudioMoodboardRoute
   '/studio/morning-room': typeof StudioMorningRoomRoute
   '/studio/positioning': typeof StudioPositioningRoute
   '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
   '/studio/soft-room': typeof StudioSoftRoomRoute
+  '/studio/support': typeof StudioSupportRoute
+  '/studio/terms': typeof StudioTermsRoute
   '/studio/unlock-more': typeof StudioUnlockMoreRoute
   '/studio/vintage-notes': typeof StudioVintageNotesRoute
   '/studio/why-seasonal': typeof StudioWhySeasonalRoute
@@ -244,12 +266,15 @@ export interface FileRoutesByTo {
   '/studio/interiors': typeof StudioInteriorsRoute
   '/studio/journal': typeof StudioJournalRoute
   '/studio/licencing': typeof StudioLicencingRoute
+  '/studio/maintenance-roadmap': typeof StudioMaintenanceRoadmapRoute
   '/studio/manifesto': typeof StudioManifestoRoute
   '/studio/moodboard': typeof StudioMoodboardRoute
   '/studio/morning-room': typeof StudioMorningRoomRoute
   '/studio/positioning': typeof StudioPositioningRoute
   '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
   '/studio/soft-room': typeof StudioSoftRoomRoute
+  '/studio/support': typeof StudioSupportRoute
+  '/studio/terms': typeof StudioTermsRoute
   '/studio/unlock-more': typeof StudioUnlockMoreRoute
   '/studio/vintage-notes': typeof StudioVintageNotesRoute
   '/studio/why-seasonal': typeof StudioWhySeasonalRoute
@@ -277,12 +302,15 @@ export interface FileRoutesById {
   '/studio/interiors': typeof StudioInteriorsRoute
   '/studio/journal': typeof StudioJournalRoute
   '/studio/licencing': typeof StudioLicencingRoute
+  '/studio/maintenance-roadmap': typeof StudioMaintenanceRoadmapRoute
   '/studio/manifesto': typeof StudioManifestoRoute
   '/studio/moodboard': typeof StudioMoodboardRoute
   '/studio/morning-room': typeof StudioMorningRoomRoute
   '/studio/positioning': typeof StudioPositioningRoute
   '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
   '/studio/soft-room': typeof StudioSoftRoomRoute
+  '/studio/support': typeof StudioSupportRoute
+  '/studio/terms': typeof StudioTermsRoute
   '/studio/unlock-more': typeof StudioUnlockMoreRoute
   '/studio/vintage-notes': typeof StudioVintageNotesRoute
   '/studio/why-seasonal': typeof StudioWhySeasonalRoute
@@ -311,12 +339,15 @@ export interface FileRouteTypes {
     | '/studio/interiors'
     | '/studio/journal'
     | '/studio/licencing'
+    | '/studio/maintenance-roadmap'
     | '/studio/manifesto'
     | '/studio/moodboard'
     | '/studio/morning-room'
     | '/studio/positioning'
     | '/studio/seasonal-weather'
     | '/studio/soft-room'
+    | '/studio/support'
+    | '/studio/terms'
     | '/studio/unlock-more'
     | '/studio/vintage-notes'
     | '/studio/why-seasonal'
@@ -343,12 +374,15 @@ export interface FileRouteTypes {
     | '/studio/interiors'
     | '/studio/journal'
     | '/studio/licencing'
+    | '/studio/maintenance-roadmap'
     | '/studio/manifesto'
     | '/studio/moodboard'
     | '/studio/morning-room'
     | '/studio/positioning'
     | '/studio/seasonal-weather'
     | '/studio/soft-room'
+    | '/studio/support'
+    | '/studio/terms'
     | '/studio/unlock-more'
     | '/studio/vintage-notes'
     | '/studio/why-seasonal'
@@ -375,12 +409,15 @@ export interface FileRouteTypes {
     | '/studio/interiors'
     | '/studio/journal'
     | '/studio/licencing'
+    | '/studio/maintenance-roadmap'
     | '/studio/manifesto'
     | '/studio/moodboard'
     | '/studio/morning-room'
     | '/studio/positioning'
     | '/studio/seasonal-weather'
     | '/studio/soft-room'
+    | '/studio/support'
+    | '/studio/terms'
     | '/studio/unlock-more'
     | '/studio/vintage-notes'
     | '/studio/why-seasonal'
@@ -408,12 +445,15 @@ export interface RootRouteChildren {
   StudioInteriorsRoute: typeof StudioInteriorsRoute
   StudioJournalRoute: typeof StudioJournalRoute
   StudioLicencingRoute: typeof StudioLicencingRoute
+  StudioMaintenanceRoadmapRoute: typeof StudioMaintenanceRoadmapRoute
   StudioManifestoRoute: typeof StudioManifestoRoute
   StudioMoodboardRoute: typeof StudioMoodboardRoute
   StudioMorningRoomRoute: typeof StudioMorningRoomRoute
   StudioPositioningRoute: typeof StudioPositioningRoute
   StudioSeasonalWeatherRoute: typeof StudioSeasonalWeatherRoute
   StudioSoftRoomRoute: typeof StudioSoftRoomRoute
+  StudioSupportRoute: typeof StudioSupportRoute
+  StudioTermsRoute: typeof StudioTermsRoute
   StudioUnlockMoreRoute: typeof StudioUnlockMoreRoute
   StudioVintageNotesRoute: typeof StudioVintageNotesRoute
   StudioWhySeasonalRoute: typeof StudioWhySeasonalRoute
@@ -478,6 +518,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudioUnlockMoreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/studio/terms': {
+      id: '/studio/terms'
+      path: '/studio/terms'
+      fullPath: '/studio/terms'
+      preLoaderRoute: typeof StudioTermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/support': {
+      id: '/studio/support'
+      path: '/studio/support'
+      fullPath: '/studio/support'
+      preLoaderRoute: typeof StudioSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/studio/soft-room': {
       id: '/studio/soft-room'
       path: '/studio/soft-room'
@@ -518,6 +572,13 @@ declare module '@tanstack/react-router' {
       path: '/studio/manifesto'
       fullPath: '/studio/manifesto'
       preLoaderRoute: typeof StudioManifestoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/maintenance-roadmap': {
+      id: '/studio/maintenance-roadmap'
+      path: '/studio/maintenance-roadmap'
+      fullPath: '/studio/maintenance-roadmap'
+      preLoaderRoute: typeof StudioMaintenanceRoadmapRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/studio/licencing': {
@@ -656,12 +717,15 @@ const rootRouteChildren: RootRouteChildren = {
   StudioInteriorsRoute: StudioInteriorsRoute,
   StudioJournalRoute: StudioJournalRoute,
   StudioLicencingRoute: StudioLicencingRoute,
+  StudioMaintenanceRoadmapRoute: StudioMaintenanceRoadmapRoute,
   StudioManifestoRoute: StudioManifestoRoute,
   StudioMoodboardRoute: StudioMoodboardRoute,
   StudioMorningRoomRoute: StudioMorningRoomRoute,
   StudioPositioningRoute: StudioPositioningRoute,
   StudioSeasonalWeatherRoute: StudioSeasonalWeatherRoute,
   StudioSoftRoomRoute: StudioSoftRoomRoute,
+  StudioSupportRoute: StudioSupportRoute,
+  StudioTermsRoute: StudioTermsRoute,
   StudioUnlockMoreRoute: StudioUnlockMoreRoute,
   StudioVintageNotesRoute: StudioVintageNotesRoute,
   StudioWhySeasonalRoute: StudioWhySeasonalRoute,
