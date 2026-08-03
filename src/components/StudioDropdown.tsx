@@ -106,8 +106,15 @@ export function StudioDropdown() {
     <div className="site-nav" ref={rootRef}>
       <nav className="site-nav-primary" aria-label="Primary navigation">
         {navSections[0].items.map((item, index) => (
-          <span className="site-nav-primary-group" key={`${item.to}-${item.label}`}>
-            <Link to={item.to} className="site-nav-primary-link">
+          <span
+            className={`site-nav-primary-group ${item.children ? 'has-submenu' : ''}`}
+            key={`${item.to}-${item.label}`}
+          >
+            <Link
+              to={item.to}
+              className="site-nav-primary-link"
+              aria-haspopup={item.children ? 'true' : undefined}
+            >
               {item.label}
             </Link>
             {item.children && (
