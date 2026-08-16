@@ -1,6 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import { StudioDropdown } from '@/components/StudioDropdown'
 import { ReflectionsSplash, useSplashTrigger, useSplashShow } from '@/components/ReflectionsSplash'
 import { Hero } from '@/components/Hero'
 import OrbNeutral from '/images/orbs/orb-neutral.png'
@@ -540,20 +539,9 @@ function LandingPage() {
     >
       {/* ── HERO IMAGE SECTION ──────────────────────────────── */}
       <div style={{ position: 'relative', minHeight: '100vh', width: '100%' }}>
-        {/* OrbLogo at top center, overlays hero image */}
-        <div style={{
-          position: 'absolute',
-          top: '86px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 20,
-          pointerEvents: 'none',
-        }}>
+        {/* OrbLogo sits inside the central hero artwork. */}
+        <div className="hero-orb-anchor">
           <SeasonalOrb src={orbArtwork} palette={palette} />
-        </div>
-        {/* Studio dropdown stays on top right */}
-        <div style={{ position: 'absolute', top: '28px', right: '32px', zIndex: 80, height: '66px', display: 'flex', alignItems: 'center' }}>
-          <StudioDropdown />
         </div>
         <Hero onCinematicMode={() => showSplash('cinematic-mode')} />
       </div>

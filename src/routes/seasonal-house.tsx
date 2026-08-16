@@ -2,7 +2,6 @@ import { createFileRoute, Link } from '@tanstack/react-router'
 import { useEffect } from 'react'
 import { useSeasonalBackground, useSeasonalBackgroundVariant } from '@/hooks/useSeasonalBackground'
 import type { SeasonalBackgroundVariant } from '@/utils/getSeasonalBackground'
-import { StudioDropdown } from '@/components/StudioDropdown'
 
 export const Route = createFileRoute('/seasonal-house')({
   component: SeasonalHousePage,
@@ -153,6 +152,12 @@ const rooms: Room[] = [
     comingSoon: true,
     href: '/studio/soft-room',
     className: 'soft-room-gradient',
+  },
+  {
+    title: 'Vintage Notes ✦',
+    description: 'A wardrobe drawn from memory. Quiet luxury, softly worn.',
+    href: '/studio/vintage-notes',
+    className: 'another-room-gradient',
   },
   {
     title: 'Another Room',
@@ -306,7 +311,6 @@ function SeasonalHousePage() {
             <span style={{ fontSize: '0.9rem', lineHeight: 1, opacity: 0.6 }}>←</span>
             The Seasonal House
           </Link>
-          <StudioDropdown />
         </nav>
 
         {/* ── Hero ─────────────────────────────────────────────────── */}

@@ -16,6 +16,48 @@ const localHeroImages: Array<HeroImage> = [
     fit: 'contain',
   },
   {
+    src: '/images/seasonalStudio-orbCollection.png',
+    alt: 'Seasonal.Studio orb collection artwork with cinematic mood and glow.',
+    position: 'center',
+    timeOfDay: 'day',
+  },
+  {
+    src: '/images/safe-Harbour.png',
+    alt: 'Safe Harbour scene with reflective light and calm, atmospheric composition.',
+    position: 'center',
+    timeOfDay: 'morning',
+  },
+  {
+    src: '/images/Sun‑BreakOrb.png',
+    alt: 'A sun-break orb image with luminous seasonal light and depth.',
+    position: 'center',
+    timeOfDay: 'day',
+  },
+  {
+    src: '/images/reflections-door-of-wonder-banner.png',
+    alt: 'Reflections Door of Wonder banner with cinematic portal-like lighting.',
+    position: 'center',
+    timeOfDay: 'evening',
+  },
+  {
+    src: '/images/reflections-features15.png',
+    alt: 'Reflections feature image fifteen with atmospheric, editorial styling.',
+    position: 'center',
+    timeOfDay: 'day',
+  },
+  {
+    src: '/images/reflections-features16.png',
+    alt: 'Reflections feature image sixteen with cinematic composition and texture.',
+    position: 'center',
+    timeOfDay: 'evening',
+  },
+  {
+    src: '/images/reflections-features20.png',
+    alt: 'Reflections feature image twenty with soft lighting and seasonal contrast.',
+    position: 'center',
+    timeOfDay: 'night',
+  },
+  {
     src: '/images/hero/soft-Breeze-Orb.png',
     alt: 'A glowing orb of light breaking through a green forest path',
     position: 'center 58%',

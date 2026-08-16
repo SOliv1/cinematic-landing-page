@@ -1,212 +1,163 @@
 import { createPortal } from 'react-dom'
-import React, { useEffect, useRef, useState, useCallback } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 
-// ── Items ─────────────────────────────────────────────────────────────────────
+type MenuMode = 'menu' | 'search'
 
-const studioItems = [
-  { label: 'Home',         to: '/',                     description: 'Return to the main landing page.' },
-  { label: 'About',        to: '/studio/about',         description: 'An introduction to who I am and how I think.' },
-  { label: 'Manifesto',    to: '/studio/manifesto',     description: 'My Seasonal principles, my philosophy.' },
-  { label: 'Interiors',    to: '/studio/interiors',     description: 'My services, framed as cinematic digital interiors.' },
-  { label: 'Depth Levels', to: '/studio/depth-levels',  description: 'My pricing tiers, framed as layers of involvement.' },
-  { label: 'Unlock More',  to: '/studio/unlock-more',   description: 'See free, premium, and seasonal upgrade options.' },
-  { label: 'Positioning',  to: '/studio/positioning',   description: 'My strategic identity and value proposition.' },
-  { label: 'Why Seasonal', to: '/studio/why-seasonal',  description: 'My competitive differentiators, why these interiors feel different.' },
-  { label: 'Work With Me', to: '/studio/work-with-me',  description: 'A soft, atmospheric contact page.' },
+interface NavItem {
+  label: string
+  to: string
+  description: string
+}
+
+interface NavSection {
+  title: string
+  items: NavItem[]
+}
+
+const navSections: NavSection[] = [
+  {
+    title: 'Top Menu',
+    items: [
+      { label: 'Home', to: '/', description: 'Main landing page and introduction.' },
+      { label: 'Work With Me', to: '/studio/work-with-me', description: 'Collaboration and project enquiries.' },
+      { label: 'Licencing', to: '/studio/licencing', description: 'Licencing, usage, and collaboration terms.' },
+      { label: 'Studio', to: '/studio/about', description: 'Identity, experience, and studio practice.' },
+      { label: 'Journal', to: '/studio/journal', description: 'Stories, references, and house notes.' },
+      { label: 'Contact', to: '/studio/work-with-me#studio-contact-form', description: 'Send an enquiry or project note.' },
+    ],
+  },
 ]
 
-// ── Component ─────────────────────────────────────────────────────────────────
+const allItems = navSections.flatMap((section) =>
+  section.items.map((item) => ({ ...item, section: section.title })),
+)
+
+function matchesQuery(item: NavItem & { section: string }, query: string) {
+  const value = `${item.section} ${item.label} ${item.description}`.toLowerCase()
+  return value.includes(query.trim().toLowerCase())
+}
 
 export function StudioDropdown() {
   const [open, setOpen] = useState(false)
-  const [panelStyle, setPanelStyle] = useState<React.CSSProperties>({})
-  const [canScrollDown, setCanScrollDown] = useState(false)
-  const [canScrollUp, setCanScrollUp] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-  const btnRef = useRef<HTMLButtonElement>(null)
-  const scrollRef = useRef<HTMLDivElement>(null)
+  const [mode, setMode] = useState<MenuMode>('menu')
+  const [query, setQuery] = useState('')
+  const rootRef = useRef<HTMLDivElement>(null)
   const panelRef = useRef<HTMLDivElement>(null)
+  const searchRef = useRef<HTMLInputElement>(null)
 
-  const updateScrollState = useCallback(() => {
-    const el = scrollRef.current
-    if (!el) return
-    setCanScrollUp(el.scrollTop > 4)
-    setCanScrollDown(el.scrollTop + el.clientHeight < el.scrollHeight - 4)
-  }, [])
-
-  useEffect(() => {
-    if (!open) return
-    // slight delay lets the portal render before measuring
-    const t = window.setTimeout(() => updateScrollState(), 50)
-    return () => window.clearTimeout(t)
-  }, [open, updateScrollState])
+  const searchResults = useMemo(() => {
+    if (!query.trim()) return allItems
+    return allItems.filter((item) => matchesQuery(item, query))
+  }, [query])
 
   useEffect(() => {
     if (!open) return
-    const handler = (e: MouseEvent) => {
-      const target = e.target as Node
-      const insideTrigger = ref.current?.contains(target)
+
+    const handler = (event: MouseEvent) => {
+      const target = event.target as Node
+      const insideButtons = rootRef.current?.contains(target)
       const insidePanel = panelRef.current?.contains(target)
-      if (!insideTrigger && !insidePanel) setOpen(false)
+
+      if (!insideButtons && !insidePanel) {
+        setOpen(false)
+      }
     }
+
     document.addEventListener('mousedown', handler)
     return () => document.removeEventListener('mousedown', handler)
   }, [open])
 
-  const handleOpen = () => {
-    if (!open && btnRef.current) {
-      const rect = btnRef.current.getBoundingClientRect()
-      const spaceBelow = window.innerHeight - rect.bottom - 16
-      const spaceAbove = rect.top - 16
-      const GAP = 10
-
-      if (spaceBelow >= 200 || spaceBelow >= spaceAbove) {
-        // open downward
-        setPanelStyle({
-          top: rect.bottom + GAP,
-          right: window.innerWidth - rect.right,
-          maxHeight: Math.max(spaceBelow, 160),
-        })
-      } else {
-        // flip upward
-        setPanelStyle({
-          bottom: window.innerHeight - rect.top + GAP,
-          right: window.innerWidth - rect.right,
-          maxHeight: Math.max(spaceAbove, 160),
-        })
-      }
+  useEffect(() => {
+    if (open && mode === 'search') {
+      window.setTimeout(() => searchRef.current?.focus(), 80)
     }
-    setOpen(o => !o)
+  }, [mode, open])
+
+  const toggleMode = (nextMode: MenuMode) => {
+    if (open && mode === nextMode) {
+      setOpen(false)
+      return
+    }
+
+    setMode(nextMode)
+    setOpen(true)
+  }
+
+  const closePanel = () => {
+    setOpen(false)
+    setQuery('')
   }
 
   return (
-    <div ref={ref} style={{ position: 'relative', zIndex: 1000 }}>
-      {/* Trigger */}
-      <button
-        ref={btnRef}
-        onClick={handleOpen}
-        aria-expanded={open}
-        aria-haspopup="true"
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '6px',
-          padding: '7px 14px',
-          borderRadius: '100px',
-          background: 'linear-gradient(135deg, rgba(58, 42, 26, 0.62) 0%, rgba(20, 18, 14, 0.72) 100%)',
-          border: '1px solid rgba(240, 225, 202, 0.16)',
-          backdropFilter: 'blur(18px) saturate(140%)',
-          WebkitBackdropFilter: 'blur(18px) saturate(140%)',
-          boxShadow: '0 6px 16px rgba(0,0,0,0.18), inset 0 1px 0 rgba(240,225,202,0.08)',
-          cursor: 'pointer',
-          fontFamily: "'Outfit', sans-serif",
-          fontSize: '0.63rem',
-          fontWeight: 400,
-          letterSpacing: '0.18em',
-          textTransform: 'uppercase',
-          color: 'rgba(240, 225, 202, 0.92)',
-        }}
-      >
-        The Studio
-        <span style={{
-          fontSize: '0.6rem',
-          opacity: 0.55,
-          transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
-          transition: 'transform 0.3s ease',
-          display: 'inline-block',
-          marginTop: '1px',
-        }}>▾</span>
-      </button>
+    <div className="site-nav" ref={rootRef}>
+      <nav className="site-nav-primary" aria-label="Primary navigation">
+        {navSections[0].items.map((item, index) => (
+          <Link key={`${item.to}-${item.label}`} to={item.to} className="site-nav-primary-link">
+            {item.label}
+            {index < navSections[0].items.length - 1 && (
+              <span className="site-nav-primary-separator" aria-hidden="true">/</span>
+            )}
+          </Link>
+        ))}
+      </nav>
 
-      {/* Panel — rendered via portal so it escapes all stacking contexts */}
+      <div className="site-nav-actions" aria-label="Site navigation">
+        <button
+          type="button"
+          className={`site-nav-button ${open && mode === 'search' ? 'is-active' : ''}`}
+          aria-expanded={open && mode === 'search'}
+          aria-haspopup="dialog"
+          onClick={() => toggleMode('search')}
+        >
+          <span>Search</span>
+        </button>
+      </div>
+
       {open && createPortal(
-        <>
-          <div
-            aria-hidden="true"
-            onMouseDown={() => setOpen(false)}
-            style={{
-              position: 'fixed',
-              inset: 0,
-              zIndex: 99998,
-              background: 'transparent',
-            }}
-          />
-          <div ref={panelRef} style={{
-            position: 'fixed',
-            ...panelStyle,
-            minWidth: '300px',
-            borderRadius: '22px',
-            background: 'linear-gradient(160deg, rgba(18, 18, 24, 0.88) 0%, rgba(12, 12, 18, 0.92) 100%)',
-            border: '1px solid rgba(255, 255, 255, 0.10)',
-            backdropFilter: 'blur(40px) saturate(160%) brightness(0.9)',
-            WebkitBackdropFilter: 'blur(40px) saturate(160%) brightness(0.9)',
-            boxShadow: '0 32px 72px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04), inset 0 1px 0 rgba(255,255,255,0.07)',
-            padding: '0',
-            overflow: 'hidden',
-            animation: 'panelReveal 0.25s ease both',
-            zIndex: 99999,
-          }}>
-            {/* Scroll fade — top */}
-            <div style={{
-              position: 'absolute',
-              top: 0, left: 0, right: 0,
-              height: '32px',
-              background: 'linear-gradient(to bottom, rgba(14,14,20,0.75), transparent)',
-              pointerEvents: 'none',
-              borderRadius: '22px 22px 0 0',
-              opacity: canScrollUp ? 1 : 0,
-              transition: 'opacity 0.2s ease',
-              zIndex: 1,
-            }} />
-            {/* Scrollable list */}
-            <div
-              ref={scrollRef}
-              onScroll={updateScrollState}
-              style={{ overflowY: 'auto', maxHeight: panelStyle.maxHeight, padding: '10px' }}
-            >
-              {studioItems.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setOpen(false)}
-                  className={item.to === '/' ? 'studio-item studio-item-home' : 'studio-item'}
-                >
-                  <span style={{
-                    display: 'block',
-                    fontFamily: "'Cormorant Garamond', serif",
-                    fontSize: '1.05rem',
-                    fontWeight: 400,
-                    letterSpacing: '0.03em',
-                    color: 'rgba(245,238,228,0.95)',
-                    marginBottom: '2px',
-                  }}>{item.label}</span>
-                  <span style={{
-                    display: 'block',
-                    fontFamily: "'Outfit', sans-serif",
-                    fontSize: '0.72rem',
-                    fontWeight: 300,
-                    letterSpacing: '0.05em',
-                    color: 'rgba(220,210,195,0.52)',
-                  }}>{item.description}</span>
-                </Link>
-              ))}
-            </div>
-            {/* Scroll fade — bottom */}
-            <div style={{
-              position: 'absolute',
-              bottom: 0, left: 0, right: 0,
-              height: '36px',
-              background: 'linear-gradient(to top, rgba(14,14,20,0.85), transparent)',
-              pointerEvents: 'none',
-              borderRadius: '0 0 22px 22px',
-              opacity: canScrollDown ? 1 : 0,
-              transition: 'opacity 0.2s ease',
-              zIndex: 1,
-            }} />
+        <div ref={panelRef} className="site-nav-panel" role="dialog" aria-label={mode === 'search' ? 'Search site navigation' : 'Site menu'}>
+          {mode === 'search' && (
+            <label className="site-nav-search">
+              <input
+                ref={searchRef}
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search pages"
+              />
+            </label>
+          )}
+
+          <div className="site-nav-scroll">
+            {mode === 'menu' ? (
+              navSections.map((section) => (
+                <section className="site-nav-section" key={section.title}>
+                  <h2>{section.title}</h2>
+                  {section.items.map((item) => (
+                    <Link key={`${section.title}-${item.to}-${item.label}`} to={item.to} className="site-nav-item" onClick={closePanel}>
+                      <span>{item.label}</span>
+                      <small>{item.description}</small>
+                    </Link>
+                  ))}
+                </section>
+              ))
+            ) : (
+              <section className="site-nav-section">
+                <h2>{query.trim() ? 'Results' : 'All Pages'}</h2>
+                {searchResults.length > 0 ? (
+                  searchResults.map((item) => (
+                    <Link key={`${item.section}-${item.to}-${item.label}`} to={item.to} className="site-nav-item" onClick={closePanel}>
+                      <span>{item.label}</span>
+                      <small>{item.section} - {item.description}</small>
+                    </Link>
+                  ))
+                ) : (
+                  <p className="site-nav-empty">No matching pages.</p>
+                )}
+              </section>
+            )}
           </div>
-        </>,
-        document.body
+        </div>,
+        document.body,
       )}
     </div>
   )

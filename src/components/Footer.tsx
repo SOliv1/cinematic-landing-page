@@ -77,6 +77,20 @@ export default function Footer() {
 
       <SocialLinks className="footer-socials" />
 
+      <nav className="footer-legal" aria-label="Legal">
+        <a href="/legal/privacy" className="footer-legal-link">
+          Privacy
+        </a>
+        <span aria-hidden="true" className="footer-legal-sep">·</span>
+        <a href="/legal/terms" className="footer-legal-link">
+          Terms
+        </a>
+        <span aria-hidden="true" className="footer-legal-sep">·</span>
+        <a href="/legal/cookies" className="footer-legal-link">
+          Cookies
+        </a>
+      </nav>
+
       <p className="footer-line">Made with care · {new Date().getFullYear()}</p>
     </footer>
   )
