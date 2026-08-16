@@ -1,10 +1,12 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 
-const DAILY_REFLECTIONS_URL = "/daily-reflections";
-const CENTRE_NOTES_URL = "/centre-notes";
-const CINEMATIC_HOME_GLOW_URL = "/cinematic-home-glow";
-const WEATHER_ATMOSPHERE_URL = "/weather-atmosphere";
-const MOODS_BOARD_REFLECTIONS_FAMILY_URL = "/moods-board";
+const DAILY_REFLECTIONS_URL =
+  "https://soliv1.github.io/Daily-Reflections-App/?from=seasonal-studio&returnTo=https%3A%2F%2Fseasonal.studio%2Fstudio%2Fabout";
+const CENTRE_NOTES_URL = "https://centre-notes.netlify.app/?from=seasonal-studio&returnTo=https%3A%2F%2Fseasonal.studio%2Fstudio%2Fabout";
+const SEASONAL_MIND_SPACE_URL = "https://soliv1.github.io/Seasonal-mind-space/?from=seasonal-studio&returnTo=https%3A%2F%2Fseasonal.studio%2Fstudio%2Fabout";
+const CINEMATIC_HOME_GLOW_URL = "https://inspo-home-cinematic.onrender.com/?from=seasonal-studio&returnTo=https%3A%2F%2Fseasonal.studio%2Fstudio%2Fabout";
+const WEATHER_ATMOSPHERE_URL = "https://reflections-weather-atmosphere.netlify.app/?from=seasonal-studio&returnTo=https%3A%2F%2Fseasonal.studio%2Fstudio%2Fabout";
+const MOODS_BOARD_REFLECTIONS_FAMILY_URL = "https://soliv1.github.io/moodsboard-reflections-family/#?from=seasonal-studio&returnTo=https%3A%2F%2Fseasonal.studio%2Fstudio%2Fabout";
 const STUDIO_ABOUT_URL = "/studio/about";
 
 export const Route = createFileRoute("/studio/portfolio")({
@@ -28,7 +30,11 @@ function Portfolio() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-50">
-      <div className="mx-auto max-w-5xl px-6 py-20 space-y-20">
+      <div
+        className="pointer-events-none fixed inset-x-0 top-0 z-[9999] h-24 border-b border-amber-200/10 bg-[linear-gradient(180deg,rgba(67,29,38,0.92)_0%,rgba(94,43,47,0.72)_36%,rgba(120,53,15,0.42)_68%,rgba(15,23,42,0)_100%)] shadow-[0_12px_38px_rgba(0,0,0,0.34)] backdrop-blur-md"
+        aria-hidden="true"
+      />
+      <div className="mx-auto max-w-5xl px-6 pt-28 pb-20 space-y-20">
 
         {/* Header */}
         <header className="space-y-4 portfolio-header">
@@ -74,7 +80,7 @@ function Portfolio() {
           <p className="text-slate-400 text-sm leading-relaxed max-w-xl">
             Emerald for clinical focus. Sky for patient reassurance. Amber for
             administrative coordination. Three colours, three moods, three
-            responsibilities — held together in one coherent flow.
+            responsibilities held together in one coherent flow.
           </p>
 
           <a
@@ -91,7 +97,7 @@ function Portfolio() {
             <h2 className="text-2xl font-semibold">Vintage Notes</h2>
             <p className="text-slate-300 leading-relaxed max-w-xl">
               Vintage Notes is a warm, analogue writing interior shaped in deep rosewood tones.
-              It feels like a quiet room at dusk — soft, reflective, and gently textured.
+              It feels like a quiet room at dusk, soft, reflective, and gently textured.
               Each page moves with the rhythm of memory: warm shadows, slow pacing, and a sense of emotional stillness.
 
               The rosewood palette brings depth and presence to the space.
@@ -180,7 +186,7 @@ function Portfolio() {
                 <strong>Seasonal Mind Space</strong>
                 <p>Reflect with the rhythm of the year. Track your moods and thoughts seasonally.</p>
                 <div className="about-app-center">
-                  <a href="/seasonal-mind-space" className="ghost-button" target="_blank" rel="noopener noreferrer">View Seasonal Mind Space → </a>
+                  <a href={withStudioReturn(SEASONAL_MIND_SPACE_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">View Seasonal Mind Space → </a>
                 </div>
               </li>
 
