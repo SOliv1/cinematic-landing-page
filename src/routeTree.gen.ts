@@ -20,6 +20,7 @@ import { Route as StudioUnlockMoreRouteImport } from './routes/studio/unlock-mor
 import { Route as StudioSoftRoomRouteImport } from './routes/studio/soft-room'
 import { Route as StudioSeasonalWeatherRouteImport } from './routes/studio/seasonal-weather'
 import { Route as StudioPositioningRouteImport } from './routes/studio/positioning'
+import { Route as StudioPortfolioRouteImport } from './routes/studio/portfolio'
 import { Route as StudioMorningRoomRouteImport } from './routes/studio/morning-room'
 import { Route as StudioMoodboardRouteImport } from './routes/studio/moodboard'
 import { Route as StudioManifestoRouteImport } from './routes/studio/manifesto'
@@ -93,6 +94,11 @@ const StudioSeasonalWeatherRoute = StudioSeasonalWeatherRouteImport.update({
 const StudioPositioningRoute = StudioPositioningRouteImport.update({
   id: '/studio/positioning',
   path: '/studio/positioning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioPortfolioRoute = StudioPortfolioRouteImport.update({
+  id: '/studio/portfolio',
+  path: '/studio/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StudioMorningRoomRoute = StudioMorningRoomRouteImport.update({
@@ -215,6 +221,7 @@ export interface FileRoutesByFullPath {
   '/studio/manifesto': typeof StudioManifestoRoute
   '/studio/moodboard': typeof StudioMoodboardRoute
   '/studio/morning-room': typeof StudioMorningRoomRoute
+  '/studio/portfolio': typeof StudioPortfolioRoute
   '/studio/positioning': typeof StudioPositioningRoute
   '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
   '/studio/soft-room': typeof StudioSoftRoomRoute
@@ -247,6 +254,7 @@ export interface FileRoutesByTo {
   '/studio/manifesto': typeof StudioManifestoRoute
   '/studio/moodboard': typeof StudioMoodboardRoute
   '/studio/morning-room': typeof StudioMorningRoomRoute
+  '/studio/portfolio': typeof StudioPortfolioRoute
   '/studio/positioning': typeof StudioPositioningRoute
   '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
   '/studio/soft-room': typeof StudioSoftRoomRoute
@@ -280,6 +288,7 @@ export interface FileRoutesById {
   '/studio/manifesto': typeof StudioManifestoRoute
   '/studio/moodboard': typeof StudioMoodboardRoute
   '/studio/morning-room': typeof StudioMorningRoomRoute
+  '/studio/portfolio': typeof StudioPortfolioRoute
   '/studio/positioning': typeof StudioPositioningRoute
   '/studio/seasonal-weather': typeof StudioSeasonalWeatherRoute
   '/studio/soft-room': typeof StudioSoftRoomRoute
@@ -314,6 +323,7 @@ export interface FileRouteTypes {
     | '/studio/manifesto'
     | '/studio/moodboard'
     | '/studio/morning-room'
+    | '/studio/portfolio'
     | '/studio/positioning'
     | '/studio/seasonal-weather'
     | '/studio/soft-room'
@@ -346,6 +356,7 @@ export interface FileRouteTypes {
     | '/studio/manifesto'
     | '/studio/moodboard'
     | '/studio/morning-room'
+    | '/studio/portfolio'
     | '/studio/positioning'
     | '/studio/seasonal-weather'
     | '/studio/soft-room'
@@ -378,6 +389,7 @@ export interface FileRouteTypes {
     | '/studio/manifesto'
     | '/studio/moodboard'
     | '/studio/morning-room'
+    | '/studio/portfolio'
     | '/studio/positioning'
     | '/studio/seasonal-weather'
     | '/studio/soft-room'
@@ -411,6 +423,7 @@ export interface RootRouteChildren {
   StudioManifestoRoute: typeof StudioManifestoRoute
   StudioMoodboardRoute: typeof StudioMoodboardRoute
   StudioMorningRoomRoute: typeof StudioMorningRoomRoute
+  StudioPortfolioRoute: typeof StudioPortfolioRoute
   StudioPositioningRoute: typeof StudioPositioningRoute
   StudioSeasonalWeatherRoute: typeof StudioSeasonalWeatherRoute
   StudioSoftRoomRoute: typeof StudioSoftRoomRoute
@@ -497,6 +510,13 @@ declare module '@tanstack/react-router' {
       path: '/studio/positioning'
       fullPath: '/studio/positioning'
       preLoaderRoute: typeof StudioPositioningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/portfolio': {
+      id: '/studio/portfolio'
+      path: '/studio/portfolio'
+      fullPath: '/studio/portfolio'
+      preLoaderRoute: typeof StudioPortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/studio/morning-room': {
@@ -659,6 +679,7 @@ const rootRouteChildren: RootRouteChildren = {
   StudioManifestoRoute: StudioManifestoRoute,
   StudioMoodboardRoute: StudioMoodboardRoute,
   StudioMorningRoomRoute: StudioMorningRoomRoute,
+  StudioPortfolioRoute: StudioPortfolioRoute,
   StudioPositioningRoute: StudioPositioningRoute,
   StudioSeasonalWeatherRoute: StudioSeasonalWeatherRoute,
   StudioSoftRoomRoute: StudioSoftRoomRoute,
