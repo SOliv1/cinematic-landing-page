@@ -41,7 +41,14 @@ const navSections: NavSection[] = [
           { label: 'Maintenance Roadmap', to: '/studio/maintenance-roadmap', description: 'Engine updates and compatibility.' },
         ],
       },
-      { label: 'Studio', to: '/studio/about', description: 'Identity, experience, and studio practice.' },
+      {
+        label: 'Studio',
+        to: '/studio/about',
+        description: 'Identity, experience, and studio practice.',
+        children: [
+          { label: 'Portfolio', to: '/studio/portfolio', description: 'Featured portfolio work and case studies.' },
+        ],
+      },
       { label: 'Journal', to: '/studio/journal', description: 'Stories, references, and house notes.' },
       { label: 'Contact', to: '/studio/work-with-me#studio-contact-form', description: 'Send an enquiry or project note.' },
     ],
@@ -146,7 +153,7 @@ export function StudioDropdown() {
             {item.children && (
               <span className="site-nav-submenu" role="menu" aria-label={`${item.label} submenu`}>
                 <Link to={item.to} className="site-nav-submenu-link" role="menuitem" onClick={closePanel}>
-                  {item.label} Overview
+                  {item.label === 'Studio' ? 'Studio About' : `${item.label} Overview`}
                 </Link>
                 {item.children.map((child) => (
                   <Link

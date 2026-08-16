@@ -4204,6 +4204,154 @@ code {
   transition: background 0.2s ease;
 }
 
+.portfolio-header-divider {
+  width: min(24rem, 100%);
+  height: 1px;
+  margin-top: 1.75rem;
+  background:
+    linear-gradient(90deg,
+      rgba(94, 43, 47, 0),
+      rgba(94, 43, 47, 0.85) 18%,
+      rgba(166, 90, 96, 0.95) 50%,
+      rgba(122, 59, 70, 0.85) 82%,
+      rgba(94, 43, 47, 0));
+  box-shadow:
+    0 0 18px rgba(94, 43, 47, 0.32),
+    0 0 34px rgba(166, 90, 96, 0.14);
+}
+
+.portfolio-swatch {
+  position: relative;
+  height: 10rem;
+  overflow: hidden;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 1.5rem;
+  background: var(--portfolio-bg);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transform: translateY(0);
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 420ms ease,
+    box-shadow 420ms ease,
+    filter 420ms ease;
+}
+
+.portfolio-swatch--tall {
+  height: 16rem;
+}
+
+.portfolio-swatch::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  background:
+    radial-gradient(circle at 28% 18%, rgba(255, 255, 255, 0.18), transparent 34%),
+    linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.13) 46%, transparent 64%);
+  opacity: 0;
+  transform: translateX(-38%);
+  transition:
+    opacity 520ms ease,
+    transform 760ms ease;
+  pointer-events: none;
+}
+
+.portfolio-swatch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 46%, rgba(0, 0, 0, 0.12));
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.portfolio-swatch:hover {
+  transform: translateY(-4px);
+  border-color: var(--portfolio-border-hover);
+  box-shadow:
+    0 18px 42px -30px rgba(0, 0, 0, 0.82),
+    0 0 34px var(--portfolio-glow-soft),
+    0 0 76px var(--portfolio-glow-haze),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  filter: saturate(1.08) brightness(1.05);
+}
+
+.portfolio-swatch:hover::before {
+  opacity: 1;
+  transform: translateX(38%);
+}
+
+.portfolio-swatch--planner-emerald {
+  --portfolio-bg: linear-gradient(145deg, rgba(6, 78, 59, 0.68), rgba(6, 95, 70, 0.28));
+  --portfolio-border: rgba(110, 231, 183, 0.2);
+  --portfolio-border-hover: rgba(167, 243, 208, 0.52);
+  --portfolio-glow-soft: rgba(16, 185, 129, 0.28);
+  --portfolio-glow-haze: rgba(16, 185, 129, 0.12);
+}
+
+.portfolio-swatch--planner-sky {
+  --portfolio-bg: linear-gradient(145deg, rgba(12, 74, 110, 0.68), rgba(14, 116, 144, 0.28));
+  --portfolio-border: rgba(125, 211, 252, 0.2);
+  --portfolio-border-hover: rgba(186, 230, 253, 0.5);
+  --portfolio-glow-soft: rgba(56, 189, 248, 0.25);
+  --portfolio-glow-haze: rgba(56, 189, 248, 0.11);
+}
+
+.portfolio-swatch--planner-amber {
+  --portfolio-bg: linear-gradient(145deg, rgba(120, 53, 15, 0.68), rgba(146, 64, 14, 0.28));
+  --portfolio-border: rgba(252, 211, 77, 0.22);
+  --portfolio-border-hover: rgba(253, 230, 138, 0.52);
+  --portfolio-glow-soft: rgba(245, 158, 11, 0.24);
+  --portfolio-glow-haze: rgba(245, 158, 11, 0.1);
+}
+
+.portfolio-swatch--rosewood-deep {
+  --portfolio-bg: linear-gradient(145deg, #5e2b2f, #3c1c21);
+  --portfolio-border: #7a3b40;
+  --portfolio-border-hover: #a65a60;
+  --portfolio-glow-soft: rgba(94, 43, 47, 0.34);
+  --portfolio-glow-haze: rgba(166, 90, 96, 0.13);
+}
+
+.portfolio-swatch--rosewood-wine {
+  --portfolio-bg: linear-gradient(145deg, #6f2f3a, #431d26);
+  --portfolio-border: #8a4550;
+  --portfolio-border-hover: #b86773;
+  --portfolio-glow-soft: rgba(111, 47, 58, 0.34);
+  --portfolio-glow-haze: rgba(184, 103, 115, 0.13);
+}
+
+.portfolio-swatch--rosewood-dusk {
+  --portfolio-bg: linear-gradient(145deg, #7a3b46, #4a222d);
+  --portfolio-border: #9b5560;
+  --portfolio-border-hover: #c57482;
+  --portfolio-glow-soft: rgba(122, 59, 70, 0.34);
+  --portfolio-glow-haze: rgba(197, 116, 130, 0.13);
+}
+
+.portfolio-swatch--boutique-amber {
+  --portfolio-bg: linear-gradient(145deg, rgba(146, 64, 14, 0.64), rgba(68, 34, 18, 0.92));
+  --portfolio-border: rgba(251, 191, 36, 0.22);
+  --portfolio-border-hover: rgba(252, 211, 77, 0.54);
+  --portfolio-glow-soft: rgba(217, 119, 6, 0.24);
+  --portfolio-glow-haze: rgba(217, 119, 6, 0.1);
+}
+
+.portfolio-swatch--boutique-rose {
+  --portfolio-bg: linear-gradient(145deg, rgba(136, 19, 55, 0.58), rgba(73, 24, 42, 0.9));
+  --portfolio-border: rgba(253, 164, 175, 0.22);
+  --portfolio-border-hover: rgba(253, 205, 213, 0.5);
+  --portfolio-glow-soft: rgba(244, 63, 94, 0.22);
+  --portfolio-glow-haze: rgba(244, 63, 94, 0.09);
+}
+
+.portfolio-swatch--boutique-slate {
+  --portfolio-bg: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(51, 65, 85, 0.34));
+  --portfolio-border: rgba(203, 213, 225, 0.2);
+  --portfolio-border-hover: rgba(226, 232, 240, 0.46);
+  --portfolio-glow-soft: rgba(148, 163, 184, 0.2);
+  --portfolio-glow-haze: rgba(148, 163, 184, 0.09);
+}
+
 
 .about-pill-desc {
   font-family: 'Outfit', sans-serif;
