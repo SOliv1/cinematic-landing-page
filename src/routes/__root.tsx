@@ -4,6 +4,16 @@ import ScrollToTopOrb from '@/components/ScrollToTopOrb'
 import { StudioDropdown } from '@/components/StudioDropdown'
 import '../styles.css'
 
+type Season = 'spring' | 'summer' | 'autumn' | 'winter'
+
+function getSeason(): Season {
+  const month = new Date().getMonth()
+  if (month >= 2 && month <= 4) return 'spring'
+  if (month >= 5 && month <= 7) return 'summer'
+  if (month >= 8 && month <= 10) return 'autumn'
+  return 'winter'
+}
+
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -52,10 +62,18 @@ export const Route = createRootRoute({
 function RootLayout() {
   const pathname = useRouterState({ select: (state) => state.location.pathname })
   const usesImmersiveLayout = pathname === '/begin-the-journey' || pathname === '/explore'
+  const usesHeaderWash = pathname === '/'
+  const headerSeason = getSeason()
 
   return (
     <>
-      <header className={`site-header ${usesImmersiveLayout ? 'site-header--immersive' : ''}`}>
+      <header
+        className={`site-header ${usesImmersiveLayout ? 'site-header--immersive' : ''} ${
+          usesHeaderWash ? 'site-header--home-wash' : ''
+        } ${
+          usesHeaderWash ? `site-header--season-${headerSeason}` : ''
+        }`}
+      >
         <Link to="/" className="site-title" aria-label="Return to The Living Interface home">
           The Living Interface
         </Link>

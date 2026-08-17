@@ -566,6 +566,72 @@
     pointer-events: none;
   }
 
+  .site-header--home-wash {
+    --home-header-stop-1: rgba(67, 29, 38, 0.9);
+    --home-header-stop-2: rgba(94, 43, 47, 0.68);
+    --home-header-stop-3: rgba(120, 53, 15, 0.34);
+    --home-header-stop-4: rgba(15, 23, 42, 0);
+    --home-header-border: rgba(244, 222, 177, 0.1);
+    --home-header-shadow: rgba(0, 0, 0, 0.28);
+    height: 5.45rem;
+    padding-top: 0.78rem;
+    align-items: flex-start;
+    background:
+      linear-gradient(
+        180deg,
+        var(--home-header-stop-1) 0%,
+        var(--home-header-stop-2) 40%,
+        var(--home-header-stop-3) 70%,
+        var(--home-header-stop-4) 100%
+      );
+    border-bottom: 1px solid var(--home-header-border);
+    box-shadow: 0 12px 38px var(--home-header-shadow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: background 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
+  }
+
+  .site-header--season-spring {
+    --home-header-stop-1: rgba(82, 48, 76, 0.88);
+    --home-header-stop-2: rgba(123, 88, 111, 0.64);
+    --home-header-stop-3: rgba(161, 127, 131, 0.3);
+    --home-header-stop-4: rgba(34, 47, 42, 0);
+    --home-header-border: rgba(238, 209, 222, 0.16);
+    --home-header-shadow: rgba(51, 31, 48, 0.26);
+  }
+
+  .site-header--season-summer {
+    --home-header-stop-1: rgba(42, 73, 63, 0.88);
+    --home-header-stop-2: rgba(78, 102, 72, 0.64);
+    --home-header-stop-3: rgba(171, 126, 58, 0.3);
+    --home-header-stop-4: rgba(18, 38, 39, 0);
+    --home-header-border: rgba(234, 207, 135, 0.15);
+    --home-header-shadow: rgba(22, 42, 35, 0.26);
+  }
+
+  .site-header--season-autumn {
+    --home-header-stop-1: rgba(67, 29, 38, 0.9);
+    --home-header-stop-2: rgba(94, 43, 47, 0.68);
+    --home-header-stop-3: rgba(120, 53, 15, 0.34);
+    --home-header-stop-4: rgba(15, 23, 42, 0);
+    --home-header-border: rgba(244, 222, 177, 0.1);
+    --home-header-shadow: rgba(0, 0, 0, 0.28);
+  }
+
+  .site-header--season-winter {
+    --home-header-stop-1: rgba(35, 48, 72, 0.9);
+    --home-header-stop-2: rgba(63, 76, 104, 0.66);
+    --home-header-stop-3: rgba(136, 154, 184, 0.28);
+    --home-header-stop-4: rgba(8, 13, 27, 0);
+    --home-header-border: rgba(211, 224, 244, 0.13);
+    --home-header-shadow: rgba(9, 15, 28, 0.3);
+  }
+
+  .site-header--home-wash .site-title {
+    color: rgba(255, 255, 255, 0.96);
+    text-shadow: 0 8px 22px rgba(0, 0, 0, 0.55);
+  }
+
   .site-title {
     margin: 0;
     font-family: 'Outfit', system-ui, sans-serif;
