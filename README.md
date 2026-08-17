@@ -4,7 +4,7 @@
 
 [![GitHub Streak](https://streak-stats.demolab.com/?user=SOliv1)](https://git.io/streak-stats)
 
-[![CinematicLanding: ]()](https://soliv1.github.io/)
+
 View Live [Here](https://cinematic-landing-page.netlify.app/)
 
 
