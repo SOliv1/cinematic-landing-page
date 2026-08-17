@@ -1,6 +1,6 @@
 # Cinematic Landing Page
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2f3fb7d7-237c-4eb0-9df9-20c5e2772b70/deploy-status)](https://app.netlify.com/projects/cinematic-landing-page/deploys)  [![Deploy to Netlify](https://github.com/SOliv1/cinematic-landing-page/actions/workflows/netlify-deploy.yml/badge.svg)](https://github.com/SOliv1/cinematic-landing-page/actions/workflows/netlify-deploy.yml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2f3fb7d7-237c-4eb0-9df9-20c5e2772b70/deploy-status)](https://app.netlify.com/projects/cinematic-landing-page/deploys)  
 
 [![GitHub Streak](https://streak-stats.demolab.com/?user=SOliv1)](https://git.io/streak-stats)
 
