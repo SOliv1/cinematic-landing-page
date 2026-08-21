@@ -1231,6 +1231,7 @@
     outline-offset: 4px;
   }
 
+  .mood-glow,
   .atmos-button--glow {
     --seasonal-start: var(--palette-glow-start);
     --seasonal-end: var(--palette-glow-end);
@@ -1240,6 +1241,7 @@
     --seasonal-fill-end: rgba(98, 70, 80, 0.16);
   }
 
+  .mood-dusk,
   .atmos-button--dusk {
     --seasonal-start: var(--palette-dusk-start);
     --seasonal-end: var(--palette-dusk-end);
@@ -1249,6 +1251,7 @@
     --seasonal-fill-end: rgba(74, 62, 98, 0.18);
   }
 
+  .mood-jewel,
   .atmos-button--jewel {
     --seasonal-start: var(--palette-jewel-start);
     --seasonal-end: var(--palette-jewel-end);
@@ -1258,6 +1261,7 @@
     --seasonal-fill-end: rgba(40, 92, 96, 0.20);
   }
 
+  .mood-storm,
   .atmos-button--storm {
     --seasonal-start: var(--palette-storm-start);
     --seasonal-end: var(--palette-storm-end);
@@ -1267,6 +1271,7 @@
     --seasonal-fill-end: rgba(26, 42, 79, 0.24);
   }
 
+  .mood-silhouette,
   .atmos-button--silhouette {
     --seasonal-start: var(--palette-silhouette-start);
     --seasonal-end: var(--palette-silhouette-end);

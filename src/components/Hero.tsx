@@ -162,13 +162,13 @@ export const Hero: FC<HeroProps> = ({ onCinematicMode }) => {
           I create calm, minimal, handcrafted web apps with React, Python, and Django.
         </p>
         <div className="hero-follow-panel" aria-label="Begin the Seasonal experience">
-          <Link className="atmos-button atmos-button--glow hero-button hero-button--below" to="/begin-the-journey">
+          <Link className="atmos-button mood-glow hero-button hero-button--below" to="/begin-the-journey">
             Follow the Light
           </Link>
           {onCinematicMode && (
             <button
               type="button"
-              className="atmos-button atmos-button--dusk cinematic-mode-btn"
+              className="atmos-button mood-jewel cinematic-mode-btn"
               onClick={onCinematicMode}
               aria-label="Enter Cinematic Mode"
             >
