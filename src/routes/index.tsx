@@ -830,14 +830,14 @@ function LandingPage() {
           >
             Explore the rooms of Seasonal, a set of calm, clear, unhurried spaces.
           </p>
-          <Link to="/seasonal-house" className="seasonal-pill step-inside">
+          <Link to="/seasonal-house" className="atmos-button seasonal-pill step-inside">
             <span>Step inside</span>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
               <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </Link>
           <a
-            className="daily-orb-home-link"
+            className="atmos-button daily-orb-home-link"
             href="https://soliv1.github.io/Daily-Reflections-App/"
             target="_blank"
             rel="noopener noreferrer"

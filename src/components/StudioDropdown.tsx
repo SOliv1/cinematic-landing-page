@@ -23,6 +23,7 @@ const navSections: NavSection[] = [
       { label: 'Work With Me', to: '/studio/work-with-me', description: 'Collaboration and project enquiries.' },
       { label: 'Licencing', to: '/studio/licencing', description: 'Licencing, usage, and collaboration terms.' },
       { label: 'Studio', to: '/studio/about', description: 'Identity, experience, and studio practice.' },
+      { label: 'Portfolio', to: '/studio/portfolio', description: 'Selected projects, websites, and studio casework.' },
       { label: 'Journal', to: '/studio/journal', description: 'Stories, references, and house notes.' },
       { label: 'Contact', to: '/studio/work-with-me#studio-contact-form', description: 'Send an enquiry or project note.' },
     ],
@@ -103,6 +104,15 @@ export function StudioDropdown() {
       </nav>
 
       <div className="site-nav-actions" aria-label="Site navigation">
+        <button
+          type="button"
+          className={`site-nav-button ${open && mode === 'menu' ? 'is-active' : ''}`}
+          aria-expanded={open && mode === 'menu'}
+          aria-haspopup="dialog"
+          onClick={() => toggleMode('menu')}
+        >
+          <span>Menu</span>
+        </button>
         <button
           type="button"
           className={`site-nav-button ${open && mode === 'search' ? 'is-active' : ''}`}

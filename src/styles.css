@@ -509,6 +509,7 @@
 
     .studio-nav-return {
       font-size: 0.82rem;
+      min-height: 2.75rem;
     }
 
     .studio-nav-links {
@@ -519,17 +520,21 @@
     }
 
     .studio-nav-link {
-      min-height: 2.25rem;
-      font-size: 0.7rem;
-      letter-spacing: 0.06em;
+      justify-content: center;
+      min-height: 2.75rem;
+      padding: 0.65rem 0.45rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      text-align: center;
     }
 
     .return-home-pill {
       grid-column: 1 / -1;
       justify-self: start;
-      min-height: 2.35rem;
+      min-height: 2.75rem;
       padding-inline: 0.85rem;
-      font-size: 0.7rem;
+      font-size: 0.78rem;
       letter-spacing: 0.06em;
     }
 
@@ -589,6 +594,15 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     transition: background 0.8s ease, border-color 0.8s ease, box-shadow 0.8s ease;
+  }
+
+  .site-header--home-wash.site-header--scrolled {
+    --home-header-stop-1: rgba(12, 10, 14, 0.94);
+    --home-header-stop-2: rgba(30, 24, 32, 0.82);
+    --home-header-stop-3: rgba(42, 34, 42, 0.48);
+    --home-header-stop-4: rgba(12, 10, 14, 0.08);
+    --home-header-border: rgba(255, 244, 226, 0.18);
+    --home-header-shadow: rgba(0, 0, 0, 0.42);
   }
 
   .site-header--season-spring {
@@ -660,6 +674,11 @@
     align-items: center;
     justify-content: center;
     pointer-events: auto;
+    transition: top 220ms ease;
+  }
+
+  .site-menu--scrolled {
+    top: 3.25rem;
   }
 
   .site-nav {
@@ -677,6 +696,50 @@
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     pointer-events: auto;
+  }
+
+  .site-nav::before {
+    content: "";
+    position: absolute;
+    inset: -0.22rem -0.62rem;
+    z-index: -1;
+    border: 1px solid rgba(255, 244, 226, 0.12);
+    border-radius: 999px;
+    background:
+      linear-gradient(180deg, rgba(16, 14, 18, 0.58), rgba(20, 17, 20, 0.42)),
+      radial-gradient(circle at 50% 0%, rgba(255, 232, 190, 0.10), transparent 62%);
+    box-shadow:
+      0 10px 28px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    opacity: 0;
+    transform: scaleX(0.98);
+    transition: opacity 220ms ease, transform 220ms ease;
+    -webkit-backdrop-filter: blur(18px) saturate(120%);
+    backdrop-filter: blur(18px) saturate(120%);
+    pointer-events: none;
+  }
+
+  .site-menu--scrolled .site-nav::before {
+    opacity: 0.88;
+    transform: scaleX(1);
+  }
+
+  .site-menu--scrolled .site-nav-primary-link {
+    color: rgba(255, 250, 240, 0.94);
+    text-shadow:
+      0 1px 10px rgba(0, 0, 0, 0.88),
+      0 0 18px rgba(0, 0, 0, 0.64);
+  }
+
+  .site-menu--scrolled .site-nav-primary-separator {
+    color: rgba(255, 244, 226, 0.62);
+  }
+
+  .site-menu--scrolled .site-nav-button {
+    border-color: rgba(255, 244, 226, 0.22);
+    background: rgba(14, 12, 16, 0.42);
+    color: rgba(255, 250, 240, 0.95);
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.88);
   }
 
   .site-nav-primary {
@@ -922,11 +985,56 @@
     z-index: 10;
     display: grid;
     min-height: 100vh;
-    width: 100%;
+    min-height: 100svh;
+    width: 100vw;
+    max-width: none;
+    left: 50%;
+    right: 50%;
+    margin: 0;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 0;
     place-items: center;
     overflow: hidden;
     isolation: isolate;
     background: #14110f;
+    --hero-parallax-y: 0px;
+    --hero-tint: linear-gradient(180deg, rgba(247, 245, 241, 0.12) 0%, rgba(241, 237, 232, 0.08) 100%);
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background: var(--hero-tint);
+    mix-blend-mode: soft-light;
+    opacity: 0.72;
+    pointer-events: none;
+  }
+
+  .hero--morning {
+    --hero-tint:
+      radial-gradient(circle at 42% 26%, rgba(255, 222, 150, 0.34), transparent 36%),
+      linear-gradient(180deg, rgba(255, 224, 166, 0.28) 0%, rgba(245, 214, 170, 0.16) 46%, rgba(42, 28, 18, 0.18) 100%);
+  }
+
+  .hero--day {
+    --hero-tint:
+      radial-gradient(circle at 50% 24%, rgba(255, 255, 246, 0.24), transparent 34%),
+      linear-gradient(180deg, rgba(248, 248, 244, 0.18) 0%, rgba(225, 231, 228, 0.10) 100%);
+  }
+
+  .hero--evening {
+    --hero-tint:
+      radial-gradient(circle at 50% 26%, rgba(222, 190, 255, 0.26), transparent 38%),
+      linear-gradient(180deg, rgba(232, 198, 255, 0.20) 0%, rgba(166, 112, 185, 0.18) 44%, rgba(50, 28, 58, 0.24) 100%);
+  }
+
+  .hero--night {
+    --hero-tint:
+      radial-gradient(circle at 50% 24%, rgba(150, 184, 255, 0.18), transparent 38%),
+      linear-gradient(180deg, rgba(12, 24, 52, 0.36) 0%, rgba(7, 12, 28, 0.38) 100%);
   }
 
   .hero-orb-anchor {
@@ -941,11 +1049,12 @@
   .hero-image {
     position: absolute;
     inset: 0;
-    z-index: -2;
+    z-index: -3;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.02);
+    transform: translate3d(0, var(--hero-parallax-y), 0) scale(1.025);
+    will-change: transform, opacity;
   }
 
   .hero-scrim {
@@ -1045,6 +1154,56 @@
     background: rgba(255, 255, 255, 0.22);
   }
 
+  .atmos-button {
+    --seasonal-angle: 135deg;
+    --seasonal-start: rgba(255, 239, 196, 0.54);
+    --seasonal-end: rgba(178, 152, 232, 0.46);
+    --seasonal-fill-start: rgba(18, 15, 22, 0.34);
+    --seasonal-fill-end: rgba(255, 255, 255, 0.08);
+    --seasonal-glow: rgba(234, 215, 255, 0.25);
+    --seasonal-glow-hover: rgba(255, 232, 190, 0.45);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3rem;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background:
+      linear-gradient(var(--seasonal-angle), var(--seasonal-fill-start), var(--seasonal-fill-end)) padding-box,
+      linear-gradient(var(--seasonal-angle), var(--seasonal-start), var(--seasonal-end)) border-box;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    color: rgba(255, 255, 255, 0.92);
+    font-family: 'Outfit', system-ui, sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    box-shadow:
+      0 0 6px var(--seasonal-glow),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(14px) saturate(124%);
+    backdrop-filter: blur(14px) saturate(124%);
+    transition: box-shadow 0.25s ease, transform 0.25s ease, color 0.25s ease;
+  }
+
+  .atmos-button:hover,
+  .atmos-button:focus-visible {
+    color: rgba(255, 255, 255, 0.98);
+    box-shadow:
+      0 0 10px var(--seasonal-glow-hover),
+      0 10px 26px rgba(18, 12, 24, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    transform: translateY(-1px);
+  }
+
+  .atmos-button:focus-visible {
+    outline: 2px solid rgba(255, 239, 196, 0.58);
+    outline-offset: 4px;
+  }
+
   .hero-follow-panel {
     display: flex;
     flex-direction: column;
@@ -1056,42 +1215,32 @@
 
   .hero-button--below {
     margin-top: 0;
-    border-color: rgba(26, 23, 20, 0.18);
-    background: rgba(255, 255, 255, 0.42);
-    color: rgba(26, 23, 20, 0.78);
-    box-shadow:
-      0 16px 38px rgba(26, 23, 20, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.42);
-  }
-
-  .hero-button--below:hover {
-    border-color: rgba(26, 23, 20, 0.28);
-    background: rgba(255, 255, 255, 0.62);
+    --seasonal-start: rgba(255, 225, 158, 0.62);
+    --seasonal-end: rgba(190, 170, 235, 0.54);
+    --seasonal-fill-start: rgba(38, 28, 36, 0.34);
+    --seasonal-fill-end: rgba(96, 74, 94, 0.18);
+    --seasonal-glow: rgba(255, 222, 170, 0.30);
+    --seasonal-glow-hover: rgba(255, 230, 185, 0.58);
   }
 
   .daily-orb-home-link {
+    --seasonal-start: #d9b4f0;
+    --seasonal-end: #4ac7c7;
+    --seasonal-fill-start: rgba(28, 31, 48, 0.34);
+    --seasonal-fill-end: rgba(40, 92, 96, 0.20);
+    --seasonal-glow: rgba(217, 180, 240, 0.35);
+    --seasonal-glow-hover: rgba(217, 180, 240, 0.55);
     display: grid;
     gap: 0.28rem;
     width: min(100%, 22rem);
     margin-top: 1rem;
     padding: 0.85rem 1rem;
-    border: 1px solid rgba(26, 23, 20, 0.12);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.22);
-    color: rgba(26, 23, 20, 0.72);
-    font-family: 'Outfit', system-ui, sans-serif;
+    border-radius: 12px;
     text-align: center;
-    text-decoration: none;
-    -webkit-backdrop-filter: blur(12px) saturate(112%);
-    backdrop-filter: blur(12px) saturate(112%);
-    box-shadow:
-      0 14px 34px rgba(26, 23, 20, 0.08),
-      inset 0 1px 0 rgba(255, 255, 255, 0.32);
-    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
   }
 
   .daily-orb-home-link span {
-    color: rgba(26, 23, 20, 0.86);
+    color: rgba(255, 255, 255, 0.92);
     font-size: 0.78rem;
     font-weight: 500;
     letter-spacing: 0.12em;
@@ -1100,17 +1249,10 @@
   }
 
   .daily-orb-home-link small {
-    color: rgba(26, 23, 20, 0.56);
+    color: rgba(255, 255, 255, 0.66);
     font-size: 0.86rem;
     font-weight: 300;
     line-height: 1.4;
-  }
-
-  .daily-orb-home-link:hover,
-  .daily-orb-home-link:focus-visible {
-    border-color: rgba(26, 23, 20, 0.18);
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-1px);
   }
 
   .seasonal-house-prelude {
@@ -3124,24 +3266,13 @@ code {
 
 /* STEP INSIDE — architectural frosted pill */
 .step-inside {
-  background: rgba(255, 253, 248, 0.32);
-  color: rgba(20, 20, 20, 0.92);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  box-shadow:
-    inset 0 0 22px rgba(255, 255, 255, 0.28),
-    0 6px 22px rgba(0, 0, 0, 0.22);
-  -webkit-backdrop-filter: blur(14px);
-  backdrop-filter: blur(14px);
+  --seasonal-start: #f7d98a;
+  --seasonal-end: #f0b9c9;
+  --seasonal-fill-start: rgba(42, 32, 34, 0.34);
+  --seasonal-fill-end: rgba(98, 70, 80, 0.16);
+  --seasonal-glow: rgba(247, 217, 138, 0.35);
+  --seasonal-glow-hover: rgba(247, 217, 138, 0.55);
   transform: translateZ(0);
-}
-
-.step-inside:hover {
-  background: rgba(255, 253, 248, 0.38);
-  color: rgba(0, 0, 0, 0.95);
-  box-shadow:
-    inset 0 0 28px rgba(255, 255, 255, 0.32),
-    0 8px 26px rgba(0, 0, 0, 0.26);
-  transform: scale(1.012);
 }
 
 .seasonal-pill svg {
@@ -3505,34 +3636,16 @@ code {
 /* ── Cinematic Mode toggle ────────────────────────────────── */
 
 .cinematic-mode-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   gap: 6px;
-  min-height: 3rem;
-  padding: 0.85rem 1.2rem;
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(58, 42, 26, 0.28) 0%, rgba(14, 12, 10, 0.36) 100%);
-  border: 1px solid rgba(26, 23, 20, 0.16);
-  -webkit-backdrop-filter: blur(14px) saturate(130%);
-  backdrop-filter: blur(14px) saturate(130%);
-  box-shadow:
-    0 16px 38px rgba(26, 23, 20, 0.10),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
-  font-family: 'Outfit', sans-serif;
   font-size: 0.68rem;
-  font-weight: 400;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(26, 23, 20, 0.68);
-  cursor: pointer;
-  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, opacity 0.3s ease;
-}
-
-.cinematic-mode-btn:hover {
-  color: rgba(26, 23, 20, 0.88);
-  border-color: rgba(26, 23, 20, 0.28);
-  background: linear-gradient(135deg, rgba(58, 42, 26, 0.18) 0%, rgba(255, 255, 255, 0.54) 100%);
+  --seasonal-start: rgba(198, 176, 255, 0.58);
+  --seasonal-end: rgba(122, 172, 218, 0.46);
+  --seasonal-fill-start: rgba(20, 18, 32, 0.36);
+  --seasonal-fill-end: rgba(60, 52, 86, 0.18);
+  --seasonal-glow: rgba(188, 172, 255, 0.26);
+  --seasonal-glow-hover: rgba(205, 190, 255, 0.52);
 }
 
 @media (max-width: 640px) {
@@ -5413,15 +5526,19 @@ code {
     justify-content: center;
   }
 
+  .site-menu--scrolled {
+    top: 3.35rem;
+  }
+
   .site-nav {
     max-width: calc(100vw - 24px);
-    justify-content: flex-start;
-    gap: 0.45rem;
+    justify-content: center;
+    gap: 0.6rem;
     padding: 0.1rem 0.16rem;
   }
 
   .site-nav-primary {
-    justify-content: flex-start;
+    display: none;
   }
 
   .site-nav-primary-link {
@@ -5430,13 +5547,13 @@ code {
   }
 
   .site-nav-actions {
-    gap: 0.35rem;
+    gap: 0.55rem;
   }
 
   .site-nav-button {
-    min-height: 1.7rem;
-    padding: 0.38rem 0.52rem;
-    font-size: 0.56rem;
+    min-height: 2.75rem;
+    padding: 0.72rem 0.95rem;
+    font-size: 0.72rem;
     letter-spacing: 0.08em;
   }
 
@@ -5453,6 +5570,28 @@ code {
 
   .site-nav-search + .site-nav-scroll {
     max-height: calc(100vh - 9.35rem);
+  }
+
+  .site-nav-search {
+    padding: 0.8rem 0.85rem;
+  }
+
+  .site-nav-search input {
+    min-height: 2.75rem;
+    font-size: 1rem;
+  }
+
+  .site-nav-item {
+    padding: 0.85rem 0.72rem;
+  }
+
+  .site-nav-item span {
+    font-size: 1.16rem;
+  }
+
+  .site-nav-item small {
+    font-size: 0.82rem;
+    line-height: 1.5;
   }
 
   .site-header--immersive .site-title {
