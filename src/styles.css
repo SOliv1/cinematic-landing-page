@@ -5652,7 +5652,7 @@ code {
   }
 
   .hero-orb-anchor {
-    top: clamp(9.35rem, 23.75vh, 14.9rem);
+    display: none;
   }
 
   .carousel-title {
