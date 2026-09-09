@@ -108,12 +108,12 @@ function CustomerExperiencePage() {
         <section className="cx-proposition">
           <div className="cx-proposition-content">
             <p className="cx-proposition-text">
-              I experience your website and digital customer journey as a new customer would, 
-              noticing what feels clear and inviting, where interest may hesitate, and the details 
+              I experience your website and digital customer journey as a new customer would,
+              noticing what feels clear and inviting, where interest may hesitate, and the details
               that can affect trust, discovery and action.
             </p>
             <p className="cx-proposition-text">
-              You receive a concise visual review of what is working, what deserves attention, and the 
+              You receive a concise visual review of what is working, what deserves attention, and the
               opportunities I believe are worth exploring.
             </p>
           </div>
@@ -157,12 +157,12 @@ function CustomerExperiencePage() {
         <section className="cx-from-observation">
           <h2 className="cx-section-title">From Observation to Action</h2>
           <p className="cx-observation-text">
-            This review isn't abstract feedback—it's grounded in real interaction. By experiencing your 
-            site as a customer would, I can identify where clarity breaks down, where confidence wavers, 
+            This review isn't abstract feedback, it is grounded in real interaction. By experiencing your
+            site as a customer would, I can identify where clarity breaks down, where confidence wavers,
             and where small changes can make meaningful differences.
           </p>
           <p className="cx-observation-text">
-            The result is a clear roadmap for improvement, tailored to the specific patterns and moments 
+            The result is a clear roadmap for improvement, tailored to the specific patterns and moments
             that shape how customers perceive, trust, and engage with your business.
           </p>
         </section>
@@ -194,11 +194,11 @@ function CustomerExperiencePage() {
         </section>
 
         {/* Testimonial Section - When CharmChase example is ready */}
-        {/* 
+        {/*
         <section className="cx-testimonial">
           <div className="cx-testimonial-content">
             <blockquote className="cx-testimonial-quote">
-              "Your feedback was genuinely very helpful… It's always great to hear an outside perspective, 
+              "Your feedback was genuinely very helpful… It's always great to hear an outside perspective,
               especially from someone who takes the time to look at the details."
             </blockquote>
             <p className="cx-testimonial-attribution">Tim, CharmChase</p>
