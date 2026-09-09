@@ -97,7 +97,7 @@ function WorkWithMePage() {
       subtitle="Two ways we can work together."
     >
       <main className="work-page fade-in">
-        
+
         {/* Section 01: Customer Experience Review */}
         <section className="work-offering work-offering--cx">
           <div className="work-offering-header">
@@ -108,12 +108,12 @@ function WorkWithMePage() {
 
           <div className="work-offering-content">
             <p className="work-offering-proposition">
-              I experience your website and digital customer journey as a new customer would, 
-              noticing what feels clear and inviting, where interest may hesitate, and the details 
+              I experience your website and digital customer journey as a new customer would,
+              noticing what feels clear and inviting, where interest may hesitate, and the details
               that can affect trust, discovery and action.
             </p>
             <p className="work-offering-proposition">
-              You receive a concise visual review of what is working, what deserves attention, and the 
+              You receive a concise visual review of what is working, what deserves attention, and the
               opportunities I believe are worth exploring.
             </p>
           </div>
