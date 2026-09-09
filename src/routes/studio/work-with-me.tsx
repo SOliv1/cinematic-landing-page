@@ -12,7 +12,7 @@ export const Route = createFileRoute('/studio/work-with-me')({
       },
       {
         property: 'og:description',
-        content: 'Collaborate with an independent UK studio crafting atmospheric, cinematic web apps and slow-tech digital experiences.',
+        content: 'Two ways we can work together: Customer Experience Review or Digital Projects & Collaborations.',
       },
       { property: 'og:type', content: 'website' },
       { property: 'og:url', content: 'https://seasonal.studio/studio/work-with-me' },
@@ -21,7 +21,7 @@ export const Route = createFileRoute('/studio/work-with-me')({
       { name: 'twitter:title', content: 'Work With Me — Seasonal.Studio' },
       {
         name: 'twitter:description',
-        content: 'Collaborate with an independent UK studio crafting atmospheric, cinematic web apps and slow-tech digital experiences.',
+        content: 'Two ways we can work together: Customer Experience Review or Digital Projects & Collaborations.',
       },
       { name: 'twitter:image', content: 'https://seasonal.studio/og/seasonal-studio-preview.png' },
     ],
@@ -94,35 +94,65 @@ function WorkWithMePage() {
   return (
     <StudioPageLayout
       title="Work With Me"
-      subtitle="A soft, atmospheric contact page."
+      subtitle="Two ways we can work together."
     >
       <main className="work-page fade-in">
-        <section className="work-intro">
-          <p className="work-kicker">Thoughtful enquiries</p>
-          <h2 className="work-title">Tell me what you are imagining.</h2>
-          <p className="work-lead">
-            Send a note about collaborations, project enquiries, early access, or
-            questions about any of the Reflections in Light spaces. Your message is
-            handled through the site form and can be routed to my private inbox.
-          </p>
-          <div className="work-intro-actions">
-            <a className="work-form-jump" href="#studio-contact-form">
-              Go to message form
-            </a>
-            <a className="work-form-jump" href="mailto:hello@seasonal.studio">
-              Email hello@seasonal.studio
-            </a>
-            <a
-              className="work-orb-link"
-              href="https://soliv1.github.io/Daily-Reflections-App/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open Daily Orb: Reflections
+        
+        {/* Section 01: Customer Experience Review */}
+        <section className="work-offering work-offering--cx">
+          <div className="work-offering-header">
+            <p className="work-offering-number">01</p>
+            <h2 className="work-offering-title">Customer Experience Review</h2>
+            <p className="work-offering-subtitle">A fresh pair of eyes on your business.</p>
+          </div>
+
+          <div className="work-offering-content">
+            <p className="work-offering-proposition">
+              I experience your website and digital customer journey as a new customer would, 
+              noticing what feels clear and inviting, where interest may hesitate, and the details 
+              that can affect trust, discovery and action.
+            </p>
+            <p className="work-offering-proposition">
+              You receive a concise visual review of what is working, what deserves attention, and the 
+              opportunities I believe are worth exploring.
+            </p>
+          </div>
+
+          <div className="work-offering-cta">
+            <div className="work-offering-price">£150</div>
+            <a href="/studio/customer-experience" className="work-offering-button">
+              Explore the £150 Review →
             </a>
           </div>
         </section>
 
+        {/* Section 02: Digital Projects & Collaborations */}
+        <section className="work-offering work-offering--projects">
+          <div className="work-offering-header">
+            <p className="work-offering-number">02</p>
+            <h2 className="work-offering-title">Digital Projects & Collaborations</h2>
+            <p className="work-offering-subtitle">Have something larger in mind?</p>
+          </div>
+
+          <div className="work-offering-content">
+            <p className="work-offering-text">
+              Send a note about larger collaborations, substantial project enquiries, early access, or
+              questions about any of the Reflections in Light spaces. Your message is
+              handled through the site form and routed to my private inbox.
+            </p>
+          </div>
+
+          <div className="work-offering-actions">
+            <a className="work-offering-link" href="#studio-collaboration-form">
+              Go to collaboration form
+            </a>
+            <a className="work-offering-link" href="mailto:hello@seasonal.studio">
+              Email hello@seasonal.studio
+            </a>
+          </div>
+        </section>
+
+        {/* About Daily Orb */}
         <section className="work-about">
           <p className="work-kicker">About Daily Orb</p>
           <h2 className="work-about-title">Reflections in Light</h2>
@@ -207,22 +237,23 @@ function WorkWithMePage() {
           </div>
         </section>
 
-          <form
-            id="studio-contact-form"
-            className="work-contact-form"
-            name="studio-contact"
-            method="POST"
-            action="/contact-form.html"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
-          >
+        {/* Collaboration Contact Form */}
+        <form
+          id="studio-collaboration-form"
+          className="work-contact-form"
+          name="studio-contact"
+          method="POST"
+          action="/contact-form.html"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+        >
 
           <div className="work-form-heading">
             <p className="work-kicker">Send a message</p>
             <h2>Collaborations, questions, and enquiries</h2>
             <p>
-              Use the form below for collaborations, project ideas, app questions,
+              Use the form below for larger projects, collaborations, app questions,
               early access, or anything you would like to explore.
             </p>
           </div>
