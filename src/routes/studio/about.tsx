@@ -1,5 +1,5 @@
 // AboutPage.jsx (or StudioAbout.jsx)
-import { createFileRoute } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import { StudioPageLayout } from '@/components/StudioPageLayout'
 
 const STUDIO_ABOUT_URL = 'https://seasonal.studio/studio/about'
@@ -149,107 +149,26 @@ function AboutPage() {
           </div>
         </section>
 
-        {/* §6 — Try Apps */}
         {/* §6 — Explore My Apps */}
         <section className="about-apps">
-          <h2 className="about-section-label">Explore My Apps</h2>
-          <div className="about-apps-panel">
-            <ul className="about-apps-grid">
+          <section className="pt-20 space-y-4">
+            <h2 className="text-xl font-semibold tracking-tight">
+              Other Projects & Websites
+            </h2>
 
-              <li title="Explore the emotional language that connects all Seasonal.Studio apps.">
-                <strong>Mood‑Lexicon</strong>
-                <p>Browse a clear, simple vocabulary of moods. Each mood links to the wider reflections family.</p>
-                <div className="about-app-center">
-                  <a href="https://mood-lexicon-production.up.railway.app" className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
-                </div>
-              </li>
+            <p className="text-slate-300 leading-relaxed max-w-xl">
+              Discover more about my work, ethos, and creative process across a curated
+              collection of Seasonal digital interiors and atmospheric web apps.
+            </p>
 
-
-              <li title="A daily prompt for personal reflection. Private, simple, and focused.">
-                <strong>Daily Reflections</strong>
-                <p>Start or end your day with a meaningful journaling prompt. Personal and private.</p>
-                <div className="about-app-center">
-                  <a href={withStudioReturn(DAILY_REFLECTIONS_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
-                </div>
-              </li>
-
-              <li title="Capture a thought, hold it briefly, and let it pass.">
-                <strong>Centre Notes</strong>
-                <p>Write a thought, hold it tightly, let it pass.</p>
-                <div className="about-app-center">
-                  <a href={withStudioReturn(CENTRE_NOTES_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
-                </div>
-              </li>
-
-              <li title="Reflect with the rhythm of the year. Track moods and thoughts seasonally.">
-                <strong>Seasonal Mind Space</strong>
-                <p>Reflect with the rhythm of the year. Track your moods and thoughts seasonally.</p>
-                <div className="about-app-center">
-                  <a href={withStudioReturn(SEASONAL_MIND_SPACE_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
-                </div>
-              </li>
-
-              <li title="Create a reflective home mood. Personalise it to your taste and space.">
-                <strong>Cinematic Home Glow</strong>
-                <p>Create a reflective home mood. This app can be personalised to your taste and space.</p>
-                <div className="about-app-center">
-                  <a href={withStudioReturn(CINEMATIC_HOME_GLOW_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
-                </div>
-              </li>
-
-              <li title="Let today’s sky shape today’s reflection. Weather activation coming soon.">
-                <strong>Weather Atmosphere</strong>
-                <p>Let today’s sky shape today’s reflection. (Weather activation coming soon!)</p>
-                <div className="about-app-center">
-                  <a href={withStudioReturn(WEATHER_ATMOSPHERE_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
-                </div>
-              </li>
-
-              <li title="Curate your emotional landscape with a personal visual moods board.">
-                <strong>Moods Board</strong>
-                <p>Curate your emotional landscape with a personal, visual moods board.</p>
-                <div className="about-app-center">
-                  <a href={withStudioReturn(MOODS_BOARD_REFLECTIONS_FAMILY_URL)} className="ghost-button" target="_blank" rel="noopener noreferrer">Try App</a>
-                </div>
-              </li>
-
-              <li title="Explore my work, ethos, and creative process across apps and design projects.">
-                <strong>Other Projects & Websites — Portfolio & Studio</strong>
-                <p>Discover more about my work, ethos, and creative process.</p>
-                <div className="about-app-center">
-                  <a href="https://seasonal.studio/studio/about" className="ghost-button" target="_blank" rel="noopener noreferrer">Visit</a>
-                </div>
-              </li>
-
-            </ul>
-        </div>
-      </section>
-
-
-
-        {/* §7 — Other Projects */}
-        <section className="about-projects">
-          <h2 className="about-section-label">Other Projects &amp; Websites</h2>
-          <div className="about-projects-panel">
-            <ul className="about-projects-grid">
-              <li>
-                <strong>Portfolio &amp; Studio</strong>
-                <p>Discover more about my work, ethos, and creative process.</p>
-                <div className="about-app-center">
-                  <a href={STUDIO_ABOUT_URL} className="ghost-button">Stay Here</a>
-                </div><a className="project-link-btn ghost-button" href="/">Visit Main Site</a>
-              </li>
-            </ul>
-          </div>
+            <Link
+              to="/studio/portfolio"
+              className="inline-flex items-center rounded-xl bg-slate-50 text-slate-900 px-5 py-2.5 font-medium hover:bg-slate-200 transition"
+            >
+              Visit Portfolio & Studio
+            </Link>
+          </section>
         </section>
-
-        {/* §8 — Closing Note */}
-        <section className="about-closing">
-         <p className="about-closing-note">
-          This site is a living project, updated thoughtfully as my work grows.
-         </p>
-        </section>
-
       </div>
     </StudioPageLayout>
   )

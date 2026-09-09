@@ -32,6 +32,7 @@ import { Route as StudioGardenRouteImport } from './routes/studio/garden'
 import { Route as StudioEveningLoungeRouteImport } from './routes/studio/evening-lounge'
 import { Route as StudioDepthLevelsRouteImport } from './routes/studio/depth-levels'
 import { Route as StudioDemoRouteImport } from './routes/studio/demo'
+import { Route as StudioCustomerExperienceRouteImport } from './routes/studio/customer-experience'
 import { Route as StudioCollectionsRouteImport } from './routes/studio/collections'
 import { Route as StudioAnotherRoomRouteImport } from './routes/studio/another-room'
 import { Route as StudioAboutRouteImport } from './routes/studio/about'
@@ -156,6 +157,12 @@ const StudioDemoRoute = StudioDemoRouteImport.update({
   path: '/studio/demo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioCustomerExperienceRoute =
+  StudioCustomerExperienceRouteImport.update({
+    id: '/studio/customer-experience',
+    path: '/studio/customer-experience',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const StudioCollectionsRoute = StudioCollectionsRouteImport.update({
   id: '/studio/collections',
   path: '/studio/collections',
@@ -210,6 +217,7 @@ export interface FileRoutesByFullPath {
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
   '/studio/collections': typeof StudioCollectionsRoute
+  '/studio/customer-experience': typeof StudioCustomerExperienceRoute
   '/studio/demo': typeof StudioDemoRoute
   '/studio/depth-levels': typeof StudioDepthLevelsRoute
   '/studio/evening-lounge': typeof StudioEveningLoungeRoute
@@ -243,6 +251,7 @@ export interface FileRoutesByTo {
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
   '/studio/collections': typeof StudioCollectionsRoute
+  '/studio/customer-experience': typeof StudioCustomerExperienceRoute
   '/studio/demo': typeof StudioDemoRoute
   '/studio/depth-levels': typeof StudioDepthLevelsRoute
   '/studio/evening-lounge': typeof StudioEveningLoungeRoute
@@ -277,6 +286,7 @@ export interface FileRoutesById {
   '/studio/about': typeof StudioAboutRoute
   '/studio/another-room': typeof StudioAnotherRoomRoute
   '/studio/collections': typeof StudioCollectionsRoute
+  '/studio/customer-experience': typeof StudioCustomerExperienceRoute
   '/studio/demo': typeof StudioDemoRoute
   '/studio/depth-levels': typeof StudioDepthLevelsRoute
   '/studio/evening-lounge': typeof StudioEveningLoungeRoute
@@ -312,6 +322,7 @@ export interface FileRouteTypes {
     | '/studio/about'
     | '/studio/another-room'
     | '/studio/collections'
+    | '/studio/customer-experience'
     | '/studio/demo'
     | '/studio/depth-levels'
     | '/studio/evening-lounge'
@@ -345,6 +356,7 @@ export interface FileRouteTypes {
     | '/studio/about'
     | '/studio/another-room'
     | '/studio/collections'
+    | '/studio/customer-experience'
     | '/studio/demo'
     | '/studio/depth-levels'
     | '/studio/evening-lounge'
@@ -378,6 +390,7 @@ export interface FileRouteTypes {
     | '/studio/about'
     | '/studio/another-room'
     | '/studio/collections'
+    | '/studio/customer-experience'
     | '/studio/demo'
     | '/studio/depth-levels'
     | '/studio/evening-lounge'
@@ -412,6 +425,7 @@ export interface RootRouteChildren {
   StudioAboutRoute: typeof StudioAboutRoute
   StudioAnotherRoomRoute: typeof StudioAnotherRoomRoute
   StudioCollectionsRoute: typeof StudioCollectionsRoute
+  StudioCustomerExperienceRoute: typeof StudioCustomerExperienceRoute
   StudioDemoRoute: typeof StudioDemoRoute
   StudioDepthLevelsRoute: typeof StudioDepthLevelsRoute
   StudioEveningLoungeRoute: typeof StudioEveningLoungeRoute
@@ -596,6 +610,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudioDemoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/studio/customer-experience': {
+      id: '/studio/customer-experience'
+      path: '/studio/customer-experience'
+      fullPath: '/studio/customer-experience'
+      preLoaderRoute: typeof StudioCustomerExperienceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/studio/collections': {
       id: '/studio/collections'
       path: '/studio/collections'
@@ -668,6 +689,7 @@ const rootRouteChildren: RootRouteChildren = {
   StudioAboutRoute: StudioAboutRoute,
   StudioAnotherRoomRoute: StudioAnotherRoomRoute,
   StudioCollectionsRoute: StudioCollectionsRoute,
+  StudioCustomerExperienceRoute: StudioCustomerExperienceRoute,
   StudioDemoRoute: StudioDemoRoute,
   StudioDepthLevelsRoute: StudioDepthLevelsRoute,
   StudioEveningLoungeRoute: StudioEveningLoungeRoute,

@@ -12,6 +12,7 @@ export const Hero: FC<HeroProps> = ({ onCinematicMode }) => {
   const [index, setIndex] = useState(0)
   const [fade, setFade] = useState(true)
   const [timeOfDay, setTimeOfDay] = useState(getCurrentTimeOfDay())
+  const heroRef = useRef<HTMLElement | null>(null)
   const timeoutRef = useRef<number | null>(null)
   const FADE_DURATION = 1500 // ms
   const INTERVAL = 16000 // ms (16 seconds per image)
@@ -22,6 +23,37 @@ export const Hero: FC<HeroProps> = ({ onCinematicMode }) => {
     update()
     const interval = setInterval(update, 5 * 60 * 1000)
     return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    const hero = heroRef.current
+    if (!hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    let frame = 0
+
+    const updateParallax = () => {
+      frame = 0
+      const rect = hero.getBoundingClientRect()
+      const progress = rect.top / Math.max(window.innerHeight, 1)
+      const y = Math.max(-14, Math.min(14, progress * -14))
+      hero.style.setProperty('--hero-parallax-y', `${y}px`)
+    }
+
+    const requestUpdate = () => {
+      if (frame) return
+      frame = window.requestAnimationFrame(updateParallax)
+    }
+
+    updateParallax()
+    window.addEventListener('scroll', requestUpdate, { passive: true })
+    window.addEventListener('resize', requestUpdate)
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', requestUpdate)
+      window.removeEventListener('resize', requestUpdate)
+      hero.style.removeProperty('--hero-parallax-y')
+    }
   }, [])
 
   let images = getHeroImagesForTimeOfDay(timeOfDay)
@@ -80,7 +112,11 @@ export const Hero: FC<HeroProps> = ({ onCinematicMode }) => {
 
   return (
     <>
-    <section className="hero hero--carousel" aria-label="Seasonal Studio brand hero">
+    <section
+      ref={heroRef}
+      className={`hero hero--carousel hero--${timeOfDay}`}
+      aria-label="Seasonal Studio brand hero"
+    >
       {images.map((img, i) => (
         <img
           key={img.src}
@@ -126,13 +162,13 @@ export const Hero: FC<HeroProps> = ({ onCinematicMode }) => {
           I create calm, minimal, handcrafted web apps with React, Python, and Django.
         </p>
         <div className="hero-follow-panel" aria-label="Begin the Seasonal experience">
-          <Link className="hero-button hero-button--below" to="/begin-the-journey">
+          <Link className="atmos-button mood-glow hero-button hero-button--below" to="/begin-the-journey">
             Follow the Light
           </Link>
           {onCinematicMode && (
             <button
               type="button"
-              className="cinematic-mode-btn"
+              className="atmos-button mood-jewel cinematic-mode-btn"
               onClick={onCinematicMode}
               aria-label="Enter Cinematic Mode"
             >

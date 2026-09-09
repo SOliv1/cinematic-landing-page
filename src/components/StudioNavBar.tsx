@@ -3,6 +3,7 @@ import ReturnHomePill from "@/components/ReturnHomePill";
 
 const studioLinks = [
   { to: "/studio/about", label: "About" },
+  { to: "/studio/portfolio", label: "Portfolio" },
   { to: "/studio/manifesto", label: "Manifesto" },
   { to: "/studio/positioning", label: "Positioning" },
   { to: "/studio/why-seasonal", label: "Why Seasonal" },
