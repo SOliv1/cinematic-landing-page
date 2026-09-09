@@ -8224,6 +8224,7 @@ code {
 .cx-what-you-receive,
 .cx-pricing,
 .cx-from-observation,
+.cx-recent-review,
 .cx-contact-form {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 8px;
@@ -8242,7 +8243,8 @@ code {
 .cx-what-i-look,
 .cx-what-you-receive,
 .cx-pricing,
-.cx-from-observation {
+.cx-from-observation,
+.cx-recent-review {
   padding: clamp(1.4rem, 4vw, 2.4rem);
 }
 
@@ -8394,6 +8396,63 @@ code {
 
 .cx-observation-text:last-child {
   margin-bottom: 0;
+}
+
+.cx-review-kicker {
+  margin: 0 0 1rem;
+  color: var(--cx-ink);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.cx-review-summary {
+  max-width: 68ch;
+  margin: 0;
+  color: var(--cx-muted);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.cx-review-sample {
+  margin: 2rem 0 0;
+}
+
+.cx-review-sample img {
+  display: block;
+  width: 100%;
+  max-height: 52rem;
+  object-fit: contain;
+  object-position: top center;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 6px;
+  background: rgba(255, 250, 236, 0.08);
+  box-shadow: 0 24px 58px rgba(0, 0, 0, 0.22);
+}
+
+.cx-review-sample figcaption {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.cx-review-sample a {
+  color: rgba(255, 250, 236, 0.92);
+  font-family: 'Outfit', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.cx-review-sample a:hover,
+.cx-review-sample a:focus-visible {
+  color: rgba(244, 222, 177, 0.98);
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
 }
 
 .cx-contact-form {

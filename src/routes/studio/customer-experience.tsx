@@ -167,6 +167,32 @@ function CustomerExperiencePage() {
           </p>
         </section>
 
+        <section className="cx-recent-review">
+          <h2 className="cx-section-title">A Recent Review</h2>
+          <p className="cx-review-kicker">Turning Scarcity Into Discovery</p>
+          <blockquote className="cx-review-summary">
+            An independent antiques and interiors business had an attractive website with some
+            beautifully presented collections. Looking at it as a new customer, however, I noticed
+            that certain browsing journeys could lead from a broad choice to a single item, a sold
+            item, or an empty collection.
+            <br />
+            <br />
+            The review mapped that journey visually and identified the point at which customer
+            discovery could lose momentum.
+          </blockquote>
+          <figure className="cx-review-sample">
+            <img
+              src="/images/charmchase-review-page-1.png"
+              alt="First page of a sample Customer Experience Review for CharmChase"
+            />
+            <figcaption>
+              <a href="/images/charmchase-review-page-1.png" target="_blank" rel="noreferrer">
+                View sample review →
+              </a>
+            </figcaption>
+          </figure>
+        </section>
+
         {/* Testimonial Section - When CharmChase example is ready */}
         {/* 
         <section className="cx-testimonial">
